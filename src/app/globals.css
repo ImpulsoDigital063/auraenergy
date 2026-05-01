@@ -1,0 +1,681 @@
+@import "tailwindcss";
+
+/* ============================================================
+   AURA ENERGY — TEMA LIGHT PREMIUM
+   Vibe: Stripe + Linear v2 + Tesla. Luz, sol, claridade.
+   ============================================================ */
+
+:root {
+  /* base — off-white quente, não branco gelado */
+  --aura-bg: #FAFAF6;
+  --aura-bg-soft: #F4F2EA;
+  --aura-bg-card: #FFFFFF;
+
+  /* brand — azul + amarelo da logo */
+  --aura-blue: #1B3A87;
+  --aura-blue-soft: #2D52A8;
+  --aura-blue-deep: #0E2152;
+  --aura-blue-tint: #E7EDF9;
+
+  --aura-yellow: #F5BC2C;
+  --aura-yellow-bright: #FFD668;
+  --aura-yellow-deep: #D9A012;
+  --aura-yellow-tint: #FFF6DC;
+
+  /* solar acent — laranja sol nascente */
+  --aura-orange: #FF8B3D;
+  --aura-orange-soft: #FFB47A;
+
+  /* text — chumbo profundo */
+  --aura-text: #0B1226;
+  --aura-text-soft: #1F2A44;
+  --aura-text-muted: #5B6478;
+  --aura-text-faded: #8B93A7;
+
+  /* lines */
+  --aura-border: rgba(11, 18, 38, 0.08);
+  --aura-border-strong: rgba(11, 18, 38, 0.14);
+
+  /* shadows — premium soft */
+  --shadow-sm: 0 2px 8px rgba(11, 18, 38, 0.04);
+  --shadow-md: 0 8px 24px rgba(11, 18, 38, 0.06);
+  --shadow-lg: 0 24px 60px -20px rgba(11, 18, 38, 0.12);
+  --shadow-glow-yellow: 0 16px 40px -10px rgba(245, 188, 44, 0.45);
+  --shadow-glow-blue: 0 16px 40px -10px rgba(27, 58, 135, 0.30);
+}
+
+@theme inline {
+  --color-aura-bg: var(--aura-bg);
+  --color-aura-bg-soft: var(--aura-bg-soft);
+  --color-aura-blue: var(--aura-blue);
+  --color-aura-blue-soft: var(--aura-blue-soft);
+  --color-aura-blue-deep: var(--aura-blue-deep);
+  --color-aura-yellow: var(--aura-yellow);
+  --color-aura-yellow-bright: var(--aura-yellow-bright);
+  --color-aura-orange: var(--aura-orange);
+  --color-aura-text: var(--aura-text);
+  --color-aura-text-soft: var(--aura-text-soft);
+  --color-aura-text-muted: var(--aura-text-muted);
+  --font-sans: var(--font-inter);
+}
+
+html {
+  scroll-behavior: smooth;
+  background: var(--aura-bg);
+}
+
+body {
+  background: var(--aura-bg);
+  color: var(--aura-text);
+  font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+/* ============================================================
+   HERO — mesh gradient SOLAR (sol nascendo)
+   Tons: creme → amarelo claro → azul claro → off-white
+   ============================================================ */
+
+.solar-mesh {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: 0;
+  background: var(--aura-bg);
+}
+
+.solar-mesh::before {
+  content: '';
+  position: absolute;
+  inset: -30%;
+  background:
+    radial-gradient(circle at 25% 20%, rgba(255, 214, 104, 0.55) 0%, transparent 35%),
+    radial-gradient(circle at 75% 30%, rgba(255, 139, 61, 0.30) 0%, transparent 40%),
+    radial-gradient(circle at 50% 80%, rgba(231, 237, 249, 0.80) 0%, transparent 50%),
+    radial-gradient(circle at 90% 90%, rgba(245, 188, 44, 0.20) 0%, transparent 45%);
+  filter: blur(60px);
+  animation: solarDrift 28s ease-in-out infinite;
+}
+
+.solar-mesh::after {
+  content: '';
+  position: absolute;
+  inset: -20%;
+  background:
+    radial-gradient(circle at 60% 10%, rgba(245, 188, 44, 0.18) 0%, transparent 30%),
+    radial-gradient(circle at 10% 70%, rgba(27, 58, 135, 0.10) 0%, transparent 40%);
+  filter: blur(40px);
+  animation: solarDrift 40s ease-in-out infinite reverse;
+}
+
+@keyframes solarDrift {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  33%      { transform: translate(2%, -3%) rotate(1deg); }
+  66%      { transform: translate(-2%, 3%) rotate(-1deg); }
+}
+
+/* sol estilizado no canto — raios sutis */
+.sun-rays {
+  position: absolute;
+  top: -120px;
+  right: -120px;
+  width: 480px;
+  height: 480px;
+  background: radial-gradient(
+    circle,
+    rgba(255, 214, 104, 0.35) 0%,
+    rgba(245, 188, 44, 0.18) 30%,
+    transparent 60%
+  );
+  border-radius: 50%;
+  pointer-events: none;
+  animation: sunPulse 6s ease-in-out infinite;
+  z-index: 0;
+}
+
+@keyframes sunPulse {
+  0%, 100% { opacity: 0.85; transform: scale(1); }
+  50%      { opacity: 1; transform: scale(1.05); }
+}
+
+/* ============================================================
+   CIRCUITO SVG — raios solares pulsando
+   ============================================================ */
+
+.circuit-line {
+  fill: none;
+  stroke: rgba(245, 188, 44, 0.55);
+  stroke-width: 1.5;
+  stroke-dasharray: 6 10;
+  animation: circuitFlow 6s linear infinite;
+}
+
+.circuit-pulse {
+  fill: var(--aura-yellow);
+  filter: drop-shadow(0 0 10px rgba(245, 188, 44, 0.85));
+  animation: pulseSize 2.4s ease-in-out infinite;
+}
+
+@keyframes circuitFlow {
+  to { stroke-dashoffset: -160; }
+}
+
+@keyframes pulseSize {
+  0%, 100% { opacity: 0.45; r: 2.5; }
+  50%      { opacity: 1; r: 5; }
+}
+
+/* ============================================================
+   CARDS — branco puro, sombra premium, hover sofisticado
+   ============================================================ */
+
+.premium-card {
+  background: var(--aura-bg-card);
+  border: 1px solid var(--aura-border);
+  border-radius: 22px;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.premium-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(245, 188, 44, 0.10),
+    transparent
+  );
+  transition: left 0.7s ease;
+  pointer-events: none;
+}
+
+.premium-card:hover {
+  border-color: rgba(245, 188, 44, 0.40);
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+}
+
+.premium-card:hover::before {
+  left: 100%;
+}
+
+/* ============================================================
+   GLOW BORDER ROTATIVO — destaque pro card do simulador
+   ============================================================ */
+
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+.glow-border {
+  position: relative;
+  background: var(--aura-bg-card);
+  border-radius: 28px;
+  isolation: isolate;
+  padding: 2px;
+}
+
+.glow-border::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 28px;
+  background: conic-gradient(
+    from var(--angle),
+    transparent 0%,
+    var(--aura-yellow) 25%,
+    var(--aura-orange) 35%,
+    transparent 50%,
+    var(--aura-blue-soft) 75%,
+    transparent 100%
+  );
+  animation: rotateGlow 8s linear infinite;
+  z-index: -1;
+}
+
+.glow-border-inner {
+  background: var(--aura-bg-card);
+  border-radius: 26px;
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+@keyframes rotateGlow {
+  to { --angle: 360deg; }
+}
+
+/* ============================================================
+   FADE-UP no scroll
+   ============================================================ */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-delay-1 { transition-delay: 0.08s; }
+.reveal-delay-2 { transition-delay: 0.16s; }
+.reveal-delay-3 { transition-delay: 0.24s; }
+.reveal-delay-4 { transition-delay: 0.32s; }
+.reveal-delay-5 { transition-delay: 0.40s; }
+.reveal-delay-6 { transition-delay: 0.48s; }
+
+/* ============================================================
+   BOTÕES — yellow primário com glow + outline secundário
+   ============================================================ */
+
+.btn-yellow {
+  background: linear-gradient(135deg, var(--aura-yellow) 0%, var(--aura-orange) 100%);
+  color: var(--aura-blue-deep);
+  font-weight: 700;
+  position: relative;
+  box-shadow: var(--shadow-glow-yellow);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-yellow::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--aura-yellow-bright) 0%, var(--aura-yellow) 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.btn-yellow > * {
+  position: relative;
+  z-index: 1;
+}
+
+.btn-yellow:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow:
+    0 20px 50px -10px rgba(245, 188, 44, 0.60),
+    0 0 0 4px rgba(245, 188, 44, 0.10);
+}
+
+.btn-yellow:hover::before {
+  opacity: 1;
+}
+
+.btn-yellow.btn-pulse {
+  animation: subtlePulse 2.6s ease-in-out infinite;
+}
+
+@keyframes subtlePulse {
+  0%, 100% {
+    box-shadow:
+      var(--shadow-glow-yellow),
+      0 0 0 0 rgba(245, 188, 44, 0.45);
+  }
+  50% {
+    box-shadow:
+      var(--shadow-glow-yellow),
+      0 0 0 18px rgba(245, 188, 44, 0);
+  }
+}
+
+.btn-blue {
+  background: var(--aura-blue);
+  color: white;
+  font-weight: 600;
+  box-shadow: var(--shadow-glow-blue);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  border: none;
+  cursor: pointer;
+}
+
+.btn-blue:hover {
+  background: var(--aura-blue-soft);
+  transform: translateY(-2px);
+  box-shadow: 0 20px 50px -10px rgba(27, 58, 135, 0.45);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--aura-text);
+  border: 1px solid var(--aura-border-strong);
+  font-weight: 600;
+  transition: all 0.25s ease;
+  cursor: pointer;
+}
+
+.btn-outline:hover {
+  background: var(--aura-bg-card);
+  border-color: var(--aura-yellow);
+  color: var(--aura-blue);
+}
+
+/* ============================================================
+   COUNTER tabular nums + glow
+   ============================================================ */
+
+.counter-tabular {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum";
+  letter-spacing: -0.02em;
+}
+
+/* ============================================================
+   GRADIENT TEXT animado
+   ============================================================ */
+
+.text-gradient-aura {
+  background: linear-gradient(
+    90deg,
+    var(--aura-orange) 0%,
+    var(--aura-yellow) 50%,
+    var(--aura-orange) 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 5s linear infinite;
+}
+
+.text-gradient-blue {
+  background: linear-gradient(
+    90deg,
+    var(--aura-blue) 0%,
+    var(--aura-blue-soft) 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@keyframes shimmer {
+  to { background-position: 200% center; }
+}
+
+/* ============================================================
+   MARQUEE horizontal — faixa de marcas/cidades
+   ============================================================ */
+
+.marquee {
+  display: flex;
+  overflow: hidden;
+  user-select: none;
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 8%,
+    black 92%,
+    transparent 100%
+  );
+}
+
+.marquee-track {
+  display: flex;
+  flex-shrink: 0;
+  gap: 4rem;
+  animation: marqueeScroll 40s linear infinite;
+  padding-right: 4rem;
+  align-items: center;
+}
+
+@keyframes marqueeScroll {
+  to { transform: translateX(-50%); }
+}
+
+/* ============================================================
+   FLOATING — ícones flutuando
+   ============================================================ */
+
+.float-soft {
+  animation: floatSoft 5s ease-in-out infinite;
+}
+
+.float-soft-delay {
+  animation: floatSoft 5s ease-in-out infinite;
+  animation-delay: 1.2s;
+}
+
+@keyframes floatSoft {
+  0%, 100% { transform: translateY(0px); }
+  50%      { transform: translateY(-10px); }
+}
+
+/* ============================================================
+   IMAGE PARALLAX — galeria de instalações
+   ============================================================ */
+
+.parallax-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+  cursor: pointer;
+  box-shadow: var(--shadow-md);
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.parallax-card img {
+  transition: transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.parallax-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.parallax-card:hover img {
+  transform: scale(1.10);
+}
+
+.parallax-card .caption {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: flex-end;
+  padding: 1.5rem;
+  background: linear-gradient(
+    180deg,
+    transparent 50%,
+    rgba(11, 18, 38, 0.85) 100%
+  );
+  color: white;
+  font-weight: 600;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.parallax-card:hover .caption {
+  opacity: 1;
+}
+
+/* ============================================================
+   SCROLLBAR custom
+   ============================================================ */
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--aura-bg-soft);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--aura-blue);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--aura-yellow);
+}
+
+/* ============================================================
+   DIVIDER glow
+   ============================================================ */
+
+.divider-glow {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(245, 188, 44, 0.50) 50%,
+    transparent 100%
+  );
+}
+
+/* ============================================================
+   FAQ accordion
+   ============================================================ */
+
+details.faq-item {
+  border: 1px solid var(--aura-border);
+  border-radius: 16px;
+  background: var(--aura-bg-card);
+  transition: all 0.3s ease;
+  box-shadow: var(--shadow-sm);
+}
+
+details.faq-item[open] {
+  border-color: rgba(245, 188, 44, 0.35);
+  box-shadow: var(--shadow-md);
+}
+
+details.faq-item summary {
+  cursor: pointer;
+  list-style: none;
+  padding: 1.4rem 1.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  font-weight: 600;
+  color: var(--aura-text);
+}
+
+details.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+details.faq-item .chevron {
+  transition: transform 0.35s ease;
+  flex-shrink: 0;
+  color: var(--aura-blue);
+}
+
+details.faq-item[open] .chevron {
+  transform: rotate(180deg);
+  color: var(--aura-yellow-deep);
+}
+
+details.faq-item .faq-body {
+  padding: 0 1.6rem 1.4rem;
+  color: var(--aura-text-soft);
+  line-height: 1.65;
+}
+
+/* ============================================================
+   BADGES & TAGS
+   ============================================================ */
+
+.badge-yellow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--aura-yellow-tint);
+  color: var(--aura-yellow-deep);
+  padding: 0.4rem 0.85rem;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  border: 1px solid rgba(245, 188, 44, 0.30);
+}
+
+.badge-blue {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--aura-blue-tint);
+  color: var(--aura-blue);
+  padding: 0.4rem 0.85rem;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  border: 1px solid rgba(27, 58, 135, 0.18);
+}
+
+.badge-live {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.badge-live .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #10B981;
+  box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+  animation: pulseDot 1.8s infinite;
+}
+
+@keyframes pulseDot {
+  0%   { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+  70%  { box-shadow: 0 0 0 12px rgba(16, 185, 129, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+}
+
+/* ============================================================
+   DECORATIVE GRID — fundo sutil em algumas seções
+   ============================================================ */
+
+.bg-grid-soft {
+  background-image:
+    linear-gradient(rgba(11, 18, 38, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(11, 18, 38, 0.04) 1px, transparent 1px);
+  background-size: 56px 56px;
+  background-position: -1px -1px;
+}
+
+/* ============================================================
+   SECTION dividers diagonais (opcional)
+   ============================================================ */
+
+.section-soft {
+  background: var(--aura-bg-soft);
+}
+
+.section-card-bg {
+  background: var(--aura-bg-card);
+  border-top: 1px solid var(--aura-border);
+  border-bottom: 1px solid var(--aura-border);
+}
+
+/* ============================================================
+   Reduce motion respect
+   ============================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

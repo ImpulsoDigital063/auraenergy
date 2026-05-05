@@ -224,3 +224,39 @@ export function IconStar({ size = 24, className = "", strokeWidth = 1.75 }: Icon
     </svg>
   );
 }
+
+export function IconStore({ size = 24, className = "", strokeWidth = 1.75 }: IconProps) {
+  return (
+    <svg {...baseProps(size, strokeWidth)} className={className}>
+      <path d="M3 9 4.5 4h15L21 9" />
+      <path d="M3 9v11a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1V9" />
+      <path d="M9 21v-6h6v6" />
+      <path d="M3 9c0 1.66 1.34 3 3 3s3-1.34 3-3" />
+      <path d="M9 9c0 1.66 1.34 3 3 3s3-1.34 3-3" />
+      <path d="M15 9c0 1.66 1.34 3 3 3s3-1.34 3-3" />
+    </svg>
+  );
+}
+
+export function IconFactory({ size = 24, className = "", strokeWidth = 1.75 }: IconProps) {
+  return (
+    <svg {...baseProps(size, strokeWidth)} className={className}>
+      <path d="M2 21V11l5 3V11l5 3V11l5 3V7l3-2v16Z" />
+      <path d="M7 17h2" />
+      <path d="M12 17h2" />
+      <path d="M17 17h2" />
+    </svg>
+  );
+}
+
+export function IconTractor({ size = 24, className = "", strokeWidth = 1.75 }: IconProps) {
+  return (
+    <svg {...baseProps(size, strokeWidth)} className={className}>
+      <path d="M3 4h9l1 6h6a2 2 0 0 1 2 2v4" />
+      <path d="M3 10v4" />
+      <circle cx="7" cy="17" r="3" />
+      <circle cx="18" cy="17" r="2.5" />
+      <path d="M10 17h5" />
+    </svg>
+  );
+}

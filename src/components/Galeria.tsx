@@ -1,39 +1,38 @@
 import Image from "next/image";
 import Reveal from "./Reveal";
 
-// Imagens do Unsplash — fotos REAIS de sistemas solares.
-// Eduardo: trocar por fotos reais das instalações do Renato quando ele fornecer.
-// Cada URL inclui ?w=1200&q=80&auto=format&fit=crop pra otimização.
+// Galeria de instalações — legendas com números reais executados pelo Renato.
+// Imagens placeholder até substituição pelas fotos drone reais das instalações.
 const FOTOS = [
   {
     url: "https://images.unsplash.com/photo-1509391366360-2e959784a276?w=1200&q=80&auto=format&fit=crop",
-    legenda: "Residência em Palmas — sistema 5,5 kWp",
-    alt: "Casa moderna com painéis solares no telhado",
-  },
-  {
-    url: "https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=1200&q=80&auto=format&fit=crop",
-    legenda: "Fazenda — sistema 12 kWp comercial",
-    alt: "Painéis solares em close-up tecnológico",
-  },
-  {
-    url: "https://images.unsplash.com/photo-1545208067-fcc1c6f49d40?w=1200&q=80&auto=format&fit=crop",
-    legenda: "Comércio — sistema 8 kWp",
-    alt: "Painéis solares vistos contra céu azul",
-  },
-  {
-    url: "https://images.unsplash.com/photo-1497440001374-f26997328c1b?w=1200&q=80&auto=format&fit=crop",
-    legenda: "Equipe Aura instalando — Plano Diretor",
-    alt: "Técnicos instalando painéis solares",
+    legenda: "Casa em Palmas — 14,64 kWp · 1.800 kWh/mês",
+    alt: "Casa em Palmas com sistema solar fotovoltaico no telhado",
   },
   {
     url: "https://images.unsplash.com/photo-1611365892117-bce8ea1ddd47?w=1200&q=80&auto=format&fit=crop",
-    legenda: "Residência — sistema 3 kWp",
-    alt: "Painéis solares modernos em telhado",
+    legenda: "Casa em Dianópolis — R$ 10.164/ano de economia",
+    alt: "Residência em Dianópolis com painéis solares",
+  },
+  {
+    url: "https://images.unsplash.com/photo-1545208067-fcc1c6f49d40?w=1200&q=80&auto=format&fit=crop",
+    legenda: "Lanchonete em Palmas — 3.000 kWh/mês",
+    alt: "Sistema solar em telhado de lanchonete em Palmas",
+  },
+  {
+    url: "https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=1200&q=80&auto=format&fit=crop",
+    legenda: "Casa em Colinas do Tocantins — 6,84 kWp",
+    alt: "Casa em Colinas do Tocantins com painéis solares",
+  },
+  {
+    url: "https://images.unsplash.com/photo-1497440001374-f26997328c1b?w=1200&q=80&auto=format&fit=crop",
+    legenda: "Escritório técnico em Palmas — sistema executado",
+    alt: "Escritório de arquitetura com sistema solar",
   },
   {
     url: "https://images.unsplash.com/photo-1566093097221-ac2335b09e70?w=1200&q=80&auto=format&fit=crop",
-    legenda: "Vista superior — projeto comercial",
-    alt: "Painéis solares vista aérea",
+    legenda: "Casa em Paraíso do Tocantins · vista aérea",
+    alt: "Sistema solar fotovoltaico vista drone em Paraíso do Tocantins",
   },
 ];
 

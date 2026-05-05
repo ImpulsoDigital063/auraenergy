@@ -72,24 +72,25 @@ export default function Header() {
             </div>
           </a>
 
-          {/* Nav desktop */}
-          <nav className="hidden lg:flex items-center gap-7 text-sm font-semibold text-[var(--aura-text-soft)]">
-            <a href="#simulador" className="hover:text-[var(--aura-blue)] transition-colors">
-              Simulador
+          {/* Nav desktop — 4 segmentos + institucional */}
+          <nav className="hidden lg:flex items-center gap-6 text-sm font-semibold text-[var(--aura-text-soft)]">
+            <a href="/casa" className="hover:text-[var(--aura-blue)] transition-colors">
+              Casa
             </a>
-            <a href="#para-quem" className="hover:text-[var(--aura-blue)] transition-colors">
-              Para quem
+            <a href="/comercio" className="hover:text-[var(--aura-yellow-deep)] transition-colors">
+              Comércio
             </a>
-            <a href="#kits" className="hover:text-[var(--aura-blue)] transition-colors">
-              Kits
+            <a href="/industria" className="hover:text-[var(--aura-blue-deep)] transition-colors">
+              Indústria
             </a>
-            <a href="#sobre-renato" className="hover:text-[var(--aura-blue)] transition-colors">
-              Sobre nós
+            <a href="/fazenda" className="hover:text-[#15803D] transition-colors">
+              Fazenda
             </a>
-            <a href="#recursos" className="hover:text-[var(--aura-blue)] transition-colors">
-              Recursos
+            <span className="w-px h-5 bg-[var(--aura-border-strong)]" aria-hidden />
+            <a href="/#sobre-renato" className="hover:text-[var(--aura-blue)] transition-colors">
+              Sobre
             </a>
-            <a href="#faq" className="hover:text-[var(--aura-blue)] transition-colors">
+            <a href="/#faq" className="hover:text-[var(--aura-blue)] transition-colors">
               FAQ
             </a>
           </nav>

@@ -1,0 +1,305 @@
+import Image from "next/image";
+import Reveal from "../Reveal";
+import {
+  IconArrowRight,
+  IconCheck,
+  IconLeaf,
+  IconMapPin,
+  IconShield,
+  IconSparkles,
+  IconTractor,
+  IconWhatsApp,
+} from "../Icons";
+
+const RENATO_WHATSAPP = "5563992688852";
+const linkWhats = `https://wa.me/${RENATO_WHATSAPP}?text=${encodeURIComponent(
+  "Olá Renato, tenho propriedade rural no Tocantins e quero analisar solar pra fazenda — pivô/granja/aviário/irrigação. Pode me passar uma proposta?"
+)}`;
+
+const RURAL_GREEN = "#15803D";
+const RURAL_GREEN_SOFT = "rgba(21, 128, 61, 0.08)";
+
+// Hero rural — paleta verde · foco pivô/granja/aviário + Pronaf/Moderagro
+export default function HeroFazenda() {
+  return (
+    <section
+      id="top"
+      className="relative pt-24 sm:pt-28 pb-16 sm:pb-24 overflow-hidden"
+    >
+      <div className="solar-mesh" aria-hidden style={{ opacity: 0.6 }} />
+      <div className="sun-rays" aria-hidden />
+
+      <svg
+        className="absolute inset-0 w-full h-full pointer-events-none opacity-40"
+        viewBox="0 0 1200 800"
+        preserveAspectRatio="none"
+        aria-hidden
+      >
+        <path d="M0,200 Q300,100 600,200 T1200,200" className="circuit-line" />
+        <path
+          d="M0,500 Q400,400 800,500 T1200,450"
+          className="circuit-line"
+          style={{ animationDelay: "1s" }}
+        />
+        <circle cx="200" cy="180" className="circuit-pulse" />
+        <circle cx="700" cy="210" className="circuit-pulse" style={{ animationDelay: "0.8s" }} />
+      </svg>
+
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid lg:grid-cols-5 gap-10 lg:gap-12 items-center">
+          {/* Coluna texto */}
+          <div className="lg:col-span-3 text-center lg:text-left">
+            <Reveal>
+              <span
+                className="mb-5 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold"
+                style={{
+                  background: RURAL_GREEN_SOFT,
+                  color: RURAL_GREEN,
+                  border: `1px solid ${RURAL_GREEN}30`,
+                }}
+              >
+                <IconTractor size={14} />
+                Pra sua fazenda · Tocantins
+              </span>
+            </Reveal>
+
+            <Reveal delay={1}>
+              <h1
+                className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.05] mb-5"
+                style={{ color: "var(--aura-text)" }}
+              >
+                Pivô, granja, aviário,
+                <br />
+                <span className="text-gradient-aura">irrigação rodando</span>
+                <br />
+                <span style={{ color: RURAL_GREEN }}>
+                  com sol de Tocantins.
+                </span>
+              </h1>
+            </Reveal>
+
+            <Reveal delay={2}>
+              <p className="text-lg sm:text-xl text-[var(--aura-text-soft)] mb-8 leading-relaxed max-w-2xl mx-auto lg:mx-0">
+                Pivô consome até{" "}
+                <strong style={{ color: RURAL_GREEN }}>
+                  60% da receita do mês de pico
+                </strong>
+                . Granja e aviário rodam ar-condicionado 24h. Solar rural com{" "}
+                <strong style={{ color: RURAL_GREEN }}>
+                  Pronaf, Moderagro e FCO Verde
+                </strong>{" "}
+                financia em 12 anos a partir de 0,5% a.m. — autoconsumo remoto
+                deixa você compensar geração entre matrizes na mesma propriedade.
+              </p>
+            </Reveal>
+
+            <Reveal delay={3}>
+              <div className="flex flex-wrap gap-3 sm:gap-4 mb-8 justify-center lg:justify-start">
+                <a
+                  href={linkWhats}
+                  target="_blank"
+                  rel="noopener"
+                  className="inline-flex items-center gap-2.5 px-6 py-4 rounded-xl text-base font-bold text-white transition-all duration-300 hover:-translate-y-0.5"
+                  style={{
+                    background: RURAL_GREEN,
+                    boxShadow: `0 16px 40px -12px ${RURAL_GREEN}80`,
+                  }}
+                >
+                  <IconWhatsApp size={18} />
+                  Quero proposta pra minha fazenda
+                </a>
+                <a
+                  href="#dores-ganhos"
+                  className="btn-outline inline-flex items-center gap-2 px-6 py-4 rounded-xl text-sm"
+                >
+                  Ver linhas de crédito rural
+                  <IconArrowRight size={16} />
+                </a>
+              </div>
+            </Reveal>
+
+            <Reveal delay={4}>
+              <div className="flex flex-wrap gap-3 sm:gap-5 justify-center lg:justify-start">
+                <Feature icon={<IconCheck size={16} />} text="Pronaf 0,5% a.m." />
+                <Feature
+                  icon={<IconLeaf size={16} />}
+                  text="Autoconsumo remoto"
+                />
+                <Feature
+                  icon={<IconShield size={16} />}
+                  text="Bombeamento direto"
+                />
+              </div>
+            </Reveal>
+          </div>
+
+          {/* Coluna lateral — call-out de payback rural */}
+          <Reveal delay={2}>
+            <div className="lg:col-span-2">
+              <div
+                className="relative rounded-3xl p-7 sm:p-8"
+                style={{
+                  background: "var(--aura-bg-card)",
+                  border: `1px solid ${RURAL_GREEN}30`,
+                  boxShadow: "var(--shadow-lg)",
+                }}
+              >
+                <div className="flex items-center justify-between mb-5">
+                  <span
+                    className="text-[11px] font-bold uppercase tracking-widest"
+                    style={{ color: RURAL_GREEN }}
+                  >
+                    Caso-tipo · pivô + granja
+                  </span>
+                  <span
+                    className="w-9 h-9 rounded-lg flex items-center justify-center"
+                    style={{
+                      background: RURAL_GREEN_SOFT,
+                      color: RURAL_GREEN,
+                    }}
+                  >
+                    <IconTractor size={18} />
+                  </span>
+                </div>
+
+                <div className="space-y-5">
+                  <CardLinha
+                    label="Conta atual mensal"
+                    valor="R$ 14.500"
+                    cor="var(--aura-text)"
+                  />
+                  <CardLinha
+                    label="Após sistema solar"
+                    valor="R$ 1.800"
+                    cor={RURAL_GREEN}
+                    destaque
+                  />
+                  <div className="h-px bg-[var(--aura-border)]" />
+                  <CardLinha
+                    label="Economia mensal"
+                    valor="R$ 12.700"
+                    cor="#15803D"
+                    destaque
+                  />
+                  <CardLinha
+                    label="Payback Pronaf 0,5% a.m."
+                    valor="3,8 anos"
+                    cor={RURAL_GREEN}
+                    destaque
+                  />
+                  <CardLinha
+                    label="Em 25 anos"
+                    valor="R$ 5,5 mi"
+                    cor="var(--aura-blue-deep)"
+                    destaque
+                  />
+                </div>
+
+                <div className="mt-6 pt-5 border-t border-[var(--aura-border)] text-[11px] text-[var(--aura-text-muted)] leading-relaxed">
+                  Caso-tipo: propriedade rural com pivô central + granja · sistema
+                  80 kWp · Pronaf Mais Alimentos 0,5% a.m. · 12 anos · 25 anos vida útil.
+                </div>
+              </div>
+            </div>
+          </Reveal>
+        </div>
+
+        {/* Stats rural-focused */}
+        <Reveal delay={5}>
+          <div className="mt-16 sm:mt-20 grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
+            <Stat number="0,5% a.m." label="Pronaf Mais Alimentos · juros mais baixos do BR" cor={RURAL_GREEN} />
+            <Stat number="60%" label="Pode ser custo da safra eliminado em pivô central" cor={RURAL_GREEN} />
+            <Stat number="12 anos" label="Prazo Pronaf / Moderagro / FCO Verde" cor={RURAL_GREEN} />
+            <Stat number="Remoto" label="Autoconsumo entre matrizes da fazenda" cor={RURAL_GREEN} />
+          </div>
+        </Reveal>
+
+        {/* Breadcrumb */}
+        <Reveal delay={6}>
+          <div className="mt-10 text-center">
+            <a
+              href="/"
+              className="inline-flex items-center gap-2 text-xs text-[var(--aura-text-muted)] transition-colors hover:text-[var(--aura-blue)]"
+            >
+              <IconMapPin size={12} />
+              Outro segmento? Voltar pra escolha
+            </a>
+          </div>
+        </Reveal>
+      </div>
+
+      {/* Logo Aura watermark */}
+      <div
+        className="absolute -top-20 -left-32 w-[500px] h-[500px] opacity-[0.05] pointer-events-none rotate-[-12deg] hidden md:block"
+        aria-hidden
+      >
+        <Image
+          src="/logo-aura.png"
+          alt=""
+          fill
+          className="object-contain"
+          unoptimized
+        />
+      </div>
+    </section>
+  );
+}
+
+function Feature({ icon, text }: { icon: React.ReactNode; text: string }) {
+  return (
+    <div className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--aura-text-soft)]">
+      <span
+        className="w-7 h-7 rounded-full flex items-center justify-center"
+        style={{
+          background: RURAL_GREEN_SOFT,
+          color: RURAL_GREEN,
+        }}
+      >
+        {icon}
+      </span>
+      {text}
+    </div>
+  );
+}
+
+function CardLinha({
+  label,
+  valor,
+  cor,
+  destaque = false,
+}: {
+  label: string;
+  valor: string;
+  cor: string;
+  destaque?: boolean;
+}) {
+  return (
+    <div className="flex items-baseline justify-between gap-3">
+      <span className="text-sm text-[var(--aura-text-muted)]">{label}</span>
+      <span
+        className={`counter-tabular leading-none ${
+          destaque ? "text-2xl sm:text-3xl font-extrabold" : "text-lg font-bold"
+        }`}
+        style={{ color: cor }}
+      >
+        {valor}
+      </span>
+    </div>
+  );
+}
+
+function Stat({ number, label, cor }: { number: string; label: string; cor: string }) {
+  return (
+    <div className="text-center lg:text-left">
+      <div
+        className="text-3xl sm:text-4xl font-extrabold counter-tabular leading-none mb-1.5"
+        style={{ color: cor }}
+      >
+        {number}
+      </div>
+      <div className="text-xs sm:text-sm text-[var(--aura-text-muted)] leading-tight">
+        {label}
+      </div>
+    </div>
+  );
+}

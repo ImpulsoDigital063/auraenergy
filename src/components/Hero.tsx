@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Reveal from "./Reveal";
 import Simulador from "./Simulador";
-import { IconBolt, IconCheck, IconMapPin, IconShield } from "./Icons";
+import { IconArrowRight, IconBolt, IconCheck, IconMapPin, IconShield, IconSparkles } from "./Icons";
 
 export default function Hero() {
   return (
@@ -46,7 +46,7 @@ export default function Hero() {
             </Reveal>
 
             <Reveal delay={1}>
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.05] text-[var(--aura-text)] mb-5">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.05] text-[var(--aura-text)] mb-5">
                 Sua casa pode gerar
                 <br />
                 <span className="text-gradient-aura">a própria energia</span>
@@ -82,6 +82,56 @@ export default function Hero() {
         </div>
 
         {/* Stats bar inferior do hero */}
+        {/* Banner sutil "Calculadora completa" → leva pro Tally /orcamento */}
+        <Reveal delay={3}>
+          <div className="mt-10 sm:mt-12 max-w-3xl mx-auto">
+            <a
+              href="/orcamento"
+              className="group flex items-center justify-between gap-4 p-4 sm:p-5 rounded-2xl transition-all duration-300 hover:-translate-y-0.5"
+              style={{
+                background:
+                  "linear-gradient(135deg, var(--aura-blue-tint) 0%, var(--aura-yellow-tint) 100%)",
+                border: "1px solid rgba(245, 188, 44, 0.30)",
+                boxShadow: "var(--shadow-sm)",
+              }}
+            >
+              <div className="flex items-center gap-3 sm:gap-4 min-w-0">
+                <span
+                  className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl flex items-center justify-center flex-shrink-0"
+                  style={{
+                    background:
+                      "linear-gradient(135deg, var(--aura-yellow) 0%, var(--aura-orange) 100%)",
+                    color: "var(--aura-blue-deep)",
+                    boxShadow: "0 8px 20px -8px rgba(245, 188, 44, 0.45)",
+                  }}
+                >
+                  <IconSparkles size={20} />
+                </span>
+                <div className="min-w-0">
+                  <div className="font-bold text-[var(--aura-text)] text-sm sm:text-base leading-tight">
+                    Quer cálculo mais detalhado?
+                  </div>
+                  <div className="text-xs sm:text-sm text-[var(--aura-text-muted)] truncate">
+                    Calculadora completa em 8 perguntas · 2 minutos
+                  </div>
+                </div>
+              </div>
+              <span
+                className="hidden sm:inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-sm font-bold text-[var(--aura-blue-deep)] flex-shrink-0 group-hover:translate-x-1 transition-transform"
+                style={{
+                  background: "rgba(255, 255, 255, 0.65)",
+                  border: "1px solid rgba(11, 18, 38, 0.08)",
+                }}
+              >
+                Calcular →
+              </span>
+              <span className="sm:hidden text-[var(--aura-blue)] flex-shrink-0">
+                <IconArrowRight size={20} />
+              </span>
+            </a>
+          </div>
+        </Reveal>
+
         <Reveal delay={4}>
           <div className="mt-16 sm:mt-20 grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
             <Stat number="3,9 mi+" label="Brasileiros já têm energia solar" />
@@ -92,16 +142,33 @@ export default function Hero() {
         </Reveal>
       </div>
 
-      {/* Logo Aura sutil flutuando no canto, assinatura visual */}
-      <div className="absolute bottom-6 right-6 hidden lg:block opacity-40 hover:opacity-100 transition-opacity">
+      {/* Logo Aura GIGANTE como watermark de fundo */}
+      <div
+        className="absolute -top-20 -left-32 w-[500px] h-[500px] opacity-[0.05] pointer-events-none rotate-[-12deg] hidden md:block"
+        aria-hidden
+      >
         <Image
           src="/logo-aura.png"
           alt=""
-          width={80}
-          height={80}
-          className="float-soft"
+          fill
+          className="object-contain"
+          unoptimized
+        />
+      </div>
+
+      {/* Logo Aura flutuante destaque no canto */}
+      <div className="absolute bottom-8 right-8 hidden lg:flex items-center gap-3 opacity-70 hover:opacity-100 transition-all group">
+        <Image
+          src="/logo-aura.png"
+          alt=""
+          width={64}
+          height={64}
+          className="w-16 h-16 object-contain float-soft drop-shadow-lg"
           aria-hidden
         />
+        <div className="text-xs font-bold uppercase tracking-widest text-[var(--aura-blue)] group-hover:text-[var(--aura-yellow-deep)] transition-colors">
+          Aura Energy
+        </div>
       </div>
     </section>
   );

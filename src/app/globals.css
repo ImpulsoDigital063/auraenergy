@@ -6,10 +6,15 @@
    ============================================================ */
 
 :root {
-  /* base — off-white quente, não branco gelado */
-  --aura-bg: #FAFAF6;
-  --aura-bg-soft: #F4F2EA;
-  --aura-bg-card: #FFFFFF;
+  /* base — cream warm Aesop-derived (CIC factual 02/05/2026) */
+  --aura-bg: #fffef2;          /* off-white warm yellowish — substitui #FAFAF6 frio */
+  --aura-bg-soft: #f6f5e8;     /* cream secundário (cards, surfaces alternadas) */
+  --aura-bg-warm: #f7ecdd;     /* warm peach (accents quentes editorial) */
+  --aura-bg-card: #FFFFFF;     /* branco puro só pra cards específicos */
+
+  /* dark zone — modelo Huberman zoneamento entre seções */
+  --aura-bg-dark: #0a0d18;     /* off-black warm-blue (não preto puro) */
+  --aura-bg-dark-soft: #14182a; /* dark soft pra dentro do zoneamento */
 
   /* brand — azul + amarelo da logo */
   --aura-blue: #1B3A87;
@@ -26,22 +31,28 @@
   --aura-orange: #FF8B3D;
   --aura-orange-soft: #FFB47A;
 
+  /* dark zone accents (modelo Whoop — neon over dark) */
+  --aura-neon-green: #10F19F;  /* verde elétrico — zoneamento Investimento */
+  --aura-urgent: #FF6B47;      /* laranja-urgência — zoneamento Janela Fio B */
+
   /* text — chumbo profundo */
-  --aura-text: #0B1226;
-  --aura-text-soft: #1F2A44;
-  --aura-text-muted: #5B6478;
+  --aura-text: #1A1A1A;        /* preto suavizado (Aesop) — substitui #0B1226 */
+  --aura-text-soft: #333333;   /* charcoal Aesop (CIC factual) */
+  --aura-text-muted: #666666;  /* cinza médio Aesop (CIC factual) */
   --aura-text-faded: #8B93A7;
+  --aura-text-on-dark: #f6f5e8; /* texto em zonas dark — cream secundário */
 
   /* lines */
-  --aura-border: rgba(11, 18, 38, 0.08);
-  --aura-border-strong: rgba(11, 18, 38, 0.14);
+  --aura-border: rgba(26, 26, 26, 0.08);
+  --aura-border-strong: rgba(26, 26, 26, 0.14);
 
   /* shadows — premium soft */
-  --shadow-sm: 0 2px 8px rgba(11, 18, 38, 0.04);
-  --shadow-md: 0 8px 24px rgba(11, 18, 38, 0.06);
-  --shadow-lg: 0 24px 60px -20px rgba(11, 18, 38, 0.12);
+  --shadow-sm: 0 2px 8px rgba(26, 26, 26, 0.04);
+  --shadow-md: 0 8px 24px rgba(26, 26, 26, 0.06);
+  --shadow-lg: 0 24px 60px -20px rgba(26, 26, 26, 0.12);
   --shadow-glow-yellow: 0 16px 40px -10px rgba(245, 188, 44, 0.45);
   --shadow-glow-blue: 0 16px 40px -10px rgba(27, 58, 135, 0.30);
+  --shadow-glow-neon: 0 16px 40px -10px rgba(16, 241, 159, 0.45);
 }
 
 @theme inline {
@@ -71,6 +82,85 @@ body {
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   overflow-x: hidden;
+}
+
+/* ============================================================
+   MOBILE-FIRST — anti-zoom iOS + tap feedback
+   ============================================================ */
+
+input, textarea, select {
+  font-size: 16px; /* ANTI-ZOOM iOS — não pode descer */
+}
+
+/* Tap feedback — substitui hover em mobile (estado :active) */
+button, a, [role="button"] {
+  -webkit-tap-highlight-color: transparent;
+}
+
+@media (hover: none) and (pointer: coarse) {
+  button:active,
+  a:active,
+  [role="button"]:active {
+    transform: scale(0.98);
+    transition: transform 0.1s ease-out;
+  }
+}
+
+/* ============================================================
+   DARK ZONE — zoneamento Huberman entre seções
+   ============================================================ */
+
+.dark-zone,
+.dark-zone-neon,
+.dark-zone-urgent {
+  background: var(--aura-bg-dark);
+  color: var(--aura-text-on-dark);
+  position: relative;
+  overflow: hidden;
+
+  /* Override variáveis dentro do escopo dark — Tailwind/inline pegam automaticamente */
+  --aura-text: #ffffff;
+  --aura-text-soft: rgba(255, 255, 255, 0.85);
+  --aura-text-muted: rgba(246, 245, 232, 0.55);
+  --aura-text-faded: rgba(246, 245, 232, 0.35);
+  --aura-border: rgba(255, 255, 255, 0.08);
+  --aura-border-strong: rgba(255, 255, 255, 0.16);
+  --aura-bg-card: rgba(255, 255, 255, 0.04);
+  --aura-bg-soft: rgba(255, 255, 255, 0.02);
+}
+
+/* Glow neon quando dark zone tem accent verde (Whoop-style) */
+.dark-zone-neon {
+  background: radial-gradient(
+    ellipse 80% 60% at 50% 0%,
+    rgba(16, 241, 159, 0.12) 0%,
+    transparent 60%
+  ), var(--aura-bg-dark);
+}
+
+/* Glow urgência quando dark zone tem accent laranja (Janela Fio B) */
+.dark-zone-urgent {
+  background: radial-gradient(
+    ellipse 80% 60% at 50% 0%,
+    rgba(255, 107, 71, 0.15) 0%,
+    transparent 60%
+  ), var(--aura-bg-dark);
+}
+
+/* Premium card override em dark zone */
+.dark-zone .premium-card,
+.dark-zone-neon .premium-card,
+.dark-zone-urgent .premium-card {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+}
+
+.dark-zone .premium-card:hover,
+.dark-zone-neon .premium-card:hover,
+.dark-zone-urgent .premium-card:hover {
+  background: rgba(255, 255, 255, 0.07);
+  border-color: rgba(245, 188, 44, 0.30);
 }
 
 /* ============================================================

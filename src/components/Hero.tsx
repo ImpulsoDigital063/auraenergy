@@ -41,26 +41,27 @@ export default function Hero() {
             <Reveal>
               <span className="badge-blue mb-5 inline-flex">
                 <IconMapPin size={14} />
-                Atendendo Palmas e região do Tocantins
+                Engenheiro de Palmas · atende todo Tocantins
               </span>
             </Reveal>
 
             <Reveal delay={1}>
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.05] text-[var(--aura-text)] mb-5">
-                Sua casa pode gerar
+                Sua conta de luz pode
                 <br />
-                <span className="text-gradient-aura">a própria energia</span>
+                <span className="text-gradient-aura">cair 85 a 95%.</span>
                 <br />
-                <span className="text-[var(--aura-blue)]">e você economiza até 90%.</span>
+                <span className="text-[var(--aura-blue)]">Em Palmas, faz sentido agora.</span>
               </h1>
             </Reveal>
 
             <Reveal delay={2}>
               <p className="text-lg sm:text-xl text-[var(--aura-text-soft)] mb-8 leading-relaxed max-w-xl mx-auto lg:mx-0">
-                Sistema solar fotovoltaico instalado em até{" "}
-                <strong className="text-[var(--aura-blue)]">30 dias</strong>, com{" "}
-                <strong className="text-[var(--aura-blue)]">payback em 4 anos</strong> em
-                Palmas. Veja agora quanto você economiza.
+                Tocantins é o 2° estado mais buscado em energia solar no Brasil — e com a{" "}
+                <strong className="text-[var(--aura-blue)]">Lei do Fio B em 60% em 2026</strong>,{" "}
+                cada ano de espera vira menos economia.{" "}
+                <strong className="text-[var(--aura-blue)]">Veja sua conta agora,</strong>{" "}
+                sem cadastro, sem WhatsApp insistindo.
               </p>
             </Reveal>
 
@@ -68,7 +69,7 @@ export default function Hero() {
               <div className="flex flex-wrap gap-3 sm:gap-5 justify-center lg:justify-start">
                 <Feature icon={<IconCheck size={16} />} text="Homologação Energisa" />
                 <Feature icon={<IconShield size={16} />} text="Garantia 25 anos" />
-                <Feature icon={<IconBolt size={16} />} text="Equipamento Tier 1" />
+                <Feature icon={<IconSparkles size={16} />} text="Programa Palmas Solar" />
               </div>
             </Reveal>
           </div>

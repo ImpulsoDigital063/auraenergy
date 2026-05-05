@@ -13,39 +13,39 @@ import {
 const DIFERENCIAIS = [
   {
     icon: <IconShield size={26} />,
-    titulo: "Homologação Energisa garantida",
+    titulo: "Homologação Energisa sem dor de cabeça",
     desc:
-      "Engenheiro com ART responsável. Microgeração aprovada em até 15 dias úteis pela Energisa Tocantins.",
+      "Eu cuido do processo inteiro com a Energisa Tocantins. ART, projeto, vistoria. Você recebe a aprovação em mãos.",
   },
   {
     icon: <IconAward size={26} />,
-    titulo: "Equipamentos Tier 1 internacional",
+    titulo: "Calculadora antes do orçamento",
     desc:
-      "Painéis Trina/Canadian/Jinko com 25 anos de garantia de geração. Inversores Growatt/Sungrow com 10 anos.",
+      "Faço o cálculo da sua economia ANTES de te visitar. Você vê o número, decide se quer continuar. Zero pressão.",
   },
   {
-    icon: <IconWallet size={26} />,
-    titulo: "Financiamento direto pelo banco",
+    icon: <IconLeaf size={26} />,
+    titulo: "Palmas Solar — desconto IPTU incluso",
     desc:
-      "Solfácil 0,79% a.m. em até 120 meses. Parcela quase sempre menor que sua conta atual de luz.",
+      "O município de Palmas dá até 60% de desconto no IPTU pra quem instala solar. Eu monto a documentação pra você dar entrada no Resolve Palmas.",
   },
   {
     icon: <IconTrending size={26} />,
     titulo: "Payback em 4 anos em Palmas",
     desc:
-      "Irradiação solar de 5,9 kWh/m²/dia (uma das maiores do BR) + tarifa Energisa cara = retorno mais rápido.",
+      "Tocantins tem irradiação solar de 5,9 kWh/m²/dia — top 3 do Brasil. Sua conta de luz cai 85-95% e o sistema se paga rápido.",
   },
   {
-    icon: <IconBolt size={26} />,
-    titulo: "App de monitoramento incluso",
+    icon: <IconWallet size={26} />,
+    titulo: "Financiamento sem entrada",
     desc:
-      "Acompanhe sua geração em tempo real pelo celular. Sabe exatamente quanto economizou hoje, no mês e no ano.",
+      "Solfácil 0,79% a.m. em até 120 meses. Parcela quase sempre menor que sua conta atual de luz — você troca conta cara por conta menor + sistema pago no fim.",
   },
   {
     icon: <IconUsers size={26} />,
-    titulo: "Atendimento de quem mora aqui",
+    titulo: "Quem te atende é o engenheiro",
     desc:
-      "Renato Edson e equipe, baseados em Palmas. Visita técnica gratuita, suporte rápido, manutenção sem espera.",
+      "Não vendedor terceirizado. Renato Edson na obra, no projeto, na revisão e no WhatsApp. Você sempre fala com quem assina o laudo.",
   },
 ];
 

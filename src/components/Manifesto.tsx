@@ -9,23 +9,23 @@ import {
 
 const PILARES = [
   {
-    titulo: "Transparência",
+    titulo: "Conta antes da venda",
     desc:
-      "O orçamento que você assina é o orçamento que você paga. Sem custos escondidos, sem letra miúda no contrato.",
+      "Antes de te oferecer painel, eu te mostro o cálculo. Conta de luz, irradiação do seu telhado, payback real. Se não compensar, eu falo.",
     icon: <IconShield size={28} />,
     cor: "var(--aura-blue)",
   },
   {
-    titulo: "Excelência técnica",
+    titulo: "Engenheiro na obra",
     desc:
-      "Equipamentos Tier 1, projeto com ART, equipe própria com EPI. Não trabalhamos com o 'mais ou menos'.",
+      "Não sou intermediário. Engenheiro eletricista, projeto com ART, equipe própria. Quem te atende é quem assina o laudo técnico.",
     icon: <IconBolt size={28} />,
     cor: "var(--aura-yellow-deep)",
   },
   {
-    titulo: "Compromisso de 25 anos",
+    titulo: "WhatsApp por 25 anos",
     desc:
-      "Solar é decisão de longo prazo. Nosso suporte vai durar tanto quanto seus painéis. WhatsApp direto, sempre.",
+      "Solar é decisão longa. Sistema dura mais que muito carro novo. Aqui você não vira só boleto pago — quando precisar, fala comigo direto.",
     icon: <IconLeaf size={28} />,
     cor: "#15803D",
   },
@@ -125,17 +125,18 @@ export default function Manifesto() {
 
             <div className="space-y-5 text-base sm:text-lg lg:text-xl text-white/85 leading-relaxed max-w-3xl mx-auto">
               <p>
-                A gente não vende placa. A gente entrega{" "}
-                <strong className="text-white">independência energética</strong> pra
-                família, comércio e produtor rural do Tocantins.
+                Sou Renato Edson. Engenheiro eletricista, criei a Aura Energy
+                porque cansei de ver vizinho meu sendo enganado em obra de solar
+                aqui no Tocantins.
               </p>
               <p>
-                A Aura Energy nasceu da percepção de que solar virou commodity — e
-                quem perde com isso é o cliente. Empresa fecha venda, vai embora,
-                deixa o cliente sozinho com 25 anos de sistema na cabeça.
+                Solar virou commodity. Empresa de fora chega, vende kit
+                subdimensionado, instala correndo, some no dia seguinte. Cliente
+                fica com 25 anos de sistema funcionando errado e sem saber.
               </p>
               <p className="text-[var(--aura-yellow-bright)] font-semibold">
-                Aqui é diferente. Aqui você compra um relacionamento, não só um produto.
+                Aqui não é assim. Quem te recebe sou eu. Quem assina o projeto
+                sou eu. Quem volta na revisão também.
               </p>
             </div>
           </div>

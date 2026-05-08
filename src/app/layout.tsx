@@ -35,10 +35,25 @@ export const metadata: Metadata = {
     locale: "pt_BR",
     type: "website",
     url: SITE_URL,
+    siteName: "Aura Energy",
+    // OG image gerada dinamicamente via app/opengraph-image.tsx (1200x630)
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Aura Energy — Energia solar em Palmas-TO",
+    description:
+      "Casa · Comércio · Indústria · Rural. CREA-TO, garantia 25 anos, financiamento Solfácil/BV/Pronaf.",
   },
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   },
   // Verification do Google Search Console — pega no painel apos cadastrar
   // a propriedade e seta NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION no Vercel.

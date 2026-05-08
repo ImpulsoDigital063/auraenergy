@@ -41,7 +41,7 @@ export async function POST(req: Request) {
     await resend.emails.send({
       from: FROM_EMAIL,
       to: TO_EMAIL,
-      subject: `🎯 Briefing-V2 Aura preenchido — ${data.nome} · pronto pra calibrar LPs`,
+      subject: `🎯 Briefing-V3 Aura preenchido — ${data.nome} · BESS + 9 blocos calibrados`,
       html,
     });
 
@@ -142,6 +142,24 @@ const TRADUCAO_ENUM: Record<string, string> = {
   nao_faz_sentido: "Não faz sentido",
   sim_ajuda: "Sim, ajuda cliente",
   nao_cliente_nao_quer: "Não, cliente não quer",
+  // BESS
+  ja_vendi_varios: "Já vendi vários sistemas",
+  instalei_uma_vez: "Instalei 1-2 vezes",
+  so_cotei: "Só cotei, nunca fechei",
+  nao_mexi_ainda: "Não mexi ainda",
+  sim_perguntam: "Sim, perguntam direto",
+  as_vezes: "Às vezes (nicho informado)",
+  venda_capex: "Venda CAPEX (cliente compra)",
+  leasing: "Leasing / aluguel mensal",
+  energy_as_service: "Energy-as-a-Service (R$/kWh economizado)",
+  multiplos: "Múltiplos modelos · depende do cliente",
+  nao_decidi: "Não decidi · me ajuda a pensar",
+  sim_estudei: "Sim, estudei e tô preparado",
+  sim_superficial: "Vi superficialmente",
+  sim_central_aura: "BESS é eixo CENTRAL Aura",
+  sim_secundario: "BESS upsell premium · solar é principal",
+  sim_ofereco: "Sim, ofereço",
+  nao_so_novos: "Não, só sistemas novos",
 };
 
 function tr(v: string | undefined): string {
@@ -169,7 +187,7 @@ ul { margin: 4px 0 4px 18px; padding: 0; }
 </head>
 <body>
 <div class="container">
-  <h1>🎯 Briefing-V2 Aura preenchido</h1>
+  <h1>🎯 Briefing-V3 Aura preenchido</h1>
   <p style="color:#666; margin: 0 0 4px;"><strong>${escape(d.nome)}</strong> respondeu o briefing — pronto pra calibrar as LPs e a estratégia de captação.</p>
   <p style="color:#666; margin: 0 0 24px; font-size:13px;">WhatsApp: ${escape(d.whatsapp)} · Lembrete: revisar com Renato antes de subir qualquer copy ao público.</p>
 
@@ -258,7 +276,33 @@ ul { margin: 4px 0 4px 18px; padding: 0; }
     ${fmtRow("Experiência Pronaf Bioeconomia", tr(d.experienciaPronaf))}
   </table></div>
 
-  <h2>🚀 Bloco 6 — Heros das LPs (CRÍTICO)</h2>
+  <h2>🔋 Bloco 6 — BESS (Battery Energy Storage System)</h2>
+  <div class="card"><table>
+    ${fmtRow("Experiência com baterias", tr(d.bessExperiencia))}
+    ${fmtRow("Maior projeto", d.bessMaiorProjeto)}
+    ${fmtRow("Cliente já chega pedindo bateria?", tr(d.bessClienteEntendeFioB))}
+    ${fmtRow("Modelo comercial preferido", tr(d.bessModeloComercial))}
+    ${fmtRow("Conhece Lei 15.269/2025?", tr(d.bessConheceLei15269))}
+    ${fmtRow("Foco da Aura nos 12m", tr(d.bessFocoCentral))}
+    ${fmtRow("Garantia bateria (anos)", d.bessGarantiaAnos)}
+    ${fmtRow("Faz retrofit em sistemas antigos?", tr(d.bessRetrofit))}
+  </table></div>
+  <h3>Onde Aura aplica BESS</h3>
+  <div class="card">${fmtList(d.bessAplicacoes)}</div>
+  <h3>Marcas de bateria</h3>
+  <div class="card">${fmtList(d.bessMarcas)}</div>
+  <h3>Inversor híbrido preferido</h3>
+  <div class="card">${fmtList(d.bessInversorHibrido)}</div>
+  <h3>Faixa de preço (R$)</h3>
+  <div class="card"><table>
+    ${fmtRow("Backup residencial 5 kWh", fmtBRL(d.bessPrecoBackup5kwh))}
+    ${fmtRow("Comercial 15 kWh", fmtBRL(d.bessPrecoComercial15kwh))}
+    ${fmtRow("Industrial 50 kWh+", fmtBRL(d.bessPrecoIndustrial50kwh))}
+  </table></div>
+  <h3>Argumentos de venda BESS que Renato acredita</h3>
+  <div class="card">${fmtList(d.bessArgumentoVenda)}</div>
+
+  <h2>🚀 Bloco 7 — Heros das LPs (CRÍTICO)</h2>
 
   <h3>🏠 LP /casa</h3>
   <div class="highlight"><strong>Headline:</strong> ${escape(d.heroCasaHeadline)}</div>
@@ -293,7 +337,7 @@ ul { margin: 4px 0 4px 18px; padding: 0; }
   <h3>🏠🏬🏭🌾 LP mãe (/)</h3>
   <div class="highlight"><strong>Frase de impacto:</strong> ${escape(d.heroMaeFraseImpacto)}</div>
 
-  <h2>📅 Bloco 7 — Estratégia 90 dias</h2>
+  <h2>📅 Bloco 8 — Estratégia 90 dias</h2>
   <div class="card"><table>
     ${fmtRow("Tempo/dia dedicado à Aura", d.tempoDiaAura)}
     ${fmtRow("Quem responde WhatsApp", d.quemRespondeWpp)}
@@ -303,14 +347,14 @@ ul { margin: 4px 0 4px 18px; padding: 0; }
   <h3>Canal de captação primário</h3>
   <div class="card">${fmtList(d.canalCaptacaoPrimario)}</div>
 
-  <h2>🛡 Bloco 8 — Diferenciais</h2>
+  <h2>🛡 Bloco 9 — Diferenciais</h2>
   <h3>O que JÁ oferece</h3>
   <div class="card">${fmtList(d.garantiasOferece)}</div>
   <h3>Certificações</h3>
   <div class="card">${fmtList(d.certificacoes)}${d.certificacoesOutras ? `<p style='margin:8px 0 0'>Outras: ${escape(d.certificacoesOutras)}</p>` : ""}</div>
   ${d.brigadaProtecao ? `<h3>Brigada de proteção</h3><div class="card"><p style='margin:0;line-height:1.6'>${escape(d.brigadaProtecao)}</p></div>` : ""}
 
-  <h2>✨ Bloco 9 — Decisões estratégicas</h2>
+  <h2>✨ Bloco 10 — Decisões estratégicas</h2>
   <div class="card"><table>
     ${fmtRow("Estratégia de preço LPs", tr(d.precoLpStrategy))}
     ${fmtRow("Marca de módulo dominante", tr(d.marcaModuloDominante))}

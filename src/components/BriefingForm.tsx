@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   briefingSchema,
   briefingDefaults,
@@ -22,11 +22,17 @@ import {
   CANAL_CAPTACAO,
   GARANTIAS_OFERECIDAS,
   CERTIFICACOES,
+  BESS_APLICACOES,
+  BESS_MARCAS,
+  BESS_INVERSOR_HIBRIDO,
+  BESS_ARGUMENTO_VENDA,
 } from "@/lib/briefing-schema";
 import { useRouter } from "next/navigation";
 
-const STORAGE_KEY = "aura-briefing-v2";
-const TOTAL_STEPS = 10;
+const STORAGE_KEY = "aura-briefing-v3";
+const BRIEFING_SLUG = "renato-aura"; // V1: hardcoded · futuro: prop por cliente
+
+const TOTAL_STEPS = 11;
 
 const BLOCOS = [
   { titulo: "Quem responde", subtitulo: "Pra eu confirmar recebimento", emoji: "👤" },
@@ -35,11 +41,14 @@ const BLOCOS = [
   { titulo: "Posicionamento", subtitulo: "Vibe da marca, concorrentes", emoji: "🎨" },
   { titulo: "Catálogo", subtitulo: "Marcas, kits, garantias", emoji: "⚡" },
   { titulo: "Financiamento", subtitulo: "Bancos parceiros + Pronaf", emoji: "🏦" },
+  { titulo: "BESS · Baterias", subtitulo: "Lei 15.269/2025 + peak shaving + Fio B 60%", emoji: "🔋" },
   { titulo: "Heros das LPs", subtitulo: "Headlines + casos por nicho", emoji: "🚀" },
   { titulo: "Estratégia 90 dias", subtitulo: "Capacidade, canal, meta", emoji: "📅" },
   { titulo: "Diferenciais", subtitulo: "Garantias, certificações", emoji: "🛡" },
   { titulo: "Decisões estratégicas", subtitulo: "Você decide, não a gente", emoji: "✨" },
 ] as const;
+
+type SaveState = "idle" | "saving" | "saved" | "error";
 
 export default function BriefingForm() {
   const router = useRouter();
@@ -47,18 +56,46 @@ export default function BriefingForm() {
   const [data, setData] = useState<BriefingData>(briefingDefaults);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [saveState, setSaveState] = useState<SaveState>("idle");
+  const [loadedFromServer, setLoadedFromServer] = useState(false);
+  const lastSavedHash = useRef<string>("");
 
+  // Load: server primeiro, fallback localStorage
   useEffect(() => {
-    try {
-      const saved = localStorage.getItem(STORAGE_KEY);
-      if (saved) {
-        const parsed = JSON.parse(saved);
-        setData({ ...briefingDefaults, ...parsed.data });
-        setStep(parsed.step ?? 0);
-      }
-    } catch {}
+    let cancelled = false;
+    (async () => {
+      try {
+        const res = await fetch(`/api/briefing/draft?slug=${BRIEFING_SLUG}`, {
+          cache: "no-store",
+        });
+        if (!cancelled && res.ok) {
+          const json = await res.json();
+          if (json.briefing?.data) {
+            setData({ ...briefingDefaults, ...(json.briefing.data as BriefingData) });
+            setStep(Math.min(TOTAL_STEPS - 1, json.briefing.progress ?? 0));
+            lastSavedHash.current = JSON.stringify(json.briefing.data);
+            setLoadedFromServer(true);
+            return;
+          }
+        }
+      } catch {}
+      // fallback
+      try {
+        const saved = localStorage.getItem(STORAGE_KEY);
+        if (saved && !cancelled) {
+          const parsed = JSON.parse(saved);
+          setData({ ...briefingDefaults, ...parsed.data });
+          setStep(parsed.step ?? 0);
+        }
+      } catch {}
+      if (!cancelled) setLoadedFromServer(true);
+    })();
+    return () => {
+      cancelled = true;
+    };
   }, []);
 
+  // localStorage backup
   useEffect(() => {
     try {
       localStorage.setItem(STORAGE_KEY, JSON.stringify({ data, step }));
@@ -79,17 +116,61 @@ export default function BriefingForm() {
     });
   }
 
+  async function persistDraft(): Promise<boolean> {
+    const hash = JSON.stringify(data);
+    setSaveState("saving");
+    try {
+      const res = await fetch("/api/briefing/draft", {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          slug: BRIEFING_SLUG,
+          name: data.nome || null,
+          data,
+          progress: step,
+          status: "draft",
+        }),
+      });
+      if (!res.ok) throw new Error("falha");
+      lastSavedHash.current = hash;
+      setSaveState("saved");
+      setTimeout(() => setSaveState("idle"), 2500);
+      return true;
+    } catch {
+      setSaveState("error");
+      setTimeout(() => setSaveState("idle"), 4000);
+      return false;
+    }
+  }
+
+  async function handleSaveAndNext() {
+    await persistDraft();
+    setStep(Math.min(TOTAL_STEPS - 1, step + 1));
+  }
+
   async function handleSubmit() {
     setError(null);
-    setSubmitting(true);
     const parsed = briefingSchema.safeParse(data);
     if (!parsed.success) {
       const firstIssue = parsed.error.issues[0];
       setError(`Tem algo faltando: ${firstIssue?.message ?? "verifica os campos"}`);
-      setSubmitting(false);
       return;
     }
+    setSubmitting(true);
     try {
+      // 1. Persiste como completed no Supabase
+      await fetch("/api/briefing/draft", {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          slug: BRIEFING_SLUG,
+          name: data.nome || null,
+          data: parsed.data,
+          progress: TOTAL_STEPS - 1,
+          status: "completed",
+        }),
+      });
+      // 2. Dispara email Resend pro Eduardo
       const res = await fetch("/api/briefing/submit", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -130,18 +211,49 @@ export default function BriefingForm() {
         <p className="text-sm text-[var(--aura-text-muted)] mt-3">{blocoAtual.subtitulo}</p>
       </div>
 
-      <div className="space-y-6">
-        {step === 0 && <BlocoIdentificacao data={data} update={updateField} />}
-        {step === 1 && <Bloco1Operacao data={data} update={updateField} />}
-        {step === 2 && <Bloco2ClienteIdeal data={data} update={updateField} toggle={toggleArrayItem} />}
-        {step === 3 && <Bloco3Posicionamento data={data} update={updateField} toggle={toggleArrayItem} />}
-        {step === 4 && <Bloco4Catalogo data={data} update={updateField} toggle={toggleArrayItem} />}
-        {step === 5 && <Bloco5Financiamento data={data} update={updateField} toggle={toggleArrayItem} />}
-        {step === 6 && <Bloco6Heros data={data} update={updateField} toggle={toggleArrayItem} />}
-        {step === 7 && <Bloco7Estrategia data={data} update={updateField} toggle={toggleArrayItem} />}
-        {step === 8 && <Bloco8Diferenciais data={data} update={updateField} toggle={toggleArrayItem} />}
-        {step === 9 && <Bloco9Decisoes data={data} update={updateField} />}
-      </div>
+      {!loadedFromServer && (
+        <p className="text-center text-sm text-[var(--aura-text-muted)] py-12">
+          Carregando suas respostas anteriores…
+        </p>
+      )}
+
+      {loadedFromServer && (
+        <div className="space-y-6">
+          {step === 0 && <BlocoIdentificacao data={data} update={updateField} />}
+          {step === 1 && <Bloco1Operacao data={data} update={updateField} />}
+          {step === 2 && <Bloco2ClienteIdeal data={data} update={updateField} toggle={toggleArrayItem} />}
+          {step === 3 && <Bloco3Posicionamento data={data} update={updateField} toggle={toggleArrayItem} />}
+          {step === 4 && <Bloco4Catalogo data={data} update={updateField} toggle={toggleArrayItem} />}
+          {step === 5 && <Bloco5Financiamento data={data} update={updateField} toggle={toggleArrayItem} />}
+          {step === 6 && <Bloco6BESS data={data} update={updateField} toggle={toggleArrayItem} />}
+          {step === 7 && <Bloco7Heros data={data} update={updateField} toggle={toggleArrayItem} />}
+          {step === 8 && <Bloco8Estrategia data={data} update={updateField} toggle={toggleArrayItem} />}
+          {step === 9 && <Bloco9Diferenciais data={data} update={updateField} toggle={toggleArrayItem} />}
+          {step === 10 && <Bloco10Decisoes data={data} update={updateField} />}
+        </div>
+      )}
+
+      {/* Botão Salvar Progresso (sempre visível, exceto step final que tem submit) */}
+      {loadedFromServer && !isLastStep && (
+        <div className="mt-8 pt-6 border-t border-[var(--aura-border)]">
+          <button
+            type="button"
+            onClick={persistDraft}
+            disabled={saveState === "saving"}
+            className="w-full px-5 py-3 rounded-xl font-semibold text-sm transition-all disabled:opacity-50"
+            style={{
+              background: saveState === "saved" ? "rgba(34,197,94,0.10)" : "var(--aura-bg-soft)",
+              color: saveState === "saved" ? "#16A34A" : "var(--aura-blue)",
+              border: `1px solid ${saveState === "saved" ? "rgba(34,197,94,0.30)" : "var(--aura-border)"}`,
+            }}
+          >
+            {saveState === "saving" && "💾 Salvando…"}
+            {saveState === "saved" && "✅ Salvo no servidor"}
+            {saveState === "error" && "⚠️ Erro · tenta de novo"}
+            {saveState === "idle" && "💾 Salvar progresso desse bloco"}
+          </button>
+        </div>
+      )}
 
       {error && (
         <div className="mt-6 p-4 rounded-lg text-sm" style={{ background: "rgba(220,38,38,0.10)", border: "1px solid rgba(220,38,38,0.30)", color: "#DC2626" }}>
@@ -149,7 +261,7 @@ export default function BriefingForm() {
         </div>
       )}
 
-      <div className="flex items-center justify-between gap-4 mt-10 pt-6 border-t border-[var(--aura-border)]">
+      <div className="flex items-center justify-between gap-4 mt-6 pt-6 border-t border-[var(--aura-border)]">
         <button
           type="button"
           onClick={() => setStep(Math.max(0, step - 1))}
@@ -177,21 +289,22 @@ export default function BriefingForm() {
         ) : (
           <button
             type="button"
-            onClick={() => setStep(Math.min(TOTAL_STEPS - 1, step + 1))}
-            className="px-7 py-3.5 rounded-xl font-bold text-sm transition-all"
+            onClick={handleSaveAndNext}
+            disabled={saveState === "saving"}
+            className="px-7 py-3.5 rounded-xl font-bold text-sm transition-all disabled:opacity-50"
             style={{
               background: "linear-gradient(135deg, var(--aura-blue) 0%, var(--aura-blue-deep) 100%)",
               color: "#fff",
               boxShadow: "0 8px 20px -6px rgba(15,27,61,0.40)",
             }}
           >
-            Próximo →
+            Salvar e próximo →
           </button>
         )}
       </div>
 
       <p className="text-[11px] text-center text-[var(--aura-text-muted)] mt-4">
-        💾 Suas respostas são salvas automáticas. Pode pausar e voltar quando quiser.
+        💾 Tudo salva automático no servidor. Pode pausar e voltar de qualquer dispositivo com esse mesmo link.
       </p>
     </div>
   );
@@ -544,7 +657,130 @@ function Bloco5Financiamento({ data, update, toggle }: BlocoToggleProps) {
   );
 }
 
-function Bloco6Heros({ data, update, toggle }: BlocoToggleProps) {
+function Bloco6BESS({ data, update, toggle }: BlocoToggleProps) {
+  return (
+    <>
+      <p className="text-sm text-[var(--aura-text-muted)] bg-[var(--aura-yellow)]/15 border border-[var(--aura-yellow)]/30 p-4 rounded-lg leading-relaxed">
+        <strong>🔋 BESS é o maior pivô do mercado solar 2026.</strong> Você falou bastante disso na nossa reunião.
+        Lei 15.269/2025 abriu mercado novo · Fio B 60% em 2026 · peak shaving comercial vira receita real.
+        Quero entender ONDE você quer entrar e com qual força.
+      </p>
+
+      <Field label="Sua experiência com baterias até hoje">
+        <div className="space-y-1">
+          <Radio checked={data.bessExperiencia === "ja_vendi_varios"} onChange={() => update("bessExperiencia", "ja_vendi_varios")} label="Já vendi vários sistemas com bateria" />
+          <Radio checked={data.bessExperiencia === "instalei_uma_vez"} onChange={() => update("bessExperiencia", "instalei_uma_vez")} label="Instalei 1-2 vezes" />
+          <Radio checked={data.bessExperiencia === "so_cotei"} onChange={() => update("bessExperiencia", "so_cotei")} label="Só cotei, nunca fechei" />
+          <Radio checked={data.bessExperiencia === "nao_mexi_ainda"} onChange={() => update("bessExperiencia", "nao_mexi_ainda")} label="Não mexi ainda · quero começar com Aura" />
+        </div>
+      </Field>
+
+      <Field label="Onde a Aura vai aplicar BESS?" hint="Marca tudo que faz sentido — vamos transformar em LP/seção segmentada">
+        <div className="space-y-1">
+          {BESS_APLICACOES.map((opt) => (
+            <Checkbox key={opt} checked={(data.bessAplicacoes ?? []).includes(opt)} onChange={() => toggle("bessAplicacoes", opt)} label={opt} />
+          ))}
+        </div>
+      </Field>
+
+      <Field label="Maior projeto de bateria que você já cotou ou entregou" hint='Ex: "30 kWh BYD pra fazenda em Porto Nacional, R$95k"'>
+        <Textarea value={data.bessMaiorProjeto ?? ""} onChange={(v) => update("bessMaiorProjeto", v)} rows={2} />
+      </Field>
+
+      <Field label="Marcas de bateria que confia / quer trabalhar">
+        <div className="space-y-1">
+          {BESS_MARCAS.map((opt) => (
+            <Checkbox key={opt} checked={(data.bessMarcas ?? []).includes(opt)} onChange={() => toggle("bessMarcas", opt)} label={opt} />
+          ))}
+        </div>
+      </Field>
+
+      <Field label="Inversor híbrido preferido" hint="Hardware diferente do solar puro. Crítico pra retrofit.">
+        <div className="space-y-1">
+          {BESS_INVERSOR_HIBRIDO.map((opt) => (
+            <Checkbox key={opt} checked={(data.bessInversorHibrido ?? []).includes(opt)} onChange={() => toggle("bessInversorHibrido", opt)} label={opt} />
+          ))}
+        </div>
+      </Field>
+
+      <p className="text-xs font-semibold uppercase tracking-wider text-[var(--aura-text-muted)] pt-2">
+        Faixa de preço · sistema completo instalado (R$)
+      </p>
+      <p className="text-xs text-[var(--aura-text-muted)] -mt-1">
+        Pode ser estimativa. Vamos colocar &quot;a partir de&quot; nas LPs.
+      </p>
+      <div className="grid grid-cols-1 gap-4">
+        <Field label="Backup residencial 5 kWh" hint="Geladeira, luz, internet em apagão">
+          <NumberInput value={data.bessPrecoBackup5kwh ?? 0} onChange={(v) => update("bessPrecoBackup5kwh", v)} placeholder="35000" />
+        </Field>
+        <Field label="Comercial 15 kWh" hint="Peak shaving loja média">
+          <NumberInput value={data.bessPrecoComercial15kwh ?? 0} onChange={(v) => update("bessPrecoComercial15kwh", v)} placeholder="80000" />
+        </Field>
+        <Field label="Industrial 50 kWh+" hint="Microrede / grande peak shaving">
+          <NumberInput value={data.bessPrecoIndustrial50kwh ?? 0} onChange={(v) => update("bessPrecoIndustrial50kwh", v)} placeholder="280000" />
+        </Field>
+      </div>
+
+      <Field label="Cliente já chega pedindo bateria?">
+        <div className="space-y-1">
+          <Radio checked={data.bessClienteEntendeFioB === "sim_perguntam"} onChange={() => update("bessClienteEntendeFioB", "sim_perguntam")} label="Sim, perguntam direto sobre Fio B / autonomia" />
+          <Radio checked={data.bessClienteEntendeFioB === "as_vezes"} onChange={() => update("bessClienteEntendeFioB", "as_vezes")} label="Às vezes — nicho mais informado" />
+          <Radio checked={data.bessClienteEntendeFioB === "raro"} onChange={() => update("bessClienteEntendeFioB", "raro")} label="Raro — eu que apresento" />
+          <Radio checked={data.bessClienteEntendeFioB === "nunca"} onChange={() => update("bessClienteEntendeFioB", "nunca")} label="Nunca — mercado em Palmas ainda não pediu" />
+        </div>
+      </Field>
+
+      <Field label="Modelo comercial que faz mais sentido pra Aura" hint="Como o cliente paga pela bateria?">
+        <div className="space-y-1">
+          <Radio checked={data.bessModeloComercial === "venda_capex"} onChange={() => update("bessModeloComercial", "venda_capex")} label="Venda CAPEX (cliente compra) — modelo tradicional" />
+          <Radio checked={data.bessModeloComercial === "leasing"} onChange={() => update("bessModeloComercial", "leasing")} label="Leasing / aluguel mensal" />
+          <Radio checked={data.bessModeloComercial === "energy_as_service"} onChange={() => update("bessModeloComercial", "energy_as_service")} label='Energy-as-a-Service (cliente paga R$/kWh economizado)' />
+          <Radio checked={data.bessModeloComercial === "multiplos"} onChange={() => update("bessModeloComercial", "multiplos")} label="Múltiplos modelos · depende do cliente" />
+          <Radio checked={data.bessModeloComercial === "nao_decidi"} onChange={() => update("bessModeloComercial", "nao_decidi")} label="Não decidi · me ajuda a pensar" />
+        </div>
+      </Field>
+
+      <Field label="Lei 15.269/2025 (marco regulatório armazenamento)" hint="Permite leilões de capacidade · regulamenta integração BESS na rede">
+        <div className="space-y-1">
+          <Radio checked={data.bessConheceLei15269 === "sim_estudei"} onChange={() => update("bessConheceLei15269", "sim_estudei")} label="Sim, estudei e tô preparado" />
+          <Radio checked={data.bessConheceLei15269 === "sim_superficial"} onChange={() => update("bessConheceLei15269", "sim_superficial")} label="Vi superficialmente, preciso aprofundar" />
+          <Radio checked={data.bessConheceLei15269 === "nao_conhecia"} onChange={() => update("bessConheceLei15269", "nao_conhecia")} label="Não conhecia · pode mandar resumo" />
+        </div>
+      </Field>
+
+      <Field label="Argumento de venda mais forte que VOCÊ acredita pra BESS">
+        <div className="space-y-1">
+          {BESS_ARGUMENTO_VENDA.map((opt) => (
+            <Checkbox key={opt} checked={(data.bessArgumentoVenda ?? []).includes(opt)} onChange={() => toggle("bessArgumentoVenda", opt)} label={opt} />
+          ))}
+        </div>
+      </Field>
+
+      <Field label="Foco da Aura nos próximos 12m">
+        <div className="space-y-1">
+          <Radio checked={data.bessFocoCentral === "sim_central_aura"} onChange={() => update("bessFocoCentral", "sim_central_aura")} label='BESS é o eixo CENTRAL da Aura ("primeira solar+bateria de Palmas")' />
+          <Radio checked={data.bessFocoCentral === "sim_secundario"} onChange={() => update("bessFocoCentral", "sim_secundario")} label="Solar é o produto principal · BESS upsell premium" />
+          <Radio checked={data.bessFocoCentral === "nao_agora"} onChange={() => update("bessFocoCentral", "nao_agora")} label="Não é foco agora · entra em 2027" />
+        </div>
+      </Field>
+
+      <div className="grid grid-cols-2 gap-4">
+        <Field label="Garantia bateria (anos)" hint="Mercado: 8-10 anos típico">
+          <NumberInput value={data.bessGarantiaAnos ?? 0} onChange={(v) => update("bessGarantiaAnos", v)} max={30} />
+        </Field>
+        <Field label="Retrofit em sistemas antigos">
+          <div className="space-y-1">
+            <Radio checked={data.bessRetrofit === "sim_ofereco"} onChange={() => update("bessRetrofit", "sim_ofereco")} label="Sim, ofereço" />
+            <Radio checked={data.bessRetrofit === "nao_so_novos"} onChange={() => update("bessRetrofit", "nao_so_novos")} label="Não, só sistemas novos" />
+            <Radio checked={data.bessRetrofit === "nao_decidi"} onChange={() => update("bessRetrofit", "nao_decidi")} label="Não decidi" />
+          </div>
+        </Field>
+      </div>
+    </>
+  );
+}
+
+function Bloco7Heros({ data, update, toggle }: BlocoToggleProps) {
   return (
     <>
       <p className="text-sm text-[var(--aura-text-muted)] bg-[var(--aura-blue)]/5 p-4 rounded-lg leading-relaxed">
@@ -619,7 +855,7 @@ function Bloco6Heros({ data, update, toggle }: BlocoToggleProps) {
   );
 }
 
-function Bloco7Estrategia({ data, update, toggle }: BlocoToggleProps) {
+function Bloco8Estrategia({ data, update, toggle }: BlocoToggleProps) {
   return (
     <>
       <p className="text-sm text-[var(--aura-text-muted)] bg-[var(--aura-blue)]/5 p-4 rounded-lg leading-relaxed">
@@ -664,7 +900,7 @@ function Bloco7Estrategia({ data, update, toggle }: BlocoToggleProps) {
   );
 }
 
-function Bloco8Diferenciais({ data, toggle, update }: BlocoToggleProps) {
+function Bloco9Diferenciais({ data, toggle, update }: BlocoToggleProps) {
   return (
     <>
       <p className="text-sm text-[var(--aura-text-muted)] bg-[var(--aura-blue)]/5 p-4 rounded-lg leading-relaxed">
@@ -697,7 +933,7 @@ function Bloco8Diferenciais({ data, toggle, update }: BlocoToggleProps) {
   );
 }
 
-function Bloco9Decisoes({ data, update }: BlocoProps) {
+function Bloco10Decisoes({ data, update }: BlocoProps) {
   return (
     <>
       <p className="text-sm text-[var(--aura-text-muted)] bg-[var(--aura-yellow)]/15 border border-[var(--aura-yellow)]/30 p-4 rounded-lg leading-relaxed">

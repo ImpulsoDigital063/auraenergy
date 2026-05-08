@@ -168,6 +168,47 @@ export const CERTIFICACOES = [
   "Cooperativa solar",
 ] as const;
 
+// ─── BESS · Battery Energy Storage System ────────────────────────
+export const BESS_APLICACOES = [
+  "Backup residencial (apagão)",
+  "Peak shaving comercial (corta horário de ponta)",
+  "Off-grid rural (sítio sem rede)",
+  "Microrede comercial/industrial",
+  "Integração híbrida solar+bateria",
+  "Carregamento veicular (V2H/V2G)",
+] as const;
+
+export const BESS_MARCAS = [
+  "BYD",
+  "Pylontech",
+  "Freedom",
+  "Growatt",
+  "Deye",
+  "Huawei",
+  "Anker SOLIX",
+  "WEG",
+  "Não trabalho com bateria ainda",
+] as const;
+
+export const BESS_INVERSOR_HIBRIDO = [
+  "Deye Híbrido",
+  "Growatt SPH/MIN",
+  "Sungrow SH",
+  "GoodWe ES/EH",
+  "Huawei LUNA",
+  "Solis Hybrid",
+] as const;
+
+export const BESS_ARGUMENTO_VENDA = [
+  "Autonomia em apagão (Energisa cai muito)",
+  "Peak shaving — corta R$ na ponta",
+  "Fio B 60% em 2026 valoriza bateria",
+  "Lei 15.269/2025 abre mercado novo",
+  "ESG / crédito de carbono indústria",
+  "Off-grid rural sem extensão de rede",
+  "Independência energética total",
+] as const;
+
 // ─────────────────────────────────────────────────────────────────
 // SCHEMA Zod — 9 blocos
 // ─────────────────────────────────────────────────────────────────
@@ -270,7 +311,52 @@ export const briefingSchema = z.object({
     "nao_conhecia",
   ]),
 
-  // BLOCO 6 · Heros LPs
+  // BLOCO 6 · BESS (Battery Energy Storage System)
+  bessExperiencia: z.enum([
+    "ja_vendi_varios",
+    "instalei_uma_vez",
+    "so_cotei",
+    "nao_mexi_ainda",
+  ]),
+  bessAplicacoes: z.array(z.string()).optional(),
+  bessMaiorProjeto: z.string().optional(),
+  bessMarcas: z.array(z.string()).optional(),
+  bessInversorHibrido: z.array(z.string()).optional(),
+  bessPrecoBackup5kwh: z.coerce.number().min(0).optional(),
+  bessPrecoComercial15kwh: z.coerce.number().min(0).optional(),
+  bessPrecoIndustrial50kwh: z.coerce.number().min(0).optional(),
+  bessClienteEntendeFioB: z.enum([
+    "sim_perguntam",
+    "as_vezes",
+    "raro",
+    "nunca",
+  ]),
+  bessModeloComercial: z.enum([
+    "venda_capex",
+    "leasing",
+    "energy_as_service",
+    "multiplos",
+    "nao_decidi",
+  ]),
+  bessConheceLei15269: z.enum([
+    "sim_estudei",
+    "sim_superficial",
+    "nao_conhecia",
+  ]),
+  bessArgumentoVenda: z.array(z.string()).optional(),
+  bessFocoCentral: z.enum([
+    "sim_central_aura",
+    "sim_secundario",
+    "nao_agora",
+  ]),
+  bessGarantiaAnos: z.coerce.number().min(0).max(30).optional(),
+  bessRetrofit: z.enum([
+    "sim_ofereco",
+    "nao_so_novos",
+    "nao_decidi",
+  ]),
+
+  // BLOCO 7 · Heros LPs
   heroCasaHeadline: z.string().min(5),
   casoCasaCliente: z.string().optional(),
   casoCasaBairro: z.string().optional(),
@@ -307,7 +393,7 @@ export const briefingSchema = z.object({
 
   heroMaeFraseImpacto: z.string().min(5),
 
-  // BLOCO 7 · Estratégia 90d
+  // BLOCO 8 · Estratégia 90d
   tempoDiaAura: z.string().min(1),
   quemRespondeWpp: z.string().min(1),
   investimentoMensalAds: z.coerce.number().min(0),
@@ -316,14 +402,14 @@ export const briefingSchema = z.object({
   metaMes2: z.coerce.number().min(0),
   metaMes3: z.coerce.number().min(0),
 
-  // BLOCO 8 · Garantias e diferenciais
+  // BLOCO 9 · Garantias e diferenciais
   garantiasOferece: z.array(z.string()),
   garantiasQuerOferecer: z.array(z.string()).optional(),
   certificacoes: z.array(z.string()),
   certificacoesOutras: z.string().optional(),
   brigadaProtecao: z.string().optional(),
 
-  // BLOCO 9 · DECISÕES ESTRATÉGICAS
+  // BLOCO 10 · DECISÕES ESTRATÉGICAS
   precoLpStrategy: z.enum([
     "preco_fixo",
     "faixa",
@@ -475,6 +561,23 @@ export const briefingDefaults: BriefingData = {
   prazoBV: 0,
   prazoCooperativa: 0,
   experienciaPronaf: "nao_conhecia",
+
+  // BESS defaults
+  bessExperiencia: "so_cotei",
+  bessAplicacoes: [],
+  bessMaiorProjeto: "",
+  bessMarcas: [],
+  bessInversorHibrido: [],
+  bessPrecoBackup5kwh: 0,
+  bessPrecoComercial15kwh: 0,
+  bessPrecoIndustrial50kwh: 0,
+  bessClienteEntendeFioB: "as_vezes",
+  bessModeloComercial: "nao_decidi",
+  bessConheceLei15269: "sim_superficial",
+  bessArgumentoVenda: [],
+  bessFocoCentral: "sim_secundario",
+  bessGarantiaAnos: 10,
+  bessRetrofit: "nao_decidi",
 
   heroCasaHeadline: "",
   casoCasaCliente: "",

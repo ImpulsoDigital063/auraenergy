@@ -41,7 +41,7 @@ export async function POST(req: Request) {
     await resend.emails.send({
       from: FROM_EMAIL,
       to: TO_EMAIL,
-      subject: `🎯 Briefing-V2 Aura preenchido por ${data.nome}`,
+      subject: `🎯 Briefing-V2 Aura preenchido — ${data.nome} · pronto pra calibrar LPs`,
       html,
     });
 
@@ -170,8 +170,8 @@ ul { margin: 4px 0 4px 18px; padding: 0; }
 <body>
 <div class="container">
   <h1>🎯 Briefing-V2 Aura preenchido</h1>
-  <p style="color:#666; margin: 0 0 4px;"><strong>${escape(d.nome)}</strong> respondeu o briefing.</p>
-  <p style="color:#666; margin: 0 0 24px; font-size:13px;">WhatsApp: ${escape(d.whatsapp)}</p>
+  <p style="color:#666; margin: 0 0 4px;"><strong>${escape(d.nome)}</strong> respondeu o briefing — pronto pra calibrar as LPs e a estratégia de captação.</p>
+  <p style="color:#666; margin: 0 0 24px; font-size:13px;">WhatsApp: ${escape(d.whatsapp)} · Lembrete: revisar com Renato antes de subir qualquer copy ao público.</p>
 
   <h2>🏗 Bloco 1 — Operação Brasfrio→Aura</h2>
   <div class="card"><table>

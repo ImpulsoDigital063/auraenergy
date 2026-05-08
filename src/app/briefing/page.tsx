@@ -6,7 +6,7 @@ import { IconSparkles } from "@/components/Icons";
 
 export const metadata: Metadata = {
   title: "Briefing · Aura Energy",
-  description: "Briefing privado pra montar o plano de negócio Aura Energy.",
+  description: "Briefing privado · suas respostas direcionam a construção das LPs e da estratégia de captação Aura.",
   robots: {
     index: false,
     follow: false,
@@ -56,14 +56,17 @@ export default function BriefingPage() {
         {/* Intro */}
         <div className="text-center mb-10">
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-[var(--aura-text)] mb-4 leading-tight">
-            Vamos montar o
+            Calibrando a Aura
             <br />
-            <span className="text-gradient-aura">plano de negócio</span> da Aura.
+            <span className="text-gradient-aura">com você no comando</span>.
           </h1>
           <p className="text-base sm:text-lg text-[var(--aura-text-soft)] leading-relaxed max-w-2xl mx-auto">
-            Cada resposta aqui vira parte do plano que vou montar pra você.
+            Plano de negócio já tá em execução — agora vamos construir as LPs
+            e a estratégia de captação.
             <br className="hidden sm:block" />
-            Leva ~30 min. Pode pausar, voltar, ajustar.
+            <strong>Cada resposta sua aqui vira a copy real das nossas LPs.</strong>
+            <br className="hidden sm:block" />
+            Nada vai pro ar antes de você revisar. Leva ~30 min · pode pausar e voltar.
           </p>
           <div
             className="mt-6 inline-flex items-center gap-3 px-4 py-2.5 rounded-2xl"

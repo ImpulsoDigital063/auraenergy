@@ -1,830 +1,777 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import {
+  briefingSchema,
   briefingDefaults,
-  CLIENTE_ALVO_OPCOES,
-  COBERTURA_OPCOES,
-  ENGENHEIRO_OPCOES,
-  INVERSORES_OPCOES,
-  PAGAMENTO_OPCOES,
-  PAINEIS_OPCOES,
-  POSICIONAMENTO_OPCOES,
-  SERVICOS_OPCOES,
   type BriefingData,
+  MARCAS_MODULO,
+  MARCAS_INVERSOR,
+  MARCAS_BATERIA,
+  BANCOS_SOLAR,
+  VIBE_MARCA,
+  POSICIONAMENTO_12M,
+  ORIGEM_LEAD,
+  OBJECAO_FECHAMENTO,
+  DOR_INICIAL,
+  ARG_COMERCIAL,
+  ARG_INDUSTRIAL,
+  BLOQUEIO_RURAL,
+  TEMPO_DIA,
+  QUEM_RESPONDE_WPP,
+  CANAL_CAPTACAO,
+  GARANTIAS_OFERECIDAS,
+  CERTIFICACOES,
 } from "@/lib/briefing-schema";
-import { IconCheck, IconArrowRight, IconWhatsApp, IconSparkles } from "./Icons";
+import { useRouter } from "next/navigation";
 
-const TOTAL_CARDS = 10;
+const STORAGE_KEY = "aura-briefing-v2";
+const TOTAL_STEPS = 10;
+
+const BLOCOS = [
+  { titulo: "Quem responde", subtitulo: "Pra eu confirmar recebimento", emoji: "👤" },
+  { titulo: "Operação", subtitulo: "Brasfrio + Aura · números reais", emoji: "🏗" },
+  { titulo: "Cliente ideal", subtitulo: "Quem compra, dor, objeção", emoji: "🎯" },
+  { titulo: "Posicionamento", subtitulo: "Vibe da marca, concorrentes", emoji: "🎨" },
+  { titulo: "Catálogo", subtitulo: "Marcas, kits, garantias", emoji: "⚡" },
+  { titulo: "Financiamento", subtitulo: "Bancos parceiros + Pronaf", emoji: "🏦" },
+  { titulo: "Heros das LPs", subtitulo: "Headlines + casos por nicho", emoji: "🚀" },
+  { titulo: "Estratégia 90 dias", subtitulo: "Capacidade, canal, meta", emoji: "📅" },
+  { titulo: "Diferenciais", subtitulo: "Garantias, certificações", emoji: "🛡" },
+  { titulo: "Decisões estratégicas", subtitulo: "Você decide, não a gente", emoji: "✨" },
+] as const;
 
 export default function BriefingForm() {
+  const router = useRouter();
+  const [step, setStep] = useState(0);
   const [data, setData] = useState<BriefingData>(briefingDefaults);
   const [submitting, setSubmitting] = useState(false);
-  const [success, setSuccess] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  // Progresso baseado em cards "completos" (heuristic simples)
-  const progress = useMemo(() => {
-    let completed = 0;
-    if (data.servicos.length > 0) completed++;
-    if (data.paineis.length > 0 || data.inversores.length > 0) completed++;
-    if (data.ticketResidencialMin > 0 && data.prazoMedioDias > 0 && data.pagamento.length > 0) completed++;
-    if (data.engenheiroResponsavel) completed++;
-    if (data.cobertura) completed++;
-    if (data.clienteAlvoTop3.length > 0 && data.dorReal.length >= 10) completed++;
-    if (data.posicionamento) completed++;
-    if (data.meta90Dias.length >= 5) completed++;
-    if (data.fotosEquipe + data.fotosInstalacoes + data.videos > 0 || data.imagensDrone) completed++;
-    if (data.nome.length >= 2 && data.whatsapp.length >= 8) completed++;
-    return completed;
-  }, [data]);
+  useEffect(() => {
+    try {
+      const saved = localStorage.getItem(STORAGE_KEY);
+      if (saved) {
+        const parsed = JSON.parse(saved);
+        setData({ ...briefingDefaults, ...parsed.data });
+        setStep(parsed.step ?? 0);
+      }
+    } catch {}
+  }, []);
 
-  const update = <K extends keyof BriefingData>(key: K, value: BriefingData[K]) => {
+  useEffect(() => {
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify({ data, step }));
+    } catch {}
+  }, [data, step]);
+
+  function updateField<K extends keyof BriefingData>(key: K, value: BriefingData[K]) {
     setData((prev) => ({ ...prev, [key]: value }));
-  };
+  }
 
-  const toggleArrayItem = (
-    key: "servicos" | "paineis" | "inversores" | "pagamento" | "clienteAlvoTop3",
-    item: string
-  ) => {
-    const current = data[key] as string[];
-    if (current.includes(item)) {
-      update(key, current.filter((x) => x !== item) as never);
-    } else {
-      // limit clienteAlvoTop3 to 3
-      if (key === "clienteAlvoTop3" && current.length >= 3) return;
-      update(key, [...current, item] as never);
-    }
-  };
+  function toggleArrayItem(key: keyof BriefingData, value: string) {
+    setData((prev) => {
+      const current = (prev[key] as string[]) ?? [];
+      const next = current.includes(value)
+        ? current.filter((v) => v !== value)
+        : [...current, value];
+      return { ...prev, [key]: next as BriefingData[typeof key] };
+    });
+  }
 
-  const handleSubmit = async () => {
-    setSubmitting(true);
+  async function handleSubmit() {
     setError(null);
+    setSubmitting(true);
+    const parsed = briefingSchema.safeParse(data);
+    if (!parsed.success) {
+      const firstIssue = parsed.error.issues[0];
+      setError(`Tem algo faltando: ${firstIssue?.message ?? "verifica os campos"}`);
+      setSubmitting(false);
+      return;
+    }
     try {
       const res = await fetch("/api/briefing/submit", {
         method: "POST",
-        headers: { "content-type": "application/json" },
-        body: JSON.stringify(data),
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(parsed.data),
       });
-      if (!res.ok) {
-        const err = await res.json().catch(() => ({}));
-        throw new Error(err.error || "Erro ao enviar");
-      }
-      setSuccess(true);
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    } catch (e) {
-      setError(e instanceof Error ? e.message : "Erro desconhecido");
-    } finally {
+      if (!res.ok) throw new Error("Erro ao enviar");
+      localStorage.removeItem(STORAGE_KEY);
+      router.push("/briefing/obrigado");
+    } catch {
+      setError("Falha no envio. Tenta de novo ou manda print pro Eduardo no grupo.");
       setSubmitting(false);
     }
-  };
-
-  const canSubmit =
-    data.servicos.length > 0 &&
-    data.dorReal.length >= 10 &&
-    data.meta90Dias.length >= 5 &&
-    data.nome.length >= 2 &&
-    data.whatsapp.length >= 8 &&
-    data.posicionamento &&
-    data.cobertura &&
-    data.engenheiroResponsavel;
-
-  if (success) {
-    return <SuccessScreen />;
   }
 
+  const blocoAtual = BLOCOS[step];
+  const isLastStep = step === TOTAL_STEPS - 1;
+
   return (
-    <div className="space-y-6">
-      {/* Progress bar sticky no topo */}
-      <div
-        className="sticky top-16 sm:top-20 z-40 -mx-4 sm:mx-0 px-4 py-3 backdrop-blur-md"
-        style={{
-          background: "rgba(255, 254, 242, 0.92)",
-          borderBottom: "1px solid var(--aura-border)",
-        }}
-      >
-        <div className="flex items-center justify-between text-xs sm:text-sm font-semibold text-[var(--aura-text-soft)] mb-2">
-          <span>Progresso</span>
-          <span className="text-[var(--aura-blue)] counter-tabular">
-            {progress} de {TOTAL_CARDS}
+    <div className="max-w-3xl mx-auto px-4 sm:px-6 py-8">
+      <div className="mb-8">
+        <div className="flex items-center justify-between mb-2">
+          <span className="text-xs font-bold uppercase tracking-wider text-[var(--aura-text-muted)]">
+            {blocoAtual.emoji} {blocoAtual.titulo}
+          </span>
+          <span className="text-xs text-[var(--aura-text-muted)]">
+            {step + 1} de {TOTAL_STEPS}
           </span>
         </div>
-        <div className="h-2 bg-[var(--aura-bg-soft)] rounded-full overflow-hidden">
+        <div className="h-2 rounded-full overflow-hidden" style={{ background: "rgba(15,27,61,0.10)" }}>
           <div
-            className="h-full transition-all duration-500"
+            className="h-full transition-all duration-500 rounded-full"
             style={{
-              width: `${(progress / TOTAL_CARDS) * 100}%`,
-              background:
-                "linear-gradient(90deg, var(--aura-yellow) 0%, var(--aura-orange) 100%)",
+              width: `${((step + 1) / TOTAL_STEPS) * 100}%`,
+              background: "linear-gradient(90deg, var(--aura-blue) 0%, var(--aura-yellow) 100%)",
             }}
           />
         </div>
+        <p className="text-sm text-[var(--aura-text-muted)] mt-3">{blocoAtual.subtitulo}</p>
       </div>
 
-      {/* CARD 1 — Serviços */}
-      <Card numero={1} titulo="Serviços que a Aura vai oferecer">
-        <p className="text-sm text-[var(--aura-text-muted)] mb-4">
-          Marque tudo que faz parte da sua operação Aura — pode ser tudo que já
-          presta hoje ou vai começar a prestar.
-        </p>
-        <div className="grid sm:grid-cols-2 gap-2">
-          {SERVICOS_OPCOES.map((s) => (
-            <CheckboxRow
-              key={s}
-              label={s}
-              checked={data.servicos.includes(s)}
-              onToggle={() => toggleArrayItem("servicos", s)}
-            />
-          ))}
+      <div className="space-y-6">
+        {step === 0 && <BlocoIdentificacao data={data} update={updateField} />}
+        {step === 1 && <Bloco1Operacao data={data} update={updateField} />}
+        {step === 2 && <Bloco2ClienteIdeal data={data} update={updateField} toggle={toggleArrayItem} />}
+        {step === 3 && <Bloco3Posicionamento data={data} update={updateField} toggle={toggleArrayItem} />}
+        {step === 4 && <Bloco4Catalogo data={data} update={updateField} toggle={toggleArrayItem} />}
+        {step === 5 && <Bloco5Financiamento data={data} update={updateField} toggle={toggleArrayItem} />}
+        {step === 6 && <Bloco6Heros data={data} update={updateField} toggle={toggleArrayItem} />}
+        {step === 7 && <Bloco7Estrategia data={data} update={updateField} toggle={toggleArrayItem} />}
+        {step === 8 && <Bloco8Diferenciais data={data} update={updateField} toggle={toggleArrayItem} />}
+        {step === 9 && <Bloco9Decisoes data={data} update={updateField} />}
+      </div>
+
+      {error && (
+        <div className="mt-6 p-4 rounded-lg text-sm" style={{ background: "rgba(220,38,38,0.10)", border: "1px solid rgba(220,38,38,0.30)", color: "#DC2626" }}>
+          {error}
         </div>
-        <TextInput
-          label="Outro serviço (se tiver)"
-          value={data.servicosOutro || ""}
-          onChange={(v) => update("servicosOutro", v)}
-          placeholder="Algo que não está na lista?"
-        />
-      </Card>
+      )}
 
-      {/* CARD 2 — Equipamentos */}
-      <Card numero={2} titulo="Equipamentos que você usa / vai usar">
-        <p className="text-sm text-[var(--aura-text-muted)] mb-4">
-          Marque marcas que você trabalha hoje E que pretende oferecer na Aura.
-        </p>
-        <div className="space-y-4">
-          <div>
-            <div className="text-xs font-bold uppercase tracking-widest text-[var(--aura-text-muted)] mb-2">
-              Painéis
-            </div>
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
-              {PAINEIS_OPCOES.map((p) => (
-                <CheckboxRow
-                  key={p}
-                  label={p}
-                  compact
-                  checked={data.paineis.includes(p)}
-                  onToggle={() => toggleArrayItem("paineis", p)}
-                />
-              ))}
-            </div>
-            <TextInput
-              label="Outro painel"
-              value={data.paineisOutro || ""}
-              onChange={(v) => update("paineisOutro", v)}
-              compact
-            />
-          </div>
-
-          <div>
-            <div className="text-xs font-bold uppercase tracking-widest text-[var(--aura-text-muted)] mb-2">
-              Inversores
-            </div>
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
-              {INVERSORES_OPCOES.map((i) => (
-                <CheckboxRow
-                  key={i}
-                  label={i}
-                  compact
-                  checked={data.inversores.includes(i)}
-                  onToggle={() => toggleArrayItem("inversores", i)}
-                />
-              ))}
-            </div>
-            <TextInput
-              label="Outro inversor"
-              value={data.inversoresOutro || ""}
-              onChange={(v) => update("inversoresOutro", v)}
-              compact
-            />
-          </div>
-        </div>
-      </Card>
-
-      {/* CARD 3 — Comercial */}
-      <Card numero={3} titulo="Comercial — preço, prazo, pagamento">
-        <div className="space-y-5">
-          <div>
-            <div className="text-xs font-bold uppercase tracking-widest text-[var(--aura-text-muted)] mb-3">
-              Faixa de ticket residencial
-            </div>
-            <div className="grid grid-cols-2 gap-3">
-              <NumberInput
-                label="Mínimo (R$)"
-                value={data.ticketResidencialMin}
-                onChange={(v) => update("ticketResidencialMin", v)}
-              />
-              <NumberInput
-                label="Máximo (R$)"
-                value={data.ticketResidencialMax}
-                onChange={(v) => update("ticketResidencialMax", v)}
-              />
-            </div>
-          </div>
-
-          <div>
-            <div className="text-xs font-bold uppercase tracking-widest text-[var(--aura-text-muted)] mb-3">
-              Faixa de ticket comercial
-            </div>
-            <div className="grid grid-cols-2 gap-3">
-              <NumberInput
-                label="Mínimo (R$)"
-                value={data.ticketComercialMin}
-                onChange={(v) => update("ticketComercialMin", v)}
-              />
-              <NumberInput
-                label="Máximo (R$)"
-                value={data.ticketComercialMax}
-                onChange={(v) => update("ticketComercialMax", v)}
-              />
-            </div>
-          </div>
-
-          <NumberInput
-            label="Prazo médio do orçamento à entrega final (dias)"
-            value={data.prazoMedioDias}
-            onChange={(v) => update("prazoMedioDias", v)}
-          />
-
-          <div>
-            <div className="text-xs font-bold uppercase tracking-widest text-[var(--aura-text-muted)] mb-2">
-              Modalidades de pagamento que oferece
-            </div>
-            <div className="space-y-2">
-              {PAGAMENTO_OPCOES.map((p) => (
-                <CheckboxRow
-                  key={p}
-                  label={p}
-                  checked={data.pagamento.includes(p)}
-                  onToggle={() => toggleArrayItem("pagamento", p)}
-                />
-              ))}
-            </div>
-            <TextInput
-              label="Outra modalidade"
-              value={data.pagamentoOutro || ""}
-              onChange={(v) => update("pagamentoOutro", v)}
-              compact
-            />
-          </div>
-        </div>
-      </Card>
-
-      {/* CARD 4 — Técnico */}
-      <Card numero={4} titulo="Engenheiro responsável (CREA-TO)">
-        <p className="text-sm text-[var(--aura-text-muted)] mb-4">
-          Quem assina ART em todo projeto?
-        </p>
-        <div className="space-y-2 mb-4">
-          {ENGENHEIRO_OPCOES.map((e) => (
-            <RadioRow
-              key={e}
-              label={e}
-              checked={data.engenheiroResponsavel === e}
-              onSelect={() => update("engenheiroResponsavel", e)}
-            />
-          ))}
-        </div>
-        <TextInput
-          label="Nome do engenheiro"
-          value={data.engenheiroNome || ""}
-          onChange={(v) => update("engenheiroNome", v)}
-        />
-        <TextInput
-          label="CREA-TO nº"
-          value={data.engenheiroCrea || ""}
-          onChange={(v) => update("engenheiroCrea", v)}
-          placeholder="Ex: 12345"
-        />
-      </Card>
-
-      {/* CARD 5 — Operação */}
-      <Card numero={5} titulo="Operação atual + cobertura Aura">
-        <div className="space-y-4">
-          <NumberInput
-            label="Anos da Brasfrio em Palmas"
-            value={data.anosBrasfrio}
-            onChange={(v) => update("anosBrasfrio", v)}
-          />
-          <NumberInput
-            label="Quantas instalações solar a Brasfrio já fez (estimativa)"
-            value={data.numInstalacoes}
-            onChange={(v) => update("numInstalacoes", v)}
-          />
-          <div>
-            <div className="text-xs font-bold uppercase tracking-widest text-[var(--aura-text-muted)] mb-2">
-              Cobertura geográfica que a Aura vai atender
-            </div>
-            <div className="space-y-2">
-              {COBERTURA_OPCOES.map((c) => (
-                <RadioRow
-                  key={c}
-                  label={c}
-                  checked={data.cobertura === c}
-                  onSelect={() => update("cobertura", c)}
-                />
-              ))}
-            </div>
-          </div>
-        </div>
-      </Card>
-
-      {/* CARD 6 — Cliente-alvo + DOR */}
-      <Card numero={6} titulo="Cliente-alvo + a dor que você quer resolver">
-        <p className="text-sm text-[var(--aura-text-muted)] mb-4">
-          Marque os <strong>3 perfis mais importantes</strong> (em ordem que
-          você marcar = ordem de prioridade).
-        </p>
-        <div className="space-y-2 mb-5">
-          {CLIENTE_ALVO_OPCOES.map((c, i) => {
-            const idx = data.clienteAlvoTop3.indexOf(c);
-            const checked = idx >= 0;
-            const disabled = !checked && data.clienteAlvoTop3.length >= 3;
-            return (
-              <button
-                key={c}
-                type="button"
-                onClick={() => toggleArrayItem("clienteAlvoTop3", c)}
-                disabled={disabled}
-                className={`w-full text-left flex items-center gap-3 p-3 rounded-xl border transition-all ${
-                  checked
-                    ? "border-[var(--aura-yellow)] bg-[var(--aura-yellow-tint)]"
-                    : disabled
-                    ? "opacity-50 cursor-not-allowed border-[var(--aura-border)] bg-[var(--aura-bg-soft)]"
-                    : "border-[var(--aura-border)] bg-white hover:border-[var(--aura-yellow)]/40"
-                }`}
-              >
-                <span
-                  className={`w-7 h-7 rounded-full flex items-center justify-center font-bold text-sm flex-shrink-0 ${
-                    checked
-                      ? "bg-[var(--aura-yellow)] text-[var(--aura-blue-deep)]"
-                      : "bg-[var(--aura-bg-soft)] text-[var(--aura-text-muted)]"
-                  }`}
-                >
-                  {checked ? idx + 1 : "—"}
-                </span>
-                <span className="text-sm font-medium text-[var(--aura-text)]">{c}</span>
-              </button>
-            );
-          })}
-        </div>
-
-        <Textarea
-          label="⚡ Em 1-2 frases: qual problema você quer resolver criando a Aura?"
-          value={data.dorReal}
-          onChange={(v) => update("dorReal", v)}
-          placeholder="Ex: não consigo captar lead novo, dependo do boca-a-boca da Brasfrio que tá esgotando..."
-          rows={4}
-          highlight
-        />
-      </Card>
-
-      {/* CARD 7 — Posicionamento */}
-      <Card numero={7} titulo="Como a Aura se posiciona em relação à Brasfrio?">
-        <div className="space-y-2">
-          {POSICIONAMENTO_OPCOES.map((p) => (
-            <RadioRow
-              key={p}
-              label={p}
-              checked={data.posicionamento === p}
-              onSelect={() => update("posicionamento", p)}
-              big
-            />
-          ))}
-        </div>
-      </Card>
-
-      {/* CARD 8 — Investimento + Meta */}
-      <Card numero={8} titulo="Investimento + meta de 90 dias">
-        <NumberInput
-          label="Investimento mensal disponível pra digital (Meta Ads, ferramentas)"
-          value={data.investimentoMensal}
-          onChange={(v) => update("investimentoMensal", v)}
-          prefix="R$"
-          suffix="/mês"
-        />
-        <Textarea
-          label="🎯 Onde você quer estar daqui 3 meses?"
-          value={data.meta90Dias}
-          onChange={(v) => update("meta90Dias", v)}
-          placeholder="Ex: 5 vendas/mês, faturando R$ 100k, com 2 vendedores..."
-          rows={3}
-          highlight
-        />
-      </Card>
-
-      {/* CARD 9 — Materiais */}
-      <Card numero={9} titulo="Materiais que você já tem disponível">
-        <div className="grid sm:grid-cols-2 gap-3">
-          <NumberInput
-            label="Fotos da equipe trabalhando"
-            value={data.fotosEquipe}
-            onChange={(v) => update("fotosEquipe", v)}
-            compact
-          />
-          <NumberInput
-            label="Fotos de instalações concluídas"
-            value={data.fotosInstalacoes}
-            onChange={(v) => update("fotosInstalacoes", v)}
-            compact
-          />
-          <NumberInput
-            label="Vídeos"
-            value={data.videos}
-            onChange={(v) => update("videos", v)}
-            compact
-          />
-          <NumberInput
-            label="Depoimentos texto"
-            value={data.depoimentosTexto}
-            onChange={(v) => update("depoimentosTexto", v)}
-            compact
-          />
-          <NumberInput
-            label="Depoimentos vídeo"
-            value={data.depoimentosVideo}
-            onChange={(v) => update("depoimentosVideo", v)}
-            compact
-          />
-          <NumberInput
-            label="Antes/depois de conta de luz real"
-            value={data.contasAntesDepois}
-            onChange={(v) => update("contasAntesDepois", v)}
-            compact
-          />
-        </div>
-        <div className="mt-3">
-          <CheckboxRow
-            label="Tem imagens de drone das obras"
-            checked={data.imagensDrone}
-            onToggle={() => update("imagensDrone", !data.imagensDrone)}
-          />
-        </div>
-      </Card>
-
-      {/* CARD 10 — Restrições + identificação */}
-      <Card numero={10} titulo="Restrições + sua identificação">
-        <Textarea
-          label="Tem algo que você NÃO quer fazer? (opcional)"
-          value={data.restricoes || ""}
-          onChange={(v) => update("restricoes", v)}
-          placeholder="Ex: não quero mencionar Brasfrio publicamente, não respondo cliente depois das 19h..."
-          rows={3}
-        />
-        <div className="grid sm:grid-cols-2 gap-3 mt-4">
-          <TextInput
-            label="Como podemos te chamar?"
-            value={data.nome}
-            onChange={(v) => update("nome", v)}
-            placeholder="Renato Edson"
-            required
-          />
-          <TextInput
-            label="WhatsApp pra confirmar recebimento"
-            value={data.whatsapp}
-            onChange={(v) => update("whatsapp", v)}
-            placeholder="(63) 9 9268-8852"
-            required
-          />
-        </div>
-      </Card>
-
-      {/* SUBMIT */}
-      <div className="pt-6 pb-12 text-center space-y-4">
-        {error && (
-          <div
-            className="p-4 rounded-xl text-sm"
-            style={{
-              background: "rgba(239, 68, 68, 0.10)",
-              border: "1px solid rgba(239, 68, 68, 0.30)",
-              color: "#dc2626",
-            }}
-          >
-            {error}
-          </div>
-        )}
-
+      <div className="flex items-center justify-between gap-4 mt-10 pt-6 border-t border-[var(--aura-border)]">
         <button
           type="button"
-          onClick={handleSubmit}
-          disabled={!canSubmit || submitting}
-          className={`w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-5 rounded-2xl text-base sm:text-lg font-bold transition-all ${
-            canSubmit && !submitting
-              ? "btn-yellow btn-pulse"
-              : "opacity-50 cursor-not-allowed bg-[var(--aura-bg-soft)] text-[var(--aura-text-muted)]"
-          }`}
+          onClick={() => setStep(Math.max(0, step - 1))}
+          disabled={step === 0 || submitting}
+          className="px-5 py-3 rounded-xl font-semibold text-sm transition-opacity disabled:opacity-30"
+          style={{ background: "transparent", color: "var(--aura-text-muted)", border: "1px solid var(--aura-border)" }}
         >
-          {submitting ? (
-            <>Enviando...</>
-          ) : (
-            <>
-              <IconSparkles size={22} />
-              Enviar briefing pro Eduardo
-              <IconArrowRight size={20} />
-            </>
-          )}
+          ← Voltar
         </button>
 
-        {!canSubmit && !submitting && (
-          <p className="text-xs text-[var(--aura-text-muted)]">
-            Preencha pelo menos os campos obrigatórios pra enviar
-          </p>
+        {isLastStep ? (
+          <button
+            type="button"
+            onClick={handleSubmit}
+            disabled={submitting}
+            className="px-7 py-3.5 rounded-xl font-bold text-sm transition-all disabled:opacity-40"
+            style={{
+              background: "linear-gradient(135deg, var(--aura-blue) 0%, var(--aura-yellow-deep) 100%)",
+              color: "#fff",
+              boxShadow: "0 8px 20px -6px rgba(15,27,61,0.40)",
+            }}
+          >
+            {submitting ? "Enviando…" : "🎯 Enviar briefing"}
+          </button>
+        ) : (
+          <button
+            type="button"
+            onClick={() => setStep(Math.min(TOTAL_STEPS - 1, step + 1))}
+            className="px-7 py-3.5 rounded-xl font-bold text-sm transition-all"
+            style={{
+              background: "linear-gradient(135deg, var(--aura-blue) 0%, var(--aura-blue-deep) 100%)",
+              color: "#fff",
+              boxShadow: "0 8px 20px -6px rgba(15,27,61,0.40)",
+            }}
+          >
+            Próximo →
+          </button>
         )}
       </div>
-    </div>
-  );
-}
 
-// =====================================================================
-// COMPONENTES AUXILIARES
-// =====================================================================
-
-function Card({
-  numero,
-  titulo,
-  children,
-}: {
-  numero: number;
-  titulo: string;
-  children: React.ReactNode;
-}) {
-  return (
-    <section className="premium-card p-6 sm:p-8">
-      <div className="flex items-center gap-3 mb-5">
-        <span
-          className="w-10 h-10 rounded-xl flex items-center justify-center font-extrabold text-sm flex-shrink-0"
-          style={{
-            background:
-              "linear-gradient(135deg, var(--aura-yellow) 0%, var(--aura-orange) 100%)",
-            color: "var(--aura-blue-deep)",
-          }}
-        >
-          {numero}
-        </span>
-        <h2 className="text-xl sm:text-2xl font-bold text-[var(--aura-text)] leading-tight">
-          {titulo}
-        </h2>
-      </div>
-      {children}
-    </section>
-  );
-}
-
-function CheckboxRow({
-  label,
-  checked,
-  onToggle,
-  compact = false,
-}: {
-  label: string;
-  checked: boolean;
-  onToggle: () => void;
-  compact?: boolean;
-}) {
-  return (
-    <button
-      type="button"
-      onClick={onToggle}
-      className={`w-full text-left flex items-center gap-3 ${
-        compact ? "p-2.5" : "p-3"
-      } rounded-xl border transition-all ${
-        checked
-          ? "border-[var(--aura-yellow)] bg-[var(--aura-yellow-tint)]"
-          : "border-[var(--aura-border)] bg-white hover:border-[var(--aura-yellow)]/40"
-      }`}
-    >
-      <span
-        className={`w-5 h-5 rounded-md border-2 flex items-center justify-center flex-shrink-0 ${
-          checked
-            ? "bg-[var(--aura-yellow)] border-[var(--aura-yellow)] text-[var(--aura-blue-deep)]"
-            : "border-[var(--aura-border-strong)]"
-        }`}
-      >
-        {checked && <IconCheck size={14} strokeWidth={3} />}
-      </span>
-      <span className={`${compact ? "text-xs sm:text-sm" : "text-sm"} font-medium text-[var(--aura-text)]`}>
-        {label}
-      </span>
-    </button>
-  );
-}
-
-function RadioRow({
-  label,
-  checked,
-  onSelect,
-  big = false,
-}: {
-  label: string;
-  checked: boolean;
-  onSelect: () => void;
-  big?: boolean;
-}) {
-  return (
-    <button
-      type="button"
-      onClick={onSelect}
-      className={`w-full text-left flex items-start gap-3 ${
-        big ? "p-4" : "p-3"
-      } rounded-xl border transition-all ${
-        checked
-          ? "border-[var(--aura-yellow)] bg-[var(--aura-yellow-tint)]"
-          : "border-[var(--aura-border)] bg-white hover:border-[var(--aura-yellow)]/40"
-      }`}
-    >
-      <span
-        className={`w-5 h-5 rounded-full border-2 flex items-center justify-center flex-shrink-0 mt-0.5 ${
-          checked
-            ? "border-[var(--aura-yellow)]"
-            : "border-[var(--aura-border-strong)]"
-        }`}
-      >
-        {checked && (
-          <span className="w-2.5 h-2.5 rounded-full bg-[var(--aura-yellow)]" />
-        )}
-      </span>
-      <span className={`${big ? "text-sm sm:text-base" : "text-sm"} font-medium text-[var(--aura-text)] leading-relaxed`}>
-        {label}
-      </span>
-    </button>
-  );
-}
-
-function TextInput({
-  label,
-  value,
-  onChange,
-  placeholder,
-  required,
-  compact = false,
-}: {
-  label: string;
-  value: string;
-  onChange: (v: string) => void;
-  placeholder?: string;
-  required?: boolean;
-  compact?: boolean;
-}) {
-  return (
-    <label className={`block ${compact ? "mt-2" : "mt-4"}`}>
-      <span className="block text-xs font-bold uppercase tracking-widest text-[var(--aura-text-muted)] mb-2">
-        {label}{required && " *"}
-      </span>
-      <input
-        type="text"
-        value={value}
-        onChange={(e) => onChange(e.target.value)}
-        placeholder={placeholder}
-        className="form-input"
-      />
-      <style>{`
-        .form-input {
-          width: 100%;
-          padding: 0.75rem 1rem;
-          background: var(--aura-bg-soft);
-          border: 1px solid var(--aura-border);
-          border-radius: 12px;
-          font-size: 16px;
-          color: var(--aura-text);
-          transition: all 0.2s ease;
-          outline: none;
-        }
-        .form-input::placeholder { color: var(--aura-text-faded); }
-        .form-input:focus {
-          background: white;
-          border-color: var(--aura-yellow);
-          box-shadow: 0 0 0 4px rgba(245, 188, 44, 0.12);
-        }
-      `}</style>
-    </label>
-  );
-}
-
-function Textarea({
-  label,
-  value,
-  onChange,
-  placeholder,
-  rows = 3,
-  highlight = false,
-}: {
-  label: string;
-  value: string;
-  onChange: (v: string) => void;
-  placeholder?: string;
-  rows?: number;
-  highlight?: boolean;
-}) {
-  return (
-    <label className={`block mt-4 ${highlight ? "p-4 rounded-2xl" : ""}`}
-      style={highlight ? { background: "var(--aura-yellow-tint)", border: "1px solid rgba(245,188,44,0.30)" } : undefined}
-    >
-      <span className="block text-xs font-bold uppercase tracking-widest text-[var(--aura-text-muted)] mb-2">
-        {label}
-      </span>
-      <textarea
-        value={value}
-        onChange={(e) => onChange(e.target.value)}
-        placeholder={placeholder}
-        rows={rows}
-        className="form-textarea"
-      />
-      <style>{`
-        .form-textarea {
-          width: 100%;
-          padding: 0.75rem 1rem;
-          background: white;
-          border: 1px solid var(--aura-border);
-          border-radius: 12px;
-          font-size: 16px;
-          font-family: inherit;
-          color: var(--aura-text);
-          transition: all 0.2s ease;
-          outline: none;
-          resize: vertical;
-          line-height: 1.5;
-        }
-        .form-textarea::placeholder { color: var(--aura-text-faded); }
-        .form-textarea:focus {
-          border-color: var(--aura-yellow);
-          box-shadow: 0 0 0 4px rgba(245, 188, 44, 0.12);
-        }
-      `}</style>
-    </label>
-  );
-}
-
-function NumberInput({
-  label,
-  value,
-  onChange,
-  prefix,
-  suffix,
-  compact = false,
-}: {
-  label: string;
-  value: number;
-  onChange: (v: number) => void;
-  prefix?: string;
-  suffix?: string;
-  compact?: boolean;
-}) {
-  return (
-    <label className={`block ${compact ? "" : "mt-4"}`}>
-      <span className="block text-xs font-bold uppercase tracking-widest text-[var(--aura-text-muted)] mb-2">
-        {label}
-      </span>
-      <div className="relative flex items-center gap-2">
-        {prefix && (
-          <span className="text-sm font-semibold text-[var(--aura-text-muted)]">{prefix}</span>
-        )}
-        <input
-          type="number"
-          inputMode="numeric"
-          value={value}
-          onChange={(e) => onChange(Number(e.target.value) || 0)}
-          className="form-input flex-1"
-          min={0}
-        />
-        {suffix && (
-          <span className="text-sm font-semibold text-[var(--aura-text-muted)]">{suffix}</span>
-        )}
-      </div>
-    </label>
-  );
-}
-
-function SuccessScreen() {
-  return (
-    <div className="text-center py-20">
-      <div className="inline-block mb-8">
-        <div
-          className="w-24 h-24 rounded-full flex items-center justify-center mx-auto"
-          style={{
-            background:
-              "linear-gradient(135deg, #10F19F 0%, #34d399 100%)",
-            color: "white",
-            boxShadow: "0 20px 50px -10px rgba(16, 241, 159, 0.45)",
-          }}
-        >
-          <IconCheck size={48} strokeWidth={3} />
-        </div>
-      </div>
-      <h2 className="text-3xl sm:text-4xl font-bold text-[var(--aura-text)] mb-4">
-        Briefing recebido. <span className="text-gradient-aura">Tô preparando seu plano.</span>
-      </h2>
-      <p className="text-lg text-[var(--aura-text-soft)] max-w-xl mx-auto leading-relaxed mb-8">
-        Em até 2 dias úteis você recebe o plano de negócio Aura completo no
-        WhatsApp. Estratégia digital, plano de Instagram, plano de tráfego pago,
-        cronograma de 90 dias.
+      <p className="text-[11px] text-center text-[var(--aura-text-muted)] mt-4">
+        💾 Suas respostas são salvas automáticas. Pode pausar e voltar quando quiser.
       </p>
-      <a
-        href="https://wa.me/5563992688852?text=Briefing+enviado%2C+aguardando+plano+de+neg%C3%B3cio."
-        target="_blank"
-        rel="noopener"
-        className="btn-yellow inline-flex items-center gap-2 px-6 py-3.5 rounded-2xl text-base font-bold"
-      >
-        <IconWhatsApp size={20} />
-        Confirmar no WhatsApp do Eduardo
-      </a>
     </div>
+  );
+}
+
+// ─────────────────────────────────────────────────────────────────
+// HELPERS
+// ─────────────────────────────────────────────────────────────────
+
+function Field({ label, hint, children }: { label: string; hint?: string; children: React.ReactNode }) {
+  return (
+    <div className="space-y-2">
+      <label className="block text-sm font-semibold text-[var(--aura-text)]">{label}</label>
+      {hint && <p className="text-xs text-[var(--aura-text-muted)] leading-relaxed">{hint}</p>}
+      {children}
+    </div>
+  );
+}
+
+const inputStyle =
+  "w-full px-4 py-3 rounded-lg text-sm bg-white border border-[var(--aura-border)] focus:outline-none focus:ring-2 focus:ring-[var(--aura-yellow)]/30";
+
+function TextInput({ value, onChange, placeholder }: { value: string; onChange: (v: string) => void; placeholder?: string }) {
+  return <input type="text" value={value} onChange={(e) => onChange(e.target.value)} placeholder={placeholder} className={inputStyle} />;
+}
+
+function NumberInput({ value, onChange, placeholder, min = 0, max }: { value: number; onChange: (v: number) => void; placeholder?: string; min?: number; max?: number }) {
+  return <input type="number" value={value || ""} onChange={(e) => onChange(Number(e.target.value) || 0)} placeholder={placeholder} min={min} max={max} className={inputStyle} />;
+}
+
+function Textarea({ value, onChange, placeholder, rows = 4 }: { value: string; onChange: (v: string) => void; placeholder?: string; rows?: number }) {
+  return <textarea value={value} onChange={(e) => onChange(e.target.value)} placeholder={placeholder} rows={rows} className={inputStyle + " resize-y"} />;
+}
+
+function Checkbox({ checked, onChange, label }: { checked: boolean; onChange: (v: boolean) => void; label: string }) {
+  return (
+    <label className="flex items-start gap-3 p-3 rounded-lg cursor-pointer hover:bg-[var(--aura-blue)]/5 transition-colors">
+      <input type="checkbox" checked={checked} onChange={(e) => onChange(e.target.checked)} className="mt-0.5 w-5 h-5 cursor-pointer accent-[var(--aura-blue)]" />
+      <span className="text-sm text-[var(--aura-text)] leading-snug">{label}</span>
+    </label>
+  );
+}
+
+function Radio({ checked, onChange, label }: { checked: boolean; onChange: () => void; label: string }) {
+  return (
+    <label className="flex items-start gap-3 p-3 rounded-lg cursor-pointer hover:bg-[var(--aura-blue)]/5 transition-colors">
+      <input type="radio" checked={checked} onChange={onChange} className="mt-0.5 w-5 h-5 cursor-pointer accent-[var(--aura-blue)]" />
+      <span className="text-sm text-[var(--aura-text)] leading-snug">{label}</span>
+    </label>
+  );
+}
+
+// ─────────────────────────────────────────────────────────────────
+// BLOCOS
+// ─────────────────────────────────────────────────────────────────
+
+type BlocoProps = { data: BriefingData; update: <K extends keyof BriefingData>(key: K, value: BriefingData[K]) => void };
+type BlocoToggleProps = BlocoProps & { toggle: (key: keyof BriefingData, value: string) => void };
+
+function BlocoIdentificacao({ data, update }: BlocoProps) {
+  return (
+    <>
+      <Field label="Como te chamamos?" hint="Seu nome / apelido">
+        <TextInput value={data.nome} onChange={(v) => update("nome", v)} placeholder="Renato" />
+      </Field>
+      <Field label="WhatsApp" hint="Pra eu te confirmar quando receber">
+        <TextInput value={data.whatsapp} onChange={(v) => update("whatsapp", v)} placeholder="(63) 99999-9999" />
+      </Field>
+    </>
+  );
+}
+
+function Bloco1Operacao({ data, update }: BlocoProps) {
+  return (
+    <>
+      <p className="text-sm text-[var(--aura-text-muted)] bg-[var(--aura-blue)]/5 p-4 rounded-lg leading-relaxed">
+        Preciso de números duros pra LP comprovar competência. Sem isso, copy fica vazia e cliente desconfia.
+      </p>
+
+      <div className="grid grid-cols-2 gap-4">
+        <Field label="Anos da Brasfrio">
+          <NumberInput value={data.anosBrasfrio} onChange={(v) => update("anosBrasfrio", v)} />
+        </Field>
+        <Field label="Ano que começou fotovoltaico">
+          <NumberInput value={data.anoInicioFotovoltaico} onChange={(v) => update("anoInicioFotovoltaico", v)} min={2000} max={2030} />
+        </Field>
+      </div>
+
+      <div className="grid grid-cols-2 gap-4">
+        <Field label="Instalações fotovoltaicas (12m)" hint="Esse é OURO pra LP">
+          <NumberInput value={data.instalacoes12m} onChange={(v) => update("instalacoes12m", v)} />
+        </Field>
+        <Field label="Total kWp instalados (12m)">
+          <NumberInput value={data.kwpTotal12m} onChange={(v) => update("kwpTotal12m", v)} />
+        </Field>
+      </div>
+
+      <Field label="Maior projeto entregue" hint="Ex: '40 kWp pra Cliente X em Palmas, R$120k'">
+        <Textarea value={data.maiorProjeto ?? ""} onChange={(v) => update("maiorProjeto", v)} rows={2} />
+      </Field>
+
+      <p className="text-xs text-[var(--aura-text-muted)] font-semibold uppercase tracking-wider pt-2">Equipe atual</p>
+      <div className="grid grid-cols-3 gap-4">
+        <Field label="Técnicos"><NumberInput value={data.numTecnicos} onChange={(v) => update("numTecnicos", v)} /></Field>
+        <Field label="Vendas"><NumberInput value={data.numVendas} onChange={(v) => update("numVendas", v)} /></Field>
+        <Field label="Admin"><NumberInput value={data.numAdmin} onChange={(v) => update("numAdmin", v)} /></Field>
+      </div>
+
+      <div className="grid grid-cols-2 gap-4">
+        <Field label="CREA-TO PJ"><TextInput value={data.creaTO ?? ""} onChange={(v) => update("creaTO", v)} /></Field>
+        <Field label="ART pública"><TextInput value={data.artPublica ?? ""} onChange={(v) => update("artPublica", v)} /></Field>
+      </div>
+
+      <p className="text-xs text-[var(--aura-text-muted)] font-semibold uppercase tracking-wider pt-2">Prazo entrega (dias)</p>
+      <div className="grid grid-cols-2 gap-4">
+        <Field label="Residencial"><NumberInput value={data.prazoEntregaResidencial} onChange={(v) => update("prazoEntregaResidencial", v)} /></Field>
+        <Field label="Comercial"><NumberInput value={data.prazoEntregaComercial ?? 0} onChange={(v) => update("prazoEntregaComercial", v)} /></Field>
+        <Field label="Industrial"><NumberInput value={data.prazoEntregaIndustrial ?? 0} onChange={(v) => update("prazoEntregaIndustrial", v)} /></Field>
+        <Field label="Rural"><NumberInput value={data.prazoEntregaRural ?? 0} onChange={(v) => update("prazoEntregaRural", v)} /></Field>
+      </div>
+
+      <div className="space-y-2 pt-2">
+        <Checkbox checked={data.frotaPropria} onChange={(v) => update("frotaPropria", v)} label="Tem frota própria (vans/carros)" />
+        <Checkbox checked={data.ferramentaCompleta} onChange={(v) => update("ferramentaCompleta", v)} label="Ferramental completo próprio" />
+      </div>
+
+      <Field label="Projeto técnico">
+        <div className="grid grid-cols-2 gap-2">
+          <Radio checked={data.projetoInterno === "interno"} onChange={() => update("projetoInterno", "interno")} label="Interno" />
+          <Radio checked={data.projetoInterno === "terceiro"} onChange={() => update("projetoInterno", "terceiro")} label="Terceirizado" />
+        </div>
+      </Field>
+
+      <Field label="Distância máxima de Palmas (km)">
+        <NumberInput value={data.distanciaMaxKm} onChange={(v) => update("distanciaMaxKm", v)} />
+      </Field>
+    </>
+  );
+}
+
+function Bloco2ClienteIdeal({ data, update, toggle }: BlocoToggleProps) {
+  return (
+    <>
+      <p className="text-sm text-[var(--aura-text-muted)] bg-[var(--aura-blue)]/5 p-4 rounded-lg leading-relaxed">
+        5 LPs (mãe + 4 segmentadas) cada uma fala com um perfil. Sem entender quem compra, copy mira errado.
+      </p>
+
+      <p className="text-xs font-semibold uppercase tracking-wider text-[var(--aura-text-muted)]">Mix de clientes (12m) · soma 100%</p>
+      <div className="grid grid-cols-2 gap-4">
+        <Field label="Residencial (%)"><NumberInput value={data.mixResidencial} onChange={(v) => update("mixResidencial", v)} max={100} /></Field>
+        <Field label="Comercial (%)"><NumberInput value={data.mixComercial} onChange={(v) => update("mixComercial", v)} max={100} /></Field>
+        <Field label="Industrial (%)"><NumberInput value={data.mixIndustrial} onChange={(v) => update("mixIndustrial", v)} max={100} /></Field>
+        <Field label="Rural (%)"><NumberInput value={data.mixRural} onChange={(v) => update("mixRural", v)} max={100} /></Field>
+      </div>
+
+      <Field label="De onde vêm os clientes hoje?">
+        <div className="space-y-1">
+          {ORIGEM_LEAD.map((opt) => (
+            <Checkbox key={opt} checked={data.origemLead.includes(opt)} onChange={() => toggle("origemLead", opt)} label={opt} />
+          ))}
+        </div>
+      </Field>
+
+      <Field label="Qual nicho dá mais lucro %?" hint="Maior margem, não maior volume">
+        <TextInput value={data.nichoMaisLucro} onChange={(v) => update("nichoMaisLucro", v)} placeholder="Ex: comercial médio · 25% margem" />
+      </Field>
+
+      <Field label="Maior objeção de fechamento">
+        <div className="space-y-1">
+          {OBJECAO_FECHAMENTO.map((opt) => (
+            <Checkbox key={opt} checked={data.objecaoFechamento.includes(opt)} onChange={() => toggle("objecaoFechamento", opt)} label={opt} />
+          ))}
+        </div>
+      </Field>
+
+      <Field label="Maior dor inicial" hint="Primeira mensagem do cliente">
+        <div className="space-y-1">
+          {DOR_INICIAL.map((opt) => (
+            <Checkbox key={opt} checked={data.dorInicial.includes(opt)} onChange={() => toggle("dorInicial", opt)} label={opt} />
+          ))}
+        </div>
+      </Field>
+
+      <p className="text-xs font-semibold uppercase tracking-wider text-[var(--aura-text-muted)] pt-2">Ticket médio por nicho (R$)</p>
+      <div className="grid grid-cols-2 gap-4">
+        <Field label="Residencial"><NumberInput value={data.ticketResidencial} onChange={(v) => update("ticketResidencial", v)} /></Field>
+        <Field label="Comercial"><NumberInput value={data.ticketComercial} onChange={(v) => update("ticketComercial", v)} /></Field>
+        <Field label="Industrial"><NumberInput value={data.ticketIndustrial} onChange={(v) => update("ticketIndustrial", v)} /></Field>
+        <Field label="Rural"><NumberInput value={data.ticketRural} onChange={(v) => update("ticketRural", v)} /></Field>
+      </div>
+
+      <Field label="Ticket mínimo aceitável" hint="Abaixo disso não vale o esforço">
+        <NumberInput value={data.ticketMinimo} onChange={(v) => update("ticketMinimo", v)} />
+      </Field>
+    </>
+  );
+}
+
+function Bloco3Posicionamento({ data, update, toggle }: BlocoToggleProps) {
+  return (
+    <>
+      <p className="text-sm text-[var(--aura-text-muted)] bg-[var(--aura-blue)]/5 p-4 rounded-lg leading-relaxed">
+        A vibe da marca define cores, copy, filtro de cliente.
+      </p>
+
+      <Field label="Em 1 frase, quem é a Aura Energy pra você?">
+        <Textarea value={data.auraEhOQue} onChange={(v) => update("auraEhOQue", v)} rows={2} placeholder="Ex: A frente premium B2B da Brasfrio em Tocantins" />
+      </Field>
+
+      <Field label="Onde quer estar em 12 meses?">
+        <div className="space-y-1">
+          {POSICIONAMENTO_12M.map((opt) => (
+            <Radio key={opt} checked={data.posicionamento12m === opt} onChange={() => update("posicionamento12m", opt)} label={opt} />
+          ))}
+        </div>
+      </Field>
+
+      <Field label="Vibe da marca · escolhe 2">
+        <div className="space-y-1">
+          {VIBE_MARCA.map((opt) => (
+            <Checkbox key={opt} checked={data.vibeMarca.includes(opt)} onChange={() => toggle("vibeMarca", opt)} label={opt} />
+          ))}
+        </div>
+      </Field>
+
+      <Field label="Concorrente que mais te tira o sono em Palmas">
+        <TextInput value={data.concorrentePalmas} onChange={(v) => update("concorrentePalmas", v)} placeholder="Nome real, sem medo" />
+      </Field>
+
+      <Field label="3 marcas (NÃO solar) que você admira" hint="Apple, Nubank, Hospital Albert Einstein, etc">
+        <Textarea value={data.marcasAdmiradas ?? ""} onChange={(v) => update("marcasAdmiradas", v)} rows={2} />
+      </Field>
+    </>
+  );
+}
+
+function Bloco4Catalogo({ data, update, toggle }: BlocoToggleProps) {
+  return (
+    <>
+      <p className="text-sm text-[var(--aura-text-muted)] bg-[var(--aura-blue)]/5 p-4 rounded-lg leading-relaxed">
+        LPs vão ter <strong>kits públicos com preço</strong> — converte 30%+ a mais.
+      </p>
+
+      <Field label="Marcas de MÓDULOS que você usa">
+        <div className="space-y-1">
+          {MARCAS_MODULO.map((opt) => (
+            <Checkbox key={opt} checked={data.modulosUsa.includes(opt)} onChange={() => toggle("modulosUsa", opt)} label={opt} />
+          ))}
+        </div>
+      </Field>
+      <Field label="Sua marca preferida de módulo">
+        <TextInput value={data.moduloPreferido} onChange={(v) => update("moduloPreferido", v)} placeholder="Ex: Canadian Solar" />
+      </Field>
+
+      <Field label="Marcas de INVERSORES que você usa">
+        <div className="space-y-1">
+          {MARCAS_INVERSOR.map((opt) => (
+            <Checkbox key={opt} checked={data.inversoresUsa.includes(opt)} onChange={() => toggle("inversoresUsa", opt)} label={opt} />
+          ))}
+        </div>
+      </Field>
+      <Field label="Sua marca preferida de inversor">
+        <TextInput value={data.inversorPreferido} onChange={(v) => update("inversorPreferido", v)} placeholder="Ex: Deye" />
+      </Field>
+
+      <Field label="Frequência de sistemas com bateria">
+        <div className="grid grid-cols-2 gap-2">
+          <Radio checked={data.bateriaFrequencia === "frequente"} onChange={() => update("bateriaFrequencia", "frequente")} label="Frequente (>20%)" />
+          <Radio checked={data.bateriaFrequencia === "ocasional"} onChange={() => update("bateriaFrequencia", "ocasional")} label="Ocasional (5-20%)" />
+          <Radio checked={data.bateriaFrequencia === "raro"} onChange={() => update("bateriaFrequencia", "raro")} label="Raro (<5%)" />
+          <Radio checked={data.bateriaFrequencia === "nunca"} onChange={() => update("bateriaFrequencia", "nunca")} label="Nunca" />
+        </div>
+      </Field>
+      {data.bateriaFrequencia !== "nunca" && (
+        <Field label="Marcas de bateria">
+          <div className="space-y-1">
+            {MARCAS_BATERIA.map((opt) => (
+              <Checkbox key={opt} checked={(data.bateriasUsa ?? []).includes(opt)} onChange={() => toggle("bateriasUsa", opt)} label={opt} />
+            ))}
+          </div>
+        </Field>
+      )}
+
+      <p className="text-xs font-semibold uppercase tracking-wider text-[var(--aura-text-muted)] pt-2">Tabela de preços RESIDENCIAL (R$ instalado completo)</p>
+      <div className="grid grid-cols-2 gap-4">
+        <Field label="Mini 3 kWp" hint="conta até R$350"><NumberInput value={data.precoKitMini3kwp ?? 0} onChange={(v) => update("precoKitMini3kwp", v)} /></Field>
+        <Field label="Padrão 5 kWp" hint="R$ 350-600"><NumberInput value={data.precoKitPadrao5kwp ?? 0} onChange={(v) => update("precoKitPadrao5kwp", v)} /></Field>
+        <Field label="Plus 8 kWp" hint="R$ 600-900"><NumberInput value={data.precoKitPlus8kwp ?? 0} onChange={(v) => update("precoKitPlus8kwp", v)} /></Field>
+        <Field label="Premium 10 kWp" hint="R$ 900-1.200"><NumberInput value={data.precoKitPremium10kwp ?? 0} onChange={(v) => update("precoKitPremium10kwp", v)} /></Field>
+      </div>
+
+      <p className="text-xs font-semibold uppercase tracking-wider text-[var(--aura-text-muted)] pt-2">Garantias (anos)</p>
+      <div className="grid grid-cols-3 gap-4">
+        <Field label="Módulo (padrão 25)"><NumberInput value={data.garantiaModulo} onChange={(v) => update("garantiaModulo", v)} /></Field>
+        <Field label="Inversor (padrão 10)"><NumberInput value={data.garantiaInversor} onChange={(v) => update("garantiaInversor", v)} /></Field>
+        <Field label="Serviço"><NumberInput value={data.garantiaServico} onChange={(v) => update("garantiaServico", v)} /></Field>
+      </div>
+
+      <Checkbox checked={data.ofereceGarantiaPerformance} onChange={(v) => update("ofereceGarantiaPerformance", v)} label="Oferece garantia de PERFORMANCE (% mínimo de geração)" />
+      {data.ofereceGarantiaPerformance && (
+        <div className="grid grid-cols-2 gap-4">
+          <Field label="% mínimo geração"><NumberInput value={data.garantiaPerformancePct ?? 0} onChange={(v) => update("garantiaPerformancePct", v)} max={100} /></Field>
+          <Field label="Por X anos"><NumberInput value={data.garantiaPerformanceAnos ?? 0} onChange={(v) => update("garantiaPerformanceAnos", v)} /></Field>
+        </div>
+      )}
+    </>
+  );
+}
+
+function Bloco5Financiamento({ data, update, toggle }: BlocoToggleProps) {
+  return (
+    <>
+      <p className="text-sm text-[var(--aura-text-muted)] bg-[var(--aura-blue)]/5 p-4 rounded-lg leading-relaxed">
+        70% das vendas residenciais BR são financiadas. Selo de banco converte 2-3× mais.
+      </p>
+
+      <Field label="Bancos com convênio ativo">
+        <div className="space-y-1">
+          {BANCOS_SOLAR.map((opt) => (
+            <Checkbox key={opt} checked={data.bancosConvenio.includes(opt)} onChange={() => toggle("bancosConvenio", opt)} label={opt} />
+          ))}
+        </div>
+      </Field>
+
+      <Field label="Banco preferido">
+        <TextInput value={data.bancoPreferido} onChange={(v) => update("bancoPreferido", v)} placeholder="Ex: Solfácil" />
+      </Field>
+
+      <Field label="Taxa de aprovação média (%)">
+        <NumberInput value={data.taxaAprovacao} onChange={(v) => update("taxaAprovacao", v)} max={100} />
+      </Field>
+
+      <Field label="Aceita PIX como entrada parcial?">
+        <div className="space-y-1">
+          <Radio checked={data.aceitaPixEntrada === "sim_recomendo"} onChange={() => update("aceitaPixEntrada", "sim_recomendo")} label="Sim, recomendo" />
+          <Radio checked={data.aceitaPixEntrada === "sim_nao_incentivo"} onChange={() => update("aceitaPixEntrada", "sim_nao_incentivo")} label="Sim, mas não incentivo" />
+          <Radio checked={data.aceitaPixEntrada === "nao"} onChange={() => update("aceitaPixEntrada", "nao")} label="Não, financia 100%" />
+        </div>
+      </Field>
+
+      <Field label="Pronaf Bioeconomia (rural)" hint="2,75% a.a. · 5 anos carência · até R$ 165k. Diferencial RARO em Palmas.">
+        <div className="space-y-1">
+          <Radio checked={data.experienciaPronaf === "sim_varias"} onChange={() => update("experienciaPronaf", "sim_varias")} label="Sim, várias vendas" />
+          <Radio checked={data.experienciaPronaf === "sim_alguma"} onChange={() => update("experienciaPronaf", "sim_alguma")} label="Sim, alguma" />
+          <Radio checked={data.experienciaPronaf === "nao_quero_aprender"} onChange={() => update("experienciaPronaf", "nao_quero_aprender")} label="Não, mas quero aprender" />
+          <Radio checked={data.experienciaPronaf === "nao_conhecia"} onChange={() => update("experienciaPronaf", "nao_conhecia")} label="Não conhecia" />
+        </div>
+      </Field>
+    </>
+  );
+}
+
+function Bloco6Heros({ data, update, toggle }: BlocoToggleProps) {
+  return (
+    <>
+      <p className="text-sm text-[var(--aura-text-muted)] bg-[var(--aura-blue)]/5 p-4 rounded-lg leading-relaxed">
+        Pra cada LP: <strong>1 headline + 1 caso real</strong>. Foto manda no grupo WhatsApp.
+      </p>
+
+      <h3 className="text-base font-bold text-[var(--aura-blue)] pt-4">🏠 LP /casa</h3>
+      <Field label="Headline (até 12 palavras)" hint='Ex: "Sua casa em Palmas com conta de R$ 50/mês"'>
+        <TextInput value={data.heroCasaHeadline} onChange={(v) => update("heroCasaHeadline", v)} />
+      </Field>
+      <div className="grid grid-cols-2 gap-4">
+        <Field label="Bairro Palmas"><TextInput value={data.casoCasaBairro ?? ""} onChange={(v) => update("casoCasaBairro", v)} /></Field>
+        <Field label="kWp"><NumberInput value={data.casoCasaKwp ?? 0} onChange={(v) => update("casoCasaKwp", v)} /></Field>
+        <Field label="Conta antes (R$)"><NumberInput value={data.casoCasaContaAntes ?? 0} onChange={(v) => update("casoCasaContaAntes", v)} /></Field>
+        <Field label="Conta depois (R$)"><NumberInput value={data.casoCasaContaDepois ?? 0} onChange={(v) => update("casoCasaContaDepois", v)} /></Field>
+      </div>
+
+      <h3 className="text-base font-bold text-[var(--aura-blue)] pt-6">🏬 LP /comercio</h3>
+      <Field label="Headline"><TextInput value={data.heroComercioHeadline} onChange={(v) => update("heroComercioHeadline", v)} /></Field>
+      <div className="grid grid-cols-2 gap-4">
+        <Field label="Tipo (loja, clínica, etc)"><TextInput value={data.casoComercioTipo ?? ""} onChange={(v) => update("casoComercioTipo", v)} /></Field>
+        <Field label="kWp"><NumberInput value={data.casoComercioKwp ?? 0} onChange={(v) => update("casoComercioKwp", v)} /></Field>
+        <Field label="Conta antes (R$)"><NumberInput value={data.casoComercioContaAntes ?? 0} onChange={(v) => update("casoComercioContaAntes", v)} /></Field>
+        <Field label="Conta depois (R$)"><NumberInput value={data.casoComercioContaDepois ?? 0} onChange={(v) => update("casoComercioContaDepois", v)} /></Field>
+      </div>
+      <Field label="Argumento decisivo">
+        <div className="space-y-1">
+          {ARG_COMERCIAL.map((opt) => (
+            <Checkbox key={opt} checked={(data.argumentoComercial ?? []).includes(opt)} onChange={() => toggle("argumentoComercial", opt)} label={opt} />
+          ))}
+        </div>
+      </Field>
+
+      <h3 className="text-base font-bold text-[var(--aura-blue)] pt-6">🏭 LP /industria</h3>
+      <Field label="Headline"><TextInput value={data.heroIndustriaHeadline} onChange={(v) => update("heroIndustriaHeadline", v)} /></Field>
+      <div className="grid grid-cols-2 gap-4">
+        <Field label="Setor"><TextInput value={data.casoIndustriaSetor ?? ""} onChange={(v) => update("casoIndustriaSetor", v)} placeholder="alimentos, metalurgia, etc" /></Field>
+        <Field label="kWp"><NumberInput value={data.casoIndustriaKwp ?? 0} onChange={(v) => update("casoIndustriaKwp", v)} /></Field>
+        <Field label="Investimento R$"><NumberInput value={data.casoIndustriaInvest ?? 0} onChange={(v) => update("casoIndustriaInvest", v)} /></Field>
+        <Field label="Economia/mês R$"><NumberInput value={data.casoIndustriaEconomia ?? 0} onChange={(v) => update("casoIndustriaEconomia", v)} /></Field>
+        <Field label="ROI (anos)"><NumberInput value={data.casoIndustriaRoi ?? 0} onChange={(v) => update("casoIndustriaRoi", v)} /></Field>
+      </div>
+      <Field label="Argumento decisivo industrial">
+        <div className="space-y-1">
+          {ARG_INDUSTRIAL.map((opt) => (
+            <Checkbox key={opt} checked={(data.argumentoIndustrial ?? []).includes(opt)} onChange={() => toggle("argumentoIndustrial", opt)} label={opt} />
+          ))}
+        </div>
+      </Field>
+
+      <h3 className="text-base font-bold text-[var(--aura-blue)] pt-6">🌾 LP /rural</h3>
+      <Field label="Headline"><TextInput value={data.heroRuralHeadline} onChange={(v) => update("heroRuralHeadline", v)} /></Field>
+      <div className="grid grid-cols-2 gap-4">
+        <Field label="Tipo de propriedade"><TextInput value={data.casoRuralTipo ?? ""} onChange={(v) => update("casoRuralTipo", v)} placeholder="sítio/fazenda/granja" /></Field>
+        <Field label="Cidade"><TextInput value={data.casoRuralCidade ?? ""} onChange={(v) => update("casoRuralCidade", v)} /></Field>
+        <Field label="kWp"><NumberInput value={data.casoRuralKwp ?? 0} onChange={(v) => update("casoRuralKwp", v)} /></Field>
+        <Field label="Pra quê serve a energia?"><TextInput value={data.casoRuralUso ?? ""} onChange={(v) => update("casoRuralUso", v)} placeholder="irrigação/ordenha" /></Field>
+      </div>
+      <Field label="Maior bloqueio do produtor rural">
+        <div className="space-y-1">
+          {BLOQUEIO_RURAL.map((opt) => (
+            <Checkbox key={opt} checked={(data.bloqueioRural ?? []).includes(opt)} onChange={() => toggle("bloqueioRural", opt)} label={opt} />
+          ))}
+        </div>
+      </Field>
+
+      <h3 className="text-base font-bold text-[var(--aura-blue)] pt-6">🏠🏬🏭🌾 LP mãe (/)</h3>
+      <Field label="Frase de impacto" hint='Ex: "Energia solar profissional em Palmas-TO. 8 anos, mais de 500 instalações."'>
+        <Textarea value={data.heroMaeFraseImpacto} onChange={(v) => update("heroMaeFraseImpacto", v)} rows={2} />
+      </Field>
+    </>
+  );
+}
+
+function Bloco7Estrategia({ data, update, toggle }: BlocoToggleProps) {
+  return (
+    <>
+      <p className="text-sm text-[var(--aura-text-muted)] bg-[var(--aura-blue)]/5 p-4 rounded-lg leading-relaxed">
+        Promessa sem capacidade real é receita pra Aura morrer no berço.
+      </p>
+
+      <Field label="Quanto tempo/dia consegue dedicar à Aura?">
+        <div className="space-y-1">
+          {TEMPO_DIA.map((opt) => (
+            <Radio key={opt} checked={data.tempoDiaAura === opt} onChange={() => update("tempoDiaAura", opt)} label={opt} />
+          ))}
+        </div>
+      </Field>
+
+      <Field label="Quem responde WhatsApp Business da Aura?">
+        <div className="space-y-1">
+          {QUEM_RESPONDE_WPP.map((opt) => (
+            <Radio key={opt} checked={data.quemRespondeWpp === opt} onChange={() => update("quemRespondeWpp", opt)} label={opt} />
+          ))}
+        </div>
+      </Field>
+
+      <Field label="Investimento mensal em ads (R$)">
+        <NumberInput value={data.investimentoMensalAds} onChange={(v) => update("investimentoMensalAds", v)} />
+      </Field>
+
+      <Field label="Canal de captação primário">
+        <div className="space-y-1">
+          {CANAL_CAPTACAO.map((opt) => (
+            <Checkbox key={opt} checked={data.canalCaptacaoPrimario.includes(opt)} onChange={() => toggle("canalCaptacaoPrimario", opt)} label={opt} />
+          ))}
+        </div>
+      </Field>
+
+      <p className="text-xs font-semibold uppercase tracking-wider text-[var(--aura-text-muted)] pt-2">Meta de vendas Aura · 90 dias</p>
+      <div className="grid grid-cols-3 gap-4">
+        <Field label="Mês 1"><NumberInput value={data.metaMes1} onChange={(v) => update("metaMes1", v)} /></Field>
+        <Field label="Mês 2"><NumberInput value={data.metaMes2} onChange={(v) => update("metaMes2", v)} /></Field>
+        <Field label="Mês 3"><NumberInput value={data.metaMes3} onChange={(v) => update("metaMes3", v)} /></Field>
+      </div>
+    </>
+  );
+}
+
+function Bloco8Diferenciais({ data, toggle, update }: BlocoToggleProps) {
+  return (
+    <>
+      <p className="text-sm text-[var(--aura-text-muted)] bg-[var(--aura-blue)]/5 p-4 rounded-lg leading-relaxed">
+        Cada selo aqui vira <strong>redução de objeção</strong>. Cliente vê &quot;garantia 25 anos · monitoramento app · limpeza grátis ano 1&quot; → 2-3× menos objeções.
+      </p>
+
+      <Field label="O que você JÁ oferece hoje">
+        <div className="space-y-1">
+          {GARANTIAS_OFERECIDAS.map((opt) => (
+            <Checkbox key={opt} checked={data.garantiasOferece.includes(opt)} onChange={() => toggle("garantiasOferece", opt)} label={opt} />
+          ))}
+        </div>
+      </Field>
+
+      <Field label="Selos / certificações que tem">
+        <div className="space-y-1">
+          {CERTIFICACOES.map((opt) => (
+            <Checkbox key={opt} checked={data.certificacoes.includes(opt)} onChange={() => toggle("certificacoes", opt)} label={opt} />
+          ))}
+        </div>
+      </Field>
+      <Field label="Outras certificações">
+        <TextInput value={data.certificacoesOutras ?? ""} onChange={(v) => update("certificacoesOutras", v)} />
+      </Field>
+
+      <Field label="Brigada de proteção do investimento (opcional)" hint="Seguro raio/granizo? Garantia estendida? Plano mensal?">
+        <Textarea value={data.brigadaProtecao ?? ""} onChange={(v) => update("brigadaProtecao", v)} rows={3} />
+      </Field>
+    </>
+  );
+}
+
+function Bloco9Decisoes({ data, update }: BlocoProps) {
+  return (
+    <>
+      <p className="text-sm text-[var(--aura-text-muted)] bg-[var(--aura-yellow)]/15 border border-[var(--aura-yellow)]/30 p-4 rounded-lg leading-relaxed">
+        <strong>⚠️ Decisões SUAS, não nossas.</strong> Pesquisei várias coisas que PODEM virar diferencial Aura. Cada uma tem trade-off. Você marca o que faz sentido pro seu jeito.
+      </p>
+
+      <Field label="Estratégia de PREÇO nas LPs (kit residencial)">
+        <div className="space-y-1">
+          <Radio checked={data.precoLpStrategy === "preco_fixo"} onChange={() => update("precoLpStrategy", "preco_fixo")} label="Preço fixo público (converte +30% mas trava margem)" />
+          <Radio checked={data.precoLpStrategy === "faixa"} onChange={() => update("precoLpStrategy", "faixa")} label='Faixa ("a partir de R$X") — meio-termo' />
+          <Radio checked={data.precoLpStrategy === "pedir_orcamento"} onChange={() => update("precoLpStrategy", "pedir_orcamento")} label="Apenas pedir orçamento — controle total" />
+        </div>
+      </Field>
+
+      <Field label="Marca de módulo dominante">
+        <div className="space-y-1">
+          <Radio checked={data.marcaModuloDominante === "uma_marca"} onChange={() => update("marcaModuloDominante", "uma_marca")} label='1 marca dominante (selo "Aura instala Canadian Solar")' />
+          <Radio checked={data.marcaModuloDominante === "varias_marcas"} onChange={() => update("marcaModuloDominante", "varias_marcas")} label="Várias marcas (flexibilidade)" />
+          <Radio checked={data.marcaModuloDominante === "depende_nicho"} onChange={() => update("marcaModuloDominante", "depende_nicho")} label="Depende do nicho" />
+        </div>
+      </Field>
+
+      <Field label="Pronaf Bioeconomia como diferencial RURAL">
+        <div className="space-y-1">
+          <Radio checked={data.pronafEspecialista === "sim_dominar"} onChange={() => update("pronafEspecialista", "sim_dominar")} label="Sim, vou estudar e dominar" />
+          <Radio checked={data.pronafEspecialista === "sim_so_indicar"} onChange={() => update("pronafEspecialista", "sim_so_indicar")} label="Sim, mas só indico o caminho" />
+          <Radio checked={data.pronafEspecialista === "nao_agora"} onChange={() => update("pronafEspecialista", "nao_agora")} label="Não nesse momento" />
+        </div>
+      </Field>
+
+      <Field label='Bônus "Aura monta dossiê Palmas Solar grátis"' hint="40% IPTU desconto · cliente economiza R$ 500-1.500/ano">
+        <div className="space-y-1">
+          <Radio checked={data.bonusPalmasSolar === "sim_gratis"} onChange={() => update("bonusPalmasSolar", "sim_gratis")} label="Sim, ofereço grátis" />
+          <Radio checked={data.bonusPalmasSolar === "sim_cobrando"} onChange={() => update("bonusPalmasSolar", "sim_cobrando")} label="Sim, mas cobrando R$X" />
+          <Radio checked={data.bonusPalmasSolar === "nao_oferece"} onChange={() => update("bonusPalmasSolar", "nao_oferece")} label="Não ofereço — só explico que existe" />
+        </div>
+      </Field>
+
+      <Field label="Sistema com bateria (Fio B 60% em 2026 favorece)">
+        <div className="space-y-1">
+          <Radio checked={data.bateriaPosicionamento === "sim_foco"} onChange={() => update("bateriaPosicionamento", "sim_foco")} label="Sim, foco principal" />
+          <Radio checked={data.bateriaPosicionamento === "sim_upsell"} onChange={() => update("bateriaPosicionamento", "sim_upsell")} label="Sim, como upsell" />
+          <Radio checked={data.bateriaPosicionamento === "nao_agora"} onChange={() => update("bateriaPosicionamento", "nao_agora")} label="Não agora" />
+        </div>
+      </Field>
+
+      <Field label="Garantia de performance (% mínimo geração)">
+        <div className="space-y-1">
+          <Radio checked={data.garantiaPerformanceDecisao === "sim_oferecer"} onChange={() => update("garantiaPerformanceDecisao", "sim_oferecer")} label="Sim, vou oferecer" />
+          <Radio checked={data.garantiaPerformanceDecisao === "sim_com_condicoes"} onChange={() => update("garantiaPerformanceDecisao", "sim_com_condicoes")} label="Sim, com condições" />
+          <Radio checked={data.garantiaPerformanceDecisao === "nao_oferecer"} onChange={() => update("garantiaPerformanceDecisao", "nao_oferecer")} label="Não ofereço" />
+        </div>
+      </Field>
+
+      <Field label="Visita técnica pré-orçamento">
+        <div className="space-y-1">
+          <Radio checked={data.visitaTecnicaPolitica === "sim_sempre_gratis"} onChange={() => update("visitaTecnicaPolitica", "sim_sempre_gratis")} label="Sempre grátis" />
+          <Radio checked={data.visitaTecnicaPolitica === "sim_dentro_km"} onChange={() => update("visitaTecnicaPolitica", "sim_dentro_km")} label="Grátis até X km" />
+          <Radio checked={data.visitaTecnicaPolitica === "cobro_visita"} onChange={() => update("visitaTecnicaPolitica", "cobro_visita")} label="Cobro se não fechar" />
+          <Radio checked={data.visitaTecnicaPolitica === "nao_faco"} onChange={() => update("visitaTecnicaPolitica", "nao_faco")} label="Não faço (Google Earth + conta)" />
+        </div>
+      </Field>
+
+      <Field label='Pacote "tudo incluso" mensal (R$X/mês)'>
+        <div className="space-y-1">
+          <Radio checked={data.pacoteAssinaturaInteresse === "sim_top_gama"} onChange={() => update("pacoteAssinaturaInteresse", "sim_top_gama")} label="Sim, top de gama" />
+          <Radio checked={data.pacoteAssinaturaInteresse === "talvez_futuro"} onChange={() => update("pacoteAssinaturaInteresse", "talvez_futuro")} label="Talvez no futuro" />
+          <Radio checked={data.pacoteAssinaturaInteresse === "nao_faz_sentido"} onChange={() => update("pacoteAssinaturaInteresse", "nao_faz_sentido")} label="Não faz sentido em Palmas" />
+        </div>
+      </Field>
+
+      <Field label="Última pergunta" hint='"Se a Aura virasse a maior empresa de fotovoltaico de Palmas em 12 meses, o que seria diferente da sua vida hoje?"'>
+        <Textarea value={data.motivacao12m ?? ""} onChange={(v) => update("motivacao12m", v)} rows={4} />
+      </Field>
+    </>
   );
 }

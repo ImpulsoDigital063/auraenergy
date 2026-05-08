@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /
+
+# Pages internas — bloqueia indexação (uso interno)
+Disallow: /painel-renato
+Disallow: /plano-renato
+Disallow: /direcao-curso
+Disallow: /briefing
+Disallow: /economia-resultado
+Disallow: /api/
+
+# Sitemap
+Sitemap: https://auraenergy.vercel.app/sitemap.xml

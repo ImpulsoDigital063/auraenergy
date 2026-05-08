@@ -19,9 +19,9 @@ export default async function PainelBriefingDetail({
 }) {
   const { slug } = await params;
   const { token } = await searchParams;
-  const expected = process.env.BRIEFING_VIEWER_TOKEN;
+  const expected = process.env.BRIEFING_VIEWER_TOKEN?.trim();
 
-  if (!expected || token !== expected) {
+  if (!expected || token?.trim() !== expected) {
     return (
       <div className="min-h-screen flex items-center justify-center p-8 bg-[#0F1B3D] text-white">
         <div className="max-w-md text-center">

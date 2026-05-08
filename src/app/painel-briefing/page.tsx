@@ -16,8 +16,8 @@ export default async function PainelBriefingsIndex({
   searchParams: Promise<{ token?: string }>;
 }) {
   const { token } = await searchParams;
-  const expected = process.env.BRIEFING_VIEWER_TOKEN;
-  if (!expected || token !== expected) {
+  const expected = process.env.BRIEFING_VIEWER_TOKEN?.trim();
+  if (!expected || token?.trim() !== expected) {
     return (
       <div className="min-h-screen flex items-center justify-center p-8 bg-[#0F1B3D] text-white">
         <div className="max-w-md text-center">

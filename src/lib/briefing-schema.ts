@@ -356,8 +356,8 @@ export const briefingSchema = z.object({
     "nao_decidi",
   ]),
 
-  // BLOCO 7 · Heros LPs
-  heroCasaHeadline: z.string().min(5),
+  // BLOCO 7 · Heros LPs (sugestões opcionais — heros atuais ficam se Renato curtir)
+  heroCasaHeadline: z.string().optional(),
   casoCasaCliente: z.string().optional(),
   casoCasaBairro: z.string().optional(),
   casoCasaKwp: z.coerce.number().min(0).optional(),
@@ -366,7 +366,7 @@ export const briefingSchema = z.object({
   casoCasaDias: z.coerce.number().min(0).optional(),
   duvidaResidencialFrequente: z.string().optional(),
 
-  heroComercioHeadline: z.string().min(5),
+  heroComercioHeadline: z.string().optional(),
   casoComercioNome: z.string().optional(),
   casoComercioTipo: z.string().optional(),
   casoComercioBairro: z.string().optional(),
@@ -375,7 +375,7 @@ export const briefingSchema = z.object({
   casoComercioContaDepois: z.coerce.number().min(0).optional(),
   argumentoComercial: z.array(z.string()).optional(),
 
-  heroIndustriaHeadline: z.string().min(5),
+  heroIndustriaHeadline: z.string().optional(),
   casoIndustriaNome: z.string().optional(),
   casoIndustriaSetor: z.string().optional(),
   casoIndustriaKwp: z.coerce.number().min(0).optional(),
@@ -384,14 +384,14 @@ export const briefingSchema = z.object({
   casoIndustriaRoi: z.coerce.number().min(0).optional(),
   argumentoIndustrial: z.array(z.string()).optional(),
 
-  heroRuralHeadline: z.string().min(5),
+  heroRuralHeadline: z.string().optional(),
   casoRuralTipo: z.string().optional(),
   casoRuralCidade: z.string().optional(),
   casoRuralKwp: z.coerce.number().min(0).optional(),
   casoRuralUso: z.string().optional(),
   bloqueioRural: z.array(z.string()).optional(),
 
-  heroMaeFraseImpacto: z.string().min(5),
+  heroMaeFraseImpacto: z.string().optional(),
 
   // BLOCO 8 · Estratégia 90d
   tempoDiaAura: z.string().min(1),
@@ -402,6 +402,12 @@ export const briefingSchema = z.object({
   metaMes2: z.coerce.number().min(0),
   metaMes3: z.coerce.number().min(0),
 
+  // BLOCO 10 · Co-criação (Renato propõe — não só responde)
+  cocriacaoFerramentaNova: z.string().optional(),
+  cocriacaoSecaoFalta: z.string().optional(),
+  cocriacaoMudaria: z.string().optional(),
+  cocriacaoIdeaOriginal: z.string().optional(),
+
   // BLOCO 9 · Garantias e diferenciais
   garantiasOferece: z.array(z.string()),
   garantiasQuerOferecer: z.array(z.string()).optional(),
@@ -409,7 +415,7 @@ export const briefingSchema = z.object({
   certificacoesOutras: z.string().optional(),
   brigadaProtecao: z.string().optional(),
 
-  // BLOCO 10 · DECISÕES ESTRATÉGICAS
+  // BLOCO 11 · DECISÕES ESTRATÉGICAS
   precoLpStrategy: z.enum([
     "preco_fixo",
     "faixa",
@@ -628,6 +634,12 @@ export const briefingDefaults: BriefingData = {
   certificacoes: [],
   certificacoesOutras: "",
   brigadaProtecao: "",
+
+  // Co-criação defaults
+  cocriacaoFerramentaNova: "",
+  cocriacaoSecaoFalta: "",
+  cocriacaoMudaria: "",
+  cocriacaoIdeaOriginal: "",
 
   precoLpStrategy: "faixa",
   precoLpStrategyOutro: "",

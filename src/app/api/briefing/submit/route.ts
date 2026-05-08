@@ -41,7 +41,7 @@ export async function POST(req: Request) {
     await resend.emails.send({
       from: FROM_EMAIL,
       to: TO_EMAIL,
-      subject: `🎯 Briefing-V3 Aura preenchido — ${data.nome} · BESS + 9 blocos calibrados`,
+      subject: `🎯 Briefing-V3.1 Aura preenchido — ${data.nome} · BESS + co-criação + 11 blocos`,
       html,
     });
 
@@ -354,7 +354,18 @@ ul { margin: 4px 0 4px 18px; padding: 0; }
   <div class="card">${fmtList(d.certificacoes)}${d.certificacoesOutras ? `<p style='margin:8px 0 0'>Outras: ${escape(d.certificacoesOutras)}</p>` : ""}</div>
   ${d.brigadaProtecao ? `<h3>Brigada de proteção</h3><div class="card"><p style='margin:0;line-height:1.6'>${escape(d.brigadaProtecao)}</p></div>` : ""}
 
-  <h2>✨ Bloco 10 — Decisões estratégicas</h2>
+  ${
+    d.cocriacaoFerramentaNova || d.cocriacaoSecaoFalta || d.cocriacaoMudaria || d.cocriacaoIdeaOriginal
+      ? `<h2>💡 Bloco 10 — Co-criação · ideias do Renato</h2>
+  <p style="color:#92400E; font-size:13px; margin: 0 0 12px;">Renato como sócio do projeto — não como cliente respondendo. Vale ouro.</p>
+  ${d.cocriacaoFerramentaNova ? `<div class="card"><p style="margin:0 0 6px;font-size:11px;font-weight:700;text-transform:uppercase;color:#666;letter-spacing:0.04em">Ferramenta nova proposta</p><p style="margin:0;line-height:1.6">${escape(d.cocriacaoFerramentaNova)}</p></div>` : ""}
+  ${d.cocriacaoSecaoFalta ? `<div class="card"><p style="margin:0 0 6px;font-size:11px;font-weight:700;text-transform:uppercase;color:#666;letter-spacing:0.04em">Seção/conteúdo que falta</p><p style="margin:0;line-height:1.6">${escape(d.cocriacaoSecaoFalta)}</p></div>` : ""}
+  ${d.cocriacaoMudaria ? `<div class="card"><p style="margin:0 0 6px;font-size:11px;font-weight:700;text-transform:uppercase;color:#666;letter-spacing:0.04em">O que mudaria/tiraria das LPs atuais</p><p style="margin:0;line-height:1.6">${escape(d.cocriacaoMudaria)}</p></div>` : ""}
+  ${d.cocriacaoIdeaOriginal ? `<div class="highlight"><p style="margin:0 0 6px;font-size:11px;font-weight:700;text-transform:uppercase;color:#92400E;letter-spacing:0.04em">💎 Ideia ORIGINAL do Renato</p><p style="margin:0;line-height:1.7">${escape(d.cocriacaoIdeaOriginal)}</p></div>` : ""}`
+      : ""
+  }
+
+  <h2>✨ Bloco 11 — Decisões estratégicas</h2>
   <div class="card"><table>
     ${fmtRow("Estratégia de preço LPs", tr(d.precoLpStrategy))}
     ${fmtRow("Marca de módulo dominante", tr(d.marcaModuloDominante))}

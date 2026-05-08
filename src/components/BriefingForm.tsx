@@ -32,7 +32,7 @@ import { useRouter } from "next/navigation";
 const STORAGE_KEY = "aura-briefing-v3";
 const BRIEFING_SLUG = "renato-aura"; // V1: hardcoded · futuro: prop por cliente
 
-const TOTAL_STEPS = 11;
+const TOTAL_STEPS = 12;
 
 const BLOCOS = [
   { titulo: "Quem responde", subtitulo: "Pra eu confirmar recebimento", emoji: "👤" },
@@ -42,9 +42,10 @@ const BLOCOS = [
   { titulo: "Catálogo", subtitulo: "Marcas, kits, garantias", emoji: "⚡" },
   { titulo: "Financiamento", subtitulo: "Bancos parceiros + Pronaf", emoji: "🏦" },
   { titulo: "BESS · Baterias", subtitulo: "Lei 15.269/2025 + peak shaving + Fio B 60%", emoji: "🔋" },
-  { titulo: "Heros das LPs", subtitulo: "Headlines + casos por nicho", emoji: "🚀" },
+  { titulo: "Heros das LPs", subtitulo: "O que tá no ar hoje · sua sugestão se quiser ajustar", emoji: "🚀" },
   { titulo: "Estratégia 90 dias", subtitulo: "Capacidade, canal, meta", emoji: "📅" },
   { titulo: "Diferenciais", subtitulo: "Garantias, certificações", emoji: "🛡" },
+  { titulo: "Co-criação", subtitulo: "Sua hora de propor · não só responder", emoji: "💡" },
   { titulo: "Decisões estratégicas", subtitulo: "Você decide, não a gente", emoji: "✨" },
 ] as const;
 
@@ -229,7 +230,8 @@ export default function BriefingForm() {
           {step === 7 && <Bloco7Heros data={data} update={updateField} toggle={toggleArrayItem} />}
           {step === 8 && <Bloco8Estrategia data={data} update={updateField} toggle={toggleArrayItem} />}
           {step === 9 && <Bloco9Diferenciais data={data} update={updateField} toggle={toggleArrayItem} />}
-          {step === 10 && <Bloco10Decisoes data={data} update={updateField} />}
+          {step === 10 && <Bloco10Cocriacao data={data} update={updateField} />}
+          {step === 11 && <Bloco11Decisoes data={data} update={updateField} />}
         </div>
       )}
 
@@ -780,17 +782,39 @@ function Bloco6BESS({ data, update, toggle }: BlocoToggleProps) {
   );
 }
 
+function HeroAtual({ texto }: { texto: string }) {
+  return (
+    <div
+      className="rounded-xl p-4 mb-2"
+      style={{
+        background: "rgba(15,27,61,0.04)",
+        border: "1px dashed rgba(15,27,61,0.18)",
+      }}
+    >
+      <p className="text-[10px] font-bold uppercase tracking-widest text-[var(--aura-text-muted)] mb-1.5">
+        ✍️ Como tá no ar hoje
+      </p>
+      <p className="text-base font-semibold leading-snug text-[var(--aura-text)]">
+        &ldquo;{texto}&rdquo;
+      </p>
+    </div>
+  );
+}
+
 function Bloco7Heros({ data, update, toggle }: BlocoToggleProps) {
   return (
     <>
       <p className="text-sm text-[var(--aura-text-muted)] bg-[var(--aura-blue)]/5 p-4 rounded-lg leading-relaxed">
-        Pra cada LP: <strong>1 headline + 1 caso real</strong>. Foto manda no grupo WhatsApp.
+        Cada LP já tem um Hero no ar. <strong>Lê os atuais e me diz se quer ajustar</strong> — se você curtiu como tá, deixa em branco.
+        <br />Os <strong>casos reais</strong> (bairro, kWp, conta antes/depois) vão dentro da seção de cases — esses preenche aqui.
       </p>
 
       <h3 className="text-base font-bold text-[var(--aura-blue)] pt-4">🏠 LP /casa</h3>
-      <Field label="Headline (até 12 palavras)" hint='Ex: "Sua casa em Palmas com conta de R$ 50/mês"'>
-        <TextInput value={data.heroCasaHeadline} onChange={(v) => update("heroCasaHeadline", v)} />
+      <HeroAtual texto="Sua casa em Palmas pode parar de pagar luz." />
+      <Field label="Sua sugestão de headline (opcional)" hint='Como você falaria com cliente residencial? Em branco = mantém atual'>
+        <Textarea value={data.heroCasaHeadline ?? ""} onChange={(v) => update("heroCasaHeadline", v)} rows={2} placeholder="ex: Sua casa em Palmas com conta de R$ 50/mês" />
       </Field>
+      <p className="text-xs font-semibold uppercase tracking-wider text-[var(--aura-text-muted)] pt-2">📍 Caso real residencial (vira card de prova)</p>
       <div className="grid grid-cols-2 gap-4">
         <Field label="Bairro Palmas"><TextInput value={data.casoCasaBairro ?? ""} onChange={(v) => update("casoCasaBairro", v)} /></Field>
         <Field label="kWp"><NumberInput value={data.casoCasaKwp ?? 0} onChange={(v) => update("casoCasaKwp", v)} /></Field>
@@ -799,7 +823,11 @@ function Bloco7Heros({ data, update, toggle }: BlocoToggleProps) {
       </div>
 
       <h3 className="text-base font-bold text-[var(--aura-blue)] pt-6">🏬 LP /comercio</h3>
-      <Field label="Headline"><TextInput value={data.heroComercioHeadline} onChange={(v) => update("heroComercioHeadline", v)} /></Field>
+      <HeroAtual texto="Sua loja, padaria, posto pagando R$ 0 de luz." />
+      <Field label="Sua sugestão de headline (opcional)">
+        <Textarea value={data.heroComercioHeadline ?? ""} onChange={(v) => update("heroComercioHeadline", v)} rows={2} />
+      </Field>
+      <p className="text-xs font-semibold uppercase tracking-wider text-[var(--aura-text-muted)] pt-2">📍 Caso real comercial</p>
       <div className="grid grid-cols-2 gap-4">
         <Field label="Tipo (loja, clínica, etc)"><TextInput value={data.casoComercioTipo ?? ""} onChange={(v) => update("casoComercioTipo", v)} /></Field>
         <Field label="kWp"><NumberInput value={data.casoComercioKwp ?? 0} onChange={(v) => update("casoComercioKwp", v)} /></Field>
@@ -815,7 +843,11 @@ function Bloco7Heros({ data, update, toggle }: BlocoToggleProps) {
       </Field>
 
       <h3 className="text-base font-bold text-[var(--aura-blue)] pt-6">🏭 LP /industria</h3>
-      <Field label="Headline"><TextInput value={data.heroIndustriaHeadline} onChange={(v) => update("heroIndustriaHeadline", v)} /></Field>
+      <HeroAtual texto="Sua indústria pode tirar 80% do custo invisível da operação." />
+      <Field label="Sua sugestão de headline (opcional)">
+        <Textarea value={data.heroIndustriaHeadline ?? ""} onChange={(v) => update("heroIndustriaHeadline", v)} rows={2} />
+      </Field>
+      <p className="text-xs font-semibold uppercase tracking-wider text-[var(--aura-text-muted)] pt-2">📍 Caso real industrial</p>
       <div className="grid grid-cols-2 gap-4">
         <Field label="Setor"><TextInput value={data.casoIndustriaSetor ?? ""} onChange={(v) => update("casoIndustriaSetor", v)} placeholder="alimentos, metalurgia, etc" /></Field>
         <Field label="kWp"><NumberInput value={data.casoIndustriaKwp ?? 0} onChange={(v) => update("casoIndustriaKwp", v)} /></Field>
@@ -832,7 +864,11 @@ function Bloco7Heros({ data, update, toggle }: BlocoToggleProps) {
       </Field>
 
       <h3 className="text-base font-bold text-[var(--aura-blue)] pt-6">🌾 LP /rural</h3>
-      <Field label="Headline"><TextInput value={data.heroRuralHeadline} onChange={(v) => update("heroRuralHeadline", v)} /></Field>
+      <HeroAtual texto="Pivô, granja, aviário, irrigação rodando com sol de Tocantins." />
+      <Field label="Sua sugestão de headline (opcional)">
+        <Textarea value={data.heroRuralHeadline ?? ""} onChange={(v) => update("heroRuralHeadline", v)} rows={2} />
+      </Field>
+      <p className="text-xs font-semibold uppercase tracking-wider text-[var(--aura-text-muted)] pt-2">📍 Caso real rural</p>
       <div className="grid grid-cols-2 gap-4">
         <Field label="Tipo de propriedade"><TextInput value={data.casoRuralTipo ?? ""} onChange={(v) => update("casoRuralTipo", v)} placeholder="sítio/fazenda/granja" /></Field>
         <Field label="Cidade"><TextInput value={data.casoRuralCidade ?? ""} onChange={(v) => update("casoRuralCidade", v)} /></Field>
@@ -848,8 +884,9 @@ function Bloco7Heros({ data, update, toggle }: BlocoToggleProps) {
       </Field>
 
       <h3 className="text-base font-bold text-[var(--aura-blue)] pt-6">🏠🏬🏭🌾 LP mãe (/)</h3>
-      <Field label="Frase de impacto" hint='Ex: "Energia solar profissional em Palmas-TO. 8 anos, mais de 500 instalações."'>
-        <Textarea value={data.heroMaeFraseImpacto} onChange={(v) => update("heroMaeFraseImpacto", v)} rows={2} />
+      <HeroAtual texto="Que operação você quer alimentar com o sol de Tocantins?" />
+      <Field label="Sua sugestão de frase pra LP mãe (opcional)">
+        <Textarea value={data.heroMaeFraseImpacto ?? ""} onChange={(v) => update("heroMaeFraseImpacto", v)} rows={2} />
       </Field>
     </>
   );
@@ -933,7 +970,87 @@ function Bloco9Diferenciais({ data, toggle, update }: BlocoToggleProps) {
   );
 }
 
-function Bloco10Decisoes({ data, update }: BlocoProps) {
+function Bloco10Cocriacao({ data, update }: BlocoProps) {
+  return (
+    <>
+      <p className="text-sm text-[var(--aura-text-muted)] bg-[var(--aura-yellow)]/15 border border-[var(--aura-yellow)]/30 p-4 rounded-lg leading-relaxed">
+        <strong>💡 Aqui você é sócio do projeto, não cliente respondendo.</strong>
+        <br />A Aura vai ser <em>sua marca</em>, então o que você acha que falta nas LPs pra atrair mais lead — fala. Pode ser ferramenta, formato, ideia maluca. A gente sabe construir; você sabe o que funciona em Palmas.
+      </p>
+
+      <div
+        className="rounded-xl p-4 mb-2"
+        style={{
+          background: "rgba(15,27,61,0.04)",
+          border: "1px dashed rgba(15,27,61,0.18)",
+        }}
+      >
+        <p className="text-[10px] font-bold uppercase tracking-widest text-[var(--aura-text-muted)] mb-2">
+          ✍️ O que as LPs já têm hoje (pra você usar de referência)
+        </p>
+        <ul className="text-sm text-[var(--aura-text)] space-y-1 leading-relaxed">
+          <li>🔢 <strong>Simulador de economia</strong> em cada LP segmentada (cliente digita conta de luz e vê economia/payback)</li>
+          <li>🧮 <strong>Calculadora completa</strong> em /economia-resultado (cálculo dinâmico ROI 25 anos)</li>
+          <li>🩺 <strong>Diagnóstico personalizado</strong> em /diagnostico (qualifica lead antes de orçamento)</li>
+          <li>📋 <strong>Cases reais</strong> Brasfrio com fotos · ❓ <strong>FAQ</strong> por nicho</li>
+          <li>🌾 <strong>Bloco Pronaf Bioeconomia</strong> (rural) · <strong>Bloco Palmas Solar</strong> (40% IPTU)</li>
+          <li>🏷️ <strong>Comparativo</strong> Aura vs concorrentes · <strong>Galeria</strong> de instalações</li>
+          <li>📞 <strong>Cartão visita digital</strong> · <strong>Mapa</strong> de instalações Palmas</li>
+        </ul>
+      </div>
+
+      <Field
+        label="Que ferramenta NOVA você acha que ajudaria a fechar mais venda?"
+        hint="Pode ser doida — a gente avalia. Ex: dimensionador rápido por foto da conta, comparador de bancos, chat com você no WhatsApp dentro da LP, contador regressivo do Fio B, simulador BESS, calculadora ROI por nicho, agendamento de visita técnica, etc."
+      >
+        <Textarea
+          value={data.cocriacaoFerramentaNova ?? ""}
+          onChange={(v) => update("cocriacaoFerramentaNova", v)}
+          rows={4}
+          placeholder="Qualquer ideia. Mesmo que pareça difícil — fala que a gente quebra."
+        />
+      </Field>
+
+      <Field
+        label="Que SEÇÃO ou conteúdo você acha que falta nas LPs?"
+        hint="Algo que o cliente em Palmas precisa ler/ver antes de fechar e hoje não tá lá."
+      >
+        <Textarea
+          value={data.cocriacaoSecaoFalta ?? ""}
+          onChange={(v) => update("cocriacaoSecaoFalta", v)}
+          rows={3}
+          placeholder='Ex: "vídeo 60s do antes/depois", "explicação visual do Fio B", "comparativo de marcas de módulo"...'
+        />
+      </Field>
+
+      <Field
+        label="Tem algo nas LPs atuais que você MUDARIA ou TIRARIA?"
+        hint="Hero, simulador, FAQ, comparativo, qualquer seção. Sem medo — eu refaço."
+      >
+        <Textarea
+          value={data.cocriacaoMudaria ?? ""}
+          onChange={(v) => update("cocriacaoMudaria", v)}
+          rows={3}
+          placeholder='Ex: "tirar a calculadora simples e deixar só a completa", "hero da rural ficou meio frio", etc.'
+        />
+      </Field>
+
+      <Field
+        label="Alguma ideia ORIGINAL que você nunca viu concorrente fazer?"
+        hint='Algo que se a gente fizer, marca a Aura como "diferente". Pode ser oferta, formato, brinde, garantia, ritual, qualquer coisa. As ideias mais fortes nascem na cabeça de quem opera, não de marketing.'
+      >
+        <Textarea
+          value={data.cocriacaoIdeaOriginal ?? ""}
+          onChange={(v) => update("cocriacaoIdeaOriginal", v)}
+          rows={4}
+          placeholder='Ex: "garantia de raio sem custo nos 5 primeiros anos", "1 visita técnica anual de revisão grátis pra todo cliente Aura", "kit indicação: 5% economia perpétua pra quem indicar"...'
+        />
+      </Field>
+    </>
+  );
+}
+
+function Bloco11Decisoes({ data, update }: BlocoProps) {
   return (
     <>
       <p className="text-sm text-[var(--aura-text-muted)] bg-[var(--aura-yellow)]/15 border border-[var(--aura-yellow)]/30 p-4 rounded-lg leading-relaxed">

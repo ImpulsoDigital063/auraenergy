@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { browserSupabase, type BriefingRow } from "@/lib/supabase";
 
-const TOTAL_STEPS = 11;
+const TOTAL_STEPS = 12;
 
 const BLOCOS: Array<{ titulo: string; emoji: string; campos: Array<[string, string]> }> = [
   {
@@ -128,31 +128,31 @@ const BLOCOS: Array<{ titulo: string; emoji: string; campos: Array<[string, stri
     titulo: "Heros das LPs",
     emoji: "🚀",
     campos: [
-      ["heroCasaHeadline", "🏠 LP /casa · Headline"],
+      ["heroCasaHeadline", "🏠 LP /casa · Sugestão headline (vazio = curtiu atual)"],
       ["casoCasaBairro", "Caso · Bairro"],
       ["casoCasaKwp", "Caso · kWp"],
       ["casoCasaContaAntes", "Conta antes (R$)"],
       ["casoCasaContaDepois", "Conta depois (R$)"],
-      ["heroComercioHeadline", "🏬 LP /comercio · Headline"],
+      ["heroComercioHeadline", "🏬 LP /comercio · Sugestão headline"],
       ["casoComercioTipo", "Caso · Tipo"],
       ["casoComercioKwp", "Caso · kWp"],
       ["casoComercioContaAntes", "Conta antes"],
       ["casoComercioContaDepois", "Conta depois"],
       ["argumentoComercial", "Argumento comercial"],
-      ["heroIndustriaHeadline", "🏭 LP /industria · Headline"],
+      ["heroIndustriaHeadline", "🏭 LP /industria · Sugestão headline"],
       ["casoIndustriaSetor", "Setor"],
       ["casoIndustriaKwp", "kWp"],
       ["casoIndustriaInvest", "Investimento (R$)"],
       ["casoIndustriaEconomia", "Economia mensal"],
       ["casoIndustriaRoi", "ROI (anos)"],
       ["argumentoIndustrial", "Argumento industrial"],
-      ["heroRuralHeadline", "🌾 LP /rural · Headline"],
+      ["heroRuralHeadline", "🌾 LP /rural · Sugestão headline"],
       ["casoRuralTipo", "Tipo de propriedade"],
       ["casoRuralCidade", "Cidade"],
       ["casoRuralKwp", "kWp"],
       ["casoRuralUso", "Uso"],
       ["bloqueioRural", "Bloqueio rural"],
-      ["heroMaeFraseImpacto", "🏠🏬🏭🌾 LP mãe · Frase de impacto"],
+      ["heroMaeFraseImpacto", "🏠🏬🏭🌾 LP mãe · Sugestão frase impacto"],
     ],
   },
   {
@@ -176,6 +176,16 @@ const BLOCOS: Array<{ titulo: string; emoji: string; campos: Array<[string, stri
       ["certificacoes", "Selos/certificações"],
       ["certificacoesOutras", "Outras certificações"],
       ["brigadaProtecao", "Brigada de proteção"],
+    ],
+  },
+  {
+    titulo: "Co-criação · ideias do Renato",
+    emoji: "💡",
+    campos: [
+      ["cocriacaoFerramentaNova", "Ferramenta nova proposta"],
+      ["cocriacaoSecaoFalta", "Seção/conteúdo que falta"],
+      ["cocriacaoMudaria", "O que mudaria/tiraria"],
+      ["cocriacaoIdeaOriginal", "💎 Ideia ORIGINAL"],
     ],
   },
   {

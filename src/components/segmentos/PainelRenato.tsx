@@ -80,20 +80,20 @@ Tem caso-tipo de planta 200 kWp com TIR 22% a.a., payback 4,5 anos. Considera de
     observacao: "Manda pra: decisor industrial, frigorífico, cerâmica, metalúrgica. Ticket R$ 150-800k. Tom mais formal.",
   },
   {
-    slug: "fazenda",
-    label: "Sua fazenda",
+    slug: "rural",
+    label: "Sua propriedade rural",
     icon: <IconTractor size={22} />,
     cor: "#15803D",
     corSoft: "rgba(21, 128, 61, 0.10)",
-    url: `${BASE_URL}/fazenda`,
-    whatsMsg: `Oi! Sobre solar pra sua fazenda — montei essa página com pivô, granja, aviário e Pronaf:
+    url: `${BASE_URL}/rural`,
+    whatsMsg: `Oi! Sobre solar pra sua propriedade rural — montei essa página com fazenda, sítio, granja, pivô e Pronaf:
 
-${BASE_URL}/fazenda
+${BASE_URL}/rural
 
-Tem caso-tipo de propriedade com pivô + granja, payback 3,8 anos com Pronaf 0,5% a.m. Eu cuido do enquadramento e da documentação que o banco pede.
+Tem caso-tipo com pivô + granja, payback 3,8 anos com Pronaf 0,5% a.m. Eu cuido do enquadramento e da documentação que o banco pede.
 
 — Renato Edson · Aura Energy`,
-    observacao: "Manda pra: produtor rural, fazenda, sítio, irrigação. Ticket R$ 80-300k.",
+    observacao: "Manda pra: produtor rural, fazenda, sítio, chácara, irrigação. Ticket R$ 80-300k.",
   },
 ];
 

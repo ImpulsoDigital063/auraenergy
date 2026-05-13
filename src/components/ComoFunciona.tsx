@@ -7,17 +7,17 @@ import {
   IconPanelGrid,
   IconShield,
 } from "./Icons";
+import type { PassoFoto } from "./segmentos/galerias-fotos";
+import { PASSOS_CASA } from "./segmentos/galerias-fotos";
 
-const PASSOS = [
+const CONTEUDO_PASSOS = [
   {
     n: "01",
     titulo: "Visita técnica gratuita",
     desc:
-      "Vamos até o local, medimos seu telhado, analisamos sua conta de luz e desenhamos o sistema ideal. Sem compromisso.",
+      "Vamos até o local, medimos seu telhado/galpão/área, analisamos sua conta de luz e desenhamos o sistema ideal. Sem compromisso.",
     prazo: "Em até 48h",
     icon: <IconChart size={26} />,
-    foto: "https://images.unsplash.com/photo-1581094289810-adf5d25690e3?w=800&q=85&auto=format&fit=crop",
-    fotoAlt: "Engenheiro fazendo visita técnica em telhado residencial",
   },
   {
     n: "02",
@@ -26,8 +26,6 @@ const PASSOS = [
       "Engenheiro responsável assina ART, projeta layout e envia pra Energisa Tocantins. Microgeração é homologada em até 15 dias úteis.",
     prazo: "10 a 15 dias úteis",
     icon: <IconShield size={26} />,
-    foto: "https://images.unsplash.com/photo-1581094288338-2314dddb7ece?w=800&q=85&auto=format&fit=crop",
-    fotoAlt: "Engenheiro elaborando projeto fotovoltaico",
   },
   {
     n: "03",
@@ -36,8 +34,6 @@ const PASSOS = [
       "Equipe própria instala painéis Tier 1 (Trina, Canadian, Jinko) + inversor (Growatt, Sungrow). Sem barulho excessivo, sem bagunça.",
     prazo: "1 a 3 dias",
     icon: <IconPanelGrid size={26} />,
-    foto: "https://images.unsplash.com/photo-1497440001374-f26997328c1b?w=800&q=85&auto=format&fit=crop",
-    fotoAlt: "Técnicos da Aura Energy instalando painéis solares no telhado",
   },
   {
     n: "04",
@@ -46,12 +42,19 @@ const PASSOS = [
       "Energisa troca o medidor por bidirecional, sistema é ativado e você passa a gerar a própria energia. App de monitoramento no celular.",
     prazo: "Mesmo dia da vistoria",
     icon: <IconClock size={26} />,
-    foto: "https://images.unsplash.com/photo-1611365892117-bce8ea1ddd47?w=800&q=85&auto=format&fit=crop",
-    fotoAlt: "Sistema fotovoltaico instalado e gerando energia",
   },
 ];
 
-export default function ComoFunciona() {
+type ComoFuncionaProps = {
+  fotos?: PassoFoto[];
+};
+
+export default function ComoFunciona({ fotos = PASSOS_CASA }: ComoFuncionaProps) {
+  const PASSOS = CONTEUDO_PASSOS.map((p, i) => ({
+    ...p,
+    foto: fotos[i]?.url ?? PASSOS_CASA[i].url,
+    fotoAlt: fotos[i]?.alt ?? PASSOS_CASA[i].alt,
+  }));
   return (
     <section
       id="como-funciona"

@@ -3,15 +3,9 @@
 import Image from "next/image";
 
 // =====================================================================
-// PLANO DE NEGÓCIO & MARKETING AURA ENERGY — v4.0
-// Refundido B2B-first · 2026-05-06 · pré-reunião 06/05
+// PLANO COMPLETO AURA ENERGY — formato Impulso Digital
+// Foco: execução tática · o que a Impulso entrega no lançamento da Aura
 // Otimizado pra impressão (Ctrl+P → Salvar como PDF)
-//
-// Decisões cromáticas (Eduardo: SEM preto, impressora não imprime):
-// - Texto principal: #1B3A87 (azul Aura)
-// - Headlines: #1B3A87 (azul Aura)
-// - Destaques: #F5BC2C (amarelo) + #FF8B3D (laranja)
-// - Background: #fffef2 (cream warm Aesop)
 // =====================================================================
 
 export default function PlanoRenatoView() {
@@ -122,6 +116,87 @@ export default function PlanoRenatoView() {
           border-left-color: var(--plano-green);
         }
 
+        .plano-flow {
+          background: var(--plano-cream-card);
+          border: 1px solid var(--plano-border);
+          border-radius: 12px;
+          padding: 20px;
+          margin: 16px 0;
+          font-family: "SF Mono", "Monaco", "Inconsolata", monospace;
+          font-size: 12px;
+          line-height: 1.8;
+          color: var(--plano-blue);
+        }
+
+        .plano-page-marker {
+          display: inline-block;
+          font-size: 10px;
+          font-weight: 800;
+          text-transform: uppercase;
+          letter-spacing: 0.18em;
+          color: var(--plano-yellow-deep);
+          background: var(--plano-cream-card);
+          padding: 5px 14px;
+          border-radius: 999px;
+          margin-bottom: 16px;
+          border: 1px solid var(--plano-border);
+        }
+
+        .plano-toc {
+          list-style: none;
+          padding: 0;
+          margin: 16px 0;
+        }
+
+        .plano-toc li {
+          display: flex;
+          align-items: baseline;
+          gap: 12px;
+          padding: 10px 0;
+          border-bottom: 1px dashed var(--plano-border);
+          font-size: 14px;
+        }
+
+        .plano-toc li:last-child {
+          border-bottom: none;
+        }
+
+        .plano-toc a {
+          color: var(--plano-blue);
+          text-decoration: none;
+          font-weight: 600;
+          flex: 1;
+        }
+
+        .plano-toc a:hover {
+          color: var(--plano-orange);
+          text-decoration: underline;
+        }
+
+        .plano-toc-page {
+          font-family: "SF Mono", "Monaco", monospace;
+          font-size: 12px;
+          font-weight: 700;
+          color: var(--plano-yellow-deep);
+          background: var(--plano-cream-card);
+          padding: 3px 10px;
+          border-radius: 6px;
+          min-width: 60px;
+          text-align: center;
+          flex-shrink: 0;
+        }
+
+        .plano-toc-dots {
+          flex: 0 1 auto;
+          border-bottom: 1px dotted var(--plano-text-muted);
+          margin: 0 4px;
+          opacity: 0.4;
+          height: 1px;
+          align-self: end;
+          margin-bottom: 6px;
+          min-width: 20px;
+        }
+
         .plano-page {
           page-break-after: always;
         }
@@ -147,7 +222,7 @@ export default function PlanoRenatoView() {
             size: A4;
             margin: 22mm 14mm 24mm 14mm;
             @bottom-center {
-              content: "Aura Energy · Plano de Negócio v4.0 · página "
+              content: "Aura Energy · Plano Completo · página "
                 counter(page) " de " counter(pages);
               font-family: "Inter", sans-serif;
               font-size: 9pt;
@@ -198,7 +273,7 @@ export default function PlanoRenatoView() {
         }
       `}</style>
 
-      {/* Botões fixos no topo (oculto no print) */}
+      {/* Botões fixos no topo */}
       <div
         className="no-print"
         style={{
@@ -254,9 +329,10 @@ export default function PlanoRenatoView() {
           padding: "48px 32px 96px",
         }}
       >
-        {/* ═══════════════════════ CAPA ═══════════════════════ */}
+        {/* ═══════════════════════ CAPA (Pág. 1) ═══════════════════════ */}
         <section
           className="plano-page"
+          id="capa"
           style={{
             minHeight: "calc(100vh - 120px)",
             display: "flex",
@@ -264,318 +340,614 @@ export default function PlanoRenatoView() {
             justifyContent: "center",
             alignItems: "center",
             textAlign: "center",
-            padding: "60px 20px",
+            padding: "40px 20px",
+            position: "relative",
+            background:
+              "radial-gradient(ellipse at top, rgba(245, 188, 44, 0.10) 0%, rgba(255, 254, 242, 0) 60%), radial-gradient(ellipse at bottom, rgba(27, 58, 135, 0.05) 0%, rgba(255, 254, 242, 0) 50%)",
           }}
         >
-          <Image
-            src="/logo-aura.png"
-            alt="Aura Energy"
-            width={140}
-            height={140}
-            style={{ width: 120, height: 120, objectFit: "contain" }}
-            unoptimized
-          />
-
+          {/* Selo confidencial top */}
           <div
             style={{
-              fontSize: 11,
-              fontWeight: 700,
+              position: "absolute",
+              top: 30,
+              left: "50%",
+              transform: "translateX(-50%)",
+              display: "flex",
+              alignItems: "center",
+              gap: 8,
+              fontSize: 9,
+              fontWeight: 800,
+              letterSpacing: "0.25em",
+              color: "var(--plano-text-muted)",
               textTransform: "uppercase",
-              letterSpacing: "0.18em",
-              color: "var(--plano-yellow-deep)",
-              marginTop: 32,
-              marginBottom: 16,
             }}
           >
-            Consultoria Estratégica · Plano de Negócio & Marketing
+            <span style={{ width: 24, height: 1, background: "var(--plano-text-muted)", opacity: 0.4 }} />
+            Documento confidencial
+            <span style={{ width: 24, height: 1, background: "var(--plano-text-muted)", opacity: 0.4 }} />
           </div>
 
+          {/* Logo com glow */}
+          <div
+            style={{
+              position: "relative",
+              marginTop: 60,
+              padding: 24,
+              borderRadius: "50%",
+              background: "radial-gradient(circle, rgba(245, 188, 44, 0.18) 0%, rgba(245, 188, 44, 0) 70%)",
+            }}
+          >
+            <Image
+              src="/logo-aura.png"
+              alt="Aura Energy"
+              width={180}
+              height={180}
+              style={{ width: 160, height: 160, objectFit: "contain" }}
+              unoptimized
+            />
+          </div>
+
+          {/* Selo Impulso */}
+          <div
+            style={{
+              fontSize: 10,
+              fontWeight: 800,
+              textTransform: "uppercase",
+              letterSpacing: "0.30em",
+              color: "var(--plano-yellow-deep)",
+              marginTop: 36,
+              padding: "6px 16px",
+              border: "1px solid var(--plano-border)",
+              borderRadius: 999,
+              background: "rgba(255, 255, 255, 0.6)",
+              backdropFilter: "blur(8px)",
+            }}
+          >
+            Impulso Digital · Plano Completo
+          </div>
+
+          {/* Título principal */}
           <h1
             style={{
-              fontSize: 56,
-              fontWeight: 800,
-              lineHeight: 1.05,
-              marginBottom: 16,
-              color: "var(--plano-blue)",
-              letterSpacing: "-0.02em",
+              fontSize: 72,
+              fontWeight: 900,
+              lineHeight: 1,
+              marginTop: 20,
+              marginBottom: 12,
+              color: "var(--plano-blue-deep)",
+              letterSpacing: "-0.03em",
+              background:
+                "linear-gradient(135deg, #0E2152 0%, #1B3A87 50%, #2D52A8 100%)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+              backgroundClip: "text",
             }}
           >
             Aura Energy
           </h1>
 
+          {/* Linha decorativa */}
+          <div
+            style={{
+              width: 80,
+              height: 4,
+              background:
+                "linear-gradient(90deg, #F5BC2C 0%, #FF8B3D 100%)",
+              borderRadius: 2,
+              margin: "20px 0",
+            }}
+          />
+
+          {/* Subtítulo */}
+          <h2
+            style={{
+              fontSize: 22,
+              fontWeight: 600,
+              color: "var(--plano-text-soft)",
+              maxWidth: 520,
+              marginBottom: 8,
+              letterSpacing: "-0.01em",
+            }}
+          >
+            Plano Completo de Lançamento e Captação Digital
+          </h2>
+
+          {/* Tagline */}
           <p
             style={{
-              fontSize: 18,
-              color: "var(--plano-text-soft)",
-              maxWidth: 580,
-              marginBottom: 40,
+              fontSize: 15,
+              fontStyle: "italic",
+              color: "var(--plano-text-muted)",
+              marginBottom: 36,
             }}
           >
-            Plano consultivo entregue ao engenheiro responsável <strong>Renato
-            Edson</strong> pra orientar os próximos 90 dias da operação Aura
-            Energy em Tocantins — pivot B2B, posicionamento premium, vácuos
-            de mercado mapeados, ações operacionais cravadas.
+            90 dias de estratégia · execução · resultado
           </p>
 
+          {/* 3 pilares visuais */}
           <div
             style={{
-              background: "var(--plano-cream-card)",
+              display: "flex",
+              gap: 12,
+              marginBottom: 40,
+              flexWrap: "wrap",
+              justifyContent: "center",
+            }}
+          >
+            {[
+              { letter: "1", title: "Posicionamento" },
+              { letter: "2", title: "Captação" },
+              { letter: "3", title: "Conversão" },
+            ].map((pilar) => (
+              <div
+                key={pilar.title}
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: 8,
+                  padding: "10px 16px",
+                  background: "rgba(255, 255, 255, 0.6)",
+                  border: "1px solid var(--plano-border)",
+                  borderRadius: 999,
+                  backdropFilter: "blur(8px)",
+                }}
+              >
+                <span
+                  style={{
+                    width: 22,
+                    height: 22,
+                    borderRadius: "50%",
+                    background:
+                      "linear-gradient(135deg, #F5BC2C 0%, #FF8B3D 100%)",
+                    color: "#0E2152",
+                    fontSize: 11,
+                    fontWeight: 900,
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                  }}
+                >
+                  {pilar.letter}
+                </span>
+                <span style={{ fontSize: 13, fontWeight: 700, color: "var(--plano-blue)" }}>
+                  {pilar.title}
+                </span>
+              </div>
+            ))}
+          </div>
+
+          {/* Card de dados */}
+          <div
+            style={{
+              background: "white",
               border: "1px solid var(--plano-border)",
               borderRadius: 16,
-              padding: "20px 32px",
-              maxWidth: 480,
+              padding: "24px 32px",
+              maxWidth: 540,
+              width: "100%",
+              boxShadow: "0 12px 40px -16px rgba(27, 58, 135, 0.18)",
+              position: "relative",
+              overflow: "hidden",
             }}
           >
+            {/* Faixa lateral colorida */}
             <div
               style={{
-                fontSize: 11,
-                fontWeight: 700,
-                textTransform: "uppercase",
-                letterSpacing: "0.12em",
-                color: "var(--plano-yellow-deep)",
-                marginBottom: 8,
+                position: "absolute",
+                left: 0,
+                top: 0,
+                bottom: 0,
+                width: 6,
+                background:
+                  "linear-gradient(180deg, #F5BC2C 0%, #FF8B3D 100%)",
               }}
-            >
-              Versão · Data · Autoria
+            />
+
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16, textAlign: "left" }}>
+              <div>
+                <div style={{ fontSize: 9, fontWeight: 800, textTransform: "uppercase", letterSpacing: "0.12em", color: "var(--plano-yellow-deep)", marginBottom: 4 }}>Cliente</div>
+                <div style={{ fontSize: 14, fontWeight: 700, color: "var(--plano-blue-deep)" }}>Renato Edson</div>
+              </div>
+              <div>
+                <div style={{ fontSize: 9, fontWeight: 800, textTransform: "uppercase", letterSpacing: "0.12em", color: "var(--plano-yellow-deep)", marginBottom: 4 }}>Negócio</div>
+                <div style={{ fontSize: 14, fontWeight: 700, color: "var(--plano-blue-deep)" }}>Aura Energy</div>
+              </div>
+              <div>
+                <div style={{ fontSize: 9, fontWeight: 800, textTransform: "uppercase", letterSpacing: "0.12em", color: "var(--plano-yellow-deep)", marginBottom: 4 }}>Localização</div>
+                <div style={{ fontSize: 14, fontWeight: 700, color: "var(--plano-blue-deep)" }}>Palmas-TO + região</div>
+              </div>
+              <div>
+                <div style={{ fontSize: 9, fontWeight: 800, textTransform: "uppercase", letterSpacing: "0.12em", color: "var(--plano-yellow-deep)", marginBottom: 4 }}>Site</div>
+                <div style={{ fontSize: 14, fontWeight: 700, color: "var(--plano-blue-deep)" }}>auraenergy.vercel.app</div>
+              </div>
+              <div>
+                <div style={{ fontSize: 9, fontWeight: 800, textTransform: "uppercase", letterSpacing: "0.12em", color: "var(--plano-yellow-deep)", marginBottom: 4 }}>Reunião</div>
+                <div style={{ fontSize: 14, fontWeight: 700, color: "var(--plano-blue-deep)" }}>06 de maio · 2026</div>
+              </div>
+              <div>
+                <div style={{ fontSize: 9, fontWeight: 800, textTransform: "uppercase", letterSpacing: "0.12em", color: "var(--plano-yellow-deep)", marginBottom: 4 }}>Responsável</div>
+                <div style={{ fontSize: 14, fontWeight: 700, color: "var(--plano-blue-deep)" }}>Eduardo Barros</div>
+              </div>
             </div>
-            <div style={{ fontSize: 14, color: "var(--plano-text)" }}>
-              <strong>v4.0</strong> · refundido B2B-first · 2026-05-06
-              <br />
-              Por <strong>Impulso Digital</strong> — Eduardo Barros + Verbo
-              (Claude Opus 4.7) + CIC
-            </div>
+          </div>
+
+          {/* Footer da capa */}
+          <div
+            style={{
+              marginTop: 36,
+              fontSize: 12,
+              color: "var(--plano-text-muted)",
+              display: "flex",
+              alignItems: "center",
+              gap: 12,
+            }}
+          >
+            <span>Impulso Digital</span>
+            <span style={{ width: 4, height: 4, borderRadius: "50%", background: "var(--plano-yellow)" }} />
+            <span>2026-05-06</span>
+            <span style={{ width: 4, height: 4, borderRadius: "50%", background: "var(--plano-yellow)" }} />
+            <span>Versão 4.0</span>
           </div>
 
           <div
             style={{
-              marginTop: 48,
-              fontSize: 13,
+              marginTop: 28,
+              fontSize: 12,
               color: "var(--plano-text-muted)",
-              maxWidth: 480,
+              fontStyle: "italic",
             }}
           >
-            Documento estratégico confidencial. Uso restrito da Aura Energy
-            e da Impulso Digital.
+            Sumário completo na próxima página →
           </div>
         </section>
 
-        {/* ═══════════════════════ SUMÁRIO ═══════════════════════ */}
-        <section className="plano-page plano-section">
-          <h2 style={{ fontSize: 28, marginBottom: 24 }}>Sumário</h2>
-          <ol style={{ fontSize: 15, lineHeight: 2, paddingLeft: 20 }}>
-            <li><strong>Onde estamos</strong> — resumo executivo</li>
-            <li><strong>O mercado que a Aura vai atacar</strong> — TO, concorrência, vantagens fiscais, 7 gaps</li>
-            <li><strong>Posicionamento estratégico</strong> — Aura ↔ Brasfrio, mercado-alvo B2B-first, 3 pilares</li>
-            <li><strong>Arquitetura digital</strong> — LPs segmentadas, painel Renato, diagnóstico, 6 artes</li>
-            <li><strong>Funil dual</strong> — B2B prioridade + B2C base</li>
-            <li><strong>Conteúdo</strong> — lançamento 14 dias + cadência ongoing</li>
-            <li><strong>Cronograma 90 dias</strong></li>
-            <li><strong>Projeções financeiras</strong> — mix B2C + B2B nos 3 cenários</li>
-            <li><strong>Pricing</strong> — 3 frentes + plano B</li>
-            <li><strong>KPIs e dashboard</strong></li>
-            <li><strong>Info-produto B2B FASE 2</strong> — M+12 em diante</li>
-            <li><strong>Garantias, riscos e LGPD</strong></li>
-            <li><strong>Próximos passos imediatos</strong></li>
-            <li><strong>Ideias de agregação à operação Aura</strong></li>
-            <li><strong>Documentos relacionados</strong></li>
-          </ol>
-        </section>
-
-        {/* ═══════════════════════ 1. ONDE ESTAMOS ═══════════════════════ */}
-        <section className="plano-section">
-          <h2 style={{ fontSize: 28 }}>1 · Onde estamos</h2>
-
-          <p>
-            A Aura Energy é a frente solar especialista do Renato Edson,
-            sustentada pela infraestrutura técnica da <strong>Brasfrio</strong>
-            {" "}(refrigeração + energia, anos de operação em Palmas — Renato
-            é sócio fundador). A Brasfrio gera o caixa hoje, mas a operação
-            roda por <strong>network social esgotando</strong>: o
-            @brasfrio_engsolar parou de postar há 3 meses, o lead orgânico
-            secou, e a sociedade limita a ambição.
+        {/* ═══════════════════════ SUMÁRIO (Pág. 2) ═══════════════════════ */}
+        <section className="plano-page plano-section" id="sumario">
+          <div className="plano-page-marker">Página 2</div>
+          <h2 style={{ fontSize: 32, marginBottom: 8 }}>Sumário</h2>
+          <p style={{ color: "var(--plano-text-muted)", fontSize: 13, marginBottom: 24 }}>
+            Esse plano foi feito pra ser consultado depois — clique em qualquer
+            seção pra pular direto.
           </p>
 
-          <h3 style={{ fontSize: 18, marginTop: 24 }}>
-            Aura nasce pra resolver duas coisas ao mesmo tempo
-          </h3>
-          <ol>
-            <li><strong>Aquisição digital</strong> — canal de mídia que não depende de network físico</li>
-            <li><strong>Pivot estratégico do Renato</strong> — sair do volume residencial pequeno e atacar contratos vantajosos B2B (indústria, comércio, rural)</li>
-          </ol>
+          <ul className="plano-toc">
+            <li>
+              <span className="plano-toc-page">Pág. 1</span>
+              <a href="#capa">Capa</a>
+            </li>
+            <li>
+              <span className="plano-toc-page">Pág. 2</span>
+              <a href="#sumario">Sumário (você está aqui)</a>
+            </li>
+            <li>
+              <span className="plano-toc-page">Pág. 3</span>
+              <a href="#secao-visao">1 · Visão geral da Aura</a>
+            </li>
+            <li>
+              <span className="plano-toc-page">Pág. 4</span>
+              <a href="#secao-resumo">2 · Resumo executivo</a>
+            </li>
+            <li>
+              <span className="plano-toc-page">Pág. 5</span>
+              <a href="#secao-entrega">3 · O que a Impulso Digital entrega</a>
+            </li>
+            <li>
+              <span className="plano-toc-page">Pág. 6</span>
+              <a href="#secao-fluxo">4 · Como tudo se conecta — fluxo de captação</a>
+            </li>
+            <li>
+              <span className="plano-toc-page">Pág. 7</span>
+              <a href="#secao-pilares">5 · 3 pilares de copy</a>
+            </li>
+            <li>
+              <span className="plano-toc-page">Pág. 8</span>
+              <a href="#secao-lp">6 · A LP segmentada por nicho</a>
+            </li>
+            <li>
+              <span className="plano-toc-page">Pág. 9</span>
+              <a href="#secao-calculadora">7 · A calculadora de economia</a>
+            </li>
+            <li>
+              <span className="plano-toc-page">Pág. 10</span>
+              <a href="#secao-concorrencia">8 · Concorrência local em Palmas</a>
+            </li>
+            <li>
+              <span className="plano-toc-page">Pág. 11</span>
+              <a href="#secao-palmas-solar">9 · Programa Palmas Solar — IPTU verde</a>
+            </li>
+            <li>
+              <span className="plano-toc-page">Pág. 12</span>
+              <a href="#secao-catalogo">10 · Catálogo de kits + projeção de receita</a>
+            </li>
+            <li>
+              <span className="plano-toc-page">Pág. 13</span>
+              <a href="#secao-cronograma">11 · Cronograma 90 dias</a>
+            </li>
+            <li>
+              <span className="plano-toc-page">Pág. 14</span>
+              <a href="#secao-artes">12 · As 6 artes Instagram</a>
+            </li>
+            <li>
+              <span className="plano-toc-page">Pág. 15</span>
+              <a href="#secao-b2b">13 · Campanhas pra atrair B2B</a>
+            </li>
+            <li>
+              <span className="plano-toc-page">Pág. 16</span>
+              <a href="#secao-google">14 · Captação Google — SEO + blog + Ads</a>
+            </li>
+            <li>
+              <span className="plano-toc-page">Pág. 17</span>
+              <a href="#secao-info">15 · Bônus: direção info-produto B2B</a>
+            </li>
+            <li>
+              <span className="plano-toc-page">Pág. 18</span>
+              <a href="#secao-pricing">16 · Setup completo + próximos serviços</a>
+            </li>
+            <li>
+              <span className="plano-toc-page">Pág. 19</span>
+              <a href="#secao-metas">17 · Metas e indicadores de sucesso</a>
+            </li>
+            <li>
+              <span className="plano-toc-page">Pág. 20</span>
+              <a href="#secao-checklist">18 · Checklist próximos 30 dias</a>
+            </li>
+          </ul>
+        </section>
 
-          <h3 style={{ fontSize: 18, marginTop: 24 }}>O que já existe</h3>
+        {/* ═══════════════════════ 1. VISÃO GERAL DA AURA (Pág. 3) ═══════════════════════ */}
+        <section className="plano-section" id="secao-visao">
+          <div className="plano-page-marker">Página 3 · Seção 1</div>
+          <h2 style={{ fontSize: 28 }}>Visão geral da Aura</h2>
+
+          <p>
+            A Aura Energy é a frente solar especialista de <strong>Renato
+            Edson</strong> em Palmas-TO, sustentada pela infraestrutura
+            técnica da Brasfrio (refrigeração + energia, anos de operação
+            local). Nasce com um objetivo claro: transformar a operação
+            técnica que o Renato já entrega há anos em uma{" "}
+            <strong>marca digital reconhecida</strong> em toda a região
+            metropolitana de Palmas e expansão pro interior do Tocantins.
+          </p>
+
+          <h3 style={{ fontSize: 18, marginTop: 24 }}>O que a Aura faz</h3>
           <ul>
-            <li>LP v6 em produção · <code>auraenergy.vercel.app</code> · auditoria CIC factual aplicada</li>
-            <li>Análise competitiva CIC dos 6 concorrentes Palmas + diagnóstico Brasfrio (3 meses parado, 92% dos buracos estratégicos abertos)</li>
-            <li>Pesquisa de mercado verificada (469 MW TO · 44k+ conexões · Lei 14.300 · Programa Palmas Solar · tarifa Energisa · agronegócio TO)</li>
-            <li>Estrutura comercial 3 frentes definida (R$ 1.200 setup + mensalidade + comissão)</li>
-            <li>6 artes Instagram prontas (copy + briefing visual) pra primeiros 30 dias</li>
-            <li>Direção info-produto B2B FASE 2 (estruturada via CIC depurando curso Tenda Solar)</li>
+            <li>Projeta, instala e ativa sistemas de energia solar fotovoltaica</li>
+            <li>Atende residencial mid-high, comércio, indústria pequena/média e produtor rural</li>
+            <li>Cobre Palmas + região (Paraíso do Tocantins, Luzimangues, Dianópolis, Colinas)</li>
+            <li>Trabalha com painéis Tier 1 (Trina, Canadian, Jinko) + inversores premium (Growatt, Sungrow, Huawei) + ART em todo projeto</li>
+            <li>Engenheiro responsável CREA-TO presente em cada visita técnica e projeto</li>
           </ul>
 
+          <h3 style={{ fontSize: 18, marginTop: 24 }}>Posicionamento</h3>
           <div className="plano-callout plano-callout-blue">
-            <strong>Reunião 06/05 — objetivo único:</strong> fechar Frente 1
-            R$ 1.200. Frentes 2 e 3 entram como semente pro futuro, sem
-            cravar formal.
+            A Aura <strong>não compete por preço</strong>. Compete por
+            especialização (100% solar, sem dispersão de foco),
+            transparência técnica (calculadora pública, faixa de preço
+            por kit) e atendimento direto com o engenheiro responsável
+            (sem call center, sem terceirizado).
           </div>
+
+          <h3 style={{ fontSize: 18, marginTop: 24 }}>Pra onde a Aura vai (12 meses)</h3>
+          <ul>
+            <li>
+              <strong>Líder em presença digital solar de Palmas</strong> —
+              passa todos concorrentes em followers (hoje líder ARASOL tem 1.540)
+            </li>
+            <li>
+              <strong>Pipeline B2B ativo</strong> em pelo menos 2 nichos
+              verticais (comércio mid + indústria/rural)
+            </li>
+            <li>
+              <strong>Marca reconhecida pelo Programa Palmas Solar</strong>{" "}
+              como consultora de referência pra desconto IPTU
+            </li>
+            <li>
+              <strong>Base sólida pra info-produto B2B</strong> em 12-18
+              meses (curso pra decisor industrial — nova frente de receita
+              recorrente)
+            </li>
+          </ul>
+
+          <h3 style={{ fontSize: 18, marginTop: 24 }}>Por que esse momento</h3>
+          <p>
+            O mercado solar de Tocantins cresce <strong>25% ao ano</strong>{" "}
+            e é o <strong>2º estado mais buscado em &quot;solar empresas&quot;
+            no Brasil</strong>. Em Palmas, mais de 90% dos lares ainda não
+            têm solar, e a concorrência digital local está vazia (nenhum
+            concorrente passa de 2.000 followers no Instagram). Janela
+            aberta pra quem ocupar primeiro com profissionalismo e
+            consistência.
+          </p>
         </section>
 
-        {/* ═══════════════════════ 2. O MERCADO ═══════════════════════ */}
-        <section className="plano-section">
-          <h2 style={{ fontSize: 28 }}>2 · O mercado que a Aura vai atacar</h2>
+        {/* ═══════════════════════ 2. RESUMO EXECUTIVO (Pág. 4) ═══════════════════════ */}
+        <section className="plano-section" id="secao-resumo">
+          <div className="plano-page-marker">Página 4 · Seção 2</div>
+          <h2 style={{ fontSize: 28 }}>Resumo executivo</h2>
 
-          <h3 style={{ fontSize: 18, marginTop: 24 }}>2.1 Tocantins solar em números</h3>
+          <p>
+            O lançamento da Aura Energy foi desenhado em <strong>3 camadas
+            simultâneas</strong>:
+          </p>
+
           <table>
             <thead>
-              <tr><th>Métrica</th><th>Valor</th><th>Fonte</th></tr>
+              <tr><th>Camada</th><th>Entregas</th><th>Quem produz</th></tr>
             </thead>
-            <tbody>
-              <tr><td>Potência solar instalada TO</td><td>469 MW</td><td>Sicredi / ANEEL 2025</td></tr>
-              <tr><td>Conexões GD ativas</td><td>44.000+</td><td>ANEEL 2025</td></tr>
-              <tr><td>Novas conexões em 2025</td><td>3.888</td><td>ANEEL 2025</td></tr>
-              <tr><td>% residencial (TO vs 79% BR)</td><td>85%</td><td>Canal Solar</td></tr>
-              <tr><td>Crescimento BR/ano</td><td>+25%</td><td>Origo Energia 2025</td></tr>
-              <tr><td>Posição BR busca &quot;solar empresas&quot;</td><td>2° lugar</td><td>Google Trends</td></tr>
-              <tr><td>Estimativa Palmas-TO</td><td>~8.500 conexões (~7,7%)</td><td>derivado ANEEL</td></tr>
-            </tbody>
-          </table>
-
-          <div className="plano-callout">
-            <strong>Tradução pro Renato:</strong> mercado <strong>não está
-            saturado</strong>, cresce 25%/ano, e Tocantins é o 2º estado
-            mais buscado em solar pra empresas no Brasil. Janela aberta pra
-            quem ocupar primeiro.
-          </div>
-
-          <h3 style={{ fontSize: 18, marginTop: 32 }}>2.2 Concorrência local mapeada</h3>
-          <table>
-            <thead>
-              <tr><th>Empresa</th><th>Capacidade</th><th>Insta</th><th>Comunicação</th></tr>
-            </thead>
-            <tbody>
-              <tr><td>ARASOL</td><td>2.500+ kWp · 100+ projetos</td><td>1.540 followers</td><td>Menciona Programa Palmas Solar mas não destaca</td></tr>
-              <tr><td>Palmas Energia Solar</td><td>6.000+ kWp (líder em volume)</td><td>@palmasenergiasolar_to</td><td>Loja física + financiamento — comunicação fraca</td></tr>
-              <tr><td>Unità Soluções</td><td>atende 5 estados</td><td>a confirmar</td><td>Escala regional, sem pegada Palmas</td></tr>
-              <tr><td>Ferpam Energia Solar</td><td>sede como case</td><td>a confirmar</td><td>Selo Solar Prefeitura</td></tr>
-              <tr><td>UNISOL</td><td>a confirmar</td><td>menor</td><td>—</td></tr>
-              <tr><td>Brasfrio (Renato hoje)</td><td>—</td><td>1.887, parado 3 meses</td><td>—</td></tr>
-            </tbody>
-          </table>
-
-          <h3 style={{ fontSize: 16, marginTop: 24 }}>Insights da análise competitiva</h3>
-          <ol>
-            <li><strong>Nenhum concorrente passa de 2.000 seguidores</strong> — mercado digital Palmas vazio. Quem fizer marketing direito vira líder em 6-12 meses.</li>
-            <li><strong>Ninguém tem calculadora pública</strong> — todos forçam orçamento. Aura já tem <code>/economia-resultado</code> rodando (vantagem ativa).</li>
-            <li><strong>Programa Palmas Solar mal comunicado</strong> — Aura pode dominar a narrativa &quot;consultor full-service do benefício IPTU&quot;.</li>
-            <li><strong>Palmas Energia Solar tem volume mas comunicação fraca</strong> — janela pra Aura assumir autoridade digital sem brigar por preço.</li>
-            <li><strong>Brasfrio parou há 3 meses</strong> — reset de marca pra Aura é decisão certa: leva legado técnico, deixa inércia digital.</li>
-          </ol>
-
-          <h3 style={{ fontSize: 18, marginTop: 32 }}>2.3 Vantagens fiscais e regulatórias</h3>
-
-          <div className="plano-callout plano-callout-green">
-            <strong>Programa Palmas Solar (Lei 327/2015):</strong> desconto
-            IPTU até <strong>60% no período 2026-2030</strong>. Termina em
-            2035. ITBI e ISSQN também têm desconto. Quase nenhum concorrente
-            comunica ativamente — Aura pode ser <em>&quot;a empresa que
-            cuida da documentação no Resolve Palmas pra você&quot;</em>.
-          </div>
-
-          <div className="plano-callout">
-            <strong>Lei 14.300 — Fio B:</strong> cobrança escalonada da TUSD
-            sobre energia injetada. Em 2026 já está em <strong>60%</strong>,
-            sobe pra 75% em 2027 e 100% em 2029. Sistemas instalados antes
-            de 06/01/2023 ficam isentos até 2045.
-            <br /><br />
-            <em>Argumento de venda real:</em> &quot;cada ano que adia = mais
-            economia perdida ao longo de 25 anos.&quot;
-          </div>
-
-          <p>
-            <strong>Tarifa Energisa-TO:</strong> R$ 0,92-0,98/kWh com
-            tributos (REH ANEEL 3.479/2025). Reajuste de jul/25 foi +12,31%.
-            Bandeira amarela em maio/2026. Próximo reajuste: julho/2026.
-          </p>
-
-          <p>
-            <strong>HSP Palmas-TO:</strong> 5,9 kWh/m²/dia — entre os
-            maiores do Brasil. Sistema produz mais aqui do que em 80% do
-            país.
-          </p>
-
-          <h3 style={{ fontSize: 18, marginTop: 32 }}>2.4 Os 7 gaps competitivos que a Aura vai ocupar</h3>
-          <ol>
-            <li><strong>Presença digital fraca</strong> — liderança digital em 12 meses é alcançável.</li>
-            <li><strong>Programa Palmas Solar mal comunicado</strong> — Aura vira &quot;consultor full-service&quot;.</li>
-            <li><strong>Educação cliente final inexistente</strong> — diagnóstico pré-reunião + info-produto B2B atacam isso.</li>
-            <li><strong>Transparência de preços ausente</strong> — Aura publica faixa por kit + calculadora aberta.</li>
-            <li><strong>Garantia + assistência pós-venda só na palavra</strong> — Plano de Acompanhamento Anual (R$ 200-400/cliente).</li>
-            <li><strong>Sem nicho vertical</strong> — Aura pode dominar rural/agronegócio primeiro.</li>
-            <li><strong>B2B com modelo assinatura ausente</strong> — &quot;fazenda solar compartilhada&quot; (geração distribuída remota).</li>
-          </ol>
-        </section>
-
-        {/* ═══════════════════════ 3. POSICIONAMENTO ═══════════════════════ */}
-        <section className="plano-section">
-          <h2 style={{ fontSize: 28 }}>3 · Posicionamento estratégico</h2>
-
-          <h3 style={{ fontSize: 18, marginTop: 24 }}>3.1 Aura ↔ Brasfrio</h3>
-          <p>
-            <strong>Cenário cravado:</strong> Aura é a frente solar
-            especialista, sustentada pela infra técnica da Brasfrio.
-            Brasfrio é mencionada como &quot;estrutura técnica de X anos em
-            Palmas&quot;. Aura tem identidade própria, 100% solar, sem o
-            ruído da refrigeração/EV/serviços que diluem foco no Insta da
-            Brasfrio.
-          </p>
-
-          <table>
-            <thead><tr><th>O que Aura LEVA da Brasfrio</th><th>O que Aura DEIXA da Brasfrio</th></tr></thead>
             <tbody>
               <tr>
-                <td>Legado técnico (anos de instalações), credenciais (CREA, ART), portfólio físico (cases pra fotografar), equipe operacional</td>
-                <td>Inércia digital, comunicação corporativa-popular, posicionamento &quot;tudo um pouco&quot;</td>
+                <td><strong>LP segmentada</strong></td>
+                <td>HUB raiz + 4 LPs por nicho (casa, comércio, indústria, fazenda) + calculadora de economia</td>
+                <td>Impulso Digital constrói e mantém</td>
+              </tr>
+              <tr>
+                <td><strong>Pacote Instagram</strong></td>
+                <td>6 artes pra primeiros 30 dias + cronograma 14 dias + pauta de stories</td>
+                <td>Impulso Digital roteiriza + faz arte · Renato posta</td>
+              </tr>
+              <tr>
+                <td><strong>Bônus estratégico</strong></td>
+                <td>Direção info-produto B2B em PDF de 1 página</td>
+                <td>Impulso Digital entrega · Renato decide quando executar</td>
               </tr>
             </tbody>
           </table>
 
-          <h3 style={{ fontSize: 18, marginTop: 32 }}>3.2 Diferenciação cravada</h3>
-          <table>
-            <thead><tr><th>Eixo</th><th>Concorrência Palmas</th><th>Aura Energy</th></tr></thead>
-            <tbody>
-              <tr><td>Postura</td><td>Corporativa-popular</td><td>Especialista/consultiva</td></tr>
-              <tr><td>Vocabulário</td><td>Genérico (economia, sustentabilidade)</td><td>Técnico-acessível (Lei 14.300, Fio B, kWp, payback, TUSD)</td></tr>
-              <tr><td>Hero figure</td><td>Logo + produto</td><td>Renato em câmera, prancheta na mão</td></tr>
-              <tr><td>Densidade</td><td>Templates sintéticos com emojis</td><td>Dados duros + storytelling humano</td></tr>
-              <tr><td>Urgência</td><td>Genérica</td><td>Regulatória factual (Fio B 60% em 2026, sobe 2027)</td></tr>
-              <tr><td>Cadência</td><td>Bursts + sumir 3 meses</td><td>3 posts/sem + 1 reel/sem + stories diários</td></tr>
-              <tr><td>Prova social</td><td>&quot;Cliente em Palmas&quot; anônimo</td><td>&quot;Marcus Vinícius, Plano Diretor Sul, R$ 720→R$ 92&quot; + foto</td></tr>
-            </tbody>
-          </table>
-
-          <h3 style={{ fontSize: 18, marginTop: 32 }}>3.3 Mercado-alvo em ordem de prioridade B2B-first</h3>
-          <table>
-            <thead><tr><th>#</th><th>Perfil</th><th>Ticket-alvo</th><th>LP destino</th></tr></thead>
-            <tbody>
-              <tr><td><strong>1</strong></td><td>Comércio mid (supermercado, padaria, posto, clínica)</td><td>R$ 50-150k</td><td><code>/comercio</code></td></tr>
-              <tr><td><strong>2</strong></td><td>Indústria pequena/média (frigorífico, cerâmica, marcenaria)</td><td>R$ 150-800k</td><td><code>/industria</code></td></tr>
-              <tr><td><strong>3</strong></td><td>Produtor rural (irrigação, pivô, aviário, granja)</td><td>R$ 80-300k</td><td><code>/fazenda</code></td></tr>
-              <tr><td>4</td><td>Residencial mid-high (conta R$ 600+/mês)</td><td>R$ 25-50k</td><td><code>/casa</code></td></tr>
-            </tbody>
-          </table>
-
           <div className="plano-callout plano-callout-blue">
-            <strong>Decisão estratégica:</strong> B2B (perfis #1-3) recebe
-            prioridade #1 de prospecção e investimento estratégico.
-            Residencial (#4) roda como base de volume com Meta Ads
-            geofence Palmas.
+            <strong>Regra de ouro do lançamento:</strong> a Aura Energy não
+            depende mais de network social pra captar lead. Cada peça
+            (LP, post, story, anúncio, busca no Google) leva o cliente em
+            potencial pra um CTA único — falar direto com você no WhatsApp.
+          </div>
+        </section>
+
+        {/* ═══════════════════════ 3. O QUE A IMPULSO ENTREGA (Pág. 5) ═══════════════════════ */}
+        <section className="plano-section" id="secao-entrega">
+          <div className="plano-page-marker">Página 5 · Seção 3</div>
+          <h2 style={{ fontSize: 28 }}>O que a Impulso Digital entrega (pacote completo)</h2>
+
+          <p>Não é só &quot;fazer um site&quot;. É o caminho inteiro do lançamento:</p>
+
+          <ol>
+            <li>
+              <strong>LP profissional segmentada em 4 nichos</strong> — em
+              produção em <code>auraenergy.vercel.app</code>, com calculadora
+              de economia ao vivo, mapa de instalações em Palmas, comparativo
+              financeiro com CDB e Ibovespa, janela do Fio B
+            </li>
+            <li>
+              <strong>Estratégia de posicionamento</strong> (especialista solar +
+              tecnologia transparente + atendimento direto — os 3 pilares)
+            </li>
+            <li>
+              <strong>Cronograma de 14 dias</strong> de lançamento (este doc)
+            </li>
+            <li>
+              <strong>6 artes Instagram</strong> prontas pros primeiros 30 dias
+              (cópia + design profissional)
+            </li>
+            <li>
+              <strong>Análise da concorrência local</strong> em Palmas — 6
+              empresas mapeadas com o que fazem, o que não fazem e onde
+              a Aura entra forte
+            </li>
+            <li>
+              <strong>Estratégia de campanhas B2B</strong> — segmentação
+              por nicho (comércio, indústria, rural), tipo de criativo,
+              investimento sugerido
+            </li>
+            <li>
+              <strong>Captação Google</strong> — SEO local + Google Ads pras
+              buscas &quot;energia solar Palmas&quot;, &quot;solar comercial
+              Tocantins&quot;, &quot;Programa Palmas Solar&quot;
+            </li>
+            <li>
+              <strong>Bônus: Direção info-produto B2B</strong> — mapa
+              estratégico em 1 página A4 pra você usar quando decidir
+              gravar o curso
+            </li>
+            <li>
+              <strong>1 mês de calibragem pós-entrega</strong> — trocamos
+              placeholders por fotos e dados reais conforme você nos passa
+            </li>
+            <li>
+              <strong>7 dias de garantia incondicional</strong> pós-pagamento
+            </li>
+            <li>
+              <strong>Pós-lançamento:</strong> depoimento em vídeo do
+              Renato vira case da Impulso Digital
+            </li>
+          </ol>
+
+          <div className="plano-quote">
+            Traduzindo: você não precisa pensar em o que postar, quando postar,
+            como posicionar a Aura, qual palavra-chave atacar no Google, como
+            falar com decisor industrial. Só precisa tirar foto da equipe
+            trabalhando, mandar pra Impulso, e clicar em publicar.
+          </div>
+        </section>
+
+        {/* ═══════════════════════ 4. COMO TUDO SE CONECTA (Pág. 6) ═══════════════════════ */}
+        <section className="plano-section" id="secao-fluxo">
+          <div className="plano-page-marker">Página 6 · Seção 4</div>
+          <h2 style={{ fontSize: 28 }}>Como tudo se conecta — fluxo de captação</h2>
+
+          <p>
+            Toda a estrutura digital da Aura tem um único ponto de chegada:
+            <strong> WhatsApp do Renato com mensagem já preenchida</strong>.
+            Cada canal alimenta esse fluxo de um jeito diferente:
+          </p>
+
+          <h3 style={{ fontSize: 17, marginTop: 24 }}>Fluxo 1 · Instagram → LP → Calculadora → WhatsApp</h3>
+
+          <div className="plano-flow">
+            Visitante vê post no @auraenergy<br />
+            ↓<br />
+            Clica no link da bio (<code>auraenergy.vercel.app/links</code>)<br />
+            ↓<br />
+            Escolhe sua situação: casa / comércio / indústria / fazenda<br />
+            ↓<br />
+            Vai pra LP do nicho dele (<code>/casa</code>, <code>/comercio</code>...)<br />
+            ↓<br />
+            Usa a calculadora — vê economia mensal estimada<br />
+            ↓<br />
+            Aperta CTA &quot;Falar com especialista&quot;<br />
+            ↓<br />
+            <strong>WhatsApp do Renato abre com a simulação já preenchida</strong>
           </div>
 
-          <h3 style={{ fontSize: 18, marginTop: 32 }}>3.4 3 pilares de copy</h3>
-          <p>Todo conteúdo bate em pelo menos 1:</p>
+          <h3 style={{ fontSize: 17, marginTop: 24 }}>Fluxo 2 · Google → LP → Calculadora → WhatsApp</h3>
+
+          <div className="plano-flow">
+            Pessoa busca &quot;energia solar Palmas&quot; no Google<br />
+            ↓<br />
+            Encontra a Aura nos resultados (orgânico ou Google Ads)<br />
+            ↓<br />
+            Cai direto na LP do nicho relevante<br />
+            ↓<br />
+            Vê os 3 pilares (especialista, tecnologia, atendimento)<br />
+            ↓<br />
+            Usa a calculadora pra conferir economia<br />
+            ↓<br />
+            Aperta CTA &quot;Receber proposta personalizada&quot;<br />
+            ↓<br />
+            <strong>WhatsApp do Renato abre com a simulação já preenchida</strong>
+          </div>
+
+          <h3 style={{ fontSize: 17, marginTop: 24 }}>Fluxo 3 · Indicação direta → LP → WhatsApp</h3>
+
+          <div className="plano-flow">
+            Cliente atual indica pra amigo<br />
+            ↓<br />
+            Renato manda link da LP do nicho do amigo (ex: <code>/comercio</code> pra dono de loja)<br />
+            ↓<br />
+            Amigo lê a LP (que já está calibrada pra dor dele)<br />
+            ↓<br />
+            Aperta CTA<br />
+            ↓<br />
+            <strong>WhatsApp do Renato abre — atendimento já contextualizado</strong>
+          </div>
+
+          <div className="plano-callout plano-callout-blue">
+            <strong>Por que esse desenho funciona:</strong> em vez de você
+            ter que explicar tudo no WhatsApp, a LP já educou o cliente
+            sobre Lei 14.300, mostrou marcas Tier 1, deu uma estimativa
+            de economia. Quando ele te chama, já tá &quot;quente&quot;.
+          </div>
+        </section>
+
+        {/* ═══════════════════════ 5. 3 PILARES DE COPY (Pág. 7) ═══════════════════════ */}
+        <section className="plano-section" id="secao-pilares">
+          <div className="plano-page-marker">Página 7 · Seção 5</div>
+          <h2 style={{ fontSize: 28 }}>3 pilares de copy (todo conteúdo bate em pelo menos um)</h2>
 
           <div className="plano-callout">
-            <strong>Pilar 1 — Especialista solar (vs generalista Palmas)</strong>
+            <h3 style={{ fontSize: 17, marginTop: 0 }}>1 · Especialista solar</h3>
+            <p style={{ margin: "8px 0 0" }}>
+              A diferença entre quem faz solar de vez em quando e quem é
+              especialista.
+            </p>
             <ul>
               <li>&quot;Brasfrio refrigera + faz solar. Aura é só solar.&quot;</li>
               <li>&quot;Engenheiro CREA-TO em todo projeto&quot;</li>
@@ -584,803 +956,1503 @@ export default function PlanoRenatoView() {
           </div>
 
           <div className="plano-callout">
-            <strong>Pilar 2 — Tecnologia transparente</strong>
+            <h3 style={{ fontSize: 17, marginTop: 0 }}>2 · Tecnologia transparente</h3>
+            <p style={{ margin: "8px 0 0" }}>
+              Cliente enxerga o sistema antes de falar com você.
+            </p>
             <ul>
-              <li>&quot;Calculadora ao vivo no site&quot;</li>
-              <li>&quot;Trabalho com Tier 1: Trina, Canadian, Jinko + Growatt e Sungrow&quot;</li>
+              <li>&quot;Calculadora ao vivo no site — você vê a economia antes de pedir orçamento&quot;</li>
+              <li>&quot;Trabalho com Tier 1: Trina, Canadian, Jinko + inversores Growatt e Sungrow&quot;</li>
               <li>&quot;Garantia 25 anos painel · 10 anos inversor · ART em todo projeto&quot;</li>
             </ul>
           </div>
 
           <div className="plano-callout">
-            <strong>Pilar 3 — Atendimento direto comigo</strong>
+            <h3 style={{ fontSize: 17, marginTop: 0 }}>3 · Atendimento direto comigo</h3>
+            <p style={{ margin: "8px 0 0" }}>
+              Você fala diretamente com o engenheiro responsável, não com
+              call center.
+            </p>
             <ul>
-              <li>&quot;Você fala diretamente comigo, Renato — sem call center, sem terceirizado&quot;</li>
               <li>&quot;Visita técnica gratuita em até 48h&quot;</li>
-              <li>&quot;Cliente da Aura é meu cliente pessoal&quot;</li>
+              <li>&quot;Cliente da Aura é meu cliente pessoal — pelos próximos 25 anos&quot;</li>
+              <li>&quot;Sem terceirizado, sem call center&quot;</li>
             </ul>
           </div>
         </section>
 
-        {/* ═══════════════════════ 4. ARQUITETURA DIGITAL ═══════════════════════ */}
-        <section className="plano-section">
-          <h2 style={{ fontSize: 28 }}>4 · Arquitetura digital — LPs segmentadas</h2>
+        {/* ═══════════════════════ 6. LP SEGMENTADA (Pág. 8) ═══════════════════════ */}
+        <section className="plano-section" id="secao-lp">
+          <div className="plano-page-marker">Página 8 · Seção 6</div>
+          <h2 style={{ fontSize: 28 }}>A LP segmentada por nicho — anatomia das 4 frentes</h2>
 
-          <h3 style={{ fontSize: 18, marginTop: 24 }}>4.1 Por que segmentar (não fazer LP única)</h3>
           <p>
-            Mensagem única vira morna pra todos os públicos. Decisor
-            industrial não se reconhece numa LP que mostra fatura de R$ 800.
-            Produtor rural não se reconhece numa LP que fala &quot;telhado
-            da sua casa&quot;. <strong>Solução:</strong> 4 LPs especializadas
-            por nicho + 2 utilitários internos.
+            A Aura Energy não tem 1 site genérico. Tem <strong>1 HUB raiz +
+            4 LPs especializadas</strong>, uma pra cada perfil de cliente.
+            O motivo é simples: dono de supermercado não se reconhece numa
+            LP que mostra fatura residencial de R$ 800.
           </p>
 
-          <h3 style={{ fontSize: 18, marginTop: 24 }}>4.2 Estrutura completa</h3>
           <table>
-            <thead><tr><th>Rota</th><th>Público</th><th>Foco</th></tr></thead>
+            <thead>
+              <tr><th>Rota</th><th>Pra quem</th><th>Headline da dor</th></tr>
+            </thead>
             <tbody>
-              <tr><td><code>/</code></td><td>HUB raiz</td><td>4 cards &quot;Você é dono de…&quot;</td></tr>
-              <tr><td><code>/casa</code></td><td>Residencial mid-high</td><td>&quot;Conta nunca para de subir&quot;</td></tr>
-              <tr><td><code>/comercio</code></td><td>Comércio, supermercado, posto, clínica</td><td>&quot;Geladeira/AC 24h estoura conta&quot;</td></tr>
-              <tr><td><code>/industria</code></td><td>Pequena/média indústria</td><td>&quot;Demanda contratada + consumo = custo invisível&quot;</td></tr>
-              <tr><td><code>/fazenda</code></td><td>Produtor rural</td><td>&quot;Pivô consome 60% da receita do mês de pico&quot;</td></tr>
-              <tr><td><code>/painel-renato</code></td><td>Dashboard interno (Renato)</td><td>Copia link + texto pronto pra cada nicho</td></tr>
-              <tr><td><code>/links</code></td><td>Linktree pública</td><td>Bio do Insta</td></tr>
+              <tr>
+                <td><code>/</code></td>
+                <td>HUB raiz</td>
+                <td>4 cards: &quot;Você é dono de…&quot; → roteia pro nicho certo</td>
+              </tr>
+              <tr>
+                <td><code>/casa</code></td>
+                <td>Residencial mid-high (conta R$ 600+/mês)</td>
+                <td>&quot;Conta nunca para de subir&quot;</td>
+              </tr>
+              <tr>
+                <td><code>/comercio</code></td>
+                <td>Comércio, supermercado, posto, clínica</td>
+                <td>&quot;Geladeira/AC 24h estoura conta&quot;</td>
+              </tr>
+              <tr>
+                <td><code>/industria</code></td>
+                <td>Pequena/média indústria</td>
+                <td>&quot;Demanda contratada + consumo = custo invisível&quot;</td>
+              </tr>
+              <tr>
+                <td><code>/fazenda</code></td>
+                <td>Produtor rural (irrigação, pivô, granja)</td>
+                <td>&quot;Pivô consome 60% da receita do mês de pico&quot;</td>
+              </tr>
             </tbody>
           </table>
 
-          <h3 style={{ fontSize: 18, marginTop: 24 }}>4.3 Anatomia de cada LP segmentada</h3>
-          <ul>
-            <li><strong>Hero específico</strong> — foto do nicho + headline da dor real</li>
-            <li><strong>3 dores + 3 ganhos</strong> numerados pra aquele público</li>
-            <li><strong>Calculadora adaptada</strong> — residencial fala R$/mês, indústria fala TIR + payback meses, rural fala custo por hectare/safra</li>
-            <li><strong>2-3 cases nominados</strong> do nicho (com autorização LGPD)</li>
-            <li><strong>CTA único:</strong> &quot;Receber proposta personalizada&quot; → WhatsApp Renato com mensagem preenchida</li>
-          </ul>
+          <h3 style={{ fontSize: 17, marginTop: 32 }}>O que o visitante vê em cada LP de nicho</h3>
 
-          <h3 style={{ fontSize: 18, marginTop: 24 }}>4.4 Como o Renato usa o /painel-renato</h3>
-          <div className="plano-callout">
-            Renato fecha lead via Insta → entra em <code>/painel-renato</code>{" "}
-            → copia mensagem pronta de &quot;indústria&quot; + link{" "}
-            <code>/industria</code> → cola no WhatsApp do lead → pronto.
-            <br /><br />
-            <strong>Renato bookmarka 1 URL.</strong> Tudo se origina dali.
-            Não decora 4 links, não lembra 4 textos. Organização vira
-            muscle memory.
-          </div>
+          <p>Toda LP segmentada segue a mesma anatomia:</p>
 
-          <h3 style={{ fontSize: 18, marginTop: 24 }}>4.5 Diagnóstico pré-reunião — qualificador B2B</h3>
-          <p>
-            Funcionalidade já em código (<code>/diagnostico</code>). Como
-            peça do funil B2B:
-          </p>
-          <div className="plano-callout plano-callout-blue">
-            Lead B2B chega → Renato manda diagnóstico personalizado (10 min)
-            → respostas chegam pro Renato/Eduardo → reunião só com lead
-            qualificado → ciclo de venda mais curto + ticket mais alto.
-          </div>
-
-          <p><strong>3 valores do diagnóstico no funil:</strong></p>
           <ol>
-            <li><strong>Qualifica</strong> — quem preenche está no jogo, quem não preenche não está comprando</li>
-            <li><strong>Prepara a conversa</strong> — Renato entra na call sabendo dor, ambição, restrição, orçamento</li>
-            <li><strong>Compromisso psicológico</strong> — lead que investiu 10 min responde, entra na reunião com sunk cost emocional</li>
+            <li>
+              <strong>Hero específico</strong> — foto do nicho (galpão
+              industrial, supermercado, pivô rural, casa de classe média)
+              + headline forte da dor real + CTA secundário pro WhatsApp
+            </li>
+            <li>
+              <strong>Bloco &quot;3 dores que você sente hoje&quot;</strong>{" "}
+              — cada uma com texto curto, contextualizada (ex: indústria
+              fala de demanda contratada, rural fala de pico de safra)
+            </li>
+            <li>
+              <strong>Bloco &quot;O que a Aura entrega&quot;</strong> — 3
+              ganhos principais traduzidos pra linguagem do decisor (ex:
+              comércio fala &quot;previsibilidade financeira&quot;, indústria
+              fala &quot;TIR e payback&quot;)
+            </li>
+            <li>
+              <strong>Calculadora de economia</strong> adaptada — residencial
+              fala R$/mês economizado, B2B fala payback em meses + retorno
+              acumulado em 25 anos
+            </li>
+            <li>
+              <strong>Marcas Tier 1</strong> que a Aura trabalha — Trina,
+              Canadian, Jinko nos painéis · Growatt, Sungrow, Huawei nos
+              inversores
+            </li>
+            <li>
+              <strong>2-3 cases nominados do nicho</strong> (quando a
+              autorização LGPD chegar dos clientes Brasfrio que toparem)
+            </li>
+            <li>
+              <strong>Janela do Fio B</strong> — urgência regulatória factual
+              (60% em 2026, 75% em 2027, 100% em 2029)
+            </li>
+            <li>
+              <strong>FAQ de 6-8 perguntas</strong> específicas do nicho
+            </li>
+            <li>
+              <strong>CTA único</strong>: &quot;Receber proposta personalizada
+              [nicho]&quot; → WhatsApp Renato com mensagem preenchida
+            </li>
           </ol>
 
           <div className="plano-callout">
-            ⚠ <strong>Pré-condição técnica:</strong> o submit precisa salvar
-            resposta em DB primário (não só email) e ter alerta secundário
-            pra Eduardo. Bug detectado em 06/05 será corrigido antes do
-            diagnóstico voltar a ser usado externamente.
-          </div>
-
-          <h3 style={{ fontSize: 18, marginTop: 24 }}>4.6 6 artes Instagram primeiros 30 dias (já entregues)</h3>
-          <ol>
-            <li>Anúncio &quot;Nasce a Aura&quot;</li>
-            <li>Renato apresenta — quem é, o que faz, por que solar</li>
-            <li>Lei 14.300 explicada (carrossel educativo Fio B)</li>
-            <li>Calculadora ao vivo — print + headline</li>
-            <li>Antes/depois conta de luz (case real)</li>
-            <li>Janela do Fio B + last call (urgência regulatória)</li>
-          </ol>
-          <p>
-            Eduardo produz os visuais pós-fechamento (Canva 3-5h ou
-            HTML/CSS render). Renato posta no ritmo dele.
-          </p>
-        </section>
-
-        {/* ═══════════════════════ 5. FUNIL DUAL ═══════════════════════ */}
-        <section className="plano-section">
-          <h2 style={{ fontSize: 28 }}>5 · Funil dual — B2B prioridade + B2C base</h2>
-
-          <p>A Aura roda 2 funis em paralelo com mesma marca, abordagens diferentes.</p>
-
-          <h3 style={{ fontSize: 18, marginTop: 24 }}>5.1 Funil B2B (prioridade #1 — contratos vantajosos)</h3>
-          <p>
-            <strong>Lógica:</strong> 5-15 fechamentos B2B/ano substituem 60+
-            residenciais em receita, com menos atendimento operacional.
-          </p>
-
-          <div className="plano-callout">
-            <strong>Caminho:</strong>
-            <ol>
-              <li>Prospecção ativa (RadarPRO + LinkedIn outreach + indicações)</li>
-              <li>Contato qualificado por segmento</li>
-              <li>Diagnóstico pré-reunião (link <code>/diagnostico</code> personalizado)</li>
-              <li>LP <code>/comercio</code> | <code>/industria</code> | <code>/fazenda</code> enviada</li>
-              <li>Reunião presencial/Zoom (Renato + decisor)</li>
-              <li>Análise técnica do site (telhado/galpão/pivô)</li>
-              <li>Proposta executiva (PDF + planilha de payback)</li>
-              <li>Negociação (3-6 reuniões em ciclos de 30-90 dias)</li>
-              <li>Fechamento R$ 50-800k</li>
-            </ol>
-          </div>
-
-          <h4 style={{ fontSize: 14, marginTop: 16 }}>Métricas-alvo B2B</h4>
-          <ul>
-            <li>Pipeline ativo: 8-15 contas em negociação simultânea</li>
-            <li>Conversão prospect → reunião: 15-25%</li>
-            <li>Conversão reunião → proposta: 60-80%</li>
-            <li>Conversão proposta → fechamento: 25-40%</li>
-            <li>Ciclo médio: 60-120 dias</li>
-            <li>1-2 fechamentos/mês = R$ 100-500k bruto</li>
-          </ul>
-
-          <h3 style={{ fontSize: 18, marginTop: 32 }}>5.2 Funil B2C (base de volume — sustenta caixa)</h3>
-          <p>
-            <strong>Lógica:</strong> mantém faturamento rodando enquanto
-            pipeline B2B amadurece (B2B tem ciclo longo, B2C tem ciclo curto).
-          </p>
-
-          <div className="plano-callout">
-            <strong>Caminho:</strong>
-            <ol>
-              <li>Meta Ads geofence Palmas (R$ 800-1.500/mês)</li>
-              <li>LP <code>/casa</code></li>
-              <li>Calculadora de payback residencial (lead capture WhatsApp)</li>
-              <li>Resposta &lt; 15 min · Renato direto</li>
-              <li>Visita técnica grátis</li>
-              <li>Proposta enviada</li>
-              <li>Fechamento R$ 25-50k</li>
-            </ol>
-          </div>
-
-          <h4 style={{ fontSize: 14, marginTop: 16 }}>Métricas-alvo B2C</h4>
-          <ul>
-            <li>CPL: R$ 35-65 (Meta Ads geo Palmas)</li>
-            <li>Conversão lead → proposta: 35-45%</li>
-            <li>Conversão proposta → fechamento: 20-30%</li>
-            <li>Ciclo médio: 7-21 dias</li>
-            <li>4-8 fechamentos/mês = R$ 100-300k bruto</li>
-          </ul>
-
-          <h3 style={{ fontSize: 18, marginTop: 32 }}>5.3 Investimento mensal em mídia (cenário misto)</h3>
-          <table>
-            <thead><tr><th>Canal</th><th>Investimento</th><th>Função</th><th>Funil</th></tr></thead>
-            <tbody>
-              <tr><td>Meta Ads <code>/casa</code></td><td>R$ 800-1.500</td><td>Volume residencial Palmas</td><td>B2C</td></tr>
-              <tr><td>LinkedIn Ads <code>/industria</code> <code>/fazenda</code></td><td>R$ 600-1.200</td><td>Top of funnel decisor B2B</td><td>B2B</td></tr>
-              <tr><td>Google Ads palavras-chave</td><td>R$ 500-1.000</td><td>Captura demanda ativa</td><td>misto</td></tr>
-              <tr><td>RadarPRO Impulso (comissão)</td><td>5-7%</td><td>Performance pura</td><td>B2B</td></tr>
-              <tr><td><strong>Total mensal</strong></td><td colSpan={3}><strong>R$ 1.900-3.700 + comissão</strong></td></tr>
-            </tbody>
-          </table>
-
-          <div className="plano-callout plano-callout-blue">
-            <strong>Trigger pra escalar tráfego:</strong> entre 20-30 leads
-            B2C/mês e 8-10 prospects B2B no pipeline. Antes disso, focar em
-            conteúdo orgânico (Insta) e prospecção 1-1 (Renato + RadarPRO).
+            <strong>Como o Renato usa no dia a dia:</strong> quando entra
+            lead pelo Insta, em vez de mandar um link genérico, você manda
+            o link do nicho dele. O cliente abre uma página que parece
+            feita pra ele. Conversão sobe muito.
           </div>
         </section>
 
-        {/* ═══════════════════════ 6. CONTEÚDO ═══════════════════════ */}
-        <section className="plano-section">
-          <h2 style={{ fontSize: 28 }}>6 · Conteúdo — lançamento 14 dias + cadência ongoing</h2>
-
-          <h3 style={{ fontSize: 18, marginTop: 24 }}>6.1 Cronograma de lançamento (semanas 1-2)</h3>
-          <p>Modelo híbrido GB Nutrition + Whoop, adaptado pra solar dual B2C/B2B.</p>
-
-          <table>
-            <thead><tr><th>Dia</th><th>Tema</th><th>Formato</th><th>Público</th></tr></thead>
-            <tbody>
-              <tr><td>D1</td><td>&quot;Nasce a Aura&quot;</td><td>Carrossel + stories</td><td>Todos</td></tr>
-              <tr><td>D2</td><td>Renato apresenta</td><td>Reel (em câmera)</td><td>Todos</td></tr>
-              <tr><td>D3</td><td>Lei 14.300 explicada</td><td>Reel educativo</td><td>B2B + B2C</td></tr>
-              <tr><td>D4</td><td>Antes/depois conta luz</td><td>Stories cliente real</td><td>B2C</td></tr>
-              <tr><td>D5</td><td>Calculadora ao vivo</td><td>Stories + reel</td><td>Todos</td></tr>
-              <tr><td>D6</td><td>Bastidores instalação</td><td>Reel equipe + drone</td><td>Todos</td></tr>
-              <tr><td>D7</td><td>Janela Fio B + last call</td><td>Carrossel objeções</td><td>Todos</td></tr>
-              <tr><td>D8</td><td>Marcas Tier 1 educacional</td><td>Stories</td><td>B2C + comércio</td></tr>
-              <tr><td>D9</td><td><strong>Comércio: pico de consumo</strong></td><td>Carrossel B2B</td><td>B2B comércio</td></tr>
-              <tr><td>D10</td><td>Financiamento Solfácil + Pronaf</td><td>Stories cálculo</td><td>Misto</td></tr>
-              <tr><td>D11</td><td>Mapa Palmas (cobertura)</td><td>Stories bairros</td><td>B2C</td></tr>
-              <tr><td>D12</td><td><strong>Indústria: demanda invisível</strong></td><td>Carrossel B2B</td><td>B2B indústria</td></tr>
-              <tr><td>D13</td><td>Cliente entrevistado</td><td>Stories vídeo real</td><td>Todos</td></tr>
-              <tr><td>D14</td><td>Recap + balanço</td><td>Stories métricas</td><td>Todos</td></tr>
-            </tbody>
-          </table>
+        {/* ═══════════════════════ 7. CALCULADORA (Pág. 9) ═══════════════════════ */}
+        <section className="plano-section" id="secao-calculadora">
+          <div className="plano-page-marker">Página 9 · Seção 7</div>
+          <h2 style={{ fontSize: 28 }}>A calculadora de economia — o diferencial técnico</h2>
 
           <p>
-            <strong>Stories pack completo:</strong> 70 stories detalhados em{" "}
-            <code>roteiros/stories-pack-14-dias.md</code>.
+            Na pesquisa que fizemos sobre os 6 concorrentes em Palmas,
+            <strong> nenhum tem calculadora pública</strong>. Todos
+            forçam o cliente a pedir orçamento. A Aura inverte essa lógica.
           </p>
 
-          <h3 style={{ fontSize: 18, marginTop: 24 }}>6.2 Cadência ongoing (semana 3 em diante)</h3>
+          <h3 style={{ fontSize: 17, marginTop: 24 }}>O que a calculadora faz</h3>
+
+          <p>
+            Cliente preenche 3 campos simples (valor médio da conta, tipo
+            de imóvel, cidade). A calculadora retorna em segundos:
+          </p>
+
           <ul>
-            <li><strong>3 posts/semana</strong> no feed (carrossel educativo + case real + institucional)</li>
-            <li><strong>1 reel/semana</strong> — Renato grava bloco mensal de 4 reels em 1 dia</li>
-            <li><strong>5 stories/semana</strong> mínimo</li>
-            <li><strong>1 carrossel objeção quinzenal</strong></li>
-            <li><strong>1 LinkedIn post/semana</strong> — só B2B, posicionamento Renato como autoridade técnica regional</li>
+            <li><strong>Economia mensal estimada</strong> — em reais</li>
+            <li><strong>Economia em 25 anos</strong> — projeção total acumulada</li>
+            <li><strong>Sistema recomendado</strong> — em kWp + número de painéis</li>
+            <li><strong>Payback estimado</strong> — em quantos anos o sistema se paga</li>
           </ul>
 
-          <h3 style={{ fontSize: 18, marginTop: 24 }}>6.3 Bloco mensal de gravação Renato</h3>
-          <div className="plano-callout">
-            Estratégia anti-procrastinação: Renato grava <strong>1 dia por mês</strong>,
-            4-6 reels de uma vez. Impulso edita ao longo do mês. Renato não
-            pensa em câmera no resto do tempo.
-          </div>
-        </section>
+          <h3 style={{ fontSize: 17, marginTop: 24 }}>Por que ela é precisa (e os concorrentes vão odiar)</h3>
 
-        {/* ═══════════════════════ 7. CRONOGRAMA 90 DIAS ═══════════════════════ */}
-        <section className="plano-section">
-          <h2 style={{ fontSize: 28 }}>7 · Cronograma 90 dias</h2>
+          <p>A calculadora usa dados reais da Aura no cálculo:</p>
 
-          <h3 style={{ fontSize: 18, marginTop: 24, color: "var(--plano-orange)" }}>Mês 1 — Lançamento de marca + entrega Frente 1</h3>
-          <ul>
-            <li><strong>Semana 1:</strong> setup técnico (Insta @auraenergy, WhatsApp Business, Google Meu Negócio, Pixel Meta, GA4)</li>
-            <li><strong>Semana 2:</strong> lançamento de marca 14 dias começa (D1-D7)</li>
-            <li><strong>Semana 3:</strong> lançamento continua (D8-D14)</li>
-            <li><strong>Semana 4:</strong> ajustes de criativos + 1ª gravação reel Renato + Meta Ads geofence Palmas ligado</li>
-          </ul>
-          <p><em>Métricas esperadas mês 1:</em> 200-300 followers Insta, 5-10 leads B2C, 0-1 prospect B2B.</p>
-
-          <h3 style={{ fontSize: 18, marginTop: 24, color: "var(--plano-orange)" }}>Mês 2 — Tração + pipeline B2B inicia</h3>
-          <ul>
-            <li>Cadência ongoing rodando (3 posts + 1 reel + stories)</li>
-            <li>1ª venda B2C fechada via funil digital (meta)</li>
-            <li>LinkedIn outreach Renato começa (1-2h/dia segmentado)</li>
-            <li>RadarPRO Solar Palmas em setup (Impulso): critérios + scrapers + planilha</li>
-            <li>1ª reunião B2B agendada — começa o ciclo de 60-120d</li>
-          </ul>
-          <p><em>Métricas esperadas mês 2:</em> 500-700 followers, 15-25 leads B2C, 2-4 prospects B2B em conversa, 1-3 vendas B2C fechadas.</p>
-
-          <h3 style={{ fontSize: 18, marginTop: 24, color: "var(--plano-orange)" }}>Mês 3 — Escala B2C + RadarPRO ativo</h3>
-          <ul>
-            <li>3-5 vendas B2C fechadas/mês via funil</li>
-            <li>RadarPRO entregando 10-20 leads B2B/mês com playbook</li>
-            <li>2-3 reuniões B2B em estágio avançado (proposta enviada)</li>
-            <li>Depoimentos formais Renato + clientes B2C (também viram anúncio Impulso)</li>
-            <li>Compra do domínio <code>auraenergy.com.br</code> + apontamento Vercel</li>
-          </ul>
-          <p><em>Métricas esperadas mês 3:</em> 1.000+ followers (passa Brasfrio antiga, mira ARASOL), 30-50 leads B2C, 8-12 prospects B2B no pipeline, 3-5 vendas B2C fechadas.</p>
-
-          <div className="plano-callout">
-            <strong>Realismo B2B:</strong> primeiro fechamento B2B esperado{" "}
-            <strong>mês 4-6</strong>, não mês 3. O ciclo é 60-120d, e o
-            pipeline só começa a esquentar no mês 2.
-          </div>
-        </section>
-
-        {/* ═══════════════════════ 8. PROJEÇÕES ═══════════════════════ */}
-        <section className="plano-section">
-          <h2 style={{ fontSize: 28 }}>8 · Projeções financeiras — mix B2C + B2B</h2>
-
-          <div className="plano-callout plano-callout-blue">
-            <strong>Premissas:</strong>
-            <ul>
-              <li>Ticket B2C residencial Palmas-TO: R$ 22k médio (5 kWp típico)</li>
-              <li>Ticket B2B comércio: R$ 80k médio</li>
-              <li>Ticket B2B indústria: R$ 250k médio</li>
-              <li>Ticket B2B rural: R$ 150k médio</li>
-              <li>Margem operacional Aura: 15-20%</li>
-              <li>Comissão captação RadarPRO: 5-7%</li>
-            </ul>
-          </div>
-
-          <h3 style={{ fontSize: 18, marginTop: 24 }}>Cenário CONSERVADOR (12 meses)</h3>
-          <p>Renato executa Frente 1 + posta no ritmo dele, sem Frente 2 nem RadarPRO.</p>
           <table>
-            <thead><tr><th>Linha</th><th>Quantidade</th><th>Receita</th></tr></thead>
+            <thead>
+              <tr><th>Dado</th><th>Valor usado</th><th>Fonte</th></tr>
+            </thead>
             <tbody>
-              <tr><td>B2C residencial</td><td>25 (~2/mês)</td><td>R$ 550k</td></tr>
-              <tr><td>B2B comércio</td><td>1</td><td>R$ 80k</td></tr>
-              <tr><td>B2B rural</td><td>1</td><td>R$ 150k</td></tr>
-              <tr><td><strong>Faturamento bruto</strong></td><td></td><td><strong>R$ 780k</strong></td></tr>
-              <tr><td>Margem 15%</td><td></td><td><strong>R$ 117k lucro</strong></td></tr>
-            </tbody>
-          </table>
-
-          <h3 style={{ fontSize: 18, marginTop: 24 }}>Cenário REALISTA (12 meses)</h3>
-          <p>Renato executa Frente 1 + Frente 2 ativa + tráfego pago básico.</p>
-          <table>
-            <thead><tr><th>Linha</th><th>Quantidade</th><th>Receita</th></tr></thead>
-            <tbody>
-              <tr><td>B2C residencial</td><td>40 (~3-4/mês)</td><td>R$ 880k</td></tr>
-              <tr><td>B2B comércio</td><td>3</td><td>R$ 240k</td></tr>
-              <tr><td>B2B rural</td><td>2</td><td>R$ 300k</td></tr>
-              <tr><td>B2B indústria</td><td>1</td><td>R$ 250k</td></tr>
-              <tr><td><strong>Faturamento bruto</strong></td><td></td><td><strong>R$ 1.670k</strong></td></tr>
-              <tr><td>Margem 17%</td><td></td><td><strong>R$ 284k lucro</strong></td></tr>
-            </tbody>
-          </table>
-
-          <h3 style={{ fontSize: 18, marginTop: 24 }}>Cenário OTIMISTA (24 meses)</h3>
-          <p>Frente 1 + 2 + 3 ativos + RadarPRO entregando + info-produto FASE 2 lançado no mês 18.</p>
-          <table>
-            <thead><tr><th>Linha</th><th>Quantidade (24m)</th><th>Receita</th></tr></thead>
-            <tbody>
-              <tr><td>B2C residencial</td><td>80</td><td>R$ 1.760k</td></tr>
-              <tr><td>B2B comércio</td><td>8</td><td>R$ 640k</td></tr>
-              <tr><td>B2B rural</td><td>6</td><td>R$ 900k</td></tr>
-              <tr><td>B2B indústria</td><td>4</td><td>R$ 1.000k</td></tr>
-              <tr><td>Info-produto B2B (M18-24)</td><td>200 cursos × R$ 497</td><td>R$ 99k</td></tr>
-              <tr><td><strong>Faturamento bruto 24m</strong></td><td></td><td><strong>R$ 4.399k</strong></td></tr>
-              <tr><td>Margem média</td><td></td><td><strong>R$ 838k lucro</strong></td></tr>
-            </tbody>
-          </table>
-
-          <h3 style={{ fontSize: 18, marginTop: 32 }}>Comparativo: Aura sem Impulso vs com Impulso (24 meses)</h3>
-          <table>
-            <thead><tr><th></th><th>Sem Impulso (orgânico)</th><th>Com Impulso</th></tr></thead>
-            <tbody>
-              <tr><td>Faturamento total 24m</td><td>R$ 800k</td><td><strong>R$ 4.400k</strong></td></tr>
-              <tr><td>Lucro estimado</td><td>R$ 120k</td><td><strong>R$ 838k</strong></td></tr>
-              <tr><td>Lead/mês</td><td>15-25</td><td>80-120</td></tr>
-              <tr><td>Tempo Renato em marketing</td><td>15h/sem</td><td>3h/sem (só gravação)</td></tr>
+              <tr><td>Tarifa Energisa-TO B1</td><td>R$ 0,95/kWh</td><td>REH ANEEL 3.479/2025</td></tr>
+              <tr><td>HSP Palmas-TO</td><td>5,9 kWh/m²/dia</td><td>NASA / Atlas Solar BR</td></tr>
+              <tr><td>Lei 14.300 — Fio B 2026</td><td>60% sobre injetada</td><td>ANEEL — cronograma oficial</td></tr>
+              <tr><td>Painel referência</td><td>575W (Tier 1 Trina/Canadian/Jinko)</td><td>Mercado 2026</td></tr>
+              <tr><td>Performance ratio</td><td>0,80 (média BR)</td><td>ABSOLAR</td></tr>
             </tbody>
           </table>
 
           <div className="plano-callout plano-callout-green">
-            <strong>Conclusão:</strong> investimento Frente 2
-            (R$ 1.497-1.997/mês = R$ 18-24k/ano) gera retorno{" "}
-            <strong>20-40× maior</strong> em fluxo de caixa novo no
-            horizonte 24m.
+            <strong>O efeito na percepção do cliente:</strong> ele entra
+            no site achando que vai ser empurrado pra um formulário de
+            orçamento. Em vez disso, recebe uma simulação técnica em 30
+            segundos. Sai com a sensação de que a Aura é diferente — porque
+            é mesmo.
           </div>
         </section>
 
-        {/* ═══════════════════════ 9. PRICING ═══════════════════════ */}
-        <section className="plano-section">
-          <h2 style={{ fontSize: 28 }}>9 · Pricing — 3 frentes</h2>
+        {/* ═══════════════════════ 8. CONCORRÊNCIA LOCAL (Pág. 10) ═══════════════════════ */}
+        <section className="plano-section" id="secao-concorrencia">
+          <div className="plano-page-marker">Página 10 · Seção 8</div>
+          <h2 style={{ fontSize: 28 }}>Concorrência local em Palmas — análise competitiva</h2>
 
-          <div
-            className="plano-callout"
-            style={{ borderLeftColor: "var(--plano-yellow)", background: "#fff8e8" }}
-          >
-            <h3 style={{ fontSize: 20, marginTop: 0 }}>
-              Frente 1 · Setup completo Aura — <span style={{ color: "var(--plano-orange)" }}>R$ 1.200</span>
-            </h3>
-            <p><strong>Status:</strong> entregue tecnicamente, aguarda fechamento financeiro 06/05.</p>
-            <p><strong>Entrega:</strong></p>
-            <ul>
-              <li>LP profissional segmentada em 4 nichos + HUB raiz (em produção)</li>
-              <li>6 artes Instagram primeiros 30 dias (copy + briefing visual finalizado)</li>
-              <li><strong>Bônus:</strong> Direção info-produto B2B (1 página A4)</li>
-              <li>Ajustes pós-pagamento (1 mês de calibragem com fotos/dados reais)</li>
-              <li>7 dias de garantia incondicional pós-pagamento</li>
-            </ul>
-            <p><strong>Forma de pagamento:</strong> R$ 1.200 à vista PIX ou 3× cartão (sem juros).</p>
-          </div>
+          <p>
+            A Impulso fez auditoria nas 6 principais empresas solares
+            ativas em Palmas. Resultado: o mercado digital tá vazio.
+            Quem ocupar primeiro com presença consistente lidera em 6-12 meses.
+          </p>
 
-          <div className="plano-callout">
-            <h3 style={{ fontSize: 20, marginTop: 0 }}>
-              Frente 2 · Operação digital mensal — <span style={{ color: "var(--plano-orange)" }}>R$ 1.497/mês</span>{" "}
-              <span style={{ fontSize: 14, color: "var(--plano-text-muted)" }}>(preço fundador)</span>
-            </h3>
-            <p><strong>Status:</strong> apresentar SE Renato pedir continuidade após começar a postar (não cravar 06/05).</p>
-            <p><strong>Entrega:</strong></p>
-            <ul>
-              <li>Gestão tráfego Meta Ads + LinkedIn Ads (não inclui investimento Meta/LinkedIn)</li>
-              <li>12 posts/mês Instagram (3/semana feed)</li>
-              <li>4 reels/mês (Renato grava em bloco, Impulso edita)</li>
-              <li>8 stories/semana</li>
-              <li>Manutenção LP (1 atualização/mês)</li>
-              <li>1 reunião mensal de revisão (45 min)</li>
-              <li>Dashboard semanal por WhatsApp</li>
-            </ul>
-            <p><strong>Investimento Meta separado:</strong> R$ 1.500-3.000/mês (vai direto pra conta Meta do Renato)</p>
-            <p>
-              <strong>Recomendação:</strong> começar com R$ 1.497 fundador,
-              upsell pra R$ 1.997 quando tiver 3+ depoimentos rodando.
-            </p>
-            <p>
-              <strong>Compromisso:</strong> mínimo 6 meses · pode pausar
-              com 30 dias de aviso após mês 3 · sem multa.
-            </p>
-          </div>
+          <h3 style={{ fontSize: 17, marginTop: 24 }}>Os 6 concorrentes mapeados</h3>
 
-          <div className="plano-callout">
-            <h3 style={{ fontSize: 20, marginTop: 0 }}>
-              Frente 3 · RadarPRO Solar Palmas — <span style={{ color: "var(--plano-orange)" }}>comissão 5-7%</span>
-            </h3>
-            <p><strong>Status:</strong> propor depois Frente 2 estar rodando (mês 2-3+).</p>
-            <p><strong>Modelo:</strong></p>
-            <ul>
-              <li>Comissão <strong>5-7%</strong> sobre venda fechada via lead RadarPRO (5% pra ticket &gt; R$ 200k, 7% pra ticket &lt; R$ 200k)</li>
-              <li><strong>Sem mensalidade · sem fixo · sem fricção pra Renato</strong></li>
-              <li>Operado 100% pela Impulso nos bastidores</li>
-              <li>Cliente NÃO compra o RadarPRO — só recebe leads B2B (10-20/mês meta) com playbook</li>
-              <li>Tracking via planilha compartilhada + reunião quinzenal</li>
-            </ul>
-          </div>
+          <table>
+            <thead>
+              <tr><th>Empresa</th><th>Capacidade</th><th>Presença digital</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><strong>ARASOL</strong></td><td>2.500+ kWp · 100+ projetos</td><td>1.540 followers Instagram</td></tr>
+              <tr><td><strong>Palmas Energia Solar</strong></td><td>6.000+ kWp (líder em volume)</td><td>@palmasenergiasolar_to</td></tr>
+              <tr><td><strong>Unità Soluções</strong></td><td>atende 5 estados (TO/PA/MA/GO/PI)</td><td>foco regional, não Palmas</td></tr>
+              <tr><td><strong>Ferpam Energia Solar</strong></td><td>sede como case próprio</td><td>baixa</td></tr>
+              <tr><td><strong>UNISOL</strong></td><td>menor que demais</td><td>menor</td></tr>
+              <tr><td><strong>Brasfrio Engenharia Solar</strong></td><td>operação atual do Renato</td><td>1.887 followers · vai dar lugar à Aura</td></tr>
+            </tbody>
+          </table>
+
+          <h3 style={{ fontSize: 17, marginTop: 32 }}>O que eles fazem (e a Aura faz melhor)</h3>
+
+          <ul>
+            <li>
+              <strong>Comunicam preço &quot;a partir de&quot;</strong> sem
+              transparência → <strong>Aura publica catálogo de kits com
+              faixa de preço pública</strong>
+            </li>
+            <li>
+              <strong>Falam &quot;25 anos de garantia&quot;</strong> sem
+              detalhar → <strong>Aura entrega timeline antes/durante/depois
+              com 4 promessas em cada etapa</strong>
+            </li>
+            <li>
+              <strong>Mostram fotos genéricas de painéis solares</strong> →
+              <strong> Aura mostra equipe trabalhando em Palmas + mapa
+              de instalações locais</strong>
+            </li>
+          </ul>
+
+          <h3 style={{ fontSize: 17, marginTop: 24 }}>O que eles NÃO fazem (e a Aura ocupa)</h3>
+
+          <ul>
+            <li>
+              <strong>Nenhum tem calculadora pública</strong> — todos
+              forçam orçamento. Aura tem.
+            </li>
+            <li>
+              <strong>Nenhum comunica ativamente o Programa Palmas Solar</strong> (desconto IPTU até 60% até 2030). Aura pode virar &quot;a empresa que cuida da documentação no Resolve Palmas pra você&quot;.
+            </li>
+            <li>
+              <strong>Nenhum educa o cliente final</strong> — todos vendem
+              produto direto. Aura usa Lei 14.300, Fio B, payback como
+              ganchos educativos.
+            </li>
+            <li>
+              <strong>Nenhum tem nicho vertical claro</strong> — todos
+              atendem &quot;geral&quot;. Aura pode dominar rural/agronegócio
+              primeiro (TO forte, concorrência fraca).
+            </li>
+            <li>
+              <strong>Nenhum oferece acompanhamento pós-venda formal</strong>{" "}
+              — Aura pode lançar Plano de Acompanhamento Anual (R$ 200-400/cliente).
+            </li>
+            <li>
+              <strong>Nenhum passa de 2.000 followers Instagram</strong> —
+              líder ARASOL tem 1.540. Mercado digital vazio.
+            </li>
+          </ul>
 
           <div className="plano-callout plano-callout-blue">
-            <h3 style={{ fontSize: 18, marginTop: 0 }}>Plano B — se Renato fechar SÓ Frente 1</h3>
-            <p><strong>O que continua:</strong></p>
-            <ul>
-              <li>LP no ar (hospedagem Vercel grátis até escala)</li>
-              <li>Bônus direção info-produto na mão dele</li>
-              <li>Eduardo disponível pra suporte WhatsApp eventual (sem SLA)</li>
-            </ul>
-            <p><strong>O que para:</strong></p>
-            <ul>
-              <li>Sem produção de conteúdo, sem tráfego pago, sem RadarPRO</li>
-              <li>Sem reunião mensal, sem dashboard</li>
-            </ul>
-            <p>
-              <strong>Upsell natural:</strong> Frente 2 ainda disponível em
-              R$ 1.497 fundador por 60 dias após Frente 1. Depois disso, R$ 1.997.
-            </p>
+            <strong>A janela:</strong> com cadência consistente (3 posts/sem
+            + 1 reel/sem + stories diários) + tráfego pago, a Aura passa
+            a ARASOL em 6 meses e vira #1 em presença digital solar de
+            Palmas em 12 meses.
           </div>
         </section>
 
-        {/* ═══════════════════════ 10. KPIs ═══════════════════════ */}
-        <section className="plano-section">
-          <h2 style={{ fontSize: 28 }}>10 · KPIs e dashboard</h2>
+        {/* ═══════════════════════ 9. PROGRAMA PALMAS SOLAR (Pág. 11) ═══════════════════════ */}
+        <section className="plano-section" id="secao-palmas-solar">
+          <div className="plano-page-marker">Página 11 · Seção 9</div>
+          <h2 style={{ fontSize: 28 }}>Programa Palmas Solar — IPTU verde + benefícios fiscais</h2>
 
-          <h3 style={{ fontSize: 18, marginTop: 24 }}>B2C residencial</h3>
-          <table>
-            <thead><tr><th>Métrica</th><th>30d</th><th>60d</th><th>90d</th></tr></thead>
-            <tbody>
-              <tr><td>Leads B2C/mês</td><td>10-15</td><td>20-30</td><td>30-50</td></tr>
-              <tr><td>CPL Meta Ads</td><td>R$ 60-100</td><td>R$ 50-80</td><td>R$ 35-65</td></tr>
-              <tr><td>Conversão lead → proposta</td><td>30%</td><td>35%</td><td>40%</td></tr>
-              <tr><td>Vendas B2C/mês</td><td>1-2</td><td>2-4</td><td>3-5</td></tr>
-              <tr><td>Receita B2C/mês</td><td>R$ 22-44k</td><td>R$ 44-88k</td><td>R$ 66-110k</td></tr>
-            </tbody>
-          </table>
+          <p>
+            Esse é um dos diferenciais mais fortes da Aura — e que nenhum
+            concorrente em Palmas comunica ativamente. A Prefeitura de
+            Palmas dá <strong>desconto real em 3 tributos municipais</strong>{" "}
+            pra quem instala energia solar. A Aura vira &quot;a empresa
+            que cuida da documentação no Resolve Palmas pra você&quot; —
+            zero custo extra, valor enorme percebido.
+          </p>
 
-          <h3 style={{ fontSize: 18, marginTop: 24 }}>B2B (comércio + indústria + rural)</h3>
-          <table>
-            <thead><tr><th>Métrica</th><th>30d</th><th>60d</th><th>90d</th></tr></thead>
-            <tbody>
-              <tr><td>Prospects B2B em conversa</td><td>0-2</td><td>2-5</td><td>8-12</td></tr>
-              <tr><td>Reuniões B2B realizadas</td><td>0-1</td><td>2-4</td><td>5-8</td></tr>
-              <tr><td>Propostas B2B enviadas</td><td>0</td><td>1-2</td><td>3-5</td></tr>
-              <tr><td>Vendas B2B fechadas</td><td>0</td><td>0-1</td><td>0-1 (1ª esperada mês 4-6)</td></tr>
-              <tr><td>Pipeline B2B em valor</td><td>R$ 0-100k</td><td>R$ 200-500k</td><td>R$ 500k-1.5M</td></tr>
-            </tbody>
-          </table>
-
-          <h3 style={{ fontSize: 18, marginTop: 24 }}>Marca / Insta</h3>
-          <table>
-            <thead><tr><th>Métrica</th><th>30d</th><th>60d</th><th>90d</th></tr></thead>
-            <tbody>
-              <tr><td>Posts Insta/semana</td><td>5</td><td>5</td><td>5</td></tr>
-              <tr><td>Engagement Aura</td><td>1,5%</td><td>2%</td><td>2,5%+</td></tr>
-              <tr><td>Followers @auraenergy</td><td>300</td><td>600</td><td>1.000+ (passa ARASOL)</td></tr>
-            </tbody>
-          </table>
-
-          <h3 style={{ fontSize: 18, marginTop: 24 }}>Comissão Impulso (Frentes 2 + 3)</h3>
-          <table>
-            <thead><tr><th>Mês</th><th>Mensalidade Frente 2</th><th>Comissão Frente 3</th><th>Total</th></tr></thead>
-            <tbody>
-              <tr><td>30d</td><td>R$ 1.497</td><td>R$ 0</td><td>R$ 1.497</td></tr>
-              <tr><td>60d</td><td>R$ 1.497</td><td>R$ 0-2k</td><td>R$ 1.497-3.497</td></tr>
-              <tr><td>90d</td><td>R$ 1.497</td><td>R$ 2-7k</td><td>R$ 3.497-8.497</td></tr>
-            </tbody>
-          </table>
-
-          <h3 style={{ fontSize: 18, marginTop: 24 }}>Cadência de revisão</h3>
+          <h3 style={{ fontSize: 18, marginTop: 24 }}>O que é o programa</h3>
           <ul>
-            <li><strong>Diário</strong> (quando tem lead novo): atualização rápida em <code>CASE-AURA-LOG.md</code></li>
-            <li><strong>Semanal</strong> (sextas): atualização <code>METRICAS-AURA.md</code> + dashboard pro Renato</li>
-            <li><strong>Quinzenal:</strong> revisão estratégica (45 min)</li>
-            <li><strong>Mensal:</strong> relatório formal + reunião 1h</li>
-            <li><strong>Trimestral:</strong> depoimento Renato em vídeo</li>
+            <li><strong>Nome oficial:</strong> Programa Palmas Solar</li>
+            <li><strong>Lei criadora:</strong> Lei Complementar Municipal nº 327, de 24/11/2015</li>
+            <li><strong>Decreto regulamentador:</strong> Decreto Municipal nº 1.506, de 18/12/2017</li>
+            <li><strong>Atualização recente:</strong> Decreto nº 2.378, de 07/06/2023 (atualizou prazo de protocolo + fluxo Resolve → Habitação)</li>
+            <li><strong>Validade:</strong> programa permanente · janela de adesão até 2035</li>
+            <li><strong>Beneficiários ativos em 2026:</strong> 1.037 contribuintes (fonte: Prefeitura de Palmas, 10/02/2026)</li>
+          </ul>
+
+          <h3 style={{ fontSize: 18, marginTop: 32 }}>Os 3 tributos com desconto</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>Tributo</th>
+                <th>Desconto efetivo (adesão 2026)</th>
+                <th>Prazo</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>IPTU</strong></td>
+                <td>até 40% por 5 anos consecutivos</td>
+                <td>5 anos (2027 a 2031)</td>
+              </tr>
+              <tr>
+                <td><strong>ITBI</strong></td>
+                <td>até 40%</td>
+                <td>aplicado uma vez, na 1ª transferência após concessão</td>
+              </tr>
+              <tr>
+                <td><strong>ISSQN</strong></td>
+                <td>80% fixo</td>
+                <td>até 10 anos (instaladoras, fabricantes, projetistas)</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <p style={{ fontSize: 13, color: "var(--plano-text-muted)", marginTop: 4 }}>
+            <em>Aplica-se a residencial, comercial, industrial — edificações
+            novas e preexistentes que se adequem à geração fotovoltaica
+            conforme resoluções da ANEEL (LC 327, art. 17).</em>
+          </p>
+
+          <div className="plano-callout">
+            <strong>Atenção legal importante:</strong> a lei prevê teto
+            histórico de até 80% de desconto, mas isso vale só pra adesões
+            antigas (2016-2020). Pra adesões em 2026, o benefício efetivo
+            é <strong>40% no IPTU por 5 anos</strong> — usar &quot;80%&quot;
+            hoje configura propaganda enganosa. A Aura comunica o número
+            correto e ainda assim ganha porque o concorrente não comunica
+            nada.
+          </div>
+
+          <h3 style={{ fontSize: 18, marginTop: 32 }}>Cronograma de janelas (decrescente por ano de adesão)</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>Ano de adesão</th>
+                <th>Vigência (5 anos)</th>
+                <th>Benefício IPTU/ITBI</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>2016-2020</td><td>2017 a 2025</td><td>80% (encerrado)</td></tr>
+              <tr><td>2021-2025</td><td>2022 a 2030</td><td>60%</td></tr>
+              <tr style={{ background: "rgba(245, 188, 44, 0.15)" }}><td><strong>2026-2030 ← janela atual</strong></td><td><strong>2027 a 2035</strong></td><td><strong>40%</strong></td></tr>
+              <tr><td>2031-2035</td><td>2032 a 2040</td><td>20% (último ciclo)</td></tr>
+            </tbody>
+          </table>
+
+          <div className="plano-callout plano-callout-blue">
+            <strong>Argumento de venda pronto:</strong> &quot;Quem aderir
+            em 2026 trava 40% de desconto no IPTU por 5 anos consecutivos.
+            Em 2031, esse benefício cai pra 20%. Quem espera, perde.&quot;
+          </div>
+
+          <h3 style={{ fontSize: 18, marginTop: 32 }}>Quem pode participar</h3>
+          <ul>
+            <li>Proprietário do imóvel (PF ou PJ contribuinte do município)</li>
+            <li>Sistema fotovoltaico homologado na Energisa-TO</li>
+            <li>ART do profissional responsável pelo projeto/instalação (CREA-TO)</li>
+            <li>Imóvel em dia com a Prefeitura (sem débitos municipais)</li>
+            <li>Comprovação anual de continuidade (fatura + relatório de injeção na rede)</li>
+          </ul>
+
+          <h3 style={{ fontSize: 18, marginTop: 32 }}>Como solicitar (passo a passo)</h3>
+          <ol>
+            <li><strong>Onde protocolar:</strong> Resolve Palmas (presencial) ou Portal do Cidadão (online)</li>
+            <li><strong>Análise:</strong> Secretaria Municipal da Habitação avalia e emite o &quot;Selo Solar&quot; com percentual e tempo de vigência</li>
+            <li><strong>Documentos exigidos:</strong> formulário oficial + RG/CPF (ou CNPJ) + Certidão Negativa de Débitos + fatura recente + termo de habite-se + comprovante de homologação Energisa + notas fiscais dos equipamentos (emitidas em Palmas)</li>
+            <li><strong>Prazo limite anual:</strong> protocolo até 30 de outubro de cada ano, pra vigência no exercício fiscal seguinte</li>
+            <li><strong>Pendências:</strong> precisam ser sanadas até 30 de novembro, sob pena de indeferimento</li>
+          </ol>
+
+          <h3 style={{ fontSize: 18, marginTop: 32 }}>Por que isso vira diferencial estratégico Aura</h3>
+          <ol>
+            <li>
+              <strong>Nenhum concorrente em Palmas comunica isso ativamente.</strong>{" "}
+              ARASOL menciona, mas não destaca. Os outros ignoram. A Aura
+              pode dominar essa narrativa.
+            </li>
+            <li>
+              <strong>Vira serviço sem custo extra.</strong> A Aura entrega
+              a instalação + cuida da documentação no Resolve Palmas. Cliente
+              paga zero a mais e ainda economiza tributo por anos.
+            </li>
+            <li>
+              <strong>Posiciona como &quot;consultora full-service&quot;</strong>
+              {" "}— não vende só painel, ajuda a maximizar o ROI total
+              (instalação + benefício fiscal).
+            </li>
+            <li>
+              <strong>Gera urgência regulatória real.</strong> Em 2031 o
+              benefício cai pra 20%. Adesão em 2026 trava 40% por 5 anos.
+            </li>
+          </ol>
+
+          <h3 style={{ fontSize: 18, marginTop: 32 }}>Fontes oficiais consultadas</h3>
+          <ul style={{ fontSize: 13, color: "var(--plano-text-muted)" }}>
+            <li>Lei Complementar Municipal nº 327/2015 (íntegra · Câmara Municipal de Palmas)</li>
+            <li>Decreto Municipal nº 1.506/2017 (regulamentação vigente)</li>
+            <li>Decreto Municipal nº 2.378/2023 (atualização do fluxo)</li>
+            <li>Notícia oficial Prefeitura de Palmas — 10/02/2026 (1.037 beneficiários ativos)</li>
+            <li>GPublicas — Programa Palmas Solar reconhecido como boa prática</li>
+            <li>ICLEI Renewables Roadmap — estudo de caso internacional</li>
           </ul>
         </section>
 
-        {/* ═══════════════════════ 11. INFO-PRODUTO ═══════════════════════ */}
-        <section className="plano-section">
-          <h2 style={{ fontSize: 28 }}>11 · Info-produto B2B FASE 2 (M+12 em diante)</h2>
+        {/* ═══════════════════════ 10. CATÁLOGO DE KITS + PROJEÇÃO (Pág. 12) ═══════════════════════ */}
+        <section className="plano-section" id="secao-catalogo">
+          <div className="plano-page-marker">Página 12 · Seção 10</div>
+          <h2 style={{ fontSize: 28 }}>Catálogo de kits + projeção de receita</h2>
 
-          <h3 style={{ fontSize: 18, marginTop: 24 }}>11.1 Por que info-produto B2B (não eletricista)</h3>
           <p>
-            Decisão estratégica: info-produto é <strong>FASE 2</strong> — depois Aura crescer no B2B (12-18 meses). Não é entregável imediato, é mapa pro futuro.
+            A Aura entra no mercado com 4 kits cravados, cobrindo desde
+            residencial pequeno até comércio/indústria pequena. Faixa de
+            preço pública (diferencial vs concorrentes que escondem) e
+            calculadora ao vivo no site pra cliente conferir antes de
+            pedir orçamento.
+          </p>
+
+          <h3 style={{ fontSize: 18, marginTop: 24 }}>Os 4 kits Aura</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>Kit</th>
+                <th>Pra quem</th>
+                <th>Geração média</th>
+                <th>Faixa de investimento</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>3 kWp</strong></td>
+                <td>Residencial pequeno (conta R$ 250-400/mês)</td>
+                <td>~390 kWh/mês</td>
+                <td>R$ 13.000 — 15.000</td>
+              </tr>
+              <tr>
+                <td><strong>5 kWp ⭐</strong></td>
+                <td>Residencial médio (conta R$ 500-700/mês) — campeão de venda</td>
+                <td>~650 kWh/mês</td>
+                <td>R$ 17.000 — 22.000</td>
+              </tr>
+              <tr>
+                <td><strong>8 kWp</strong></td>
+                <td>Residencial alto / pequeno comércio (conta R$ 800-1.200/mês)</td>
+                <td>~1.040 kWh/mês</td>
+                <td>R$ 28.000 — 35.000</td>
+              </tr>
+              <tr>
+                <td><strong>12+ kWp</strong></td>
+                <td>Comércio mid / indústria pequena / rural (conta R$ 1.500+/mês)</td>
+                <td>~1.560+ kWh/mês</td>
+                <td>R$ 38.000 — 55.000+</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <p style={{ fontSize: 13, color: "var(--plano-text-muted)", marginTop: 8 }}>
+            <em>Faixas baseadas em tarifa Energisa-TO + HSP Palmas 5,9
+            kWh/m²/dia. Painéis Tier 1 (Trina/Canadian/Jinko) +
+            inversores premium. ART e garantia 25 anos painel · 10 anos
+            inversor inclusas.</em>
+          </p>
+
+          <h3 style={{ fontSize: 18, marginTop: 32 }}>O que está incluso em cada kit</h3>
+          <ul>
+            <li>Visita técnica gratuita no local</li>
+            <li>Projeto técnico completo + ART pelo CREA-TO</li>
+            <li>Painéis solares Tier 1 (Trina, Canadian ou Jinko)</li>
+            <li>Inversor premium (Growatt, Sungrow ou Huawei)</li>
+            <li>Estrutura de fixação (alumínio anodizado, certificada)</li>
+            <li>String box CC + DPS + disjuntores</li>
+            <li>Cabeamento solar + conexão até quadro</li>
+            <li>Mão de obra completa de instalação</li>
+            <li>Homologação na Energisa-TO</li>
+            <li>Configuração do app de monitoramento no celular do cliente</li>
+            <li>Suporte técnico pelos 25 anos seguintes</li>
+          </ul>
+
+          <h3 style={{ fontSize: 18, marginTop: 32 }}>Projeção de receita — 3 cenários (12 meses)</h3>
+
+          <p>
+            Considerando ticket médio de R$ 22.000 (sistema 5 kWp, mais
+            vendido) e mix natural entre os 4 kits:
           </p>
 
           <table>
-            <thead><tr><th>Critério</th><th>Curso técnico (eletricista — saturado)</th><th>Info-produto B2B Aura (vazio)</th></tr></thead>
+            <thead>
+              <tr>
+                <th>Cenário</th>
+                <th>Instalações/mês</th>
+                <th>Faturamento mensal</th>
+                <th>Faturamento ano</th>
+              </tr>
+            </thead>
             <tbody>
-              <tr><td>Concorrência BR</td><td>Dezenas (Tenda, Eletricista 360, Solar Cursos)</td><td><strong>Zero player relevante</strong></td></tr>
-              <tr><td>Público-alvo</td><td>Pessoa física querendo profissão</td><td>Decisor B2B (dono ind/com/rural)</td></tr>
-              <tr><td>Ticket</td><td>R$ 19-497</td><td>R$ 297-1.997 (+ FASE 3 mentoria R$ 5-15k)</td></tr>
-              <tr><td>Conexão com Aura</td><td>Indireta (aluno vira concorrente)</td><td><strong>Direta</strong> — aluno B2B vira lead Aura</td></tr>
+              <tr>
+                <td><strong>Modesto</strong></td>
+                <td>2 instalações</td>
+                <td>~R$ 44.000</td>
+                <td>~R$ 528.000</td>
+              </tr>
+              <tr>
+                <td><strong>Consistente</strong></td>
+                <td>4 instalações</td>
+                <td>~R$ 88.000</td>
+                <td>~R$ 1.056.000</td>
+              </tr>
+              <tr>
+                <td><strong>Escalado</strong></td>
+                <td>6 instalações + 1 B2B/trim.</td>
+                <td>~R$ 132.000 + extras B2B</td>
+                <td>~R$ 1.580.000 — 2.000.000</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div className="plano-callout plano-callout-green">
+            <strong>Nota sobre B2B:</strong> 1 venda B2B (comércio mid ou
+            indústria pequena) tem ticket entre R$ 80.000 e R$ 800.000.
+            Cada fechamento B2B substitui 4 a 36 vendas residenciais em
+            faturamento. Por isso o pivot pra B2B é estratégico — uma
+            venda fechada por trimestre transforma o ano da Aura.
+          </div>
+
+          <div className="plano-callout">
+            <strong>Importante:</strong> a projeção considera mix de
+            captação digital (Insta + Google + indicação) rodando estável
+            a partir do mês 3-4. Mês 1-2 são de aquecimento da operação,
+            com receita ainda baixa enquanto pipeline se forma.
+          </div>
+        </section>
+
+        {/* ═══════════════════════ 11. CRONOGRAMA 90 DIAS (Pág. 13) ═══════════════════════ */}
+        <section className="plano-section" id="secao-cronograma">
+          <div className="plano-page-marker">Página 13 · Seção 11</div>
+          <h2 style={{ fontSize: 28 }}>Cronograma 90 dias — feito pra rotina do Renato</h2>
+
+          <p>
+            Renato é engenheiro responsável + sócio Brasfrio + atende
+            cliente todo dia. Não tem tempo de pensar em conteúdo de
+            marketing diariamente. Por isso o cronograma foi desenhado
+            no modelo <strong>&quot;Renato grava 1 dia, Impulso roda o
+            mês inteiro&quot;</strong>.
+          </p>
+
+          <h3 style={{ fontSize: 18, marginTop: 24 }}>Quanto tempo você investe por mês</h3>
+
+          <table>
+            <thead>
+              <tr><th>Atividade</th><th>Quando</th><th>Tempo</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Bloco mensal de gravação (4 reels de uma vez)</td><td>1 dia por mês</td><td>4-6h</td></tr>
+              <tr><td>Aprovação da pauta mensal</td><td>1 reunião por mês</td><td>30-60 min</td></tr>
+              <tr><td>Mandar foto de instalação concluída</td><td>Quando concluir obra</td><td>2 min cada</td></tr>
+              <tr><td>Atender lead que chegou pelo WhatsApp</td><td>No fluxo normal</td><td>já faz hoje</td></tr>
+              <tr><td><strong>Total mensal</strong></td><td colSpan={2}><strong>5-8 horas por mês</strong></td></tr>
+            </tbody>
+          </table>
+
+          <div className="plano-callout plano-callout-blue">
+            <strong>Comparação:</strong> a maioria dos cronogramas pede 1-2h
+            por dia do dono do negócio. Aqui são <strong>5-8 horas no mês
+            inteiro</strong>. O resto a Impulso assume.
+          </div>
+
+          <h3 style={{ fontSize: 18, marginTop: 32 }}>Quem faz o quê</h3>
+
+          <table>
+            <thead>
+              <tr><th>Tarefa</th><th>Quem executa</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Definir tema dos 4 reels do mês</td><td>Impulso (você só aprova)</td></tr>
+              <tr><td>Roteiro detalhado dos reels</td><td>Impulso (entrega pronto pra ler)</td></tr>
+              <tr><td>Gravação dos reels</td><td>Você (1 dia, no estúdio ou na obra)</td></tr>
+              <tr><td>Edição dos reels</td><td>Impulso</td></tr>
+              <tr><td>Posts feed (cópia + arte)</td><td>Impulso</td></tr>
+              <tr><td>Stories pré-prontos</td><td>Impulso (pacote semanal pra você só repostar)</td></tr>
+              <tr><td>Agendamento e publicação</td><td>Impulso</td></tr>
+              <tr><td>Tráfego pago</td><td>Impulso</td></tr>
+              <tr><td>Atender lead no WhatsApp</td><td>Você</td></tr>
+            </tbody>
+          </table>
+
+          <h3 style={{ fontSize: 18, marginTop: 32 }}>Cadência mensal de publicação</h3>
+
+          <table>
+            <thead>
+              <tr><th>Tipo</th><th>Frequência</th><th>Total por mês</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Posts no feed (carrossel ou imagem)</td><td>2 por semana</td><td>~8 posts</td></tr>
+              <tr><td>Reels (do bloco mensal)</td><td>1 por semana</td><td>4 reels</td></tr>
+              <tr><td>Stories</td><td>3-5 por semana</td><td>12-20 stories</td></tr>
+              <tr><td>Carrossel B2B (comércio, indústria, rural)</td><td>1 a cada 2 semanas</td><td>2 carrosséis</td></tr>
+            </tbody>
+          </table>
+
+          <h2 style={{ fontSize: 22, marginTop: 40, paddingTop: 24, borderTop: "2px solid var(--plano-border)" }}>
+            Visão de 90 dias — mês a mês
+          </h2>
+
+          <p>
+            O setup entrega o ponto de partida. A operação real acontece
+            ao longo dos primeiros 3 meses, com fases bem definidas:
+          </p>
+
+          <div className="plano-callout" style={{ borderLeftColor: "var(--plano-yellow)", background: "#fff8e8" }}>
+            <h3 style={{ fontSize: 18, marginTop: 0 }}>Mês 1 · Lançamento de marca</h3>
+            <p style={{ fontSize: 13, color: "var(--plano-text-muted)", marginTop: 4 }}>
+              <em>Foco: a Aura entra no ar com identidade clara, primeiros leads chegando, base digital estruturada.</em>
+            </p>
+
+            <h4 style={{ fontSize: 14, marginTop: 16 }}>Semana 1 — Setup técnico</h4>
+            <ul>
+              <li>Insta @auraenergy + WhatsApp Business + Google Meu Negócio criados</li>
+              <li>Pixel Meta + GA4 + Google Search Console instalados nas LPs</li>
+              <li>Sitemap submetido pro Google indexar</li>
+              <li>Calibragem da LP com fotos e dados reais que você passou</li>
+              <li>6 artes finalizadas e prontas pra publicar</li>
+            </ul>
+
+            <h4 style={{ fontSize: 14, marginTop: 16 }}>Semana 2 — 4 marcos do lançamento de marca</h4>
+            <table>
+              <thead>
+                <tr><th>Marco</th><th>O que sai</th></tr>
+              </thead>
+              <tbody>
+                <tr><td><strong>Marco 1 · Anúncio oficial</strong></td><td>Arte 1 (Nasce a Aura) + 5 stories de teaser</td></tr>
+                <tr><td><strong>Marco 2 · Renato apresenta</strong></td><td>Arte 2 + 1º reel do bloco gravado</td></tr>
+                <tr><td><strong>Marco 3 · Educativo + calculadora</strong></td><td>Artes 3 e 4 (Lei 14.300 + Calculadora)</td></tr>
+                <tr><td><strong>Marco 4 · Caso real + urgência</strong></td><td>Artes 5 e 6 (Antes/depois + Janela Fio B)</td></tr>
+              </tbody>
+            </table>
+
+            <h4 style={{ fontSize: 14, marginTop: 16 }}>Semana 3-4 — Cadência ongoing começa</h4>
+            <ul>
+              <li>2 posts/semana entram no fluxo normal</li>
+              <li>Bloco mensal de gravação (Renato grava 4 reels em 1 dia)</li>
+              <li>Pacote semanal de stories (Impulso entrega pra postar)</li>
+              <li>1ª reunião mensal de revisão (45 min)</li>
+            </ul>
+
+            <p style={{ fontSize: 13, marginTop: 12 }}>
+              <strong>Resultado esperado mês 1:</strong> 200-300 followers ·
+              10-15 leads qualificados · 1-2 instalações fechadas ·
+              R$ 22-44k de faturamento.
+            </p>
+          </div>
+
+          <div className="plano-callout" style={{ borderLeftColor: "var(--plano-orange)" }}>
+            <h3 style={{ fontSize: 18, marginTop: 0 }}>Mês 2 · Tração</h3>
+            <p style={{ fontSize: 13, color: "var(--plano-text-muted)", marginTop: 4 }}>
+              <em>Foco: cadência rodando estável, primeiras vendas via funil digital, pipeline B2B começando.</em>
+            </p>
+
+            <h4 style={{ fontSize: 14, marginTop: 16 }}>O que entra no mês 2</h4>
+            <ul>
+              <li><strong>Tráfego pago Meta Ads</strong> ligado pra LP <code>/casa</code> com geofence Palmas (volume residencial)</li>
+              <li><strong>Google Ads</strong> nas palavras-chave principais (energia solar Palmas, Programa Palmas Solar)</li>
+              <li><strong>Pacote mensal de conteúdo</strong> rodando: 8 posts + 4 reels + 12-20 stories</li>
+              <li><strong>Carrosséis B2B</strong> entram a cada 2 semanas (1 comércio + 1 indústria/rural)</li>
+              <li><strong>1ª reativação ativa</strong> de leads frios (quem entrou no diagnóstico mas não fechou)</li>
+              <li><strong>Coleta de depoimentos</strong> dos primeiros 2-3 clientes Aura (vídeo de 30-60s no celular)</li>
+            </ul>
+
+            <p style={{ fontSize: 13, marginTop: 12 }}>
+              <strong>Resultado esperado mês 2:</strong> 500-700 followers ·
+              15-25 leads qualificados · 2-4 instalações fechadas ·
+              R$ 44-88k faturamento · 2-4 conversas B2B em andamento.
+            </p>
+          </div>
+
+          <div className="plano-callout" style={{ borderLeftColor: "var(--plano-green)", background: "#ecfdf5" }}>
+            <h3 style={{ fontSize: 18, marginTop: 0 }}>Mês 3 · Escala e consolidação</h3>
+            <p style={{ fontSize: 13, color: "var(--plano-text-muted)", marginTop: 4 }}>
+              <em>Foco: marca consolidada, presença digital virando referência local, B2B avançando pra primeira venda.</em>
+            </p>
+
+            <h4 style={{ fontSize: 14, marginTop: 16 }}>O que entra no mês 3</h4>
+            <ul>
+              <li><strong>SEO local</strong> começa a render frutos — primeiras posições no Google pra long tail (artigos do blog ranqueando)</li>
+              <li><strong>Google Meu Negócio</strong> com primeiras avaliações de cliente (pedidas ativamente)</li>
+              <li><strong>Tráfego pago refinado</strong> com base nos dados dos meses 1-2 (criativos vencedores escalados, perdedores cortados)</li>
+              <li><strong>Domínio próprio</strong> <code>auraenergy.com.br</code> apontando pra Vercel</li>
+              <li><strong>Pipeline B2B</strong> com 2-3 reuniões em estágio avançado (proposta enviada, aguardando decisão)</li>
+              <li><strong>Depoimentos em vídeo</strong> dos primeiros clientes Aura virando conteúdo orgânico de prova social</li>
+              <li><strong>Discussão de RadarPRO</strong> entra em pauta (parceria pra captação ativa B2B)</li>
+            </ul>
+
+            <p style={{ fontSize: 13, marginTop: 12 }}>
+              <strong>Resultado esperado mês 3:</strong> 1.000+ followers (passa Brasfrio antiga, mira ARASOL) ·
+              25-40 leads qualificados/mês · 3-5 instalações fechadas/mês ·
+              R$ 66-110k faturamento · 4-8 conversas B2B no pipeline.
+            </p>
+          </div>
+
+          <div className="plano-callout plano-callout-blue">
+            <strong>Realismo do B2B:</strong> primeira venda B2B esperada
+            entre <strong>mês 4 e mês 6</strong>, não no mês 3. O ciclo
+            é 60-120 dias e o pipeline só começa a esquentar de verdade
+            no mês 2. Mês 3 é quando entram as propostas; meses 4-6 são
+            quando vêm as primeiras assinaturas.
+          </div>
+
+          <div className="plano-callout plano-callout-green">
+            <strong>Regra de ouro:</strong> nenhuma postagem cobra ação
+            do Renato no momento. Tudo vai pré-pronto com horário sugerido.
+            Você só posta quando der ou autoriza a Impulso a postar
+            direto. <strong>O Renato não vira social media — segue sendo
+            engenheiro.</strong>
+          </div>
+        </section>
+
+        {/* ═══════════════════════ 12. AS 6 ARTES INSTAGRAM (Pág. 14) ═══════════════════════ */}
+        <section className="plano-section" id="secao-artes">
+          <div className="plano-page-marker">Página 14 · Seção 12</div>
+          <h2 style={{ fontSize: 28 }}>As 6 artes Instagram (entregues na Frente 1)</h2>
+
+          <p>
+            Cada arte vem pronta: copy + design profissional + dia recomendado
+            de postagem. Você só publica.
+          </p>
+
+          <div className="plano-callout">
+            <h3 style={{ fontSize: 16, marginTop: 0 }}>Arte 1 — Nasce a Aura (D1)</h3>
+            <p style={{ margin: "8px 0 0" }}>
+              Anúncio oficial. Apresenta a marca, o que faz, pra quem é.
+              Visual: logo Aura + texto forte + CTA pro link na bio.
+            </p>
+          </div>
+
+          <div className="plano-callout">
+            <h3 style={{ fontSize: 16, marginTop: 0 }}>Arte 2 — Renato apresenta (D2)</h3>
+            <p style={{ margin: "8px 0 0" }}>
+              Quem é o engenheiro responsável. Foto profissional + texto
+              curto do background técnico (anos Brasfrio, CREA-TO,
+              projetos entregues). Humaniza a marca.
+            </p>
+          </div>
+
+          <div className="plano-callout">
+            <h3 style={{ fontSize: 16, marginTop: 0 }}>Arte 3 — Lei 14.300 explicada (D3)</h3>
+            <p style={{ margin: "8px 0 0" }}>
+              Carrossel educativo sobre o Fio B (60% em 2026, sobe pra
+              75% em 2027). Posiciona a Aura como autoridade técnica e
+              gera urgência regulatória real.
+            </p>
+          </div>
+
+          <div className="plano-callout">
+            <h3 style={{ fontSize: 16, marginTop: 0 }}>Arte 4 — Calculadora ao vivo (D5)</h3>
+            <p style={{ margin: "8px 0 0" }}>
+              Print da calculadora do site + headline forte (&quot;Veja
+              sua economia antes de falar com a gente&quot;). Leva tráfego
+              pra LP.
+            </p>
+          </div>
+
+          <div className="plano-callout">
+            <h3 style={{ fontSize: 16, marginTop: 0 }}>Arte 5 — Antes/depois conta luz (D7)</h3>
+            <p style={{ margin: "8px 0 0" }}>
+              Case real com nome + foto + valor da conta antes vs. depois
+              (com autorização LGPD do cliente). Prova social que mais
+              converte em solar.
+            </p>
+          </div>
+
+          <div className="plano-callout">
+            <h3 style={{ fontSize: 16, marginTop: 0 }}>Arte 6 — Janela do Fio B + last call (D14)</h3>
+            <p style={{ margin: "8px 0 0" }}>
+              Encerramento da semana com urgência regulatória factual
+              (cronograma 2026 → 2029) + CTA forte pra agendar visita
+              técnica grátis.
+            </p>
+          </div>
+
+          <p style={{ marginTop: 16 }}>
+            <strong>Entrega:</strong> as 6 artes finalizadas chegam em até
+            5 dias após o pagamento da Frente 1. Você posta no ritmo da
+            Aura, seguindo o cronograma sugerido ou ajustando se preferir.
+          </p>
+        </section>
+
+        {/* ═══════════════════════ 13. CAMPANHAS B2B (Pág. 15) ═══════════════════════ */}
+        <section className="plano-section" id="secao-b2b">
+          <div className="plano-page-marker">Página 15 · Seção 13</div>
+          <h2 style={{ fontSize: 28 }}>Campanhas pra atrair B2B</h2>
+
+          <p>
+            Cliente B2B (comércio, indústria, rural) não compra por
+            impulso de Instagram. Compra por <strong>autoridade técnica
+            + cálculo financeiro + relacionamento</strong>. As campanhas
+            B2B foram desenhadas pra isso.
+          </p>
+
+          <h3 style={{ fontSize: 17, marginTop: 24 }}>Comércio mid (supermercado, padaria, posto, clínica)</h3>
+
+          <table>
+            <thead>
+              <tr><th>Item</th><th>Detalhe</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Ticket-alvo</td><td>R$ 50-150k</td></tr>
+              <tr><td>Dor central</td><td>&quot;Geladeira/AC/refrigeração 24h estoura conta&quot;</td></tr>
+              <tr><td>Tipo de criativo</td><td>Carrossel comparando conta antes/depois de comércio real</td></tr>
+              <tr><td>Mídia paga</td><td>Meta Ads geofence Palmas + Google Ads &quot;solar comercial Palmas&quot;</td></tr>
+              <tr><td>LP destino</td><td><code>/comercio</code></td></tr>
+              <tr><td>Ciclo de venda</td><td>30-60 dias</td></tr>
+            </tbody>
+          </table>
+
+          <h3 style={{ fontSize: 17, marginTop: 24 }}>Indústria pequena/média</h3>
+
+          <table>
+            <thead>
+              <tr><th>Item</th><th>Detalhe</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Ticket-alvo</td><td>R$ 150-800k</td></tr>
+              <tr><td>Dor central</td><td>&quot;Demanda contratada + consumo = custo invisível&quot;</td></tr>
+              <tr><td>Tipo de criativo</td><td>Reel Renato falando sobre demanda contratada + planilha de payback na tela</td></tr>
+              <tr><td>Mídia paga</td><td>Mídia paga B2B segmentada por cargo + Google Ads &quot;solar industrial Tocantins&quot;</td></tr>
+              <tr><td>LP destino</td><td><code>/industria</code></td></tr>
+              <tr><td>Ciclo de venda</td><td>60-120 dias (3-6 reuniões)</td></tr>
+            </tbody>
+          </table>
+
+          <h3 style={{ fontSize: 17, marginTop: 24 }}>Rural / agronegócio</h3>
+
+          <table>
+            <thead>
+              <tr><th>Item</th><th>Detalhe</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Ticket-alvo</td><td>R$ 80-300k</td></tr>
+              <tr><td>Dor central</td><td>&quot;Pivô consome 60% da receita do mês de pico&quot;</td></tr>
+              <tr><td>Tipo de criativo</td><td>Reel mostrando instalação rural + Pronaf + Moderagro</td></tr>
+              <tr><td>Mídia paga</td><td>Meta Ads segmentado por interesse &quot;agronegócio TO&quot; + indicações de cooperativas</td></tr>
+              <tr><td>LP destino</td><td><code>/fazenda</code></td></tr>
+              <tr><td>Ciclo de venda</td><td>30-90 dias (depende de safra)</td></tr>
+            </tbody>
+          </table>
+
+          <h3 style={{ fontSize: 17, marginTop: 24 }}>Investimento mensal sugerido (B2B + B2C combinados)</h3>
+
+          <table>
+            <thead>
+              <tr><th>Canal</th><th>Investimento</th><th>Função</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Meta Ads B2C residencial</td><td>R$ 800-1.500</td><td>Volume residencial Palmas</td></tr>
+              <tr><td>Mídia paga B2B segmentada</td><td>R$ 600-1.200</td><td>Decisor industrial e rural</td></tr>
+              <tr><td>Google Ads palavras-chave</td><td>R$ 500-1.000</td><td>Captura busca ativa</td></tr>
+              <tr><td><strong>Total</strong></td><td><strong>R$ 1.900-3.700/mês</strong></td><td>Faixa recomendada</td></tr>
+            </tbody>
+          </table>
+
+          <div className="plano-callout plano-callout-blue">
+            <strong>Ordem natural de ativação:</strong> mês 1-2 ataca B2C
+            (ciclo curto, gera caixa) + começa pipeline B2B com mídia
+            paga + indicações. Mês 3+ escala B2B conforme reuniões
+            avançam. Primeiro fechamento B2B esperado mês 4-6 (ciclo é longo).
+          </div>
+        </section>
+
+        {/* ═══════════════════════ 14. CAPTAÇÃO GOOGLE (Pág. 16) ═══════════════════════ */}
+        <section className="plano-section" id="secao-google">
+          <div className="plano-page-marker">Página 16 · Seção 14</div>
+          <h2 style={{ fontSize: 28 }}>Captação Google — SEO local + blog + Google Ads</h2>
+
+          <p>
+            Toda semana, dezenas de pessoas em Palmas e região digitam
+            no Google buscando energia solar. Hoje, esses leads vão pros
+            concorrentes. A Aura vai ocupar essa busca via 2 frentes
+            paralelas:
+          </p>
+
+          <h3 style={{ fontSize: 17, marginTop: 24 }}>Frente A · SEO local — orgânico (gratuito, médio prazo)</h3>
+
+          <p>
+            Aparecer no Google sem pagar quando alguém busca palavras-chave
+            estratégicas. Demanda 3-6 meses pra ranquear bem, mas vira
+            ativo permanente.
+          </p>
+
+          <p><strong>Palavras-chave alvo:</strong></p>
+          <ul>
+            <li>energia solar Palmas</li>
+            <li>energia solar Palmas TO</li>
+            <li>solar residencial Palmas</li>
+            <li>solar comercial Palmas</li>
+            <li>Programa Palmas Solar (desconto IPTU)</li>
+            <li>solar Paraíso do Tocantins</li>
+            <li>painel solar Palmas preço</li>
+            <li>instalador solar Palmas</li>
+            <li>energia solar fazenda Tocantins</li>
+            <li>Pronaf solar Tocantins</li>
+          </ul>
+
+          <p><strong>O que entra na execução SEO:</strong></p>
+          <ol>
+            <li>
+              <strong>Submissão no Google Search Console</strong> — todas
+              as 5 rotas da Aura (HUB raiz + casa + comércio + indústria +
+              fazenda) registradas + sitemap.xml automático submetido pro
+              Google indexar imediatamente, em vez de esperar semanas
+              pra ele descobrir sozinho
+            </li>
+            <li>
+              <strong>Google Meu Negócio</strong> — ficha completa da Aura
+              (endereço, horário, fotos, categoria correta), com pedido
+              ativo de avaliações dos primeiros clientes
+            </li>
+            <li>
+              <strong>SEO técnico nas LPs</strong> — meta tags otimizadas
+              por nicho, schema.org de empresa local, sitemap.xml,
+              robots.txt liberando indexação
+            </li>
+            <li>
+              <strong>Blog educativo já no site</strong> — 5 artigos
+              completos com dados reais e fontes oficiais (ABSOLAR, ANEEL,
+              Energisa, Canal Solar, Solfácil) que viram porta de entrada
+              do Google. Cada artigo ranqueia pra dezenas de buscas long
+              tail e termina com CTA pra calculadora ou WhatsApp.
+            </li>
+            <li>
+              <strong>Backlinks locais</strong> — parcerias com Sicredi,
+              cooperativas rurais, associações comerciais que mencionam
+              a Aura no site delas
+            </li>
+          </ol>
+
+          <h4 style={{ fontSize: 15, marginTop: 24 }}>Os 5 artigos do blog (já publicados)</h4>
+          <ol>
+            <li><strong>Quanto custa instalar energia solar em Palmas-TO em 2026?</strong> — captura quem busca preço (R$ 12-38k por faixa de conta)</li>
+            <li><strong>Lei 14.300 explicada: ainda vale a pena instalar solar em 2026?</strong> — captura dúvida regulatória (Fio B 60%, economia 74-87%)</li>
+            <li><strong>Em quanto tempo o sistema solar se paga? Cálculo real pra Palmas</strong> — captura dúvida de payback (4-6 anos com R$ 800/mês)</li>
+            <li><strong>Painéis de 550W ou 600W? Qual escolher pra residência</strong> — captura quem já tá pesquisando equipamento</li>
+            <li><strong>Solar à vista ou financiado: qual sai mais barato em 2026?</strong> — captura quem tá decidindo forma de pagamento (Solfácil 0,79% a.m.)</li>
+          </ol>
+
+          <div className="plano-callout">
+            <strong>Por que blog importa pra solar:</strong> antes de
+            comprar, o cliente pesquisa muito. &quot;Quanto custa solar
+            Palmas&quot;, &quot;Lei 14.300 vale a pena&quot;, &quot;qual
+            painel escolher&quot;. Cada um desses artigos é um caçador de
+            lead permanente — escreveu 1 vez, ranqueia por anos. E quem
+            chega pelo blog já vem mais quente: educou-se com a Aura.
+          </div>
+
+          <h3 style={{ fontSize: 17, marginTop: 32 }}>Frente B · Google Ads — pago (resultado imediato)</h3>
+
+          <p>
+            Aparecer nos primeiros 3 resultados patrocinados quando alguém
+            busca termos comerciais. Resultado em horas, custo controlado.
+          </p>
+
+          <table>
+            <thead>
+              <tr><th>Tipo de campanha</th><th>Foco</th><th>Investimento</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Pesquisa B2C</strong></td>
+                <td>&quot;energia solar Palmas&quot; + &quot;painel solar preço&quot;</td>
+                <td>R$ 200-400/mês</td>
+              </tr>
+              <tr>
+                <td><strong>Pesquisa B2B</strong></td>
+                <td>&quot;solar comercial&quot; + &quot;solar industrial Tocantins&quot;</td>
+                <td>R$ 200-400/mês</td>
+              </tr>
+              <tr>
+                <td><strong>Pesquisa rural</strong></td>
+                <td>&quot;Pronaf solar&quot; + &quot;solar fazenda Tocantins&quot;</td>
+                <td>R$ 100-200/mês</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div className="plano-callout">
+            <strong>Como sabemos que funciona:</strong> Tocantins é o
+            <strong> 2º estado mais buscado em &quot;solar empresas&quot; no
+            Brasil</strong> (Google Trends Set/24-Set/25). Tem demanda
+            ativa todo dia. O que falta é ter quem captar.
+          </div>
+
+          <div className="plano-callout plano-callout-green">
+            <strong>Métrica esperada Google Ads:</strong> custo por lead
+            qualificado entre R$ 30-80 pra B2C residencial e R$ 80-200
+            pra B2B. Conversão lead → visita técnica de 30-40%. ROI
+            positivo a partir do mês 2.
+          </div>
+        </section>
+
+        {/* ═══════════════════════ 15. BÔNUS INFO-PRODUTO (Pág. 17) ═══════════════════════ */}
+        <section className="plano-section" id="secao-info">
+          <div className="plano-page-marker">Página 17 · Seção 15</div>
+          <h2 style={{ fontSize: 28 }}>Bônus: direção info-produto B2B</h2>
+
+          <p>
+            Material entregue como bônus na Frente 1: <strong>1 página A4</strong>
+            {" "}com a direção pro info-produto que você pode lançar em 12-18
+            meses, depois da Aura crescer no B2B.
+          </p>
+
+          <h3 style={{ fontSize: 17, marginTop: 24 }}>Por que info-produto B2B (não eletricista)</h3>
+
+          <table>
+            <thead>
+              <tr><th>Critério</th><th>Curso técnico (saturado)</th><th>Info-produto B2B (vazio)</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Concorrência BR</td><td>Vários cursos pra eletricista</td><td><strong>Zero player relevante</strong></td></tr>
+              <tr><td>Público</td><td>Pessoa física querendo profissão</td><td>Decisor B2B (dono ind/com/rural)</td></tr>
+              <tr><td>Ticket</td><td>R$ 19-497</td><td>R$ 297-1.997</td></tr>
+              <tr><td>Conexão com Aura</td><td>Indireta (aluno vira concorrente)</td><td><strong>Direta — aluno vira lead Aura</strong></td></tr>
               <tr><td>LTV cliente</td><td>Acaba no curso</td><td>Vira projeto R$ 80-500k</td></tr>
             </tbody>
           </table>
 
           <div className="plano-callout plano-callout-blue">
-            <strong>Pergunta-chave:</strong> quem paga R$ 497 pra entender
-            solar B2B antes de comprar? <strong>O decisor que vai investir R$ 80-500k.</strong>{" "}
-            É o lead mais qualificado que existe em solar BR.
+            <strong>A pergunta-chave:</strong> quem paga R$ 497 pra entender
+            solar B2B antes de comprar? <strong>O decisor que vai investir
+            R$ 80-500k.</strong> É o lead mais qualificado que existe em
+            solar BR.
           </div>
 
-          <h3 style={{ fontSize: 18, marginTop: 24 }}>11.2 Estrutura final — 8 aulas (60-80 min totais)</h3>
-          <p>Refinada via CIC depurando 24 conteúdos do curso Tenda Solar.</p>
+          <h3 style={{ fontSize: 17, marginTop: 24 }}>Estrutura sugerida — 8 aulas (60-80 min totais)</h3>
 
-          <table>
-            <thead><tr><th>#</th><th>Aula</th><th>Tempo</th></tr></thead>
-            <tbody>
-              <tr><td>1</td><td>Por que sua conta de energia industrial é o maior custo invisível</td><td>7 min</td></tr>
-              <tr><td>2</td><td>Payback de usina solar em indústria: a conta que ninguém te mostra direito</td><td>9 min</td></tr>
-              <tr><td>3</td><td>Os 3 modelos de aquisição: à vista, financiado, locação (PPA)</td><td>10 min</td></tr>
-              <tr><td>4</td><td>Telhado, solo ou carport: como decidir em 5 minutos</td><td>6 min</td></tr>
-              <tr><td>5</td><td>Rural: Pronaf, Moderagro e o detalhe que dobra o retorno</td><td>8 min</td></tr>
-              <tr><td>6</td><td>Comércio e supermercado: por que horário de pico é seu inimigo</td><td>7 min</td></tr>
-              <tr><td>7</td><td>Lei 14.300, Fio B e o que mudou: tradução pra dono de empresa</td><td>9 min</td></tr>
-              <tr><td>8</td><td>Os 7 sinais de um projeto solar mal feito (e como blindar o seu)</td><td>10 min</td></tr>
-            </tbody>
-          </table>
-
-          <h3 style={{ fontSize: 18, marginTop: 24 }}>11.3 Produção enxuta + cronograma</h3>
-          <ul>
-            <li><strong>Setup:</strong> 1 câmera + 1 lapela + iluminação natural</li>
-            <li><strong>Custo estimado:</strong> R$ 8-25k pra produzir 8 aulas</li>
-            <li><strong>Gravação:</strong> 5-7 dias corridos + 2-3 semanas de edição</li>
-          </ul>
-
-          <p><strong>4 modos visuais alternados (gangorra previne tédio):</strong></p>
           <ol>
-            <li>Studio premium (vinhetas cinemáticas)</li>
-            <li>Sala reunião (Renato + cliente B2B real)</li>
-            <li>Slide-livro com PIP (aulas analíticas)</li>
-            <li>Documental em campo (dentro da indústria/fazenda)</li>
+            <li>Por que sua conta de energia industrial é o maior custo invisível (7 min)</li>
+            <li>Payback de usina solar em indústria: a conta que ninguém te mostra direito (9 min)</li>
+            <li>Os 3 modelos de aquisição: à vista, financiado, locação (10 min)</li>
+            <li>Telhado, solo ou carport: como decidir em 5 minutos (6 min)</li>
+            <li>Rural: Pronaf, Moderagro e o detalhe que dobra o retorno (8 min)</li>
+            <li>Comércio e supermercado: por que horário de pico é seu inimigo (7 min)</li>
+            <li>Lei 14.300 e Fio B: tradução pra dono de empresa (9 min)</li>
+            <li>Os 7 sinais de um projeto solar mal feito (10 min)</li>
           </ol>
 
-          <h3 style={{ fontSize: 18, marginTop: 24 }}>11.4 Cronograma indicativo FASE 2</h3>
-          <table>
-            <thead><tr><th>Mês</th><th>Marco</th></tr></thead>
-            <tbody>
-              <tr><td>M+12</td><td>Decisão de lançar — pipeline B2B sustentável + 5+ cases nominados</td></tr>
-              <tr><td>M+13</td><td>Roteiro detalhado + Hotmart setup</td></tr>
-              <tr><td>M+14</td><td>Gravação</td></tr>
-              <tr><td>M+15</td><td>Edição + lançamento beta</td></tr>
-              <tr><td>M+16</td><td>Lançamento público (Hotmart + LinkedIn Ads)</td></tr>
-              <tr><td>M+18</td><td>Validar entry pra subir mentoria FASE 3 (R$ 5-15k)</td></tr>
-            </tbody>
-          </table>
-
-          <h3 style={{ fontSize: 18, marginTop: 24 }}>11.5 Conta de mercado conservadora</h3>
-          <ul>
-            <li>30 cursos/mês × R$ 497 = <strong>R$ 14.910 receita curso/mês</strong></li>
-            <li>20-30% viram lead Aura</li>
-            <li>1-2 fecham projeto B2B R$ 100-300k = <strong>+R$ 100-600k receita Aura/mês</strong></li>
-          </ul>
-
-          <div className="plano-callout plano-callout-green">
-            <strong>Resultado:</strong> info-produto vira canal de aquisição
-            mais barato e mais qualificado que tráfego pago.
-          </div>
+          <p style={{ marginTop: 16, color: "var(--plano-text-muted)", fontSize: 13 }}>
+            <em>Material completo no PDF de 1 página entregue como bônus.
+            Decisão de gravar fica pra quando a Aura tiver pipeline B2B
+            sustentável e 5+ cases nominados (estimativa: 12-18 meses).</em>
+          </p>
         </section>
 
-        {/* ═══════════════════════ 12. GARANTIAS, RISCOS, LGPD ═══════════════════════ */}
-        <section className="plano-section">
-          <h2 style={{ fontSize: 28 }}>12 · Garantias, riscos e LGPD</h2>
+        {/* ═══════════════════════ 16. SETUP + PRÓXIMOS SERVIÇOS (Pág. 18) ═══════════════════════ */}
+        <section className="plano-section" id="secao-pricing">
+          <div className="plano-page-marker">Página 18 · Seção 16</div>
+          <h2 style={{ fontSize: 28 }}>Setup completo + próximos serviços</h2>
 
-          <h3 style={{ fontSize: 18, marginTop: 24 }}>12.1 Compromissos Impulso → Renato</h3>
-          <ul>
-            <li>7 dias de garantia incondicional pós-pagamento Frente 1</li>
-            <li>Suporte WhatsApp direto comigo (Eduardo)</li>
-            <li>Mensalidade Frente 2 pode pausar com 30d de aviso após mês 3</li>
-            <li>Sem multa de cancelamento após mês 3</li>
-            <li>Briefing privado pra calibrar expectativa antes de fechar Frente 2</li>
-          </ul>
+          <div
+            className="plano-callout"
+            style={{ borderLeftColor: "var(--plano-yellow)", background: "#fff8e8" }}
+          >
+            <h3 style={{ fontSize: 24, marginTop: 0 }}>
+              Setup completo Aura — <span style={{ color: "var(--plano-orange)" }}>R$ 1.497</span>
+            </h3>
 
-          <h3 style={{ fontSize: 18, marginTop: 24 }}>12.2 Compromissos Renato → Impulso (em troca)</h3>
-          <ul>
-            <li>Autorização de uso da Aura como case Impulso Digital</li>
-            <li>Depoimento em vídeo após 3º mês</li>
-            <li>Indicação pra rede Brasfrio/Palmas</li>
-            <li>Acesso ao histórico de instalações Brasfrio (com fluxo LGPD adequado)</li>
-          </ul>
+            <p style={{ marginTop: 12 }}>
+              Tudo que a Aura precisa pra entrar no ar com identidade
+              profissional, materiais prontos pros primeiros 30 dias e
+              direção estratégica do que vem depois.
+            </p>
 
-          <h3 style={{ fontSize: 18, marginTop: 24 }}>12.3 Riscos e mitigação</h3>
-          <table>
-            <thead><tr><th>Risco</th><th>Mitigação</th></tr></thead>
-            <tbody>
-              <tr><td>Renato não grava reels</td><td>Bloco mensal de gravação (1 dia, 4-6 reels) — Impulso facilita o set</td></tr>
-              <tr><td>@auraenergy não cresce orgânica</td><td>Cadência consistente + tráfego pago + RadarPRO B2B alimentando paralelo</td></tr>
-              <tr><td>Lead vem mas não fecha</td><td>Calibrar copy + qualificação via diagnóstico + treinamento Renato em pitch</td></tr>
-              <tr><td>Investimento Meta mal alocado</td><td>Otimização semanal + dashboard + reunião quinzenal</td></tr>
-              <tr><td>Renato cancela mensalidade após mês 3</td><td>RadarPRO B2B vira gancho de continuidade</td></tr>
-              <tr><td>Brasfrio &quot;engole&quot; Aura digitalmente</td><td>Posicionamento cravado: Aura especialista, Brasfrio estrutura técnica</td></tr>
-              <tr><td>Diagnóstico/briefing falha em produção</td><td>Persistência DB primária + alerta secundário pra Eduardo</td></tr>
-            </tbody>
-          </table>
+            <h4 style={{ fontSize: 16, marginTop: 20 }}>O que está incluso no R$ 1.497:</h4>
+            <ul>
+              <li>
+                <strong>LP profissional em produção</strong> — HUB raiz +
+                4 LPs segmentadas por nicho (<code>/casa</code>, <code>/comercio</code>,
+                <code>/industria</code>, <code>/fazenda</code>)
+              </li>
+              <li>
+                <strong>Calculadora de economia ao vivo</strong> com dados reais
+                (tarifa Energisa-TO, HSP Palmas, Lei 14.300 Fio B 60%)
+              </li>
+              <li>
+                <strong>5 artigos de blog</strong> publicados (Lei 14.300,
+                payback, financiamento, painéis, custo solar Palmas)
+                ranqueando no Google pra dezenas de buscas
+              </li>
+              <li>
+                <strong>6 artes Instagram</strong> finalizadas pros primeiros
+                30 dias (cópia + design profissional, prontas pra postar)
+              </li>
+              <li>
+                <strong>Pauta sugerida de stories</strong> pra acompanhar
+                as 6 artes
+              </li>
+              <li>
+                <strong>Cartão de visita digital + QR Code</strong> apontando
+                pra LP mãe (<code>auraenergy.vercel.app</code>) — leva o
+                cliente direto pro HUB que segmenta por nicho. Você
+                imprime ou envia digital, e o cliente em 1 toque acessa
+                a calculadora e a LP certa pro perfil dele
+              </li>
+              <li>
+                <strong>Cronograma sustentável</strong> de operação digital
+                (este documento — guia de consulta permanente)
+              </li>
+              <li>
+                <strong>Análise da concorrência local em Palmas</strong> —
+                6 empresas mapeadas com o que fazem, o que não fazem e
+                onde a Aura entra forte
+              </li>
+              <li>
+                <strong>Estratégia de captação Google</strong> — palavras-chave
+                alvo, plano de SEO local, sugestões de Google Ads
+              </li>
+              <li>
+                <strong>Cadastro no Google Search Console</strong> — todas
+                as 5 páginas da LP submetidas pro Google indexar (sitemap.xml
+                automático), pra clientes que buscam &quot;energia solar
+                Palmas&quot; encontrarem a Aura desde o primeiro dia
+              </li>
+              <li>
+                <strong>Estratégia de campanhas B2B</strong> — segmentação
+                por nicho (comércio, indústria, rural), tipos de criativo
+                e investimento sugerido
+              </li>
+              <li>
+                <strong>BÔNUS: Direção info-produto B2B</strong> — 1 página
+                A4 com mapa estratégico do curso que pode ser lançado em
+                12-18 meses
+              </li>
+              <li>
+                <strong>1 mês de calibragem pós-entrega</strong> — trocamos
+                placeholders por fotos e dados reais conforme você nos passa
+              </li>
+              <li>
+                <strong>7 dias de garantia incondicional</strong> pós-pagamento
+              </li>
+            </ul>
 
-          <h3 style={{ fontSize: 18, marginTop: 24 }}>12.4 LGPD — uso de dados clientes Brasfrio</h3>
-          <div className="plano-callout">
-            <strong>Risco real:</strong> usar nome/foto/conta de luz de
-            cliente Brasfrio sem autorização explícita = infração LGPD
-            (multa até 2% do faturamento, máx R$ 50M).
+            <p style={{ marginTop: 16, fontSize: 16 }}>
+              <strong>Investimento:</strong> R$ 1.497 à vista PIX ou 3×
+              cartão (sem juros).
+            </p>
           </div>
-
-          <p><strong>Fluxo correto (Aura precisa rodar antes de qualquer case nominado):</strong></p>
-          <ol>
-            <li>Renato lista clientes Brasfrio que toparia ligar e pedir autorização</li>
-            <li>Renato liga, explica: &quot;Estamos lançando a Aura, queria usar seu nome + foto da instalação + seu antes/depois de conta. Topa? Mando termo de autorização por WhatsApp.&quot;</li>
-            <li>Cliente assina termo (PDF ou WhatsApp com print do &quot;concordo&quot;)</li>
-            <li>Aura arquiva termo em pasta dedicada (<code>/cases-com-autorizacao/</code>)</li>
-            <li>Só então usar em LP/Insta/anúncio</li>
-          </ol>
 
           <div className="plano-callout plano-callout-blue">
-            <strong>Sem termo = sem case nominado.</strong> Pode usar dados
-            anônimos (&quot;família em Plano Diretor Sul, conta R$ 720→R$ 92&quot;)
-            até autorização chegar.
+            <h3 style={{ fontSize: 22, marginTop: 0 }}>
+              Próximos serviços (a definir conforme a Aura avança)
+            </h3>
+
+            <p>
+              O R$ 1.497 entrega o setup completo. A partir daí, conforme
+              a tração apareça, vamos precisar discutir os próximos passos
+              em momentos diferentes. <strong>Lista do que vai entrar em
+              pauta nas próximas reuniões</strong>:
+            </p>
+
+            <h4 style={{ fontSize: 15, marginTop: 16 }}>Operação digital contínua</h4>
+            <ul>
+              <li>Gestão mensal de tráfego pago (Meta Ads + Google Ads)</li>
+              <li>Produção mensal de posts e stories pro Instagram</li>
+              <li>Gravação e edição mensal de reels (bloco único de gravação)</li>
+              <li>Manutenção da LP (atualizações conforme novas instalações ou cases)</li>
+              <li>Manutenção mensal de SEO local + Google Meu Negócio</li>
+              <li>Dashboard semanal de métricas pelo WhatsApp</li>
+              <li>Reunião mensal de revisão estratégica</li>
+            </ul>
+
+            <h4 style={{ fontSize: 15, marginTop: 16 }}>Setup técnico complementar</h4>
+            <ul>
+              <li>Compra e configuração do domínio <code>auraenergy.com.br</code></li>
+              <li>Criação do Instagram @auraenergy + WhatsApp Business + Google Meu Negócio</li>
+              <li>Configuração do Pixel Meta + GA4 + Google Search Console pra rastreamento</li>
+              <li>Submissão das LPs pro Google indexar (sitemap.xml)</li>
+            </ul>
+
+            <h4 style={{ fontSize: 15, marginTop: 16 }}>Captação ativa B2B</h4>
+            <ul>
+              <li>Prospecção de leads B2B qualificados (comércio, indústria, rural)</li>
+              <li>Playbook de abordagem comercial pra cada nicho</li>
+              <li>Treinamento de pitch e qualificação de lead</li>
+              <li>Estratégia de relacionamento com decisor industrial</li>
+            </ul>
+
+            <h4 style={{ fontSize: 15, marginTop: 16 }}>Materiais avançados</h4>
+            <ul>
+              <li>Vídeo institucional da Aura (2-3 min) pra LP + apresentações comerciais</li>
+              <li>Modelo de proposta comercial padronizada por nicho</li>
+              <li>Planilha simulador de payback B2B (Google Sheets)</li>
+              <li>Coleta e produção de depoimentos em vídeo dos primeiros clientes Aura</li>
+              <li>Programa de indicação (cliente que indica ganha cashback)</li>
+              <li>Plano de Acompanhamento Anual pra cliente pós-instalação</li>
+            </ul>
+
+            <h4 style={{ fontSize: 15, marginTop: 16 }}>Info-produto FASE 2 (12-18 meses)</h4>
+            <ul>
+              <li>Roteiro detalhado das 8 aulas do curso B2B</li>
+              <li>Setup técnico de produção (equipamento, iluminação, locação)</li>
+              <li>Edição completa do curso + materiais complementares (planilhas, checklists)</li>
+              <li>Lançamento na Hotmart + estratégia de tráfego segmentado B2B</li>
+            </ul>
+
+            <p style={{ marginTop: 20, fontSize: 13, color: "var(--plano-text-muted)" }}>
+              <em>Cada item dessa lista vira pauta de uma reunião específica
+              quando fizer sentido pra Aura. Sem pressão de cronograma, sem
+              amarração contratual longa. A discussão de valor de cada
+              serviço acontece no momento certo, com a Aura já rodando.</em>
+            </p>
+          </div>
+
+          <div
+            className="plano-callout"
+            style={{
+              borderLeftColor: "var(--plano-orange)",
+              background: "linear-gradient(135deg, #fff8e8 0%, #fbf8ec 100%)",
+              marginTop: 24,
+            }}
+          >
+            <h3 style={{ fontSize: 22, marginTop: 0 }}>
+              Parceria estratégica futura · RadarPRO
+            </h3>
+
+            <p>
+              Quando a Aura estiver com a operação digital rodando e a
+              presença consolidada, abrimos a discussão sobre integrar o
+              <strong> RadarPRO</strong> — plataforma proprietária da
+              Impulso Digital pra captação ativa de leads B2B.
+            </p>
+
+            <h4 style={{ fontSize: 15, marginTop: 16 }}>
+              O que o RadarPRO pode fazer pela operação Aura:
+            </h4>
+            <ul>
+              <li>
+                Identificar e qualificar empresas em Palmas e região com
+                perfil real pra solar (comércio mid, indústria pequena/média,
+                produtor rural com pivô/granja)
+              </li>
+              <li>
+                Entregar contato direto com o decisor (dono ou diretor),
+                não com setor genérico ou recepção
+              </li>
+              <li>
+                Manter pipeline B2B ativo sem você precisar prospectar
+                manualmente — você foca no fechamento, não na busca
+              </li>
+              <li>
+                Filtrar por tamanho de operação, setor de atuação e
+                potencial real de consumo de energia (a partir de conta
+                de luz estimada)
+              </li>
+              <li>
+                Operação 100% nos bastidores da Impulso — a Aura recebe
+                o lead pronto pra conversar, com playbook de abordagem
+                pra cada nicho
+              </li>
+              <li>
+                Reativar leads de propostas anteriores que não fecharam,
+                no momento certo (nova janela do Fio B, mudança de tarifa,
+                expansão de operação)
+              </li>
+            </ul>
+
+            <p style={{ marginTop: 16, fontSize: 13, fontStyle: "italic", color: "var(--plano-text-muted)" }}>
+              A discussão sobre formato da parceria, modelo comercial e
+              integração com o atendimento da Aura fica pra um momento
+              posterior. Hoje o foco é montar o setup da Aura no ar
+              direito.
+            </p>
           </div>
         </section>
 
-        {/* ═══════════════════════ 13. PRÓXIMOS PASSOS ═══════════════════════ */}
-        <section className="plano-section">
-          <h2 style={{ fontSize: 28 }}>13 · Próximos passos imediatos</h2>
+        {/* ═══════════════════════ 17. METAS E INDICADORES (Pág. 19) ═══════════════════════ */}
+        <section className="plano-section" id="secao-metas">
+          <div className="plano-page-marker">Página 19 · Seção 17</div>
+          <h2 style={{ fontSize: 28 }}>Metas e indicadores de sucesso</h2>
 
-          <h3 style={{ fontSize: 18, marginTop: 24 }}>13.1 Reunião 06/05 — agenda da call</h3>
-          <p>Perguntas pra calibrar com Renato ao vivo:</p>
+          <p>
+            Sem métrica clara, marketing vira achismo. A Aura roda com
+            indicadores objetivos que mostram, mês a mês, se o setup está
+            entregando resultado. Os números abaixo são <strong>metas
+            realistas</strong> — não infladas pra impressionar e não
+            tímidas pra esconder ambição.
+          </p>
 
-          <h4 style={{ fontSize: 14, marginTop: 16 }}>Sobre operação atual</h4>
-          <ul>
-            <li>Anos exatos de Brasfrio em Palmas</li>
-            <li>Número real de instalações solar entregues (resi/com/ind/rural últimos 12m)</li>
-            <li>Maior projeto que assinou como engenheiro responsável (kWp + cliente + cidade)</li>
-            <li>CREA-TO + ART pública pra citar</li>
-          </ul>
-
-          <h4 style={{ fontSize: 14, marginTop: 16 }}>Sobre cases</h4>
-          <ul>
-            <li>Quais clientes Brasfrio toparia pedir autorização LGPD</li>
-            <li>Quem topa gravar depoimento em vídeo de 30-60s</li>
-          </ul>
-
-          <h4 style={{ fontSize: 14, marginTop: 16 }}>Sobre ambição</h4>
-          <ul>
-            <li>Cenário de sucesso 12 meses (em 1 frase)</li>
-            <li>Tipos de crescimento que mais interessam (B2B comércio? indústria? rural?)</li>
-            <li>Investimento mensal disponível pra mídia paga</li>
-          </ul>
-
-          <h4 style={{ fontSize: 14, marginTop: 16 }}>Sobre operação digital</h4>
-          <ul>
-            <li>Quem responde WhatsApp Brasfrio hoje</li>
-            <li>CRM, planilha ou só WhatsApp</li>
-          </ul>
-
-          <h4 style={{ fontSize: 14, marginTop: 16 }}>Sobre Programa Palmas Solar + Pronaf</h4>
-          <ul>
-            <li>Já protocolou IPTU verde? Quantas vezes?</li>
-            <li>Já fez projeto Pronaf? Com qual banco?</li>
-          </ul>
-
-          <h4 style={{ fontSize: 14, marginTop: 16 }}>Sobre concorrência</h4>
-          <ul>
-            <li>Pra quem perde mais (Unità? Soluthi? Palmas Energia? Capital?)</li>
-            <li>O que faz fechar a venda quando fecha</li>
-          </ul>
-
-          <h4 style={{ fontSize: 14, marginTop: 16 }}>Sobre info-produto FASE 2</h4>
-          <ul>
-            <li>Topa gravar curso B2B em 12-18 meses?</li>
-            <li>Tem ideia de tema/foco?</li>
-          </ul>
-
-          <h4 style={{ fontSize: 14, marginTop: 16 }}>Sobre restrições</h4>
-          <ul>
-            <li>Algo que a Aura NÃO deve repetir da Brasfrio?</li>
-            <li>Regra inegociável?</li>
-          </ul>
-
-          <h3 style={{ fontSize: 18, marginTop: 24 }}>13.2 Pós-fechamento Frente 1 (Eduardo executa)</h3>
-          <ol>
-            <li>Produzir 6 visuais Instagram (Canva ou HTML/CSS render — 3-5h)</li>
-            <li>Entregar PDF da Direção info-produto (1 página A4)</li>
-            <li>Trocar placeholders da LP por dados reais que Renato passou na call</li>
-            <li>Criar Insta @auraenergy + Google Meu Negócio + WhatsApp Business</li>
-            <li>Configurar Pixel Meta + GA4</li>
-            <li>Comprar <code>auraenergy.com.br</code> (~R$ 60-80/ano)</li>
-            <li>Marcar 1ª reunião de execução (semana seguinte)</li>
-          </ol>
-
-          <h3 style={{ fontSize: 18, marginTop: 24 }}>13.3 Pós-fechamento Frente 2 (quando Renato pedir continuidade)</h3>
-          <ol>
-            <li>Setup Meta Ads (Business Manager + Pixel + API Conversões)</li>
-            <li>6-8 criativos iniciais (4× 9:16 + 2× 4:5 + 2× 1:1)</li>
-            <li>Lançamento de marca 14 dias começa</li>
-            <li>Configurar RadarPRO Solar Palmas (módulo + critérios + envio)</li>
-            <li>Dashboard semanal ativo</li>
-            <li>LinkedIn outreach Renato começa (1-2h/dia)</li>
-          </ol>
-
-          <h3 style={{ fontSize: 18, marginTop: 24 }}>13.4 Pós-fechamento Frente 3 (mês 2-3+)</h3>
-          <ol>
-            <li>RadarPRO Solar Palmas roda em background (Impulso)</li>
-            <li>Leads B2B chegam via planilha compartilhada + WhatsApp Renato</li>
-            <li>Reunião quinzenal Eduardo + Renato pra calibrar critérios</li>
-            <li>Comissão 5-7% paga 7 dias após pagamento confirmado do cliente final</li>
-          </ol>
-        </section>
-
-        {/* ═══════════════════════ 14. IDEIAS DE AGREGAÇÃO ═══════════════════════ */}
-        <section className="plano-section">
-          <h2 style={{ fontSize: 28 }}>14 · Ideias de agregação à operação Aura</h2>
-
-          <h3 style={{ fontSize: 18, marginTop: 24, color: "var(--plano-green)" }}>Curto prazo (já entregue ou Frente 1)</h3>
-          <ol>
-            <li>✅ Calculadora de economia pública na LP</li>
-            <li>✅ Mapa de instalações Palmas</li>
-            <li>✅ Banner Janela Fio B</li>
-            <li>✅ Catálogo de 5 kits com preço de mercado</li>
-            <li>✅ 6 artes Instagram primeiros 30 dias</li>
-            <li>✅ Direção info-produto B2B (bônus Frente 1)</li>
-            <li>✅ Diagnóstico pré-reunião como qualificador B2B</li>
-          </ol>
-
-          <h3 style={{ fontSize: 18, marginTop: 24, color: "var(--plano-yellow-deep)" }}>Médio prazo (Frente 2)</h3>
-          <ol start={8}>
-            <li>Conteúdo recorrente (3 posts + 1 reel/semana)</li>
-            <li>Tráfego pago Meta + LinkedIn + Google Ads</li>
-            <li>SEO local — dominar &quot;energia solar Palmas&quot;</li>
-            <li>Email marketing — sequência educativa de 7 emails</li>
-            <li>Relatório mensal — leads, conversão, ROI</li>
-            <li>Lista de espera + lançamento estilo Hormozi pro info-produto FASE 2</li>
-          </ol>
-
-          <h3 style={{ fontSize: 18, marginTop: 24, color: "var(--plano-orange)" }}>Longo prazo (Frente 3 + escala)</h3>
-          <ol start={14}>
-            <li>RadarPRO Solar Palmas — Aura paga só comissão</li>
-            <li>Mentoria premium R$ 1.497-3.997 (após validar entry)</li>
-            <li>Expansão Araguaína + Gurupi (escalar TO)</li>
-            <li>Parceria Sicredi/BV/Santander Solar — Aura vira &quot;indicada por banco&quot;</li>
-          </ol>
-
-          <h3 style={{ fontSize: 18, marginTop: 24 }}>Ideias EXTRAS pra operação Aura (independente da Impulso)</h3>
-          <ol start={18}>
-            <li><strong>Sede como showroom</strong> — instala sistema visível na sede Aura/Brasfrio (modelo Ferpam)</li>
-            <li><strong>Programa &quot;Indique amigo&quot;</strong> — cliente que indica ganha R$ 300 cashback ao fechar</li>
-            <li><strong>Plano de Acompanhamento Anual</strong> — R$ 200-400/ano por cliente</li>
-            <li><strong>Pacote &quot;Palmas Solar full-service&quot;</strong> — Aura cuida de toda documentação do desconto IPTU</li>
-            <li><strong>B2B agronegócio Tocantins</strong> — irrigação solar, sistemas 50-200 kWp</li>
-            <li><strong>Estação solar comunitária</strong> — modelo assinatura (residencial não-elegível adere)</li>
-          </ol>
-        </section>
-
-        {/* ═══════════════════════ 15. DOCS RELACIONADOS ═══════════════════════ */}
-        <section className="plano-section">
-          <h2 style={{ fontSize: 28 }}>15 · Documentos relacionados</h2>
+          <h3 style={{ fontSize: 18, marginTop: 24 }}>Indicadores comerciais</h3>
           <table>
-            <thead><tr><th>Doc</th><th>Conteúdo</th></tr></thead>
+            <thead>
+              <tr>
+                <th>Métrica</th>
+                <th>Mês 1</th>
+                <th>Mês 3</th>
+                <th>Mês 6</th>
+              </tr>
+            </thead>
             <tbody>
-              <tr><td><code>STATUS-AURA-ENERGY.md</code></td><td>Status canônico do projeto</td></tr>
-              <tr><td><code>ROTEIRO-VENDA-RENATO-06MAIO.md</code></td><td>Script reunião 06/05 (abertura → fechamento)</td></tr>
-              <tr><td><code>DIRECAO-INFO-PRODUTO-RENATO.md</code></td><td>1 página A4 — bônus Frente 1</td></tr>
-              <tr><td><code>RELATORIO-CURSO-TENDA-COMPLETO.md</code></td><td>Análise estrutural CIC do curso Tenda</td></tr>
-              <tr><td><code>PESQUISA-NICHO-INFO-PRODUTO-SOLAR.md</code></td><td>Research nicho info-produto</td></tr>
-              <tr><td><code>6-ARTES-INSTAGRAM-AURA.md</code></td><td>Copy + briefing visual das 6 artes</td></tr>
-              <tr><td><code>ESTRATEGIA-LP-SEGMENTADA-AURA.md</code></td><td>Detalhamento das 4 LPs + 2 utilitários</td></tr>
-              <tr><td><code>ANALISE-PROPOSTA-COMERCIAL-RENATO.md</code></td><td>Análise CIC da proposta da Vidraçaria Conexão</td></tr>
-              <tr><td><code>RELATORIO-AUDITORIA-LIDERES-PALMAS-CIC.md</code></td><td>Auditoria líderes mercado Palmas</td></tr>
-              <tr><td><code>RELATORIO-MERCADO-PALMAS-CIC.md</code></td><td>Mercado Palmas</td></tr>
-              <tr><td><code>RELATORIO-SEO-PALMAS-CIC.md</code></td><td>SEO competitivo</td></tr>
-              <tr><td><code>RELATORIO-PROGRAMA-PALMAS-SOLAR-CIC.md</code></td><td>Programa Palmas Solar</td></tr>
-              <tr><td><code>RELATORIO-INSTAGRAM-BRASFRIO.md</code></td><td>@brasfrio_engsolar atualizado</td></tr>
-              <tr><td><code>DIAGNOSTICO-BRASFRIO-SOLAR.md</code></td><td>Diagnóstico CIC competitivo Brasfrio</td></tr>
-              <tr><td><code>PESQUISA-MERCADO-SOLAR-PALMAS.md</code></td><td>Pesquisa mercado solar Palmas</td></tr>
-              <tr><td><code>CASE-AURA-LOG.md</code></td><td>Log diário de leads/atividades</td></tr>
-              <tr><td><code>METRICAS-AURA.md</code></td><td>Métricas semanais</td></tr>
+              <tr>
+                <td><strong>Leads qualificados/mês</strong></td>
+                <td>10-15</td>
+                <td>25-40</td>
+                <td>50-80</td>
+              </tr>
+              <tr>
+                <td><strong>Visitas técnicas/mês</strong></td>
+                <td>4-6</td>
+                <td>10-15</td>
+                <td>20-30</td>
+              </tr>
+              <tr>
+                <td><strong>Instalações fechadas/mês</strong></td>
+                <td>1-2</td>
+                <td>3-5</td>
+                <td>5-8</td>
+              </tr>
+              <tr>
+                <td><strong>Faturamento bruto/mês</strong></td>
+                <td>R$ 22-44k</td>
+                <td>R$ 66-110k</td>
+                <td>R$ 110-180k</td>
+              </tr>
+              <tr>
+                <td><strong>Pipeline B2B ativo</strong></td>
+                <td>0-2 conversas</td>
+                <td>4-8 conversas</td>
+                <td>8-15 conversas (1ª venda B2B esperada)</td>
+              </tr>
             </tbody>
           </table>
+
+          <h3 style={{ fontSize: 18, marginTop: 32 }}>Indicadores de marca e presença digital</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>Métrica</th>
+                <th>Mês 1</th>
+                <th>Mês 3</th>
+                <th>Mês 6</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Followers @auraenergy</strong></td>
+                <td>200-300</td>
+                <td>800-1.200 (passa Brasfrio antiga)</td>
+                <td>1.800+ (mira ARASOL)</td>
+              </tr>
+              <tr>
+                <td><strong>Engajamento médio Insta</strong></td>
+                <td>1,5%</td>
+                <td>2,2%</td>
+                <td>2,5-3% (vs 0,48% Brasfrio antiga)</td>
+              </tr>
+              <tr>
+                <td><strong>Acessos LP/mês</strong></td>
+                <td>300-500</td>
+                <td>1.000-1.800</td>
+                <td>2.500-4.000</td>
+              </tr>
+              <tr>
+                <td><strong>Taxa de conversão LP → WhatsApp</strong></td>
+                <td>3-5%</td>
+                <td>5-7%</td>
+                <td>7-10%</td>
+              </tr>
+              <tr>
+                <td><strong>Posições no Google (palavras-chave alvo)</strong></td>
+                <td>fora do top 100</td>
+                <td>top 30 (long tail blog)</td>
+                <td>top 10 (3-5 termos principais)</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h3 style={{ fontSize: 18, marginTop: 32 }}>Indicadores de qualidade do funil</h3>
+          <ul>
+            <li><strong>Lead → Visita técnica:</strong> meta 30-40% (saudável: 35%)</li>
+            <li><strong>Visita técnica → Proposta enviada:</strong> meta 70-80% (Renato fecha visita técnica forte)</li>
+            <li><strong>Proposta → Fechamento:</strong> meta 25-35% (residencial) e 20-30% (B2B)</li>
+            <li><strong>CAC (custo de aquisição) residencial:</strong> R$ 80-150 com mídia paga rodando estável</li>
+            <li><strong>Tempo médio do funil (residencial):</strong> 7-21 dias</li>
+            <li><strong>Tempo médio do funil (B2B):</strong> 60-120 dias</li>
+          </ul>
+
+          <div className="plano-callout plano-callout-blue">
+            <strong>Como acompanhamos:</strong> dashboard semanal por
+            WhatsApp + 1 reunião mensal de revisão (45 min). Toda métrica
+            tem fonte clara (Insta Insights, Google Analytics, Search
+            Console, planilha de leads). Nada de número estimado &quot;de
+            cabeça&quot; — só o que dá pra rastrear.
+          </div>
+        </section>
+
+        {/* ═══════════════════════ 18. CHECKLIST PRÓXIMOS 30 DIAS (Pág. 20) ═══════════════════════ */}
+        <section className="plano-section" id="secao-checklist">
+          <div className="plano-page-marker">Página 20 · Seção 18</div>
+          <h2 style={{ fontSize: 28 }}>Checklist próximos 30 dias</h2>
+
+          <p>
+            Ações práticas pra colocar a Aura no ar e começar a captar
+            lead já no primeiro mês. Cada item tem responsável claro
+            (Aura ou Impulso) e ordem natural de execução.
+          </p>
+
+          <h3 style={{ fontSize: 17, marginTop: 24 }}>Semana 1 — Pós-fechamento Frente 1</h3>
+          <ul>
+            <li>☐ <strong>Aura</strong>: passa fotos reais (Renato, equipe trabalhando, instalações concluídas, drone se tiver)</li>
+            <li>☐ <strong>Aura</strong>: passa lista de clientes Brasfrio que toparia autorização LGPD pra usar nome + foto</li>
+            <li>☐ <strong>Aura</strong>: confirma número CREA-TO + ART pública pra citar</li>
+            <li>☐ <strong>Impulso</strong>: troca placeholders da LP por dados e fotos reais</li>
+            <li>☐ <strong>Impulso</strong>: produz e entrega as 6 artes finalizadas</li>
+            <li>☐ <strong>Impulso</strong>: entrega PDF da Direção info-produto B2B (1 página)</li>
+          </ul>
+
+          <h3 style={{ fontSize: 17, marginTop: 24 }}>Semana 2 — Setup técnico de presença digital</h3>
+          <ul>
+            <li>☐ <strong>Impulso</strong>: cria Instagram @auraenergy (perfil, bio, link, capa de destaques)</li>
+            <li>☐ <strong>Impulso</strong>: configura WhatsApp Business da Aura (mensagem automática, catálogo, horário)</li>
+            <li>☐ <strong>Impulso</strong>: cria Google Meu Negócio (endereço, horário, fotos, categoria)</li>
+            <li>☐ <strong>Impulso</strong>: instala Pixel Meta + GA4 + Google Search Console nas 5 LPs</li>
+            <li>☐ <strong>Impulso</strong>: submete sitemap.xml pro Google indexar</li>
+            <li>☐ <strong>Aura</strong>: compra domínio <code>auraenergy.com.br</code> (~R$ 60-80/ano)</li>
+          </ul>
+
+          <h3 style={{ fontSize: 17, marginTop: 24 }}>Semana 3 — Lançamento de marca</h3>
+          <ul>
+            <li>☐ <strong>Impulso</strong>: aponta domínio <code>auraenergy.com.br</code> pra Vercel</li>
+            <li>☐ <strong>Aura</strong>: posta Arte 1 (Nasce a Aura) — anúncio oficial</li>
+            <li>☐ <strong>Aura</strong>: posta Arte 2 (Renato apresenta) + 1º reel do bloco gravado</li>
+            <li>☐ <strong>Aura</strong>: posta Artes 3 e 4 (Lei 14.300 + Calculadora)</li>
+            <li>☐ <strong>Impulso</strong>: pacote de stories pré-pronto pra Renato repostar</li>
+          </ul>
+
+          <h3 style={{ fontSize: 17, marginTop: 24 }}>Semana 4 — Aceleração + bloco de gravação</h3>
+          <ul>
+            <li>☐ <strong>Aura</strong>: bloco mensal de gravação (1 dia, 4 reels)</li>
+            <li>☐ <strong>Impulso</strong>: edita reels do bloco</li>
+            <li>☐ <strong>Aura</strong>: posta Artes 5 e 6 (Antes/depois + Janela Fio B)</li>
+            <li>☐ <strong>Impulso</strong>: 1ª reunião mensal de revisão (45 min)</li>
+            <li>☐ <strong>Impulso</strong>: ajusta o que precisar baseado no que veio de lead na semana 3-4</li>
+          </ul>
+
+          <h3 style={{ fontSize: 17, marginTop: 32 }}>Informações que ainda precisamos coletar com você</h3>
+
+          <p>
+            Pra finalizar a calibragem da LP e preparar tudo com precisão,
+            essas informações entram em pauta na reunião:
+          </p>
+
+          <h3 style={{ fontSize: 17, marginTop: 24 }}>Sobre a operação</h3>
+          <ul>
+            <li>Anos exatos da operação Brasfrio em Palmas</li>
+            <li>Número aproximado de instalações solar nos últimos 12 meses (residencial / comercial / industrial / rural)</li>
+            <li>Maior projeto que você assinou como engenheiro responsável (kWp + cliente + cidade)</li>
+            <li>Número CREA-TO + ART pública que possamos citar</li>
+          </ul>
+
+          <h3 style={{ fontSize: 17, marginTop: 24 }}>Sobre cases pra prova social</h3>
+          <ul>
+            <li>Lista de clientes Brasfrio que toparia pedir autorização LGPD pra usar nome + foto + antes/depois de conta</li>
+            <li>Quem topa gravar depoimento em vídeo de 30-60s (mesmo no celular)</li>
+          </ul>
+
+          <h3 style={{ fontSize: 17, marginTop: 24 }}>Sobre ambição e investimento</h3>
+          <ul>
+            <li>Cenário de sucesso 12 meses na sua visão (em 1 frase)</li>
+            <li>Tipos de crescimento que mais te interessam — comércio? indústria? rural? misto?</li>
+            <li>Faixa de investimento mensal disponível pra mídia paga (quando ativarmos a Frente 2)</li>
+          </ul>
+
+          <h3 style={{ fontSize: 17, marginTop: 24 }}>Sobre operação digital atual</h3>
+          <ul>
+            <li>Quem responde WhatsApp da Brasfrio hoje e em quanto tempo</li>
+            <li>Você usa CRM, planilha ou só WhatsApp pra acompanhar lead</li>
+          </ul>
+
+          <h3 style={{ fontSize: 17, marginTop: 24 }}>Sobre Programa Palmas Solar e Pronaf</h3>
+          <ul>
+            <li>Já protocolou desconto IPTU pra cliente? Quantas vezes?</li>
+            <li>Já fez projeto financiado por Pronaf? Com qual banco?</li>
+          </ul>
+
+          <h3 style={{ fontSize: 17, marginTop: 24 }}>Sobre concorrência local</h3>
+          <ul>
+            <li>Pra quem você perde mais venda hoje (Unità? Soluthi? Palmas Energia? outra?)</li>
+            <li>O que faz você fechar quando fecha (autoridade técnica? atendimento? preço? relacionamento?)</li>
+          </ul>
+
+          <h3 style={{ fontSize: 17, marginTop: 24 }}>Sobre info-produto FASE 2</h3>
+          <ul>
+            <li>Você topa gravar curso B2B em 12-18 meses? (não precisa decidir hoje, só pensar)</li>
+            <li>Tem alguma ideia de tema/foco específico, ou tá em aberto?</li>
+          </ul>
+
+          <h3 style={{ fontSize: 17, marginTop: 24 }}>Sobre restrições</h3>
+          <ul>
+            <li>Algo que a Aura NÃO deve repetir da Brasfrio?</li>
+            <li>Alguma regra inegociável (não trabalhar com X marca, não atender madrugada, não associação política, etc.)</li>
+          </ul>
         </section>
 
         {/* ═══════════════════════ ASSINATURA FINAL ═══════════════════════ */}
@@ -1396,18 +2468,11 @@ export default function PlanoRenatoView() {
           }}
         >
           <p>
-            <strong>Plano por:</strong> Verbo (Claude Opus 4.7) + Eduardo Barros · Impulso Digital
-            <br />
-            <strong>Análise estrutural curso Tenda:</strong> CIC (Claude in Chrome)
+            <strong>Plano por:</strong> Eduardo Barros · Impulso Digital
             <br />
             <strong>Cliente:</strong> Renato Edson · Aura Energy · Palmas-TO
             <br />
-            <strong>Data:</strong> 2026-05-06 · pré-reunião
-            <br />
-            <strong>Versão:</strong> v4.0 — refundido B2B-first
-          </p>
-          <p style={{ marginTop: 24, fontStyle: "italic" }}>
-            — λ.deep-research · λ.dor (B2B vende ROI, não kWp) · λ.uso-em-massa · λ.densidade
+            <strong>Data:</strong> 2026-05-06
           </p>
         </section>
       </main>

@@ -1,6 +1,7 @@
 import Header from "@/components/Header";
 import BotaoFlutuanteWhatsApp from "@/components/BotaoFlutuanteWhatsApp";
 import HeroSegmentos from "@/components/HeroSegmentos";
+import SchemaOrgAura from "@/components/segmentos/SchemaOrgAura";
 import BannerVisual from "@/components/BannerVisual";
 import MarcasMarquee from "@/components/MarcasMarquee";
 import Manifesto from "@/components/Manifesto";
@@ -23,9 +24,10 @@ import Footer from "@/components/Footer";
 export default function Home() {
   return (
     <>
+      <SchemaOrgAura pagina="home" />
       <Header />
       <main className="flex-1">
-        {/* 1. Hero decisor — 4 cards segmentados (Casa / Comércio / Indústria / Fazenda) */}
+        {/* 1. Hero decisor — 4 cards segmentados (Casa / Comércio / Indústria / Rural) */}
         <HeroSegmentos />
 
         {/* 2. Banner visual cinematográfico */}

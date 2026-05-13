@@ -27,7 +27,7 @@ const DIFERENCIAIS = [
     icon: <IconLeaf size={26} />,
     titulo: "Palmas Solar — desconto IPTU incluso",
     desc:
-      "O município de Palmas dá até 60% de desconto no IPTU pra quem instala solar. Eu monto a documentação pra você dar entrada no Resolve Palmas.",
+      "Pra adesões em 2026 ao Programa Palmas Solar (LC 327/2015), o município concede 40% de desconto no IPTU por 5 anos. Eu monto a documentação técnica e dou entrada no Resolve Palmas.",
   },
   {
     icon: <IconTrending size={26} />,

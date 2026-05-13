@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Reveal from "../Reveal";
-import Simulador from "../Simulador";
+import SimuladorCasa from "./SimuladorCasa";
 import {
   IconArrowRight,
   IconCheck,
@@ -67,12 +67,12 @@ export default function HeroCasa() {
                 <strong className="text-[var(--aura-blue)]">
                   Lei do Fio B em 60% em 2026
                 </strong>{" "}
-                faz cada mês de espera doer mais. Tira a Energisa do seu orçamento
-                fixo e ainda{" "}
+                faz cada mês de espera doer mais. Tira a Energisa do seu
+                orçamento fixo e ainda{" "}
                 <strong className="text-[var(--aura-blue)]">
-                  ganha 60% de desconto no IPTU
+                  paga 40% menos de IPTU por 5 anos
                 </strong>{" "}
-                pelo Programa Palmas Solar.
+                pelo Programa Palmas Solar (LC 327/2015).
               </p>
             </Reveal>
 
@@ -91,7 +91,7 @@ export default function HeroCasa() {
           {/* Coluna simulador */}
           <Reveal delay={2}>
             <div id="simulador">
-              <Simulador />
+              <SimuladorCasa />
             </div>
           </Reveal>
         </div>
@@ -152,7 +152,7 @@ export default function HeroCasa() {
             <Stat number="85-95%" label="Redução típica na sua conta de luz" />
             <Stat number="4-5 anos" label="Payback médio em casa de Palmas" />
             <Stat number="25 anos" label="Vida útil dos painéis Tier 1" />
-            <Stat number="60%" label="Desconto IPTU · Programa Palmas Solar" />
+            <Stat number="40%" label="Desconto IPTU · 5 anos · Programa Palmas Solar 2026" />
           </div>
         </Reveal>
 

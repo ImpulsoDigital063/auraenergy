@@ -59,9 +59,9 @@ const SEGMENTOS: Segmento[] = [
       "Olá Renato, vim pelo site da Aura — quero analisar usina solar pra minha indústria em Tocantins.",
   },
   {
-    slug: "/fazenda",
-    label: "Sua fazenda",
-    hook: "Pivô, granja, aviário, irrigação — com Pronaf e Moderagro a partir de 0,5% a.m.",
+    slug: "/rural",
+    label: "Rural",
+    hook: "Fazenda, sítio, chácara, pivô, granja, aviário — com Pronaf e Moderagro a partir de 0,5% a.m.",
     ticket: "R$ 80-300 mil",
     icon: <IconTractor size={28} strokeWidth={1.6} />,
     accent: "#15803D",
@@ -114,7 +114,7 @@ export default function HeroSegmentos() {
           <Reveal>
             <span className="badge-blue mb-5 inline-flex">
               <IconMapPin size={14} />
-              Aura Energy · Palmas-TO · atende todo Tocantins
+              A primeira solar B2B-segmentada do Tocantins
             </span>
           </Reveal>
 
@@ -130,9 +130,10 @@ export default function HeroSegmentos() {
 
           <Reveal delay={2}>
             <p className="text-lg sm:text-xl text-[var(--aura-text-soft)] leading-relaxed">
-              Solar premium pra quem decide. Cada cenário tem{" "}
+              Casa, comércio, indústria, propriedade rural — cada um com{" "}
               <strong className="text-[var(--aura-blue)]">cálculo, garantia e linha de crédito</strong>{" "}
-              diferentes — escolha o seu pra ver o caminho certo.
+              próprios. Engenheiro responsável, ART, projeto executivo. Aura
+              Energy · Palmas-TO · atende todo o estado.
             </p>
           </Reveal>
         </div>
@@ -252,7 +253,7 @@ export default function HeroSegmentos() {
             <Stat number="5,9" label="Horas de sol pleno/dia em Palmas" sub="Top 3 do Brasil" />
             <Stat number="469 MW" label="Solar instalado em Tocantins" sub="44 mil conexões" />
             <Stat number="2026" label="Janela do Fio B abre 60% TUSD" sub="Cada ano custa caro" />
-            <Stat number="60%" label="Desconto IPTU Programa Palmas Solar" sub="Aura cuida disso" />
+            <Stat number="40%" label="Desconto IPTU · 5 anos · Programa Palmas Solar 2026" sub="Aura cuida do Resolve Palmas" />
           </div>
         </Reveal>
       </div>

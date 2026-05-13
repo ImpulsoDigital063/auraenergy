@@ -1,7 +1,8 @@
 import Reveal from "./Reveal";
 import { IconChevronDown } from "./Icons";
+import type { Pergunta } from "./segmentos/faq-perguntas";
 
-const PERGUNTAS = [
+const PERGUNTAS_DEFAULT = [
   {
     q: "Quanto custa instalar energia solar em Palmas?",
     a: "Em Palmas, sistemas residenciais Tier 1 (Trina/Canadian + Growatt/Sungrow) custam: 3 kWp a partir de R$ 12.000, 5 kWp por volta de R$ 18-25.000, 8 kWp entre R$ 28-38.000. O valor inclui painéis, inversor, estrutura, projeto, ART, homologação na Energisa e instalação. A visita técnica é gratuita e te dá o orçamento exato.",
@@ -40,7 +41,18 @@ const PERGUNTAS = [
   },
 ];
 
-export default function FAQ() {
+type FAQProps = {
+  perguntas?: Pergunta[];
+  titulo?: React.ReactNode;
+  subtitulo?: string;
+};
+
+export default function FAQ({
+  perguntas = PERGUNTAS_DEFAULT,
+  titulo,
+  subtitulo = "Respostas diretas, sem enrolação técnica.",
+}: FAQProps) {
+  const PERGUNTAS = perguntas;
   return (
     <section
       id="faq"
@@ -51,12 +63,16 @@ export default function FAQ() {
           <div className="text-center mb-12">
             <span className="badge-blue mb-4 inline-flex">Dúvidas frequentes</span>
             <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-[var(--aura-text)] mb-4">
-              Perguntas que <span className="text-gradient-aura">todo mundo faz</span>
-              <br />
-              antes de fechar.
+              {titulo ?? (
+                <>
+                  Perguntas que <span className="text-gradient-aura">todo mundo faz</span>
+                  <br />
+                  antes de fechar.
+                </>
+              )}
             </h2>
             <p className="text-lg text-[var(--aura-text-muted)]">
-              Respostas diretas, sem enrolação técnica.
+              {subtitulo}
             </p>
           </div>
         </Reveal>

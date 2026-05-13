@@ -62,9 +62,9 @@ const LINKS: Link[] = [
     corSoft: "rgba(14, 33, 82, 0.10)",
   },
   {
-    label: "Solar pra sua fazenda",
-    desc: "Pivô, granja, aviário · Pronaf 0,5% a.m.",
-    href: "/fazenda",
+    label: "Solar pra sua propriedade rural",
+    desc: "Fazenda, sítio, pivô, granja · Pronaf 0,5% a.m.",
+    href: "/rural",
     icon: <IconTractor size={22} />,
     cor: "#15803D",
     corSoft: "rgba(21, 128, 61, 0.10)",

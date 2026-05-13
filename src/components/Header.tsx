@@ -83,8 +83,8 @@ export default function Header() {
             <a href="/industria" className="hover:text-[var(--aura-blue-deep)] transition-colors">
               Indústria
             </a>
-            <a href="/fazenda" className="hover:text-[#15803D] transition-colors">
-              Fazenda
+            <a href="/rural" className="hover:text-[#15803D] transition-colors">
+              Rural
             </a>
             <span className="w-px h-5 bg-[var(--aura-border-strong)]" aria-hidden />
             <a href="/#sobre-renato" className="hover:text-[var(--aura-blue)] transition-colors">

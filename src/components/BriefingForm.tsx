@@ -120,6 +120,7 @@ export default function BriefingForm() {
   async function persistDraft(): Promise<boolean> {
     const hash = JSON.stringify(data);
     setSaveState("saving");
+    setError(null);
     try {
       const res = await fetch("/api/briefing/draft", {
         method: "PUT",
@@ -139,13 +140,16 @@ export default function BriefingForm() {
       return true;
     } catch {
       setSaveState("error");
-      setTimeout(() => setSaveState("idle"), 4000);
+      setError(
+        "Não consegui salvar esse bloco no servidor. Confere sua conexão e clica em \"💾 Salvar progresso desse bloco\" de novo. Você não vai avançar enquanto não salvar."
+      );
       return false;
     }
   }
 
   async function handleSaveAndNext() {
-    await persistDraft();
+    const ok = await persistDraft();
+    if (!ok) return;
     setStep(Math.min(TOTAL_STEPS - 1, step + 1));
   }
 
@@ -306,7 +310,7 @@ export default function BriefingForm() {
       </div>
 
       <p className="text-[11px] text-center text-[var(--aura-text-muted)] mt-4">
-        💾 Tudo salva automático no servidor. Pode pausar e voltar de qualquer dispositivo com esse mesmo link.
+        💾 Suas respostas só salvam quando você clica em <strong>Salvar e próximo</strong> (ou no botão de salvar acima). Se aparecer ⚠️, salva de novo antes de avançar. Pode voltar pelo mesmo link.
       </p>
     </div>
   );

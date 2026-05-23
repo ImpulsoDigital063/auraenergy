@@ -104,15 +104,20 @@ export default function IndustriaPage() {
           </div>
         </section>
 
-        <MarcasMarquee />
-        <Manifesto />
+        {/* ── INTERESSE/DOR ── */}
         <DoresGanhosIndustria />
+
+        {/* ── DESEJO/SOLUÇÃO ── */}
         <BlocoBessIndustrial />
-        <Investimento />
         <ComoFunciona fotos={PASSOS_INDUSTRIA} />
-        <Diferenciais />
+        <Investimento />
+        <MarcasMarquee />
         <JanelaFioB />
+
+        {/* ── AÇÃO/CONFIANÇA ── */}
+        <Diferenciais />
         <Credenciais />
+        <Manifesto />
         <EquipeAcao />
         <SobreRenato />
         <Compromisso />

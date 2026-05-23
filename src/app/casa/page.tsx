@@ -52,59 +52,63 @@ export default function CasaPage() {
       <SchemaOrgAura pagina="casa" faqs={FAQ_CASA} />
       <Header />
       <main className="flex-1">
+        {/* ── ATENÇÃO ── */}
         {/* 1. Hero residencial específico */}
         <HeroCasa />
 
-        {/* 2. Marcas Tier 1 — autoridade técnica */}
-        <MarcasMarquee />
-
-        {/* 3. Manifesto */}
-        <Manifesto />
-
-        {/* 4. Dores e ganhos residenciais */}
+        {/* ── INTERESSE/DOR ── */}
+        {/* 2. Dores e ganhos residenciais — cliente reconhece o problema */}
         <DoresGanhosCasa />
 
-        {/* 5. Cases residenciais reais — Palmas, Dianópolis, Colinas */}
+        {/* 3. Cases reais — prova social inicial */}
         <CasesCasa />
 
-        {/* 5b. Programa Palmas Solar — diferencial Aura único no mercado */}
-        <BlocoPalmasSolar variante="residencial" />
-
-        {/* 5c. BESS residencial — eixo central Aura · briefing V3.1 Renato */}
+        {/* ── DESEJO/SOLUÇÃO ── */}
+        {/* 4. BESS residencial — eixo central Aura · briefing V3.1 Renato */}
         <BlocoBessCasa />
 
-        {/* 6. Como funciona — fotos residenciais */}
+        {/* 5. Programa Palmas Solar — benefício específico */}
+        <BlocoPalmasSolar variante="residencial" />
+
+        {/* 6. Como funciona — plano em 4 etapas */}
         <ComoFunciona fotos={PASSOS_CASA} />
 
-        {/* 6. Catálogo de kits residenciais */}
+        {/* 7. Catálogo de kits residenciais — preço */}
         <CatalogoKits />
 
-        {/* 7. Diferenciais */}
+        {/* 8. Marcas Tier 1 — prova técnica perto do preço */}
+        <MarcasMarquee />
+
+        {/* ── AÇÃO/CONFIANÇA ── */}
+        {/* 9. Diferenciais — 8 motivos pra escolher Aura */}
         <Diferenciais />
 
-        {/* 8. Equipe Aura em ação */}
+        {/* 10. Manifesto — voz do Renato como guia */}
+        <Manifesto />
+
+        {/* 11. Equipe Aura em ação */}
         <EquipeAcao />
 
-        {/* 9. Conheça o Renato */}
+        {/* 12. Conheça o Renato */}
         <SobreRenato />
 
-        {/* 10. Compromisso 25 anos */}
+        {/* 13. Compromisso 25 anos */}
         <Compromisso />
 
-        {/* 11. Galeria de instalações residenciais */}
+        {/* 14. Galeria de instalações residenciais */}
         <Galeria
           fotos={FOTOS_CASA}
           badge="Instalações residenciais"
           subtitulo="Casas em Palmas e interior já economizando. Cada projeto começa com visita técnica e termina com cliente economizando."
         />
 
-        {/* 12. Mapa de bairros atendidos */}
+        {/* 15. Mapa de bairros atendidos */}
         <MapaInstalacoes />
 
-        {/* 13. Depoimentos */}
+        {/* 16. Depoimentos */}
         <Depoimentos />
 
-        {/* 14. FAQ residencial */}
+        {/* 17. FAQ residencial */}
         <FAQ
           perguntas={FAQ_CASA}
           titulo={
@@ -117,8 +121,7 @@ export default function CasaPage() {
           subtitulo="Programa Palmas Solar, Lei 14.300, financiamento Solfácil — sem enrolação."
         />
 
-
-        {/* 15. Footer-CTA full-bleed */}
+        {/* 18. Footer-CTA full-bleed */}
         <FinalCTA />
       </main>
       <Footer />

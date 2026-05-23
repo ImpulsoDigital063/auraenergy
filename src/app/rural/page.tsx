@@ -99,15 +99,20 @@ export default function RuralPage() {
           </div>
         </section>
 
-        <MarcasMarquee />
-        <Manifesto />
+        {/* ── INTERESSE/DOR ── */}
         <DoresGanhosFazenda />
+
+        {/* ── DESEJO/SOLUÇÃO ── */}
         <BlocoPronaf />
         <BlocoBessRural />
         <ComoFunciona fotos={PASSOS_RURAL} />
         <Investimento />
-        <Diferenciais />
+        <MarcasMarquee />
         <JanelaFioB />
+
+        {/* ── AÇÃO/CONFIANÇA ── */}
+        <Diferenciais />
+        <Manifesto />
         <EquipeAcao />
         <SobreRenato />
         <Compromisso />

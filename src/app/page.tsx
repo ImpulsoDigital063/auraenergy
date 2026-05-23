@@ -27,23 +27,26 @@ export default function Home() {
       <SchemaOrgAura pagina="home" />
       <Header />
       <main className="flex-1">
+        {/* ── ATENÇÃO ── */}
         {/* 1. Hero decisor — 4 cards segmentados (Casa / Comércio / Indústria / Rural) */}
         <HeroSegmentos />
 
+        {/* ── INTERESSE ── */}
         {/* 2. Banner visual cinematográfico */}
         <BannerVisual />
 
-        {/* 3. Marcas Tier 1 — autoridade técnica */}
-        <MarcasMarquee />
-
-        {/* 4. Manifesto — identidade Aura na voz do Renato */}
-        <Manifesto />
-
-        {/* 5. Como funciona — jornada institucional */}
+        {/* 3. Como funciona — jornada institucional · plano em 4 etapas */}
         <ComoFunciona />
 
-        {/* 6. Diferenciais — 6 marcadores institucionais */}
+        {/* 4. Marcas Tier 1 — prova técnica antes dos motivos */}
+        <MarcasMarquee />
+
+        {/* ── AÇÃO/CONFIANÇA ── */}
+        {/* 5. Diferenciais — 8 motivos pra escolher Aura */}
         <Diferenciais />
+
+        {/* 6. Manifesto — voz do Renato como guia */}
+        <Manifesto />
 
         {/* 7. Equipe Aura em ação */}
         <EquipeAcao />

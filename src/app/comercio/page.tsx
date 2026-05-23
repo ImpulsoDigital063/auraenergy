@@ -94,16 +94,21 @@ export default function ComercioPage() {
           </div>
         </section>
 
-        <MarcasMarquee />
-        <Manifesto />
+        {/* ── INTERESSE/DOR ── */}
         <DoresGanhosComercio />
         <CasesComercio />
-        <BlocoPalmasSolar variante="comercial" />
+
+        {/* ── DESEJO/SOLUÇÃO ── */}
         <BlocoBessComercial />
+        <BlocoPalmasSolar variante="comercial" />
         <ComoFunciona fotos={PASSOS_COMERCIO} />
         <Investimento />
-        <Diferenciais />
+        <MarcasMarquee />
         <JanelaFioB />
+
+        {/* ── AÇÃO/CONFIANÇA ── */}
+        <Diferenciais />
+        <Manifesto />
         <EquipeAcao />
         <SobreRenato />
         <Compromisso />

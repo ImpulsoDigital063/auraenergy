@@ -1,5 +1,7 @@
 import Image from "next/image";
 import Reveal from "../Reveal";
+import HeroCarrosselCasos from "./HeroCarrosselCasos";
+import { CASOS_INDUSTRIA } from "./casos-aura";
 import {
   IconArrowRight,
   IconChart,
@@ -150,74 +152,15 @@ export default function HeroIndustria() {
             </Reveal>
           </div>
 
-          {/* Coluna lateral — call-out de payback */}
+          {/* Coluna lateral — carrossel de 3 casos industriais */}
           <Reveal delay={2}>
             <div className="lg:col-span-2">
-              <div
-                className="relative rounded-3xl p-7 sm:p-8"
-                style={{
-                  background: "var(--aura-bg-card)",
-                  border: "1px solid var(--aura-border-strong)",
-                  boxShadow: "var(--shadow-lg)",
-                }}
-              >
-                <div className="flex items-center justify-between mb-5">
-                  <span
-                    className="text-[11px] font-bold uppercase tracking-widest"
-                    style={{ color: "var(--aura-blue-deep)" }}
-                  >
-                    Caso-tipo · planta 200 kWp
-                  </span>
-                  <span
-                    className="w-9 h-9 rounded-lg flex items-center justify-center"
-                    style={{
-                      background: "rgba(14, 33, 82, 0.08)",
-                      color: "var(--aura-blue-deep)",
-                    }}
-                  >
-                    <IconFactory size={18} />
-                  </span>
-                </div>
-
-                <div className="space-y-5">
-                  <CardLinha
-                    label="Conta atual mensal"
-                    valor="R$ 38.000"
-                    cor="var(--aura-text)"
-                  />
-                  <CardLinha
-                    label="Após sistema solar"
-                    valor="R$ 4.200"
-                    cor="var(--aura-blue-deep)"
-                    destaque
-                  />
-                  <div className="h-px bg-[var(--aura-border)]" />
-                  <CardLinha
-                    label="Economia mensal"
-                    valor="R$ 33.800"
-                    cor="#15803D"
-                    destaque
-                  />
-                  <CardLinha
-                    label="Payback"
-                    valor="4,5 anos"
-                    cor="var(--aura-blue-deep)"
-                    destaque
-                  />
-                  <CardLinha
-                    label="TIR projetada"
-                    valor="22% a.a."
-                    cor="var(--aura-yellow-deep)"
-                    destaque
-                  />
-                </div>
-
-                <div className="mt-6 pt-5 border-t border-[var(--aura-border)] text-[11px] text-[var(--aura-text-muted)] leading-relaxed">
-                  Caso-tipo: indústria com R$ 38k/mês · sistema 200 kWp · 25 anos
-                  vida útil · projeção CDI 13% a.a. · ICMS subsidiado pelo
-                  Convênio 16/15 TO.
-                </div>
-              </div>
+              <HeroCarrosselCasos
+                casos={CASOS_INDUSTRIA}
+                cor="var(--aura-blue-deep)"
+                corSoft="rgba(14, 33, 82, 0.08)"
+                ariaLabel="Casos industriais Aura Energy"
+              />
             </div>
           </Reveal>
         </div>

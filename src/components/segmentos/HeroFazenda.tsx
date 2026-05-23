@@ -1,5 +1,7 @@
 import Image from "next/image";
 import Reveal from "../Reveal";
+import HeroCarrosselCasos from "./HeroCarrosselCasos";
+import { CASOS_RURAL } from "./casos-aura";
 import {
   IconArrowRight,
   IconCheck,
@@ -155,73 +157,15 @@ export default function HeroFazenda() {
             </Reveal>
           </div>
 
-          {/* Coluna lateral — call-out de payback rural */}
+          {/* Coluna lateral — carrossel de 3 casos rurais */}
           <Reveal delay={2}>
             <div className="lg:col-span-2">
-              <div
-                className="relative rounded-3xl p-7 sm:p-8"
-                style={{
-                  background: "var(--aura-bg-card)",
-                  border: `1px solid ${RURAL_GREEN}30`,
-                  boxShadow: "var(--shadow-lg)",
-                }}
-              >
-                <div className="flex items-center justify-between mb-5">
-                  <span
-                    className="text-[11px] font-bold uppercase tracking-widest"
-                    style={{ color: RURAL_GREEN }}
-                  >
-                    Caso-tipo · pivô + granja
-                  </span>
-                  <span
-                    className="w-9 h-9 rounded-lg flex items-center justify-center"
-                    style={{
-                      background: RURAL_GREEN_SOFT,
-                      color: RURAL_GREEN,
-                    }}
-                  >
-                    <IconTractor size={18} />
-                  </span>
-                </div>
-
-                <div className="space-y-5">
-                  <CardLinha
-                    label="Conta atual mensal"
-                    valor="R$ 14.500"
-                    cor="var(--aura-text)"
-                  />
-                  <CardLinha
-                    label="Após sistema solar"
-                    valor="R$ 1.800"
-                    cor={RURAL_GREEN}
-                    destaque
-                  />
-                  <div className="h-px bg-[var(--aura-border)]" />
-                  <CardLinha
-                    label="Economia mensal"
-                    valor="R$ 12.700"
-                    cor="#15803D"
-                    destaque
-                  />
-                  <CardLinha
-                    label="Payback Pronaf 0,5% a.m."
-                    valor="3,8 anos"
-                    cor={RURAL_GREEN}
-                    destaque
-                  />
-                  <CardLinha
-                    label="Em 25 anos"
-                    valor="R$ 5,5 mi"
-                    cor="var(--aura-blue-deep)"
-                    destaque
-                  />
-                </div>
-
-                <div className="mt-6 pt-5 border-t border-[var(--aura-border)] text-[11px] text-[var(--aura-text-muted)] leading-relaxed">
-                  Caso-tipo: propriedade rural com pivô central + granja · sistema
-                  80 kWp · Pronaf Mais Alimentos 0,5% a.m. · 12 anos · 25 anos vida útil.
-                </div>
-              </div>
+              <HeroCarrosselCasos
+                casos={CASOS_RURAL}
+                cor={RURAL_GREEN}
+                corSoft={RURAL_GREEN_SOFT}
+                ariaLabel="Casos rurais Aura Energy"
+              />
             </div>
           </Reveal>
         </div>

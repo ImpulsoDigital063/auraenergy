@@ -1,5 +1,7 @@
 import Image from "next/image";
 import Reveal from "../Reveal";
+import HeroCarrosselCasos from "./HeroCarrosselCasos";
+import { CASOS_COMERCIO } from "./casos-aura";
 import {
   IconArrowRight,
   IconBolt,
@@ -140,60 +142,15 @@ export default function HeroComercio() {
             </Reveal>
           </div>
 
-          {/* Coluna lateral — call-out de números */}
+          {/* Coluna lateral — carrossel de 3 casos comerciais */}
           <Reveal delay={2}>
             <div className="lg:col-span-2">
-              <div className="glow-border">
-                <div className="glow-border-inner">
-                  <div className="flex items-center gap-2 mb-4">
-                    <span className="badge-live">
-                      <span className="dot" />
-                    </span>
-                    <span className="text-xs font-bold uppercase tracking-widest text-[var(--aura-text-muted)]">
-                      Caso-tipo · lanchonete em Palmas
-                    </span>
-                  </div>
-
-                  <div className="space-y-5">
-                    <CardLinha
-                      label="Conta atual mensal"
-                      valor="R$ 2.850"
-                      cor="var(--aura-text)"
-                    />
-                    <CardLinha
-                      label="Após sistema solar"
-                      valor="R$ 285"
-                      cor="var(--aura-yellow-deep)"
-                      destaque
-                    />
-                    <div className="h-px bg-[var(--aura-border)]" />
-                    <CardLinha
-                      label="Economia mensal"
-                      valor="R$ 2.565"
-                      cor="#15803D"
-                      destaque
-                    />
-                    <CardLinha
-                      label="Payback"
-                      valor="3,1 anos"
-                      cor="var(--aura-yellow-deep)"
-                      destaque
-                    />
-                    <CardLinha
-                      label="Em 25 anos"
-                      valor="R$ 1,1 mi+"
-                      cor="var(--aura-blue-deep)"
-                      destaque
-                    />
-                  </div>
-
-                  <div className="mt-6 pt-5 border-t border-[var(--aura-border)] text-[11px] text-[var(--aura-text-muted)] leading-relaxed">
-                    Caso real: lanchonete com refrigeração + cozinha 24h ·
-                    sistema 22 kWp · geração 3.000 kWh/mês · tarifa Energisa
-                    R$ 0,95/kWh.
-                  </div>
-                </div>
-              </div>
+              <HeroCarrosselCasos
+                casos={CASOS_COMERCIO}
+                cor="var(--aura-yellow-deep)"
+                corSoft="var(--aura-yellow-tint)"
+                ariaLabel="Casos comerciais Aura Energy"
+              />
             </div>
           </Reveal>
         </div>

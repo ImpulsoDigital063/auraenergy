@@ -7,6 +7,7 @@ import MarcasMarquee from "@/components/MarcasMarquee";
 import Manifesto from "@/components/Manifesto";
 import DoresGanhosFazenda from "@/components/segmentos/DoresGanhosFazenda";
 import BlocoPronaf from "@/components/segmentos/BlocoPronaf";
+import BlocoBessRural from "@/components/segmentos/BlocoBessRural";
 import Reveal from "@/components/Reveal";
 import { IconTractor } from "@/components/Icons";
 import {
@@ -102,6 +103,7 @@ export default function RuralPage() {
         <Manifesto />
         <DoresGanhosFazenda />
         <BlocoPronaf />
+        <BlocoBessRural />
         <ComoFunciona fotos={PASSOS_RURAL} />
         <Investimento />
         <Diferenciais />

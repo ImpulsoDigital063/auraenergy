@@ -51,7 +51,7 @@ export default function HeroFazenda() {
           <div className="lg:col-span-3 text-center lg:text-left">
             <Reveal>
               <span
-                className="mb-5 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold"
+                className="mb-5 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest"
                 style={{
                   background: RURAL_GREEN_SOFT,
                   color: RURAL_GREEN,
@@ -59,7 +59,7 @@ export default function HeroFazenda() {
                 }}
               >
                 <IconTractor size={14} />
-                Pra sua fazenda · Tocantins
+                Especialista em agro · Tocantins
               </span>
             </Reveal>
 
@@ -80,16 +80,19 @@ export default function HeroFazenda() {
 
             <Reveal delay={2}>
               <p className="text-lg sm:text-xl text-[var(--aura-text-soft)] mb-8 leading-relaxed max-w-2xl mx-auto lg:mx-0">
-                Pivô consome até{" "}
+                Aura é solar com{" "}
+                <strong style={{ color: RURAL_GREEN }}>
+                  calibragem agro
+                </strong>{" "}
+                · ângulo ainda pouco explorado em Tocantins. Pivô consome até{" "}
                 <strong style={{ color: RURAL_GREEN }}>
                   60% da receita do mês de pico
                 </strong>
                 . Granja e aviário rodam ar-condicionado 24h. Solar rural com{" "}
                 <strong style={{ color: RURAL_GREEN }}>
-                  Pronaf, Moderagro e FCO Verde
-                </strong>{" "}
-                financia em 12 anos a partir de 0,5% a.m. — autoconsumo remoto
-                deixa você compensar geração entre matrizes na mesma propriedade.
+                  Pronaf 0,5% a.m. em 12 anos
+                </strong>
+                {" "}— autoconsumo remoto compensa geração entre matrizes na mesma propriedade.
               </p>
             </Reveal>
 

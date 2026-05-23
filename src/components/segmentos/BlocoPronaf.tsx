@@ -92,6 +92,11 @@ export default function BlocoPronaf() {
                     desc="Até 0,5% a.m. · prazo 12 anos · até R$ 250 mil. Produtor com DAP/CAF tem acesso direto."
                   />
                   <Item
+                    icon={<IconLeaf size={18} />}
+                    titulo="Pronaf Bioeconomia"
+                    desc="Linha verde do BNDES pra projetos com energia limpa · juros subsidiados · prazo até 10 anos. Aura vai dominar essa frente."
+                  />
+                  <Item
                     icon={<IconTrending size={18} />}
                     titulo="Moderagro & FCO Verde"
                     desc="Linhas pra médio e grande produtor · taxa subsidiada · prazos 8-12 anos."

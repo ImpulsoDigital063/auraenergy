@@ -4,6 +4,7 @@ import {
   IconBolt,
   IconCheck,
   IconLeaf,
+  IconMapPin,
   IconShield,
   IconTrending,
   IconUsers,
@@ -11,6 +12,18 @@ import {
 } from "./Icons";
 
 const DIFERENCIAIS = [
+  {
+    icon: <IconUsers size={26} />,
+    titulo: "Quem te atende é o engenheiro",
+    desc:
+      "Não vendedor terceirizado. Renato Edson na obra, no projeto, na revisão e no WhatsApp. Você sempre fala com quem assina o laudo.",
+  },
+  {
+    icon: <IconMapPin size={26} />,
+    titulo: "Visita técnica grátis até 100 km de Palmas",
+    desc:
+      "Vou na sua casa, comércio ou propriedade pra medir o telhado, conferir disjuntor e calcular sistema sob medida. Sem cobrar visita dentro do raio.",
+  },
   {
     icon: <IconShield size={26} />,
     titulo: "Homologação Energisa sem dor de cabeça",
@@ -25,9 +38,9 @@ const DIFERENCIAIS = [
   },
   {
     icon: <IconLeaf size={26} />,
-    titulo: "Palmas Solar — desconto IPTU incluso",
+    titulo: "Bônus Palmas Solar grátis",
     desc:
-      "Pra adesões em 2026 ao Programa Palmas Solar (LC 327/2015), o município concede 40% de desconto no IPTU por 5 anos. Eu monto a documentação técnica e dou entrada no Resolve Palmas.",
+      "Pra adesões em 2026 ao Programa Palmas Solar (LC 327/2015), o município concede 40% de desconto no IPTU por 5 anos. Eu monto a documentação técnica e dou entrada no Resolve Palmas — sem cobrar à parte.",
   },
   {
     icon: <IconTrending size={26} />,
@@ -37,15 +50,15 @@ const DIFERENCIAIS = [
   },
   {
     icon: <IconWallet size={26} />,
-    titulo: "Financiamento sem entrada",
+    titulo: "Financiamento sem entrada · 6 bancos",
     desc:
-      "Solfácil 0,79% a.m. em até 120 meses. Parcela quase sempre menor que sua conta atual de luz — você troca conta cara por conta menor + sistema pago no fim.",
+      "BV Financeira, Solfácil, Sicredi, Sicoob, Santander, BB Programa Agro Energia. Pra agro, Pronaf 0,5% a.m. em 12 anos. Parcela quase sempre menor que sua conta atual.",
   },
   {
-    icon: <IconUsers size={26} />,
-    titulo: "Quem te atende é o engenheiro",
+    icon: <IconBolt size={26} />,
+    titulo: "Indicou? Recebe 5%",
     desc:
-      "Não vendedor terceirizado. Renato Edson na obra, no projeto, na revisão e no WhatsApp. Você sempre fala com quem assina o laudo.",
+      "Cliente Aura que indica outro cliente ganha 5% do valor do contrato fechado. Pago após instalação aprovada na Energisa. Sem letra miúda.",
   },
 ];
 
@@ -60,7 +73,7 @@ export default function Diferenciais() {
               Por que escolher a Aura Energy
             </span>
             <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-[var(--aura-text)] mb-4">
-              6 motivos pra você não fechar
+              8 motivos pra você não fechar
               <br />
               com qualquer um.
             </h2>

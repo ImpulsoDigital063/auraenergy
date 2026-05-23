@@ -176,7 +176,7 @@ export default function Compromisso() {
               className="rounded-3xl p-6 sm:p-8 flex flex-col sm:flex-row items-center gap-5 text-center sm:text-left"
               style={{
                 background:
-                  "linear-gradient(135deg, var(--aura-blue) 0%, var(--aura-blue-dark) 100%)",
+                  "linear-gradient(135deg, var(--aura-blue) 0%, var(--aura-blue-deep) 100%)",
                 color: "white",
                 boxShadow: "0 20px 50px -10px rgba(27,58,135,0.40)",
               }}

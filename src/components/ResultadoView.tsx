@@ -481,7 +481,7 @@ function ResultCard({
       : tone === "dark-gold"
       ? {
           background:
-            "linear-gradient(135deg, var(--aura-blue-deep) 0%, var(--aura-blue-dark) 100%)",
+            "linear-gradient(135deg, var(--aura-blue-deep) 0%, var(--aura-blue-deep) 100%)",
           color: "white",
           border: "2px solid var(--aura-yellow)",
         }

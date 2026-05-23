@@ -141,7 +141,7 @@ export default function SobreRenato() {
                   className="absolute -bottom-3 -left-3 sm:-bottom-4 sm:-left-4 hidden md:flex items-center gap-2 px-4 py-2 rounded-full -rotate-3 hover:rotate-0 transition-transform"
                   style={{
                     background:
-                      "linear-gradient(135deg, var(--aura-blue) 0%, var(--aura-blue-dark) 100%)",
+                      "linear-gradient(135deg, var(--aura-blue) 0%, var(--aura-blue-deep) 100%)",
                     color: "white",
                     boxShadow: "0 10px 30px -8px rgba(27,58,135,0.40)",
                   }}

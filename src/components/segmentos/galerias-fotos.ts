@@ -19,7 +19,7 @@ export const FOTOS_CASA: FotoSegmento[] = [
     alt: "Casa moderna em Palmas com sistema solar fotovoltaico no telhado",
   },
   {
-    url: "https://images.unsplash.com/photo-1611365892117-bce8ea1ddd47?w=1200&q=80&auto=format&fit=crop",
+    url: "/img/equipe/paineis-telhado.png",
     legenda: "Telhado residencial em Dianópolis — 8,55 kWp",
     alt: "Painéis solares em telhado residencial em Dianópolis",
   },
@@ -50,7 +50,7 @@ export const FOTOS_CASA: FotoSegmento[] = [
 // =====================================================================
 export const FOTOS_COMERCIO: FotoSegmento[] = [
   {
-    url: "https://images.unsplash.com/photo-1545208067-fcc1c6f49d40?w=1200&q=80&auto=format&fit=crop",
+    url: "/img/equipe/sistema-entregue.png",
     legenda: "Lanchonete em Palmas — 22 kWp",
     alt: "Sistema solar em telhado comercial vista contra céu azul",
   },
@@ -91,7 +91,7 @@ export const FOTOS_INDUSTRIA: FotoSegmento[] = [
     alt: "Sistema solar fotovoltaico em galpão industrial",
   },
   {
-    url: "https://images.unsplash.com/photo-1509389571768-7f5b21c1c81f?w=1200&q=80&auto=format&fit=crop",
+    url: "/img/equipe/usina-industrial.png",
     legenda: "Galpão metálico — telhado completo",
     alt: "Painéis solares cobrindo telhado de galpão industrial metálico",
   },

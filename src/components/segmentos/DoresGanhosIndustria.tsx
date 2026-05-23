@@ -5,6 +5,7 @@ import {
   IconChart,
   IconCheck,
   IconFactory,
+  IconLeaf,
   IconShield,
   IconTrending,
   IconWallet,
@@ -41,9 +42,19 @@ const GANHOS: Item[] = [
     icon: <IconTrending size={22} />,
   },
   {
-    titulo: "BNDES Finame Solar · ICMS subsidiado TO · BNDES PIS-Cofins",
-    desc: "Linhas dedicadas pra indústria com prazo 10-12 anos e taxa 7-9% a.a. Convênio 16/15 do Tocantins reduz ICMS sobre o sistema. Aura cuida do enquadramento.",
+    titulo: "BNDES Finame Baixo Carbono · ICMS subsidiado TO",
+    desc: "Linha BNDES Baixo Carbono (Finame Solar verde) com prazo 10-12 anos e taxa subsidiada. Convênio 16/15 do Tocantins reduz ICMS sobre o sistema. Aura cuida do enquadramento.",
     icon: <IconWallet size={22} />,
+  },
+  {
+    titulo: "Estabilidade frente a reajustes Energisa",
+    desc: "Tarifa industrial sobe acima da inflação ano após ano · bandeira vermelha, reajuste anual, novos encargos. Solar trava o custo de 80% do consumo em valor fixo por 25 anos. Você foge da curva.",
+    icon: <IconArrowUpRight size={22} />,
+  },
+  {
+    titulo: "Crédito de carbono e ESG no balanço",
+    desc: "Cada sistema instalado evita centenas de toneladas de CO₂ por ano · ativo elegível pra relatório ESG, supply chain audit, certificação verde. Cliente B2B começou a exigir e quem tem fica na frente.",
+    icon: <IconLeaf size={22} />,
   },
   {
     titulo: "ART, projeto executivo, monitoramento incluso",
@@ -78,7 +89,7 @@ export default function DoresGanhosIndustria() {
               </span>
             </h2>
             <p className="text-lg text-[var(--aura-text-muted)] max-w-2xl mx-auto">
-              3 dores que sua planta absorve hoje sem perceber — 3 ganhos que
+              3 dores que sua planta absorve hoje sem perceber — 5 ganhos que
               entram no DRE depois da homologação.
             </p>
           </div>

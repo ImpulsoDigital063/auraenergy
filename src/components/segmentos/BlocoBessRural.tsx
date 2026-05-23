@@ -65,31 +65,31 @@ type Aplicacao = {
 const APLICACOES: Aplicacao[] = [
   {
     icon: <IconBattery size={26} />,
-    titulo: "Off-grid pra sitio sem rede",
+    titulo: "Sitio longe da rede · independencia total",
     desc:
-      "Propriedade longe da rede Energisa nao paga poste nem espera concessao. Geracao solar + banco de bateria entrega energia 24h, autonomia total.",
+      "Propriedade sem acesso a rede Energisa nao paga poste nem espera concessao. Geracao solar + banco de bateria entrega energia 24h. Voce vira a sua propria concessionaria.",
     destaque: "Sem fio, sem rede",
   },
   {
     icon: <IconShield size={26} />,
-    titulo: "Backup pra granja, aviario, camara fria",
+    titulo: "Quando a Energisa cai · granja e aviario nao param",
     desc:
-      "Energisa cai em Tocantins (todos sabem). Bateria mantem ventilacao, ar-condicionado e refrigeracao rodando ate a rede voltar. Ovos, frango, leite, vacina nao perdem.",
+      "Apagao em Tocantins acontece. Bateria mantem ventilacao, ar-condicionado e refrigeracao rodando ate a rede voltar. Ovos, frango, leite, vacina nao perdem.",
     destaque: "Apagao zero impacto",
   },
   {
     icon: <IconWaterDrop size={26} />,
-    titulo: "Bombeamento solar com banco",
+    titulo: "Pivo e bombeamento rodando ate a madrugada",
     desc:
       "Bomba puxa agua do poco de dia, banco armazena, irrigacao roda no fim da tarde e madrugada. Pivo nao para por sol fraco nem por queda de rede.",
     destaque: "Pivo 24h",
   },
   {
     icon: <IconBolt size={26} />,
-    titulo: "Microrede agroindustrial · peak shaving",
+    titulo: "Frigorifico e agroindustria · ponta zerada",
     desc:
-      "Frigorifico, beneficiamento, agroindustria. Banco corta o horario de ponta (caro), tarifa branca + bateria. Conta despenca onde mais doi.",
-    destaque: "Ponta zerada",
+      "Beneficiamento, frigorifico, agroindustria. Banco corta o horario de ponta (caro) com tarifa branca + bateria. Conta despenca onde mais doi.",
+    destaque: "Peak shaving",
   },
 ];
 
@@ -121,19 +121,19 @@ export default function BlocoBessRural() {
               }}
             >
               <IconBattery size={14} />
-              BESS · Bateria + Solar
+              Bateria + Solar
             </span>
             <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-white mb-4 leading-[1.05]">
-              Sua fazenda independente
+              A energia da sua fazenda
               <br />
               <span style={{ color: RURAL_GREEN_BRIGHT }}>
-                da Energisa.
+                nao pode parar.
               </span>
             </h2>
             <p className="text-base sm:text-lg text-white/70 max-w-2xl mx-auto leading-relaxed">
-              Solar gera de dia, banco armazena, fazenda usa quando precisa.
-              Pivo nao para, granja nao desliga, ar-condicionado roda 24h.
-              Apagao da Energisa nao quebra mais sua operacao.
+              Solar gera de dia, banco de bateria armazena, fazenda usa quando precisa.
+              Pivo nao para na queda de rede, granja nao desliga no apagao,
+              camara fria roda 24h. Voce decide quando a Energisa importa.
             </p>
           </div>
         </Reveal>

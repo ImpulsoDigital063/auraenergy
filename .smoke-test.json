@@ -1,0 +1,33 @@
+{
+  "project": "auraenergy",
+  "domain": "https://auraenergy.vercel.app",
+  "description": "Smoke test pos-deploy · materializa lambda.prova-na-fonte · disparado pelo hook PostToolUse em ~/.claude/settings.json apos vercel --prod",
+  "tests": [
+    {
+      "name": "briefing-draft-roundtrip",
+      "description": "Garante que /api/briefing/draft persiste data corretamente (read-after-write). Caso Renato 19/05: API retornava 200 com data:{} silenciosamente.",
+      "endpoint": "/api/briefing/draft",
+      "method": "PUT",
+      "slugTemplate": "smoke-{timestamp}",
+      "payload": {
+        "name": "Smoke Test Verbo",
+        "data": {
+          "nome": "Smoke Test",
+          "whatsapp": "(63) 99999-0000",
+          "smokeMarker": true
+        },
+        "progress": 1,
+        "status": "draft"
+      },
+      "validate": {
+        "type": "read-after-write",
+        "verifyField": "data.smokeMarker",
+        "expectValue": true
+      },
+      "cleanup": {
+        "method": "DELETE",
+        "supabaseRest": "https://thdsmldmswrjycaqxbnm.supabase.co/rest/v1/briefings?slug=eq.{slug}"
+      }
+    }
+  ]
+}

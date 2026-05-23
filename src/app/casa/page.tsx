@@ -12,6 +12,7 @@ import { FAQ_CASA } from "@/components/segmentos/faq-perguntas";
 import SchemaOrgAura from "@/components/segmentos/SchemaOrgAura";
 import CatalogoKits from "@/components/CatalogoKits";
 import BlocoPalmasSolar from "@/components/segmentos/BlocoPalmasSolar";
+import BlocoBessCasa from "@/components/segmentos/BlocoBessCasa";
 import Diferenciais from "@/components/Diferenciais";
 import EquipeAcao from "@/components/EquipeAcao";
 import SobreRenato from "@/components/SobreRenato";
@@ -68,6 +69,9 @@ export default function CasaPage() {
 
         {/* 5b. Programa Palmas Solar — diferencial Aura único no mercado */}
         <BlocoPalmasSolar variante="residencial" />
+
+        {/* 5c. BESS residencial — eixo central Aura · briefing V3.1 Renato */}
+        <BlocoBessCasa />
 
         {/* 6. Como funciona — fotos residenciais */}
         <ComoFunciona fotos={PASSOS_CASA} />

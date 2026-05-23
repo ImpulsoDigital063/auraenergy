@@ -8,6 +8,7 @@ import Manifesto from "@/components/Manifesto";
 import DoresGanhosComercio from "@/components/segmentos/DoresGanhosComercio";
 import CasesComercio from "@/components/segmentos/CasesComercio";
 import BlocoPalmasSolar from "@/components/segmentos/BlocoPalmasSolar";
+import BlocoBessComercial from "@/components/segmentos/BlocoBessComercial";
 import Reveal from "@/components/Reveal";
 import { IconStore } from "@/components/Icons";
 import {
@@ -98,6 +99,7 @@ export default function ComercioPage() {
         <DoresGanhosComercio />
         <CasesComercio />
         <BlocoPalmasSolar variante="comercial" />
+        <BlocoBessComercial />
         <ComoFunciona fotos={PASSOS_COMERCIO} />
         <Investimento />
         <Diferenciais />

@@ -24,6 +24,25 @@ export default function HeroIndustria() {
       className="relative pt-24 sm:pt-28 pb-16 sm:pb-24 overflow-hidden"
       style={{ background: "linear-gradient(180deg, var(--aura-bg) 0%, var(--aura-bg-soft) 100%)" }}
     >
+      {/* Foto cinematográfica · galpão industrial Tocantins · cravada via Replicate Flux Pro */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden>
+        <Image
+          src="/img/heros/hero-industria.png"
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover opacity-30"
+        />
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "linear-gradient(180deg, rgba(255,254,242,0.92) 0%, rgba(255,254,242,0.70) 50%, rgba(255,254,242,0.90) 100%)",
+          }}
+        />
+      </div>
+
       <div className="solar-mesh" aria-hidden style={{ opacity: 0.5 }} />
 
       {/* Grid técnico de fundo */}

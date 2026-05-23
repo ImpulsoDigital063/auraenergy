@@ -175,33 +175,6 @@ export default function Manifesto() {
           ))}
         </div>
 
-        {/* Aspiração 12m · voz do Renato cravada no briefing V3.1 */}
-        <Reveal delay={6}>
-          <div className="mt-20 max-w-3xl mx-auto">
-            <div
-              className="relative rounded-3xl p-8 sm:p-10 text-center"
-              style={{
-                background:
-                  "linear-gradient(135deg, rgba(245,188,44,0.10) 0%, rgba(255,255,255,0.04) 100%)",
-                border: "1px solid rgba(245,188,44,0.25)",
-                backdropFilter: "blur(12px)",
-              }}
-            >
-              <div className="text-[10px] font-bold uppercase tracking-widest text-[var(--aura-yellow)] mb-4">
-                Aspiração · 12 meses
-              </div>
-              <p className="text-lg sm:text-2xl font-medium leading-relaxed text-white italic">
-                &ldquo;Aura Energy vai ser a maior de Palmas e Região.
-                Minha vida muda pra de sonho, da minha família também — mas
-                seguindo a mesma humildade de quando a gente começou.&rdquo;
-              </p>
-              <div className="mt-6 text-sm text-white/65">
-                — Renato Edson, fundador
-              </div>
-            </div>
-          </div>
-        </Reveal>
-
         {/* Assinatura */}
         <Reveal>
           <div className="mt-12 text-center">

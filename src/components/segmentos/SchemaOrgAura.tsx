@@ -28,27 +28,27 @@ const SERVICOS_POR_PAGINA: Record<string, { nome: string; descricao: string }> =
   home: {
     nome: "Energia solar fotovoltaica em Tocantins",
     descricao:
-      "Solar premium B2B-segmentada em Palmas-TO. Residencial, comercial, industrial e rural com engenheiro responsável CREA-TO.",
+      "Solar com BESS (bateria + solar) em Palmas-TO. Especialista em agro e rural. Atende residencial, comercial, industrial e propriedade rural com engenheiro responsável CREA-TO. Visita técnica grátis até 100 km de Palmas.",
   },
   casa: {
     nome: "Energia solar residencial em Palmas",
     descricao:
-      "Sistemas solares residenciais em Palmas-TO. Conta cai 85-95%, paga em 4-5 anos, financiamento Solfácil até 120x. Programa Palmas Solar (LC 327/2015) com 40% de desconto no IPTU por 5 anos pra adesões em 2026.",
+      "Sistemas solares residenciais em Palmas-TO. Conta cai 85-95%, paga em 4-5 anos. Financiamento sem entrada em 6 bancos (BV Financeira preferida). Programa Palmas Solar (LC 327/2015) com 40% de desconto no IPTU por 5 anos pra adesões em 2026. BESS opcional pra backup em apagão.",
   },
   comercio: {
     nome: "Energia solar comercial em Palmas",
     descricao:
-      "Solar comercial pra loja, padaria, supermercado, posto, clínica. Payback 3-4 anos, 12-25% da margem operacional liberada. Financiamento PJ até 120x.",
+      "Solar comercial pra loja, padaria, supermercado, posto, clínica, restaurante. Payback 3-4 anos, 12-25% da margem operacional liberada. BESS opcional pra peak shaving e backup de freezer/câmara fria. Financiamento PJ em 6 bancos.",
   },
   industria: {
     nome: "Energia solar industrial em Tocantins",
     descricao:
-      "Solar industrial A4 média tensão. TIR 18-22% a.a., payback 4-6 anos, 80% do custo de energia eliminado. BNDES Finame Solar, ICMS subsidiado pelo Convênio 16/15.",
+      "Solar industrial A4 média tensão. TIR 18-25% a.a., payback 4-6 anos, 80% do custo de energia eliminado. BNDES Finame Baixo Carbono (linha verde), ICMS subsidiado pelo Convênio 16/15. BESS pra peak shaving, microrede, backup operacional e demanda contratada otimizada.",
   },
   rural: {
-    nome: "Energia solar rural em Tocantins",
+    nome: "Energia solar rural e agro em Tocantins",
     descricao:
-      "Solar pra produtor rural: fazenda, sítio, chácara, pivô, granja, aviário, irrigação. Pronaf 0,5% a.m. em 12 anos, autoconsumo remoto entre matrizes, bombeamento solar.",
+      "Solar pra produtor rural: fazenda, sítio, chácara, pivô, granja, aviário, irrigação. Pronaf 0,5% a.m. em 12 anos · Pronaf Bioeconomia · Moderagro · FCO Verde · BNDES Finame. BESS pra off-grid, backup de granja/aviário, bombeamento contínuo e microrede agroindustrial.",
   },
 };
 
@@ -63,7 +63,9 @@ export default function SchemaOrgAura({ pagina, faqs }: Props) {
     "@id": `${URL_BASE}/#localbusiness`,
     name: NOME,
     description:
-      "A primeira solar B2B-segmentada do Tocantins. Engenheiro responsável Renato Edson, CREA-TO. Casa, comércio, indústria e rural com cálculo, garantia e linha de crédito próprios.",
+      "Empresa de energia solar fotovoltaica especializada em agro e rural em Tocantins. Engenheiro responsável Renato Edson (CREA-TO). Brasfrio há 4 anos · 300 instalações em 12 meses · 1.000 kWp instalados. Casa, comércio, indústria e rural com cálculo, garantia e linha de crédito próprios. Visita técnica grátis até 100 km de Palmas.",
+    slogan:
+      "Solar com calibragem agro · especialista em Tocantins · BESS como eixo central",
     url: URL_BASE,
     telephone: TELEFONE,
     image: `${URL_BASE}/logo-aura.png`,
@@ -127,16 +129,41 @@ export default function SchemaOrgAura({ pagina, faqs }: Props) {
     url: URL_BASE,
     logo: `${URL_BASE}/logo-aura.png`,
     foundingDate: "2026",
+    foundingLocation: {
+      "@type": "Place",
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Palmas",
+        addressRegion: "TO",
+        addressCountry: "BR",
+      },
+    },
+    numberOfEmployees: {
+      "@type": "QuantitativeValue",
+      value: 6,
+    },
     founder: {
       "@type": "Person",
       name: "Renato Edson",
-      jobTitle: "Engenheiro Responsável Técnico · CREA-TO",
+      jobTitle: "Engenheiro Eletricista Responsável Técnico · CREA-TO",
       knowsAbout: [
         "Energia Solar Fotovoltaica",
         "Engenharia Elétrica",
         "Geração Distribuída",
-        "Lei 14.300",
-        "Programa Palmas Solar",
+        "BESS · Battery Energy Storage System",
+        "Pronaf · Pronaf Bioeconomia",
+        "BNDES Finame Baixo Carbono",
+        "Moderagro",
+        "FCO Verde",
+        "Lei 14.300/2022",
+        "Lei 15.269/2025",
+        "Convênio ICMS 16/15",
+        "Programa Palmas Solar (LC 327/2015)",
+        "Autoconsumo remoto",
+        "Peak shaving",
+        "Microrede solar",
+        "Bombeamento solar",
+        "Sistemas off-grid rurais",
       ],
     },
     contactPoint: {

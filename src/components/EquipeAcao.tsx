@@ -3,34 +3,36 @@ import Reveal from "./Reveal";
 import { IconShield, IconUsers } from "./Icons";
 
 // Galeria de fotos da equipe trabalhando.
-// Eduardo: trocar por fotos REAIS da equipe Aura quando Renato fornecer.
+// Fotos cravadas via Replicate Flux Dev (2026-05-23) · técnico solar real
+// com EPI completo, sem rosto identificável. Substituiu stock Unsplash genérico
+// (homem turtleneck preto que não tinha relação com solar).
 const EQUIPE = [
   {
-    url: "https://images.unsplash.com/photo-1497440001374-f26997328c1b?w=1400&q=85&auto=format&fit=crop",
+    url: "/img/equipe/tecnico-instalando.png",
     legenda: "Instalação no telhado",
     sub: "Equipe técnica em ação",
     aspect: "aspect-[3/4]", // vertical
   },
   {
-    url: "https://images.unsplash.com/photo-1559302995-f1d7e5c3a29b?w=1400&q=85&auto=format&fit=crop",
+    url: "/img/equipe/conexao-mc4.png",
     legenda: "Conexão dos painéis",
-    sub: "Cabeamento certificado",
+    sub: "Cabeamento certificado MC4",
     aspect: "aspect-square", // quadrada
   },
   {
-    url: "https://images.unsplash.com/photo-1591791717127-44b6c4f0d4f9?w=1400&q=85&auto=format&fit=crop",
+    url: "/img/equipe/paineis-telhado.png",
     legenda: "Painéis em telhado residencial",
-    sub: "Plano Diretor — Palmas",
+    sub: "Palmas-TO · terracota típica",
     aspect: "aspect-[3/4]", // vertical
   },
   {
-    url: "https://images.unsplash.com/photo-1605980776566-0486c3ac7617?w=1400&q=85&auto=format&fit=crop",
+    url: "/img/equipe/alinhamento-tecnico.png",
     legenda: "Alinhamento técnico",
     sub: "Otimização de geração",
     aspect: "aspect-square", // quadrada
   },
   {
-    url: "https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=1400&q=85&auto=format&fit=crop",
+    url: "/img/equipe/sistema-entregue.png",
     legenda: "Sistema entregue",
     sub: "Pronto pra ativação",
     aspect: "aspect-[3/4]", // vertical

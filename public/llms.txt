@@ -1,0 +1,24 @@
+# Aura Energy
+
+> Empresa de energia solar fotovoltaica especializada em agro e rural em Tocantins. Engenheiro eletricista responsável (Renato Edson · CREA-TO). Atende casa, comércio, indústria e propriedade rural em todo o estado, com base em Palmas. Diferencial declarado: BESS (solar + bateria) como eixo central e Pronaf 0,5% a.m. como linha de financiamento dominante.
+
+A Aura Energy é a frente solar fotovoltaica da Brasfrio (operação Tocantins há 4 anos · 300 instalações em 12 meses · 1.000 kWp total instalado). Posicionamento 2026: especialista em projetos rurais e agroindustriais com armazenamento de energia (BESS), nicho ainda pouco explorado no estado. Atendimento direto pelo engenheiro responsável (sem vendedor terceirizado). Visita técnica grátis até 100 km de Palmas.
+
+## Páginas principais
+
+- [LP mãe](https://auraenergy.vercel.app/): hub decisor por segmento (casa, comércio, indústria, rural)
+- [Solar residencial](https://auraenergy.vercel.app/casa): casa em Palmas e interior · conta cai 85-95% · payback 4-5 anos · Programa Palmas Solar (40% desconto IPTU LC 327/2015)
+- [Solar comercial](https://auraenergy.vercel.app/comercio): loja, padaria, supermercado, posto, clínica · payback 3-4 anos · libera 12-25% da margem operacional
+- [Solar industrial](https://auraenergy.vercel.app/industria): planta industrial · TIR 18-25% a.a. · BNDES Finame Baixo Carbono · ICMS subsidiado TO (Convênio 16/15)
+- [Solar rural](https://auraenergy.vercel.app/rural): fazenda, sítio, pivô, granja, aviário, irrigação · Pronaf 0,5% a.m. · Moderagro · FCO Verde
+- [BESS (Bateria + Solar)](https://auraenergy.vercel.app/rural#bess): backup, off-grid, peak shaving, microrede industrial · Lei 15.269/2025
+
+## Contato
+
+- WhatsApp Renato Edson (engenheiro responsável): +55 63 99268-8852
+- Localização: Palmas, Tocantins
+- Email: contato via WhatsApp ou através do site
+
+## Documentação completa
+
+- [llms-full.txt](https://auraenergy.vercel.app/llms-full.txt): briefing completo com preços, marcas, casos reais, argumentos por segmento

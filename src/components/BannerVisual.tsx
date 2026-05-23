@@ -3,10 +3,10 @@ import Reveal from "./Reveal";
 import { IconBolt, IconCheck } from "./Icons";
 
 // Banner cinematográfico full-width entre Hero e Marquee.
-// Foto: instalação solar em casa moderna, vista aérea/3-quartos.
-// Eduardo: trocar pela foto da OBRA real mais bonita do Renato quando tiver.
-const BANNER_URL =
-  "https://images.unsplash.com/photo-1611365892117-bce8ea1ddd47?w=2400&q=80&auto=format&fit=crop";
+// Imagem cravada via Replicate Flux Pro (2026-05-23): aérea Tocantins cerrado
+// com 3 escalas de instalação solar (residencial · industrial · rural com pivô).
+// Estética: golden hour cinematográfico · documental editorial.
+const BANNER_URL = "/img/heros/hero-home.png";
 
 export default function BannerVisual() {
   return (
@@ -14,12 +14,11 @@ export default function BannerVisual() {
       {/* Imagem de fundo */}
       <Image
         src={BANNER_URL}
-        alt="Sistema solar instalado em residência — Aura Energy"
+        alt="Solar em Tocantins · instalações residenciais, industriais e rurais ao pôr-do-sol no cerrado · Aura Energy"
         fill
         priority={false}
         sizes="100vw"
         className="object-cover"
-        unoptimized
       />
 
       {/* Overlay gradient pra texto ficar legível */}

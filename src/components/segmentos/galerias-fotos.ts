@@ -29,17 +29,17 @@ export const FOTOS_CASA: FotoSegmento[] = [
     alt: "Close-up de painel solar fotovoltaico Tier 1",
   },
   {
-    url: "https://images.unsplash.com/photo-1559302995-f1d7e5c3a29b?w=1200&q=80&auto=format&fit=crop",
+    url: "/img/equipe/conexao-mc4.png",
     legenda: "Cabeamento certificado — instalação residencial",
     alt: "Cabeamento solar com conectores MC4",
   },
   {
-    url: "https://images.unsplash.com/photo-1497440001374-f26997328c1b?w=1200&q=80&auto=format&fit=crop",
+    url: "/img/equipe/tecnico-instalando.png",
     legenda: "Equipe técnica em telhado residencial",
     alt: "Técnicos com EPI instalando painéis em telhado de casa",
   },
   {
-    url: "https://images.unsplash.com/photo-1605980776566-0486c3ac7617?w=1200&q=80&auto=format&fit=crop",
+    url: "/img/equipe/sistema-entregue.png",
     legenda: "Sistema entregue — Colinas do Tocantins",
     alt: "Sistema solar residencial pronto pra ativação",
   },
@@ -60,12 +60,12 @@ export const FOTOS_COMERCIO: FotoSegmento[] = [
     alt: "Sistema fotovoltaico vista drone em estabelecimento comercial",
   },
   {
-    url: "https://images.unsplash.com/photo-1591791717127-44b6c4f0d4f9?w=1200&q=80&auto=format&fit=crop",
+    url: "/img/equipe/paineis-telhado.png",
     legenda: "Telhado de comércio — 15 kWp",
     alt: "Painéis solares em telhado de loja",
   },
   {
-    url: "https://images.unsplash.com/photo-1497440001374-f26997328c1b?w=1200&q=80&auto=format&fit=crop",
+    url: "/img/equipe/tecnico-instalando.png",
     legenda: "Instalação em escritório técnico",
     alt: "Equipe Aura instalando solar em comércio",
   },
@@ -75,7 +75,7 @@ export const FOTOS_COMERCIO: FotoSegmento[] = [
     alt: "Painéis solares em larga escala em estabelecimento",
   },
   {
-    url: "https://images.unsplash.com/photo-1605980776566-0486c3ac7617?w=1200&q=80&auto=format&fit=crop",
+    url: "/img/equipe/sistema-entregue.png",
     legenda: "Detalhe técnico — comércio em Palmas",
     alt: "Instalação de painéis em fachada comercial",
   },
@@ -111,7 +111,7 @@ export const FOTOS_INDUSTRIA: FotoSegmento[] = [
     alt: "Projeto fotovoltaico executivo industrial",
   },
   {
-    url: "https://images.unsplash.com/photo-1559302995-f1d7e5c3a29b?w=1200&q=80&auto=format&fit=crop",
+    url: "/img/equipe/conexao-mc4.png",
     legenda: "Cabeamento certificado — alta potência",
     alt: "Cabeamento industrial com inversores de alta capacidade",
   },
@@ -142,12 +142,12 @@ export const FOTOS_RURAL: FotoSegmento[] = [
     alt: "Granja com sistema solar fotovoltaico instalado",
   },
   {
-    url: "https://images.unsplash.com/photo-1605980776566-0486c3ac7617?w=1200&q=80&auto=format&fit=crop",
+    url: "/img/equipe/sistema-entregue.png",
     legenda: "Instalação técnica — sistema rural",
     alt: "Equipe instalando painéis em propriedade rural",
   },
   {
-    url: "https://images.unsplash.com/photo-1559302995-f1d7e5c3a29b?w=1200&q=80&auto=format&fit=crop",
+    url: "/img/equipe/conexao-mc4.png",
     legenda: "Cabeamento certificado — propriedade rural",
     alt: "Cabeamento solar em sistema rural",
   },
@@ -164,78 +164,30 @@ export type PassoFoto = {
 
 // 4 fotos representando os 4 passos: visita técnica → projeto → instalação → ativação
 
-export const PASSOS_CASA: PassoFoto[] = [
+// PASSOS · 4 etapas universais (visita · projeto · instalação · ativação)
+// Imagens cravadas via Replicate Flux Dev (2026-05-23). Compartilhadas entre
+// as 4 LPs segmentadas pra consistência visual da jornada.
+
+const PASSOS_UNIVERSAIS: PassoFoto[] = [
   {
-    url: "https://images.unsplash.com/photo-1581094289810-adf5d25690e3?w=800&q=85&auto=format&fit=crop",
-    alt: "Engenheiro fazendo visita técnica em telhado residencial",
+    url: "/img/etapas/visita-tecnica.png",
+    alt: "Engenheiro com EPI medindo painel solar em telhado terracota em visita técnica",
   },
   {
-    url: "https://images.unsplash.com/photo-1581094288338-2314dddb7ece?w=800&q=85&auto=format&fit=crop",
-    alt: "Engenheiro elaborando projeto fotovoltaico residencial",
+    url: "/img/etapas/projeto-energisa.png",
+    alt: "Engenheiro elaborando projeto fotovoltaico em tablet com blueprint técnico",
   },
   {
-    url: "https://images.unsplash.com/photo-1497440001374-f26997328c1b?w=800&q=85&auto=format&fit=crop",
-    alt: "Equipe técnica instalando painéis em telhado de casa",
+    url: "/img/equipe/tecnico-instalando.png",
+    alt: "Técnico Aura instalando painel solar em telhado residencial com EPI completo",
   },
   {
-    url: "https://images.unsplash.com/photo-1611365892117-bce8ea1ddd47?w=800&q=85&auto=format&fit=crop",
-    alt: "Sistema residencial instalado e gerando energia",
+    url: "/img/equipe/sistema-entregue.png",
+    alt: "Sistema solar entregue em telhado terracota brasileiro · golden hour Palmas-TO",
   },
 ];
 
-export const PASSOS_COMERCIO: PassoFoto[] = [
-  {
-    url: "https://images.unsplash.com/photo-1581094289810-adf5d25690e3?w=800&q=85&auto=format&fit=crop",
-    alt: "Engenheiro analisando consumo de comércio em Palmas",
-  },
-  {
-    url: "https://images.unsplash.com/photo-1581094288338-2314dddb7ece?w=800&q=85&auto=format&fit=crop",
-    alt: "Projeto executivo comercial pra estabelecimento",
-  },
-  {
-    url: "https://images.unsplash.com/photo-1545208067-fcc1c6f49d40?w=800&q=85&auto=format&fit=crop",
-    alt: "Instalação de painéis solares em telhado de comércio",
-  },
-  {
-    url: "https://images.unsplash.com/photo-1566093097221-ac2335b09e70?w=800&q=85&auto=format&fit=crop",
-    alt: "Sistema comercial entregue e operando",
-  },
-];
-
-export const PASSOS_INDUSTRIA: PassoFoto[] = [
-  {
-    url: "https://images.unsplash.com/photo-1581094289810-adf5d25690e3?w=800&q=85&auto=format&fit=crop",
-    alt: "Engenheiro responsável fazendo análise técnica em planta industrial",
-  },
-  {
-    url: "https://images.unsplash.com/photo-1581094288338-2314dddb7ece?w=800&q=85&auto=format&fit=crop",
-    alt: "Projeto executivo industrial A4 média tensão",
-  },
-  {
-    url: "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=800&q=85&auto=format&fit=crop",
-    alt: "Instalação de sistema fotovoltaico em galpão industrial",
-  },
-  {
-    url: "https://images.unsplash.com/photo-1509389571768-7f5b21c1c81f?w=800&q=85&auto=format&fit=crop",
-    alt: "Usina solar industrial entregue e operando",
-  },
-];
-
-export const PASSOS_RURAL: PassoFoto[] = [
-  {
-    url: "https://images.unsplash.com/photo-1581094289810-adf5d25690e3?w=800&q=85&auto=format&fit=crop",
-    alt: "Engenheiro em visita técnica em propriedade rural",
-  },
-  {
-    url: "https://images.unsplash.com/photo-1581094288338-2314dddb7ece?w=800&q=85&auto=format&fit=crop",
-    alt: "Projeto executivo rural com enquadramento Pronaf",
-  },
-  {
-    url: "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=800&q=85&auto=format&fit=crop",
-    alt: "Instalação de painéis em estrutura de solo rural",
-  },
-  {
-    url: "https://images.unsplash.com/photo-1532601224476-15c79f2f7a51?w=800&q=85&auto=format&fit=crop",
-    alt: "Sistema rural em granja entregue e operando",
-  },
-];
+export const PASSOS_CASA: PassoFoto[] = PASSOS_UNIVERSAIS;
+export const PASSOS_COMERCIO: PassoFoto[] = PASSOS_UNIVERSAIS;
+export const PASSOS_INDUSTRIA: PassoFoto[] = PASSOS_UNIVERSAIS;
+export const PASSOS_RURAL: PassoFoto[] = PASSOS_UNIVERSAIS;

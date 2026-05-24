@@ -6,6 +6,7 @@ import SimuladorIndustria from "@/components/segmentos/SimuladorIndustria";
 import MarcasMarquee from "@/components/MarcasMarquee";
 import Manifesto from "@/components/Manifesto";
 import DoresGanhosIndustria from "@/components/segmentos/DoresGanhosIndustria";
+import CasesIndustria from "@/components/segmentos/CasesIndustria";
 import BlocoBessIndustrial from "@/components/segmentos/BlocoBessIndustrial";
 import Reveal from "@/components/Reveal";
 import { IconFactory } from "@/components/Icons";
@@ -106,6 +107,7 @@ export default function IndustriaPage() {
 
         {/* ── INTERESSE/DOR ── */}
         <DoresGanhosIndustria />
+        <CasesIndustria />
 
         {/* ── DESEJO/SOLUÇÃO ── */}
         <BlocoBessIndustrial />

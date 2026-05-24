@@ -6,6 +6,7 @@ import SimuladorFazenda from "@/components/segmentos/SimuladorFazenda";
 import MarcasMarquee from "@/components/MarcasMarquee";
 import Manifesto from "@/components/Manifesto";
 import DoresGanhosFazenda from "@/components/segmentos/DoresGanhosFazenda";
+import CasesRural from "@/components/segmentos/CasesRural";
 import BlocoPronaf from "@/components/segmentos/BlocoPronaf";
 import BlocoBessRural from "@/components/segmentos/BlocoBessRural";
 import Reveal from "@/components/Reveal";
@@ -101,6 +102,7 @@ export default function RuralPage() {
 
         {/* ── INTERESSE/DOR ── */}
         <DoresGanhosFazenda />
+        <CasesRural />
 
         {/* ── DESEJO/SOLUÇÃO ── */}
         <BlocoPronaf />

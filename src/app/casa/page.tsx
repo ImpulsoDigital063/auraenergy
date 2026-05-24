@@ -28,7 +28,7 @@ import Footer from "@/components/Footer";
 export const metadata: Metadata = {
   title: "Energia solar pra sua casa em Palmas-TO | Aura Energy",
   description:
-    "Sua conta de luz cai 85-95% e o sistema paga em 4-5 anos. Engenheiro responsável, instalação rápida, financiamento Solfácil até 120x. Programa Palmas Solar (40% desconto IPTU · 5 anos · LC 327/2015). Aura Energy.",
+    "Sua conta de luz pode cair significativamente · sistema com vida útil de 25 anos. Engenheiro responsável (CREA-TO), instalação rápida, financiamento BV Financeira + 5 bancos parceiros até 120x. Programa Palmas Solar (40% desconto IPTU · 5 anos · LC 327/2015). Aura Energy.",
   keywords: [
     "energia solar residencial Palmas",
     "solar casa Tocantins",

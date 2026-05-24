@@ -1,32 +1,33 @@
 import Reveal from "./Reveal";
 import { IconStar } from "./Icons";
 
-// Eduardo: trocar por depoimentos REAIS quando Renato tiver 3-5 clientes
-// que autorizem uso. Por enquanto são marcados como ilustrativos no rodapé.
+// Perfis-tipo ilustrativos · não retratam clientes específicos.
+// Renato pode substituir por depoimentos reais quando tiver clientes que
+// autorizem uso nominal e cifras divulgadas. Disclaimer no rodapé.
 const DEPOIMENTOS = [
   {
-    nome: "Marcus Vinícius",
+    nome: "Cliente residencial",
     cidade: "Plano Diretor Sul · Palmas-TO",
     perfil: "Residencial · 5,5 kWp",
     texto:
-      "Conta de luz caiu de R$ 720 pra R$ 92. A equipe da Aura cuidou de tudo, da Energisa à instalação. Em 22 dias eu já tava gerando.",
-    economia: "R$ 7.500/ano",
+      "Conta de luz caiu drasticamente. A equipe da Aura cuidou de tudo, da Energisa à instalação. Geração começou poucas semanas depois da assinatura.",
+    economia: "Perfil-tipo",
   },
   {
-    nome: "Cláudia Ferreira",
+    nome: "Cliente comercial",
     cidade: "Plano Diretor Norte · Palmas-TO",
     perfil: "Comercial · 8 kWp",
     texto:
-      "Tava receosa por causa da Lei 14.300. O Renato sentou comigo, mostrou os números no papel e mostrou que mesmo com Fio B vale a pena. Hoje sou cliente e indico.",
-    economia: "R$ 11.200/ano",
+      "Tinha dúvida sobre Lei 14.300. O Renato sentou com os números e mostrou que mesmo com Fio B vale a pena. Decisão consciente e tranquila.",
+    economia: "Perfil-tipo",
   },
   {
-    nome: "José Antônio",
+    nome: "Cliente residencial",
     cidade: "Taquaralto · Palmas-TO",
     perfil: "Residencial · 4 kWp",
     texto:
-      "Financiei pela Solfácil. Parcela do banco ficou MENOR que minha conta de luz antes. Já no primeiro mês tava no lucro.",
-    economia: "R$ 5.800/ano",
+      "Financiei via banco parceiro. Parcela do financiamento ficou na mesma faixa do que pagava de luz · troquei custo recorrente por ativo de 25 anos.",
+    economia: "Perfil-tipo",
   },
 ];
 
@@ -83,9 +84,10 @@ export default function Depoimentos() {
         </div>
 
         <Reveal delay={4}>
-          <p className="text-center text-xs text-[var(--aura-text-faded)] mt-10 italic max-w-2xl mx-auto">
-            * Depoimentos ilustrativos durante fase de lançamento. Casos reais de
-            clientes Aura Energy serão publicados conforme autorização.
+          <p className="text-center text-xs text-[var(--aura-text-faded)] mt-10 italic max-w-2xl mx-auto leading-relaxed">
+            ⚠ Perfis-tipo · falas e perfis ilustrativos pra demonstrar tipos de
+            cliente. Não retratam clientes específicos. Depoimentos reais serão
+            publicados conforme autorização nominal dos clientes Aura.
           </p>
         </Reveal>
       </div>

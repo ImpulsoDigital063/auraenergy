@@ -97,11 +97,11 @@ export default function HeroCasa() {
 
             <Reveal delay={3}>
               <div className="flex flex-wrap gap-3 sm:gap-5 justify-center lg:justify-start">
-                <Feature icon={<IconCheck size={16} />} text="Conta cai 85-95%" />
-                <Feature icon={<IconShield size={16} />} text="Garantia 25 anos" />
+                <Feature icon={<IconCheck size={16} />} text="Conta cai significativamente" />
+                <Feature icon={<IconShield size={16} />} text="Vida útil 25 anos" />
                 <Feature
                   icon={<IconSparkles size={16} />}
-                  text="Solfácil até 120x"
+                  text="BV Financeira · 120x"
                 />
               </div>
             </Reveal>

@@ -11,77 +11,75 @@ import {
 
 const RENATO_WHATSAPP = "5563992688852";
 
+// Preços faixa cravados pelo Renato no briefing V3.1 (22/05/2026).
+// Estratégia: 'a partir de' · cálculo final é feito sob medida na visita técnica.
 const KITS = [
   {
-    nome: "Residencial Pequeno",
+    nome: "Mini",
     kwp: "3 kWp",
     contaIdeal: "até R$ 350/mês",
     paineis: "6× painéis 575W",
-    marcaPainel: "Trina Solar TOPCon",
-    inversor: "Growatt 3 kW",
+    marcaPainel: "Tier 1 (Astrobergy / DAH Solar · preferidas Aura)",
+    inversor: "Hoymiles 3 kW",
     geracaoMes: "~440 kWh",
     areaTelhado: "~16 m²",
-    economia25anos: "R$ 105.000+",
-    precoApartirDe: "R$ 12.900",
-    parcela: "R$ 195/mês*",
+    precoApartirDe: "A partir de R$ 7 mil",
+    parcela: "Parcela sob simulação",
     destaque: false,
     icon: <IconHome size={24} />,
     gradient: "from-[var(--aura-blue-tint)] to-white",
   },
   {
-    nome: "Residencial Médio",
+    nome: "Padrão",
     kwp: "5 kWp",
     contaIdeal: "R$ 350-700/mês",
     paineis: "9× painéis 575W",
-    marcaPainel: "Trina Solar TOPCon",
-    inversor: "Growatt 5 kW",
+    marcaPainel: "Tier 1 (Astrobergy / DAH Solar)",
+    inversor: "Hoymiles 5 kW",
     geracaoMes: "~735 kWh",
     areaTelhado: "~24 m²",
-    economia25anos: "R$ 175.000+",
-    precoApartirDe: "R$ 19.900",
-    parcela: "R$ 295/mês*",
+    precoApartirDe: "A partir de R$ 15 mil",
+    parcela: "Parcela sob simulação",
     destaque: true,
     badge: "Mais escolhido",
     icon: <IconPanelGrid size={24} />,
     gradient: "from-[var(--aura-yellow-tint)] to-white",
   },
   {
-    nome: "Comercial / Casa Grande",
+    nome: "Plus",
     kwp: "8 kWp",
     contaIdeal: "R$ 700-1.200/mês",
     paineis: "14× painéis 575W",
-    marcaPainel: "Canadian Solar HiKu",
-    inversor: "Sungrow 8 kW",
+    marcaPainel: "Tier 1 (DAH Solar / Trina / JA / Jinko)",
+    inversor: "Hoymiles / Solis 8 kW",
     geracaoMes: "~1.180 kWh",
     areaTelhado: "~38 m²",
-    economia25anos: "R$ 295.000+",
-    precoApartirDe: "R$ 31.500",
-    parcela: "R$ 450/mês*",
+    precoApartirDe: "A partir de R$ 18 mil",
+    parcela: "Parcela sob simulação",
     destaque: false,
     icon: <IconBolt size={24} />,
     gradient: "from-[var(--aura-orange)]/10 to-white",
   },
   {
-    nome: "Sistema Sob Demanda",
-    kwp: "12+ kWp",
+    nome: "Premium",
+    kwp: "10 kWp",
     contaIdeal: "R$ 1.200+/mês",
-    paineis: "Sob projeto",
-    marcaPainel: "Tier 1 (Trina/Canadian/Jinko)",
-    inversor: "Sungrow / Huawei / Fronius",
-    geracaoMes: "Personalizado",
-    areaTelhado: "Análise técnica",
-    economia25anos: "R$ 450.000+",
-    precoApartirDe: "Orçamento",
-    parcela: "Sob análise",
+    paineis: "18× painéis 575W",
+    marcaPainel: "Tier 1 (DAH Solar / Canadian)",
+    inversor: "Hoymiles / Huawei 10 kW",
+    geracaoMes: "~1.470 kWh",
+    areaTelhado: "~48 m²",
+    precoApartirDe: "A partir de R$ 20,5 mil",
+    parcela: "Parcela sob simulação",
     destaque: false,
-    badge: "Comercial / Industrial",
+    badge: "Premium+ (15 kWp) sob consulta",
     icon: <IconShield size={24} />,
     gradient: "from-purple-50 to-white",
   },
 ];
 
 const INCLUSO = [
-  "Painéis Tier 1 com 25 anos de garantia",
+  "Painéis Tier 1 · garantia Aura 12 anos painel",
   "Inversor com 10 anos de garantia",
   "Estrutura em alumínio anodizado",
   "Cabeamento CC certificado",
@@ -175,32 +173,13 @@ export default function CatalogoKits() {
                     <Spec label="Área no telhado" value={k.areaTelhado} />
                   </ul>
 
-                  {/* Economia 25 anos destaque */}
-                  <div
-                    className="rounded-xl p-3 mb-5"
-                    style={{
-                      background: "var(--aura-blue-tint)",
-                      border: "1px solid rgba(27,58,135,0.15)",
-                    }}
-                  >
-                    <div className="text-[10px] uppercase tracking-wider text-[var(--aura-blue)] font-bold mb-0.5">
-                      Economia em 25 anos
-                    </div>
-                    <div className="text-xl font-extrabold text-[var(--aura-blue)] counter-tabular">
-                      {k.economia25anos}
-                    </div>
-                  </div>
-
                   {/* Preço */}
                   <div className="mb-5">
-                    <div className="text-xs text-[var(--aura-text-muted)] uppercase tracking-wider font-semibold mb-1">
-                      A partir de
-                    </div>
                     <div className="text-2xl sm:text-3xl font-extrabold text-[var(--aura-text)] counter-tabular leading-none">
                       {k.precoApartirDe}
                     </div>
-                    <div className="text-xs text-[var(--aura-yellow-deep)] font-semibold mt-1">
-                      ou {k.parcela}
+                    <div className="text-xs text-[var(--aura-text-muted)] mt-1">
+                      {k.parcela} · BV Financeira + 5 bancos
                     </div>
                   </div>
 
@@ -262,9 +241,10 @@ export default function CatalogoKits() {
 
         <Reveal delay={5}>
           <p className="text-center text-xs text-[var(--aura-text-muted)] mt-8 max-w-3xl mx-auto leading-relaxed">
-            * Parcela estimada via Solfácil em 120 meses, taxa promocional 0,79%
-            a.m. Sujeita a análise de crédito. Valores podem variar conforme
-            visita técnica, complexidade do telhado e logística da região.
+            * Faixa "a partir de" · valor final calculado sob medida na visita
+            técnica conforme complexidade do telhado, distância e logística.
+            Financiamento via BV Financeira (preferido) + Solfácil · Sicredi ·
+            Sicoob · Santander · BB Programa Agro Energia. Sujeito a análise.
           </p>
         </Reveal>
       </div>

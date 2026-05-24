@@ -25,7 +25,7 @@ const PERGUNTAS_DEFAULT = [
   },
   {
     q: "Como funciona o financiamento?",
-    a: "Trabalhamos com Solfácil (taxa a partir de 0,79% a.m., prazo até 120 meses), BV Financeira, Santander Solar e Caixa CDC Solar. Aprovação em horas. A parcela do financiamento quase sempre é MENOR que sua conta atual de luz — você sai economizando do mês 1.",
+    a: "Trabalhamos com 6 bancos parceiros: BV Financeira (preferido), Solfácil, Sicredi, Sicoob, Santander e BB Programa Agro Energia. Prazo até 120 meses · análise rápida. Em muitos casos a parcela do financiamento fica menor que a conta atual de luz · simulação sob medida na visita técnica.",
   },
   {
     q: "Qual a manutenção do sistema?",

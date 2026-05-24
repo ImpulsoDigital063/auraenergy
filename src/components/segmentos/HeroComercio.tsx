@@ -160,7 +160,7 @@ export default function HeroComercio() {
           <div className="mt-16 sm:mt-20 grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
             <Stat number="3-4 anos" label="Payback típico em comércio Palmas" />
             <Stat number="12-25%" label="Margem operacional liberada" />
-            <Stat number="120x" label="Financiamento Solfácil/BV/Santander" />
+            <Stat number="120x" label="Financiamento BV Financeira + 5 bancos" />
             <Stat number="0%" label="Bandeira tarifária no que você gera" />
           </div>
         </Reveal>

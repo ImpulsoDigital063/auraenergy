@@ -32,11 +32,11 @@ export const FAQ_CASA: Pergunta[] = [
   },
   {
     q: "Como funciona o financiamento?",
-    a: "Trabalhamos com Solfácil (taxa a partir de 0,79% a.m., prazo até 120 meses), BV Financeira, Santander Solar e Caixa CDC Solar. Aprovação em horas. A parcela do financiamento quase sempre é MENOR que sua conta atual de luz — você sai economizando do mês 1.",
+    a: "Trabalhamos com 6 bancos parceiros: BV Financeira (preferido), Solfácil, Sicredi, Sicoob, Santander e BB Programa Agro Energia. Prazo até 120 meses · análise rápida. Em muitos casos a parcela do financiamento fica menor que a conta atual de luz · simulação sob medida na visita técnica.",
   },
   {
     q: "Qual a manutenção do sistema?",
-    a: "Mínima. Limpeza dos painéis 1x por ano (em Palmas é menos crítico — vento ajuda). Verificação do inversor de tempos em tempos. Painéis duram 25-30 anos. Inversor uma vez vai trocar (custa R$ 3-5 mil em 12-15 anos). Tudo monitorado pelo app no celular.",
+    a: "Mínima. Limpeza dos painéis 1x por ano (em Palmas é menos crítico — vento ajuda). Verificação do inversor de tempos em tempos. Painéis têm vida útil de 25-30 anos · garantia Aura de 12 anos painel + 10 anos inversor. Inversor geralmente troca uma vez (R$ 3-5 mil em 12-15 anos). Tudo monitorado pelo app no celular.",
   },
   {
     q: "Como sei que o sistema é legalizado?",
@@ -44,7 +44,7 @@ export const FAQ_CASA: Pergunta[] = [
   },
   {
     q: "E se eu vender o imóvel?",
-    a: "O sistema vai junto com o imóvel (é equipamento fixado). Estudos do Mercado Imobiliário (CRECI) mostram valorização de 5-10% em residências com energia solar. Você recupera todo o investimento — e mais.",
+    a: "O sistema vai junto com o imóvel (é equipamento fixado). Imóvel com solar tende a valorizar na revenda · ativo de 25 anos no telhado pesa positivamente na negociação.",
   },
 ];
 
@@ -58,7 +58,7 @@ export const FAQ_COMERCIO: Pergunta[] = [
   },
   {
     q: "Como funciona contabilmente — capex ou opex?",
-    a: "Você decide. À vista vira ativo imobilizado depreciável em 25 anos (Lei 11.638/07, NBC TG 27). Financiado em 120x via BV/Santander/Solfácil PJ entra como despesa financeira no DRE — vira opex. Aura entrega memorial descritivo + nota fiscal segmentada (equipamento + instalação) pra facilitar contabilização.",
+    a: "Você decide. À vista vira ativo imobilizado depreciável em 25 anos (Lei 11.638/07, NBC TG 27). Financiado em 120x via BV Financeira (preferido) + 5 bancos parceiros PJ entra como despesa financeira no DRE · vira opex. Aura entrega memorial descritivo + nota fiscal segmentada (equipamento + instalação) pra facilitar contabilização.",
   },
   {
     q: "Como eu pago o IPTU comercial menor com solar?",
@@ -66,7 +66,7 @@ export const FAQ_COMERCIO: Pergunta[] = [
   },
   {
     q: "Eu posso financiar pela PJ ou só pessoa física?",
-    a: "Solfácil PJ, BV Solar Empresa e Santander Solar PJ financiam direto pra empresa (CNPJ) em 60-120 meses. Análise de crédito é PJ — usa faturamento + tempo de mercado. Aura monta a documentação que cada banco pede.",
+    a: "BV Solar Empresa (preferido), Solfácil PJ e Santander Solar PJ financiam direto pra empresa (CNPJ) em 60-120 meses. Análise de crédito é PJ · usa faturamento + tempo de mercado. Aura monta a documentação que cada banco pede.",
   },
   {
     q: "E se meu negócio crescer? Posso aumentar o sistema?",
@@ -74,7 +74,7 @@ export const FAQ_COMERCIO: Pergunta[] = [
   },
   {
     q: "Tem garantia contratual de geração?",
-    a: "Sim. Contrato Aura inclui cláusula de SLA de geração (kWh/mês mínimo dimensionado). Se geração ficar abaixo do projetado por defeito do sistema (não por causa de sombreamento que apareceu depois ou consumo que mudou), Aura ajusta sem custo. Painéis Tier 1 têm garantia de fábrica de 25 anos no painel + 10-12 anos no inversor.",
+    a: "Aura entrega garantia técnica do equipamento: 12 anos painel · 10 anos inversor · 1 ano serviço de instalação. Painéis Tier 1 têm vida útil de 25 anos (curva de degradação lineal de fábrica). Garantia de performance contratada (% mínimo geração) não está incluída no escopo padrão · pode ser conversada caso a caso.",
   },
   {
     q: "Quanto tempo leva pra instalar num comércio em operação?",

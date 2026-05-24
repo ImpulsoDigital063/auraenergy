@@ -45,7 +45,7 @@ const VERTICAIS: Vertical[] = [
       },
       {
         titulo: "Financiamento que cabe no bolso",
-        desc: "Solfácil 0,79% a.m. em até 120 meses. Parcela quase sempre menor que sua conta atual.",
+        desc: "BV Financeira preferida + 5 bancos parceiros · até 120 meses. Em muitos casos a parcela fica menor que a conta atual.",
       },
     ],
     ctaTexto: "Quero solar na minha casa",

@@ -78,7 +78,7 @@ export default function BannerVisual() {
             <div className="flex flex-wrap gap-3 sm:gap-4">
               {[
                 "Instalação em até 30 dias",
-                "Garantia 25 anos",
+                "Vida útil 25 anos",
                 "App de monitoramento",
               ].map((t) => (
                 <span

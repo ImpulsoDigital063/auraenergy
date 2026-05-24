@@ -39,7 +39,7 @@ const FASES = [
     icon: <IconShield size={26} />,
     cor: "#15803D",
     promessas: [
-      "Garantia 25 anos painéis · 10 anos inversor",
+      "Garantia 12 anos painel · 10 anos inversor · 1 ano serviço",
       "App de monitoramento configurado no seu celular",
       "Visita preventiva anual sem custo adicional",
       "Suporte direto comigo enquanto durar o sistema",

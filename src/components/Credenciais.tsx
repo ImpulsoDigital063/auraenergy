@@ -29,8 +29,8 @@ const CREDENCIAIS = [
     icon: <IconCheck size={24} />,
   },
   {
-    titulo: "Parceria Solfácil",
-    sub: "Financiamento direto, taxa especial",
+    titulo: "6 bancos parceiros",
+    sub: "BV Financeira preferido · Solfácil · Sicredi · Sicoob · Santander · BB Agro",
     icon: <IconWallet size={24} />,
   },
 ];

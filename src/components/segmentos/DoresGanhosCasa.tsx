@@ -18,35 +18,35 @@ type Item = {
 const DORES: Item[] = [
   {
     titulo: "Conta de luz nunca para de subir",
-    desc: "Tarifa Energisa em Palmas passou de R$ 0,77 → R$ 0,95/kWh em 3 anos · alta de 23%. Já come 8-15% da renda da família. Em 25 anos, isso é R$ 80-150 mil queimados em fatura · sem ativo nenhum pra mostrar.",
+    desc: "Tarifa Energisa em Palmas passou de R$ 0,77 para R$ 0,95/kWh nos últimos anos (fonte: ANEEL · base pública). Item fixo que come parte considerável da renda da família · e segue subindo acima da inflação a cada reajuste.",
     icon: <IconChart size={22} />,
   },
   {
     titulo: "Bandeira tarifária surpresa todo mês",
-    desc: "Hidráulica esvazia, vermelha sobe, conta dispara sem aviso. Mês de R$ 600 vira R$ 850 do nada. Você não controla quanto sua casa vai pagar · só recebe o boleto pra pagar.",
+    desc: "Hidráulica esvazia, bandeira vermelha sobe, conta dispara sem aviso. Você não controla quanto sua casa vai pagar · só recebe o boleto e ajusta o orçamento do mês.",
     icon: <IconArrowUpRight size={22} />,
   },
   {
-    titulo: "Janela do Fio B fechando rápido",
-    desc: "Lei 14.300: Fio B já em 60% em 2026 · sobe pra 80% em 2027, 100% em 2029. Cada ano de espera é R$ 1.500-3.000/ano de economia perdida pra sempre. Quem entra agora trava a regra antiga.",
+    titulo: "Janela do Fio B fechando · regra Lei 14.300",
+    desc: "Lei 14.300: Fio B em 60% em 2026 · sobe gradualmente até 100% em 2029. Quem homologa o sistema dentro de cada faixa entra na regra da faixa vigente · cada ano de espera reduz a economia projetada.",
     icon: <IconWallet size={22} />,
   },
 ];
 
 const GANHOS: Item[] = [
   {
-    titulo: "Conta cai 85-95% em 30 dias",
-    desc: "Em Palmas, com 5,9 horas de sol pleno (top 3 BR), casa média economiza R$ 4-7 mil/ano. Você sente a diferença na primeira fatura pós-homologação.",
+    titulo: "Conta cai significativamente em 30 dias",
+    desc: "Em Palmas, com 5,9 horas de sol pleno (top 3 BR · fonte ANEEL/CEPEL), o dimensionamento correto reduz drasticamente a conta. Renato calcula o número da SUA casa antes do orçamento · sem chute.",
     icon: <IconCheck size={22} />,
   },
   {
-    titulo: "Casa valoriza 5-10%",
-    desc: "Pesquisas do CRECI confirmam: imóvel com solar vende mais rápido e por mais. Investimento volta no IPTU descontado (40% por 5 anos · Palmas Solar) e na revenda.",
+    titulo: "Casa tende a valorizar com solar instalado",
+    desc: "Imóvel com sistema solar geralmente vende mais rápido e por mais · ativo de 25 anos no telhado vale na revenda. Plus: 40% IPTU descontado por 5 anos (Programa Palmas Solar · LC 327/2015).",
     icon: <IconTrending size={22} />,
   },
   {
-    titulo: "Parcela menor que sua conta atual",
-    desc: "BV Financeira + 6 bancos · até 120 meses · entrada zero. Você troca conta cara por parcela menor + sistema pago no fim. Sai economizando do mês 1.",
+    titulo: "Parcela pode ficar menor que sua conta atual",
+    desc: "BV Financeira + 6 bancos · até 120 meses · entrada zero. Em muitos casos, a parcela do financiamento entra menor que a conta atual de luz. Renato simula o seu caso antes da decisão.",
     icon: <IconShield size={22} />,
   },
 ];

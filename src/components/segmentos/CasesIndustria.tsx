@@ -68,13 +68,13 @@ export default function CasesIndustria() {
               Plantas industriais Aura
             </span>
             <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-[var(--aura-text)] mb-4">
-              Plantas industriais{" "}
-              <span className="text-gradient-aura">tirando ponta cara do orçamento.</span>
+              Como solar entra{" "}
+              <span className="text-gradient-aura">no perfil da sua planta.</span>
             </h2>
             <p className="text-lg text-[var(--aura-text-muted)] max-w-2xl mx-auto">
               Cada projeto industrial pensado pelo perfil de carga, demanda
-              contratada e janela de operação. Veja casos-tipo entregues no
-              modelo Aura.
+              contratada e janela de operação. Abaixo, 3 perfis-tipo de planta
+              · números projetados pra ilustrar a faixa.
             </p>
           </div>
         </Reveal>
@@ -129,9 +129,10 @@ export default function CasesIndustria() {
         </div>
 
         <Reveal delay={4}>
-          <p className="text-center text-xs text-[var(--aura-text-faded)] mt-8 italic">
-            Casos-tipo · projeções dentro da faixa Aura/Brasfrio. Casos reais
-            sob NDA disponíveis na visita técnica.
+          <p className="text-center text-xs text-[var(--aura-text-faded)] mt-8 italic max-w-2xl mx-auto leading-relaxed">
+            ⚠ Perfis-tipo · números são projeções ilustrativas dentro da faixa
+            de mercado, não retratam clientes específicos. Cálculo real é feito
+            sob medida pela Aura após visita técnica.
           </p>
         </Reveal>
       </div>

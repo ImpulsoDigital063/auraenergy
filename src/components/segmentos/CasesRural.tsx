@@ -70,13 +70,13 @@ export default function CasesRural() {
               Propriedades rurais Aura
             </span>
             <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-[var(--aura-text)] mb-4">
-              Fazendas e propriedades rurais{" "}
-              <span style={{ color: RURAL_GREEN }}>tirando energia do orçamento da safra.</span>
+              Como solar entra{" "}
+              <span style={{ color: RURAL_GREEN }}>no orçamento da sua safra.</span>
             </h2>
             <p className="text-lg text-[var(--aura-text-muted)] max-w-2xl mx-auto">
               Cada projeto rural com financiamento Pronaf 0,5% a.m. e
-              dimensionamento pra pivô, granja, bombeamento ou aviário. Casos-tipo
-              entregues no modelo Aura.
+              dimensionamento pra pivô, granja, bombeamento ou aviário. Abaixo,
+              3 perfis-tipo de propriedade · números projetados pra ilustrar a faixa.
             </p>
           </div>
         </Reveal>
@@ -134,9 +134,10 @@ export default function CasesRural() {
         </div>
 
         <Reveal delay={4}>
-          <p className="text-center text-xs text-[var(--aura-text-faded)] mt-8 italic">
-            Casos-tipo · projeções dentro da faixa Pronaf/agro Aura. Casos
-            reais sob NDA disponíveis na visita técnica.
+          <p className="text-center text-xs text-[var(--aura-text-faded)] mt-8 italic max-w-2xl mx-auto leading-relaxed">
+            ⚠ Perfis-tipo · números são projeções ilustrativas dentro da faixa
+            de mercado, não retratam clientes específicos. Cálculo real é feito
+            sob medida pela Aura após visita técnica.
           </p>
         </Reveal>
       </div>

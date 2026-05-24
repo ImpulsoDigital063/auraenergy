@@ -14,6 +14,7 @@ import CatalogoKits from "@/components/CatalogoKits";
 import BlocoPalmasSolar from "@/components/segmentos/BlocoPalmasSolar";
 import BlocoBessCasa from "@/components/segmentos/BlocoBessCasa";
 import Diferenciais from "@/components/Diferenciais";
+import JanelaFioB from "@/components/JanelaFioB";
 import EquipeAcao from "@/components/EquipeAcao";
 import SobreRenato from "@/components/SobreRenato";
 import Compromisso from "@/components/Compromisso";
@@ -79,8 +80,11 @@ export default function CasaPage() {
         {/* 8. Marcas Tier 1 — prova técnica perto do preço */}
         <MarcasMarquee />
 
+        {/* 9. Janela Fio B — urgência regulatória · cada ano sobe Fio B */}
+        <JanelaFioB />
+
         {/* ── AÇÃO/CONFIANÇA ── */}
-        {/* 9. Diferenciais — 8 motivos pra escolher Aura */}
+        {/* 10. Diferenciais — 8 motivos pra escolher Aura */}
         <Diferenciais />
 
         {/* 10. Manifesto — voz do Renato como guia */}

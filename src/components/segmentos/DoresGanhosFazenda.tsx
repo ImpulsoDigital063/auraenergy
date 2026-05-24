@@ -23,17 +23,17 @@ type Item = {
 const DORES: Item[] = [
   {
     titulo: "Pivô central come até 60% da receita do mês de pico",
-    desc: "Pivô de irrigação consome 80-180 kWh por hectare/mês na safra. Em propriedade média, isso vira a maior despesa fixa depois de mão de obra. Você produz pra pagar a Energisa.",
+    desc: "Pivô de irrigação consome 80-180 kWh por hectare/mês na safra · TODA SAFRA, ano após ano. Em propriedade média vira a maior despesa fixa depois de mão de obra. Você produz pra pagar a Energisa · e a tarifa sobe acima da inflação cada reajuste.",
     icon: <IconChart size={22} />,
   },
   {
-    titulo: "Granja e aviário rodam 24h, energia onde a tarifa é cara",
-    desc: "Climatização, exaustão, ração automatizada, bebedouro. Aviário com 50 mil aves consome o equivalente a 30 casas. Cortou luz, cortou produção.",
+    titulo: "Granja e aviário rodam 24h · cada apagão é prejuízo",
+    desc: "Climatização, exaustão, ração automatizada, bebedouro. Aviário com 50 mil aves consome o equivalente a 30 casas. Cortou luz por 1h, perdeu lote inteiro. Em Tocantins, Energisa cai · todo produtor sabe · e ninguém te ressarce o frango morto.",
     icon: <IconBolt size={22} />,
   },
   {
-    titulo: "Off-grid em propriedade afastada = gerador a diesel queimando dinheiro",
-    desc: "Onde a Energisa não chega, gerador a diesel custa R$ 2,50-3,80 por kWh gerado, ainda quebra, ainda precisa abastecer. Solar fotovoltaico off-grid resolve sem combustível.",
+    titulo: "Off-grid · gerador a diesel queimando dinheiro todo mês",
+    desc: "Onde a Energisa não chega, gerador a diesel custa R$ 2,50-3,80 por kWh gerado · ainda quebra, ainda precisa abastecer, ainda polui. Em 12 meses isso é R$ 40-80 mil só de diesel pra continuar irrigando · sem nenhum ativo no fim.",
     icon: <IconArrowUpRight size={22} />,
   },
 ];

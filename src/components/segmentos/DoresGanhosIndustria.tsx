@@ -20,17 +20,17 @@ type Item = {
 const DORES: Item[] = [
   {
     titulo: "Demanda contratada come 18-35% do custo operacional",
-    desc: "Você paga pela demanda mesmo quando não usa. TUSD + TE escondem 80% do que você poderia eliminar com geração própria. É custo invisível que aparece todo mês na fatura.",
+    desc: "Você paga pela demanda mesmo quando não usa · 100% do mês, 100% do ano. TUSD + TE escondem 80% do que poderia ser eliminado com geração própria. Em 25 anos isso vira R$ 5-15 milhões silenciosamente queimados na fatura · sem ativo nenhum no balanço.",
     icon: <IconChart size={22} />,
   },
   {
     titulo: "Multa por ultrapassagem + reativos sem compensação",
-    desc: "Bandeira vermelha + multa por ultrapassagem de demanda + correção de fator de potência. 3 parcelas que somam 8-15% adicionais e ninguém na operação reclama.",
+    desc: "Bandeira vermelha + multa por ultrapassagem + correção de fator de potência. 3 parcelas que somam 8-15% adicionais TODO MÊS · e ninguém na operação reclama porque é débito automático. Você descobre o tamanho quando audita o ano inteiro.",
     icon: <IconArrowUpRight size={22} />,
   },
   {
     titulo: "Expansão da operação = nova fatura travando caixa",
-    desc: "Cada novo galpão, cada nova linha de produção exige nova demanda contratada. Você expande operação e a Energisa cobra mais antes mesmo de você faturar.",
+    desc: "Cada novo galpão, cada nova linha de produção exige nova demanda contratada. Você expande operação · Energisa cobra mais ANTES de você faturar. Capex de máquina + opex de energia · dois custos batendo ao mesmo tempo.",
     icon: <IconBolt size={22} />,
   },
 ];

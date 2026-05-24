@@ -20,17 +20,17 @@ type Item = {
 const DORES: Item[] = [
   {
     titulo: "Refrigeração 24h estoura sua margem",
-    desc: "Geladeira, freezer, ar-condicionado, vitrine. Comércio em Palmas tem 70-85% do consumo entre 8h-22h — exatamente quando o sol cobre.",
+    desc: "Geladeira, freezer, ar-condicionado, vitrine rodam o dia inteiro. Comércio em Palmas tem 70-85% do consumo entre 8h-22h · exatamente quando o sol cobre · e a Energisa cobra do mesmo jeito. Em 25 anos isso vira R$ 500 mil-1 milhão de margem que evaporou.",
     icon: <IconClock size={22} />,
   },
   {
     titulo: "Tarifa branca pune horário de pico",
-    desc: "Das 18h às 21h o kWh chega a R$ 1,30 na tarifa branca. Restaurante, padaria, supermercado pagam o triplo no que mais usam.",
+    desc: "Das 18h às 21h o kWh chega a R$ 1,30 na tarifa branca · 3x mais caro que fora ponta. Restaurante, padaria, supermercado pagam o TRIPLO no horário em que mais vendem. Cada noite de movimento bom é R$ 200-400 a mais na conta.",
     icon: <IconBolt size={22} />,
   },
   {
     titulo: "Bandeira vermelha em mês de pico",
-    desc: "Mês de calor extremo, hidráulica baixa, conta de R$ 1.800 vai pra R$ 2.600 sem aviso. Você não controla seu próprio custo fixo.",
+    desc: "Mês de calor extremo, hidráulica baixa, conta de R$ 1.800 vai pra R$ 2.600 sem aviso. Sua planilha de margem do mês explode. Você não controla seu próprio custo fixo · só recebe o boleto pra pagar.",
     icon: <IconArrowUpRight size={22} />,
   },
 ];
@@ -38,17 +38,17 @@ const DORES: Item[] = [
 const GANHOS: Item[] = [
   {
     titulo: "Payback em 3-4 anos",
-    desc: "Comércio paga MAIS RÁPIDO que residencial. Com R$ 1.500-2.500/mês de conta, recupera o investimento em metade do tempo médio do mercado.",
+    desc: "Comércio paga MAIS RÁPIDO que residencial. Com R$ 1.500-3.000/mês de conta, recupera o investimento em metade do tempo médio do mercado. Depois disso, são 20+ anos de margem extra direto no caixa.",
     icon: <IconCheck size={22} strokeWidth={2.5} />,
   },
   {
     titulo: "Capex vira opex no balanço",
-    desc: "Financia em 120 meses (Solfácil 0,79% a.m. / BV / Santander Solar). Parcela entra como custo operacional, libera caixa pra giro e estoque.",
+    desc: "Financia em 120 meses (BV Financeira preferida + 5 bancos). Parcela entra como custo operacional, libera caixa pra giro e estoque. Sai economizando do mês 1, mesmo financiando 100%.",
     icon: <IconWallet size={22} />,
   },
   {
     titulo: "Marketing verde de verdade",
-    desc: "Cliente final escolhe marca sustentável. Selo de empresa solar é diferencial real — placa na fachada, comunicação no Instagram, posicionamento.",
+    desc: "Cliente final escolhe marca sustentável. Selo de empresa solar é diferencial real · placa na fachada, comunicação no Instagram, posicionamento ESG no Google. Atrai cliente novo sem custo extra.",
     icon: <IconTrending size={22} />,
   },
 ];

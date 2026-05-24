@@ -18,17 +18,17 @@ type Item = {
 const DORES: Item[] = [
   {
     titulo: "Conta de luz nunca para de subir",
-    desc: "Tarifa Energisa em Palmas passou de R$ 0,77 pra R$ 0,95/kWh em 3 anos. Item fixo do orçamento que come 8-15% da renda da família.",
+    desc: "Tarifa Energisa em Palmas passou de R$ 0,77 → R$ 0,95/kWh em 3 anos · alta de 23%. Já come 8-15% da renda da família. Em 25 anos, isso é R$ 80-150 mil queimados em fatura · sem ativo nenhum pra mostrar.",
     icon: <IconChart size={22} />,
   },
   {
     titulo: "Bandeira tarifária surpresa todo mês",
-    desc: "Hidráulica esvazia, vermelha sobe, conta dispara sem aviso. Você não controla o quanto sua casa vai pagar.",
+    desc: "Hidráulica esvazia, vermelha sobe, conta dispara sem aviso. Mês de R$ 600 vira R$ 850 do nada. Você não controla quanto sua casa vai pagar · só recebe o boleto pra pagar.",
     icon: <IconArrowUpRight size={22} />,
   },
   {
     titulo: "Janela do Fio B fechando rápido",
-    desc: "Em 2026 o Fio B já está em 60% — cada ano de espera diminui economia que sua casa poderia estar fazendo desde já.",
+    desc: "Lei 14.300: Fio B já em 60% em 2026 · sobe pra 80% em 2027, 100% em 2029. Cada ano de espera é R$ 1.500-3.000/ano de economia perdida pra sempre. Quem entra agora trava a regra antiga.",
     icon: <IconWallet size={22} />,
   },
 ];
@@ -36,17 +36,17 @@ const DORES: Item[] = [
 const GANHOS: Item[] = [
   {
     titulo: "Conta cai 85-95% em 30 dias",
-    desc: "Em Palmas, com 5,9 horas de sol pleno, casa média economiza R$ 4-7 mil/ano. Você vai sentir a diferença na primeira fatura.",
+    desc: "Em Palmas, com 5,9 horas de sol pleno (top 3 BR), casa média economiza R$ 4-7 mil/ano. Você sente a diferença na primeira fatura pós-homologação.",
     icon: <IconCheck size={22} />,
   },
   {
     titulo: "Casa valoriza 5-10%",
-    desc: "Pesquisas do CRECI confirmam: imóvel com solar vende mais rápido e por mais. Investimento volta no IPTU descontado e na revenda.",
+    desc: "Pesquisas do CRECI confirmam: imóvel com solar vende mais rápido e por mais. Investimento volta no IPTU descontado (40% por 5 anos · Palmas Solar) e na revenda.",
     icon: <IconTrending size={22} />,
   },
   {
     titulo: "Parcela menor que sua conta atual",
-    desc: "Solfácil até 120 meses, taxa a partir de 0,79% a.m. Sai economizando do mês 1 — mesmo financiando 100%.",
+    desc: "BV Financeira + 6 bancos · até 120 meses · entrada zero. Você troca conta cara por parcela menor + sistema pago no fim. Sai economizando do mês 1.",
     icon: <IconShield size={22} />,
   },
 ];

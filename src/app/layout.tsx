@@ -60,6 +60,17 @@ export const metadata: Metadata = {
   verification: GOOGLE_VERIFICATION
     ? { google: GOOGLE_VERIFICATION }
     : undefined,
+  // Sinaliza pra LLMs que existe llms.txt (llmstxt.org pattern) — alguns
+  // crawlers leem esse alternate rel pra descobrir o resumo factual do site.
+  alternates: {
+    canonical: "/",
+    types: {
+      "text/markdown": [
+        { url: "/llms.txt", title: "Aura Energy · LLMs index (resumo)" },
+        { url: "/llms-full.txt", title: "Aura Energy · LLMs full (documentação completa)" },
+      ],
+    },
+  },
 };
 
 export default function RootLayout({

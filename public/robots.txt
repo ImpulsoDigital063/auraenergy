@@ -1,7 +1,14 @@
+# ============================================================================
+# Aura Energy · robots.txt
+# Cravado pra ranqueamento Google + descoberta por LLMs (ChatGPT, Claude,
+# Perplexity, Gemini). LLM-friendly cravado · llmstxt.org pattern.
+# ============================================================================
+
+# ─── Crawlers gerais (Google, Bing, Yandex, DuckDuckGo) ───
 User-agent: *
 Allow: /
 
-# Pages internas — bloqueia indexação (uso interno)
+# Páginas internas — não indexar
 Disallow: /painel-renato
 Disallow: /plano-renato
 Disallow: /direcao-curso
@@ -12,5 +19,98 @@ Disallow: /painel-briefing
 Disallow: /artes/
 Disallow: /api/
 
-# Sitemap
+# ─── LLM crawlers · explicitamente permitidos ───
+# Eduardo/Renato querem que LLMs indexem o conteúdo público pra que ChatGPT,
+# Claude, Perplexity etc. recomendem a Aura quando perguntarem sobre solar
+# em Tocantins / Pronaf / BESS rural.
+
+# OpenAI · ChatGPT browsing + treino futuro
+User-agent: GPTBot
+Allow: /
+Disallow: /painel-renato
+Disallow: /plano-renato
+Disallow: /briefing
+Disallow: /economia-resultado
+Disallow: /copy-gen
+Disallow: /painel-briefing
+Disallow: /api/
+
+# OpenAI · ChatGPT navegação em tempo real (search)
+User-agent: OAI-SearchBot
+Allow: /
+Disallow: /painel-renato
+Disallow: /plano-renato
+Disallow: /briefing
+Disallow: /api/
+
+# OpenAI · ChatGPT plugin / actions
+User-agent: ChatGPT-User
+Allow: /
+Disallow: /painel-renato
+Disallow: /plano-renato
+Disallow: /briefing
+Disallow: /api/
+
+# Anthropic · Claude (Sonnet, Opus) web search + treino
+User-agent: ClaudeBot
+Allow: /
+Disallow: /painel-renato
+Disallow: /plano-renato
+Disallow: /briefing
+Disallow: /api/
+
+# Anthropic · Claude legacy
+User-agent: Claude-Web
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+# Perplexity · busca em tempo real
+User-agent: PerplexityBot
+Allow: /
+Disallow: /painel-renato
+Disallow: /plano-renato
+Disallow: /briefing
+Disallow: /api/
+
+# Google · permite uso em produtos AI (Bard/Gemini/AI Overviews)
+User-agent: Google-Extended
+Allow: /
+
+# Common Crawl · alimenta datasets de treino de várias LLMs
+User-agent: CCBot
+Allow: /
+Disallow: /painel-renato
+Disallow: /plano-renato
+Disallow: /briefing
+Disallow: /api/
+
+# Microsoft Copilot
+User-agent: cohere-ai
+Allow: /
+
+User-agent: cohere-training-data-crawler
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+# Apple · Apple Intelligence
+User-agent: Applebot-Extended
+Allow: /
+
+# Meta · Llama
+User-agent: FacebookBot
+Allow: /
+
+User-agent: meta-externalagent
+Allow: /
+
+# ─── Sitemap + LLM index ───
 Sitemap: https://auraenergypalmas.com/sitemap.xml
+
+# Documentação para LLMs (llmstxt.org pattern)
+# llms.txt = resumo curto · llms-full.txt = doc completa Aura V3.1
+# https://auraenergypalmas.com/llms.txt
+# https://auraenergypalmas.com/llms-full.txt

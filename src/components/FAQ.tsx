@@ -5,7 +5,7 @@ import type { Pergunta } from "./segmentos/faq-perguntas";
 const PERGUNTAS_DEFAULT = [
   {
     q: "Quanto custa instalar energia solar em Palmas?",
-    a: "Em Palmas, sistemas residenciais Tier 1 (Trina/Canadian + Growatt/Sungrow) custam: 3 kWp a partir de R$ 12.000, 5 kWp por volta de R$ 18-25.000, 8 kWp entre R$ 28-38.000. O valor inclui painéis, inversor, estrutura, projeto, ART, homologação na Energisa e instalação. A visita técnica é gratuita e te dá o orçamento exato.",
+    a: "Em Palmas, sistemas residenciais Tier 1 (Astrobergy/DAH Solar preferidos · também Trina/JA/Jinko + Hoymiles/Solis/Huawei) saem a partir de: 3 kWp R$ 7 mil, 5 kWp R$ 15 mil, 8 kWp R$ 18 mil, 10 kWp R$ 20,5 mil. O valor inclui painéis, inversor, estrutura, projeto, ART e homologação na Energisa. Valor final calculado sob medida na visita técnica gratuita.",
   },
   {
     q: "Quanto tempo leva pra instalar e legalizar?",

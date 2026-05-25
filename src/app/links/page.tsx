@@ -227,7 +227,7 @@ export default function LinksPage() {
           <p className="text-[11px] text-[var(--aura-text-faded)] leading-relaxed">
             Aura Energy · Engenheiro responsável Renato Edson · CREA-TO
             <br />
-            Homologação Energisa · Garantia 25 anos · Programa Palmas Solar
+            Homologação Energisa · Garantia 12 anos painel · Programa Palmas Solar
           </p>
         </div>
       </div>

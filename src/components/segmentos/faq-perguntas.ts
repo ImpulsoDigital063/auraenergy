@@ -112,7 +112,7 @@ export const FAQ_INDUSTRIA: Pergunta[] = [
   },
   {
     q: "Tem garantia contratual de performance (PPA-like)?",
-    a: "Sim. Contrato Aura industrial inclui SLA de geração (kWh/mês mínimo dimensionado em projeto). Se a geração ficar abaixo do projetado por falha do sistema (excluindo sombreamento posterior, alteração de demanda do cliente ou força maior), Aura faz ajuste técnico sem custo até atingir o SLA. Painéis Tier 1 têm garantia linear de fábrica 25 anos. Inversores 10-12 anos.",
+    a: "Aura entrega garantia técnica industrial: 12 anos painel · 10 anos inversor · 1 ano serviço de instalação. Painéis Tier 1 têm vida útil de 25 anos (curva de degradação lineal de fábrica do fabricante). Garantia de performance contratada (SLA de kWh/mês) não está incluída no escopo padrão · pode ser conversada caso a caso para projetos industriais de maior porte.",
   },
   {
     q: "Como funciona O&M (operação e manutenção) industrial?",

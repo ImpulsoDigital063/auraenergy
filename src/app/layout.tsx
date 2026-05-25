@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Aura Energy — Energia solar em Palmas-TO",
     description:
-      "Casa · Comércio · Indústria · Rural. CREA-TO, garantia 25 anos, financiamento Solfácil/BV/Pronaf.",
+      "Casa · Comércio · Indústria · Rural. Engenheiro CREA-TO, garantia 12 anos painel + 10 anos inversor, financiamento BV Financeira + 5 bancos parceiros + Pronaf 0,5%.",
   },
   robots: {
     index: true,

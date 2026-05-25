@@ -31,7 +31,7 @@ const CONTEUDO_PASSOS = [
     n: "03",
     titulo: "Instalação rápida",
     desc:
-      "Equipe própria instala painéis Tier 1 (Trina, Canadian, Jinko) + inversor (Growatt, Sungrow). Sem barulho excessivo, sem bagunça.",
+      "Equipe própria instala painéis Tier 1 (Astrobergy/DAH Solar preferidos · também Trina/JA/Jinko) + inversor (Hoymiles preferido · também Solis/Huawei). Sem barulho excessivo, sem bagunça.",
     prazo: "1 a 3 dias",
     icon: <IconPanelGrid size={26} />,
   },

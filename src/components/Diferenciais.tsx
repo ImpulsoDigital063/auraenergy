@@ -52,7 +52,7 @@ const DIFERENCIAIS = [
     icon: <IconWallet size={26} />,
     titulo: "Financiamento sem entrada · 6 bancos",
     desc:
-      "BV Financeira, Solfácil, Sicredi, Sicoob, Santander, BB Programa Agro Energia. Pra agro, Pronaf 0,5% a.m. em 12 anos. Parcela quase sempre menor que sua conta atual.",
+      "BV Financeira (preferido) + Solfácil, Sicredi, Sicoob, Santander, BB Programa Agro Energia. Pra agro, Pronaf 0,5% a.m. em 12 anos. Em muitos casos a parcela pode ficar menor que a conta atual · simulação sob medida.",
   },
   {
     icon: <IconBolt size={26} />,

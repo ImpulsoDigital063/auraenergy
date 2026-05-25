@@ -2,8 +2,9 @@ import Image from "next/image";
 import Reveal from "../Reveal";
 import { IconArrowRight, IconHome, IconMapPin, IconSparkles } from "../Icons";
 
-// Cases residenciais reais do Renato Edson — números reais, fotos drone serão
-// substituídas por imagens das instalações reais conforme o Renato fornecer.
+// Cases residenciais · 1 caso REAL cravado pelo Renato (Quadra 407)
+// + 2 perfis-tipo anonimizados. Quando Renato cravar mais casos reais
+// com autorizacao nominal e numeros confirmados, substituir os perfis-tipo.
 type Case = {
   cidade: string;
   estado: string;
@@ -18,40 +19,37 @@ type Case = {
 
 const CASES: Case[] = [
   {
-    cidade: "Palmas",
+    cidade: "Quadra 407 · Palmas",
     estado: "TO",
-    kwp: "14,64 kWp",
-    geracao: "1.800 kWh/mês",
-    antes: "R$ 2.178",
-    depois: "R$ 218",
-    economiaAno: "R$ 23.520",
-    fotoUrl:
-      "https://images.unsplash.com/photo-1509391366360-2e959784a276?w=1200&q=80&auto=format&fit=crop",
-    alt: "Casa em Palmas com sistema solar no telhado",
+    kwp: "8,5 kWp",
+    geracao: "Sob simulação",
+    antes: "R$ 900",
+    depois: "R$ 130",
+    economiaAno: "~85% de corte",
+    fotoUrl: "/img/equipe/sistema-entregue.png",
+    alt: "Casa em Palmas Quadra 407 com sistema solar instalado pela Aura",
   },
   {
-    cidade: "Dianópolis",
+    cidade: "Perfil-tipo residencial",
     estado: "TO",
-    kwp: "8,55 kWp",
-    geracao: "1.000 kWh/mês",
-    antes: "R$ 1.210",
-    depois: "R$ 363",
-    economiaAno: "R$ 10.164",
-    fotoUrl:
-      "https://images.unsplash.com/photo-1611365892117-bce8ea1ddd47?w=1200&q=80&auto=format&fit=crop",
-    alt: "Casa em Dianópolis com sistema solar fotovoltaico",
+    kwp: "5 kWp",
+    geracao: "Sob simulação",
+    antes: "Conta R$ 350-700/mês",
+    depois: "Cai significativamente",
+    economiaAno: "Sob projeção",
+    fotoUrl: "/img/equipe/paineis-telhado.png",
+    alt: "Casa residencial com sistema solar fotovoltaico em telhado",
   },
   {
-    cidade: "Colinas do Tocantins",
+    cidade: "Perfil-tipo residencial",
     estado: "TO",
-    kwp: "6,84 kWp",
-    geracao: "845 kWh/mês",
-    antes: "R$ 1.022",
-    depois: "R$ 306",
-    economiaAno: "R$ 8.592",
-    fotoUrl:
-      "https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=1200&q=80&auto=format&fit=crop",
-    alt: "Casa em Colinas do Tocantins com painéis solares",
+    kwp: "3 kWp",
+    geracao: "Sob simulação",
+    antes: "Conta até R$ 350/mês",
+    depois: "Cai significativamente",
+    economiaAno: "Sob projeção",
+    fotoUrl: "/img/equipe/conexao-mc4.png",
+    alt: "Painéis solares fotovoltaicos em telhado residencial",
   },
 ];
 
@@ -70,8 +68,8 @@ export default function CasesCasa() {
               <span className="text-gradient-aura">economizando agora.</span>
             </h2>
             <p className="text-lg text-[var(--aura-text-muted)] max-w-2xl mx-auto">
-              Não é promessa — é projeto executado, instalado e funcionando.
-              Veja números reais de famílias atendidas pelo Renato Edson.
+              Caso real Aura (Quadra 407 · Palmas) + perfis-tipo ilustrativos.
+              Cada projeto é dimensionado sob medida na visita técnica.
             </p>
           </div>
         </Reveal>
@@ -176,9 +174,10 @@ export default function CasesCasa() {
         </div>
 
         <Reveal delay={4}>
-          <p className="text-center text-xs text-[var(--aura-text-faded)] mt-8 italic">
-            Imagens ilustrativas em transição · fotos reais das instalações em
-            atualização.
+          <p className="text-center text-xs text-[var(--aura-text-faded)] mt-8 italic max-w-2xl mx-auto leading-relaxed">
+            ⚠ Quadra 407 é caso real Aura (briefing Renato). Demais cards são
+            perfis-tipo ilustrativos · não retratam clientes específicos.
+            Cálculo real é feito sob medida na visita técnica.
           </p>
         </Reveal>
       </div>

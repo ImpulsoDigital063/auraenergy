@@ -133,7 +133,7 @@ export default function HeroComercio() {
             <Reveal delay={4}>
               <div className="flex flex-wrap gap-3 sm:gap-5 justify-center lg:justify-start">
                 <Feature icon={<IconCheck size={16} />} text="Payback 3-4 anos" />
-                <Feature icon={<IconShield size={16} />} text="Garantia 25 anos" />
+                <Feature icon={<IconShield size={16} />} text="Garantia 12 anos painel" />
                 <Feature
                   icon={<IconBolt size={16} />}
                   text="Capex vira opex (120x)"

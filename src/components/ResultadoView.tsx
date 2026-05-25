@@ -246,13 +246,13 @@ export default function ResultadoView({
             <DetailCard
               icon={<IconShield size={20} />}
               label="Equipamentos Tier 1"
-              value="Trina · Canadian · Jinko"
-              sub="25 anos garantia geração linear"
+              value="Astrobergy · DAH · Trina · Jinko"
+              sub="Garantia 12 anos painel · vida útil 25 anos"
             />
             <DetailCard
               icon={<IconBolt size={20} />}
               label="Inversor"
-              value="Growatt · Sungrow"
+              value="Hoymiles · Solis · Huawei"
               sub="10 anos garantia · App monitoramento"
             />
             <DetailCard

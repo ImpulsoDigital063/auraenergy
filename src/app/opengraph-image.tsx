@@ -105,7 +105,7 @@ export default async function OpenGraphImage() {
             auraenergypalmas.com
           </span>
           <span style={{ fontSize: 22, opacity: 0.6 }}>
-            Garantia 25 anos · CREA-TO
+            Garantia 12 anos painel · CREA-TO
           </span>
         </div>
       </div>

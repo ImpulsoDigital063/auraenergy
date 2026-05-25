@@ -7,8 +7,10 @@ import {
   IconStore,
 } from "../Icons";
 
-// Cases comerciais — números reais executados pelo Renato Edson.
-// Permissão LGPD nominada será confirmada antes do go-live público.
+// Cases comerciais · perfis-tipo (sem nome de cliente sem autorização LGPD).
+// Renato cravou caso REAL Mercado Palmas no briefing V3.1 · primeiro card.
+// Demais sao perfis-tipo ilustrativos. Quando Renato cravar mais nomes
+// com autorizacao escrita, atualizar e mudar badge.
 type Case = {
   cliente: string;
   segmento: string;
@@ -21,34 +23,31 @@ type Case = {
 
 const CASES: Case[] = [
   {
-    cliente: "BAKA Lanches · Brahma",
+    cliente: "Mercado em Palmas",
+    segmento: "Mercado · supermercado",
+    cidade: "Palmas — TO",
+    geracao: "25 kWp · R$ 3.000 → R$ 155/mês",
+    destaque: "Refrigeração 24h sem impacto na conta · economia ~95%",
+    fotoUrl: "/img/equipe/sistema-entregue.png",
+    alt: "Sistema solar comercial em telhado de mercado em Palmas-TO",
+  },
+  {
+    cliente: "Lanchonete · perfil-tipo",
     segmento: "Lanchonete · conveniência",
     cidade: "Palmas — TO",
-    geracao: "3.000 kWh/mês",
-    destaque: "Refrigeração 24h zerou impacto na conta",
-    fotoUrl:
-      "https://images.unsplash.com/photo-1545208067-fcc1c6f49d40?w=1200&q=80&auto=format&fit=crop",
-    alt: "Sistema solar comercial em telhado de lanchonete",
+    geracao: "22 kWp · sob simulação",
+    destaque: "Cozinha + freezer + ar-condicionado em horário de pico",
+    fotoUrl: "/img/equipe/paineis-telhado.png",
+    alt: "Sistema fotovoltaico em telhado de lanchonete",
   },
   {
-    cliente: "Restaurante Bom Sabor",
-    segmento: "Restaurante",
-    cidade: "Palmas — TO",
-    geracao: "Sistema executado",
-    destaque: "Cozinha + ar-condicionado em horário de pico",
-    fotoUrl:
-      "https://images.unsplash.com/photo-1566093097221-ac2335b09e70?w=1200&q=80&auto=format&fit=crop",
-    alt: "Sistema fotovoltaico em restaurante",
-  },
-  {
-    cliente: "Triedro Arquitetura e Engenharia",
-    segmento: "Escritório B2B",
-    cidade: "Palmas — TO",
-    geracao: "Sistema executado",
-    destaque: "Escritório técnico com posicionamento sustentável",
-    fotoUrl:
-      "https://images.unsplash.com/photo-1497440001374-f26997328c1b?w=1200&q=80&auto=format&fit=crop",
-    alt: "Escritório com sistema solar fotovoltaico",
+    cliente: "Padaria · perfil-tipo",
+    segmento: "Padaria · panificadora",
+    cidade: "Paraíso do Tocantins",
+    geracao: "18 kWp · sob simulação",
+    destaque: "Forno elétrico + câmara fria · backup BESS opcional",
+    fotoUrl: "/img/equipe/conexao-mc4.png",
+    alt: "Sistema solar em telhado de padaria",
   },
 ];
 
@@ -133,9 +132,11 @@ export default function CasesComercio() {
         </div>
 
         <Reveal delay={4}>
-          <p className="text-center text-xs text-[var(--aura-text-faded)] mt-8 italic">
-            Imagens ilustrativas em transição · fotos reais das instalações em
-            atualização.
+          <p className="text-center text-xs text-[var(--aura-text-faded)] mt-8 italic max-w-2xl mx-auto leading-relaxed">
+            ⚠ Mercado em Palmas é caso real Aura (briefing Renato 22/05).
+            Demais cards são perfis-tipo ilustrativos · não retratam clientes
+            específicos. Imagens ilustrativas · fotos reais publicadas conforme
+            autorização nominal.
           </p>
         </Reveal>
       </div>

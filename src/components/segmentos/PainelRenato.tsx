@@ -17,7 +17,7 @@ import {
 // Chave secreta pra acessar o painel (server-side seria ideal, mas aqui é só
 // proteção contra acesso casual — não é segurança real).
 const PAINEL_KEY = "renato2026";
-const BASE_URL = "https://auraenergy.vercel.app";
+const BASE_URL = "https://auraenergypalmas.com";
 
 type Segmento = {
   slug: string;
@@ -173,7 +173,7 @@ export default function PainelRenato() {
         <div className="mt-10 pt-6 border-t border-[var(--aura-border)] text-xs text-[var(--aura-text-muted)] leading-relaxed">
           <strong className="text-[var(--aura-text)]">Atalho útil:</strong>{" "}
           <code className="px-1.5 py-0.5 bg-[var(--aura-bg-soft)] rounded">
-            auraenergy.vercel.app/links
+            auraenergypalmas.com/links
           </code>{" "}
           é o linktree público pra colocar na bio do Instagram da Aura.
         </div>

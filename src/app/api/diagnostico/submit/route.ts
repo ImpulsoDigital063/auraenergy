@@ -152,7 +152,7 @@ h2 { color: #1B3A87; margin: 28px 0 12px; font-size: 15px; padding-bottom: 6px; 
   ${d.restricoes ? `<div class="critico"><div class="val">${escape(d.restricoes)}</div></div>` : `<div class="row"><em>nenhuma restrição declarada</em></div>`}
 
   <div class="footer">
-    Enviado via auraenergy.vercel.app/diagnostico — ${new Date().toLocaleString("pt-BR")}
+    Enviado via auraenergypalmas.com/diagnostico — ${new Date().toLocaleString("pt-BR")}
   </div>
 </div>
 </body>

@@ -7,7 +7,10 @@ Disallow: /plano-renato
 Disallow: /direcao-curso
 Disallow: /briefing
 Disallow: /economia-resultado
+Disallow: /copy-gen
+Disallow: /painel-briefing
+Disallow: /artes/
 Disallow: /api/
 
 # Sitemap
-Sitemap: https://auraenergy.vercel.app/sitemap.xml
+Sitemap: https://auraenergypalmas.com/sitemap.xml

@@ -381,7 +381,7 @@ ul { margin: 4px 0 4px 18px; padding: 0; }
   ${d.motivacao12m ? `<h2>💭 Última pergunta</h2><div class="highlight"><em>"Se a Aura virasse a maior em Palmas em 12 meses..."</em><br><br>${escape(d.motivacao12m)}</div>` : ""}
 
   <div class="footer">
-    Enviado automaticamente via auraenergy.vercel.app/briefing<br>
+    Enviado automaticamente via auraenergypalmas.com/briefing<br>
     Aura Energy · Impulso Digital · ${new Date().toLocaleString("pt-BR")}
   </div>
 </div>

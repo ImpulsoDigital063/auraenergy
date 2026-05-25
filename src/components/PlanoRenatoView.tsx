@@ -559,7 +559,7 @@ export default function PlanoRenatoView() {
               </div>
               <div>
                 <div style={{ fontSize: 9, fontWeight: 800, textTransform: "uppercase", letterSpacing: "0.12em", color: "var(--plano-yellow-deep)", marginBottom: 4 }}>Site</div>
-                <div style={{ fontSize: 14, fontWeight: 700, color: "var(--plano-blue-deep)" }}>auraenergy.vercel.app</div>
+                <div style={{ fontSize: 14, fontWeight: 700, color: "var(--plano-blue-deep)" }}>auraenergypalmas.com</div>
               </div>
               <div>
                 <div style={{ fontSize: 9, fontWeight: 800, textTransform: "uppercase", letterSpacing: "0.12em", color: "var(--plano-yellow-deep)", marginBottom: 4 }}>Reunião</div>
@@ -812,7 +812,7 @@ export default function PlanoRenatoView() {
           <ol>
             <li>
               <strong>LP profissional segmentada em 4 nichos</strong> — em
-              produção em <code>auraenergy.vercel.app</code>, com calculadora
+              produção em <code>auraenergypalmas.com</code>, com calculadora
               de economia ao vivo, mapa de instalações em Palmas, comparativo
               financeiro com CDB e Ibovespa, janela do Fio B
             </li>
@@ -884,7 +884,7 @@ export default function PlanoRenatoView() {
           <div className="plano-flow">
             Visitante vê post no @auraenergy<br />
             ↓<br />
-            Clica no link da bio (<code>auraenergy.vercel.app/links</code>)<br />
+            Clica no link da bio (<code>auraenergypalmas.com/links</code>)<br />
             ↓<br />
             Escolhe sua situação: casa / comércio / indústria / fazenda<br />
             ↓<br />
@@ -2051,7 +2051,7 @@ export default function PlanoRenatoView() {
               </li>
               <li>
                 <strong>Cartão de visita digital + QR Code</strong> apontando
-                pra LP mãe (<code>auraenergy.vercel.app</code>) — leva o
+                pra LP mãe (<code>auraenergypalmas.com</code>) — leva o
                 cliente direto pro HUB que segmenta por nicho. Você
                 imprime ou envia digital, e o cliente em 1 toque acessa
                 a calculadora e a LP certa pro perfil dele

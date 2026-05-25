@@ -9,7 +9,7 @@ const inter = Inter({
   display: "swap",
 });
 
-const SITE_URL = process.env.NEXT_PUBLIC_BASE_URL || "https://auraenergy.vercel.app";
+const SITE_URL = process.env.NEXT_PUBLIC_BASE_URL || "https://auraenergypalmas.com";
 const GA4_ID = process.env.NEXT_PUBLIC_GA4_ID;
 const META_PIXEL_ID = process.env.NEXT_PUBLIC_META_PIXEL_ID;
 const GOOGLE_VERIFICATION = process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION;

@@ -6,12 +6,12 @@ A Aura Energy é a frente solar fotovoltaica da Brasfrio (operação Tocantins h
 
 ## Páginas principais
 
-- [LP mãe](https://auraenergy.vercel.app/): hub decisor por segmento (casa, comércio, indústria, rural)
-- [Solar residencial](https://auraenergy.vercel.app/casa): casa em Palmas e interior · conta cai 85-95% · payback 4-5 anos · Programa Palmas Solar (40% desconto IPTU LC 327/2015)
-- [Solar comercial](https://auraenergy.vercel.app/comercio): loja, padaria, supermercado, posto, clínica · payback 3-4 anos · libera 12-25% da margem operacional
-- [Solar industrial](https://auraenergy.vercel.app/industria): planta industrial · TIR 18-25% a.a. · BNDES Finame Baixo Carbono · ICMS subsidiado TO (Convênio 16/15)
-- [Solar rural](https://auraenergy.vercel.app/rural): fazenda, sítio, pivô, granja, aviário, irrigação · Pronaf 0,5% a.m. · Moderagro · FCO Verde
-- [BESS (Bateria + Solar)](https://auraenergy.vercel.app/rural#bess): backup, off-grid, peak shaving, microrede industrial · Lei 15.269/2025
+- [LP mãe](https://auraenergypalmas.com/): hub decisor por segmento (casa, comércio, indústria, rural)
+- [Solar residencial](https://auraenergypalmas.com/casa): casa em Palmas e interior · conta cai 85-95% · payback 4-5 anos · Programa Palmas Solar (40% desconto IPTU LC 327/2015)
+- [Solar comercial](https://auraenergypalmas.com/comercio): loja, padaria, supermercado, posto, clínica · payback 3-4 anos · libera 12-25% da margem operacional
+- [Solar industrial](https://auraenergypalmas.com/industria): planta industrial · TIR 18-25% a.a. · BNDES Finame Baixo Carbono · ICMS subsidiado TO (Convênio 16/15)
+- [Solar rural](https://auraenergypalmas.com/rural): fazenda, sítio, pivô, granja, aviário, irrigação · Pronaf 0,5% a.m. · Moderagro · FCO Verde
+- [BESS (Bateria + Solar)](https://auraenergypalmas.com/rural#bess): backup, off-grid, peak shaving, microrede industrial · Lei 15.269/2025
 
 ## Contato
 
@@ -21,4 +21,4 @@ A Aura Energy é a frente solar fotovoltaica da Brasfrio (operação Tocantins h
 
 ## Documentação completa
 
-- [llms-full.txt](https://auraenergy.vercel.app/llms-full.txt): briefing completo com preços, marcas, casos reais, argumentos por segmento
+- [llms-full.txt](https://auraenergypalmas.com/llms-full.txt): briefing completo com preços, marcas, casos reais, argumentos por segmento

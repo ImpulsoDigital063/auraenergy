@@ -13,7 +13,7 @@ type Props = {
 };
 
 const NOME = "Aura Energy";
-const URL_BASE = "https://auraenergy.vercel.app";
+const URL_BASE = "https://auraenergypalmas.com";
 const TELEFONE = "+5563992688852";
 const ENDERECO_PALMAS = {
   cidade: "Palmas",

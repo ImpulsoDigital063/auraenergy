@@ -364,7 +364,7 @@ h2 { color: #1B3A87; margin: 24px 0 12px; font-size: 16px; padding-bottom: 6px; 
 
   <div class="footer">
     Lead recebido via formulário Tally · ${new Date().toLocaleString("pt-BR")}<br>
-    auraenergy.vercel.app/api/lead/qualified
+    auraenergypalmas.com/api/lead/qualified
   </div>
 </div>
 </body>

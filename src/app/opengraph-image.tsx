@@ -102,7 +102,7 @@ export default async function OpenGraphImage() {
           }}
         >
           <span style={{ fontSize: 26, fontWeight: 600, opacity: 0.9 }}>
-            auraenergy.vercel.app
+            auraenergypalmas.com
           </span>
           <span style={{ fontSize: 22, opacity: 0.6 }}>
             Garantia 25 anos · CREA-TO

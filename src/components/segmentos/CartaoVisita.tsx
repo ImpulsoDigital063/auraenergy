@@ -6,10 +6,10 @@ import Image from "next/image";
 // CARTÃO DE VISITA AURA ENERGY · Renato Edson
 // Tamanho padrão BR: 90 × 50 mm (3.54 × 1.97 in)
 // Imprimível em gráfica · Ctrl+P pra preview ou export PDF
-// QR code aponta pra auraenergy.vercel.app/links (linktree público)
+// QR code aponta pra auraenergypalmas.com/links (linktree público)
 // =====================================================================
 
-const URL_LINKTREE = "https://auraenergy.vercel.app/links";
+const URL_LINKTREE = "https://auraenergypalmas.com/links";
 // QR code SVG via QuickChart (gratuito, sem API key, escalável pra print)
 const QR_URL = `https://quickchart.io/qr?text=${encodeURIComponent(
   URL_LINKTREE
@@ -408,7 +408,7 @@ export default function CartaoVisita() {
                 Solar premium em Tocantins. Casa, comércio, indústria, rural —
                 cada um com cálculo próprio.
               </div>
-              <div className="cartao-verso-cta">→ auraenergy.vercel.app</div>
+              <div className="cartao-verso-cta">→ auraenergypalmas.com</div>
             </div>
           </div>
         </div>
@@ -434,7 +434,7 @@ export default function CartaoVisita() {
             </li>
             <li>
               <strong>QR code aponta pra:</strong>{" "}
-              <code>auraenergy.vercel.app/links</code> (linktree com 4 LPs +
+              <code>auraenergypalmas.com/links</code> (linktree com 4 LPs +
               calculadora + WhatsApp)
             </li>
             <li>

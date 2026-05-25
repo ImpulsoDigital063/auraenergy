@@ -157,7 +157,7 @@ export default function DiagnosticoForm() {
               required
               value={data.whatsapp}
               onChange={(v) => update("whatsapp", v)}
-              placeholder="(63) 9 9268-8852"
+              placeholder="(63) 9 9270-6284"
             />
           </Card>
 

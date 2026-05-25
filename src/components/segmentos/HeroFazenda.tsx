@@ -13,7 +13,7 @@ import {
   IconWhatsApp,
 } from "../Icons";
 
-const RENATO_WHATSAPP = "5563992688852";
+const RENATO_WHATSAPP = "5563992706284";
 const linkWhats = `https://wa.me/${RENATO_WHATSAPP}?text=${encodeURIComponent(
   "Olá Renato, tenho propriedade rural no Tocantins e quero analisar solar pra fazenda — pivô/granja/aviário/irrigação. Pode me passar uma proposta?"
 )}`;
@@ -145,6 +145,7 @@ export default function HeroFazenda() {
             <Reveal delay={4}>
               <div className="flex flex-wrap gap-3 sm:gap-5 justify-center lg:justify-start">
                 <Feature icon={<IconCheck size={16} />} text="Pronaf 0,5% a.m." />
+                <Feature icon={<IconSparkles size={16} />} text="Entrega 60 dias" />
                 <Feature
                   icon={<IconLeaf size={16} />}
                   text="Autoconsumo remoto"

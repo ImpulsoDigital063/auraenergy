@@ -35,7 +35,7 @@ const POTENCIA_PAINEL_W = 575;
 const VIDA_UTIL_ANOS = 25;
 const MANUTENCAO_PCT_AA = 0.018; // 1,8% a.a. de O&M
 const CDB_PROJ_AA = 0.09; // 9% a.a. CDB conservador 2026
-const RENATO_WHATSAPP = "5563992688852";
+const RENATO_WHATSAPP = "5563992706284";
 
 type Resultado = {
   consumoKwh: number;

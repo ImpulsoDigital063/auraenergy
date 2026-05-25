@@ -28,6 +28,10 @@ const PERGUNTAS_DEFAULT = [
     a: "Trabalhamos com 6 bancos parceiros: BV Financeira (preferido), Solfácil, Sicredi, Sicoob, Santander e BB Programa Agro Energia. Prazo até 120 meses · análise rápida. Em muitos casos a parcela do financiamento fica menor que a conta atual de luz · simulação sob medida na visita técnica.",
   },
   {
+    q: "Posso dar entrada via PIX?",
+    a: "Sim. Aura recomenda PIX como entrada parcial · reduz o valor financiado e ajuda a aprovação. Você combina o valor da entrada com o Renato antes da homologação, paga via PIX, e o financiamento processa o restante via banco parceiro.",
+  },
+  {
     q: "Qual a manutenção do sistema?",
     a: "Mínima. Limpeza dos painéis 1x por ano (em Palmas é menos crítico — vento ajuda). Verificação do inversor de tempos em tempos. Painéis duram 25-30 anos. Inversor uma vez vai trocar (custa R$ 3-5 mil em 12-15 anos). Tudo monitorado pelo app no celular.",
   },
@@ -97,7 +101,7 @@ export default function FAQ({
           <p className="text-center text-sm text-[var(--aura-text-muted)] mt-10">
             Sua dúvida não está aqui?{" "}
             <a
-              href="https://wa.me/5563992688852?text=Ol%C3%A1%20Renato%2C%20tenho%20uma%20d%C3%BAvida%20sobre%20energia%20solar."
+              href="https://wa.me/5563992706284?text=Ol%C3%A1%20Renato%2C%20tenho%20uma%20d%C3%BAvida%20sobre%20energia%20solar."
               target="_blank"
               rel="noopener"
               className="font-semibold text-[var(--aura-blue)] hover:text-[var(--aura-yellow-deep)] transition-colors underline underline-offset-4"

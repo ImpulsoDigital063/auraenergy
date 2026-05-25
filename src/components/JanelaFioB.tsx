@@ -1,7 +1,7 @@
 import Reveal from "./Reveal";
 import { IconBolt, IconClock, IconWhatsApp } from "./Icons";
 
-const RENATO_WHATSAPP = "5563992688852";
+const RENATO_WHATSAPP = "5563992706284";
 const linkWhats = `https://wa.me/${RENATO_WHATSAPP}?text=${encodeURIComponent(
   "Olá Renato, quero garantir minha instalação ainda em 2026 antes do Fio B subir."
 )}`;

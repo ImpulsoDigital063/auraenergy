@@ -33,7 +33,7 @@ const POTENCIA_PAINEL_W = 575;
 const VIDA_UTIL_ANOS = 25;
 const PRONAF_TAXA_AM = 0.005; // 0,5% a.m.
 const PRONAF_PRAZO_MESES = 144; // 12 anos
-const RENATO_WHATSAPP = "5563992688852";
+const RENATO_WHATSAPP = "5563992706284";
 
 type TipoOperacao = {
   key: string;

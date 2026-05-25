@@ -21,7 +21,7 @@ const CUSTO_POR_KWP = 4400; // R$/kWp instalado, faixa Tier 1, mai/2026
 const ECONOMIA_PCT = 0.82; // 82% de economia média com Fio B em 60% (Lei 14.300, 2026)
 const POTENCIA_PAINEL_W = 575; // painel padrão 2026 (TOPCon)
 const VIDA_UTIL_ANOS = 25;
-const RENATO_WHATSAPP = "5563992688852"; // sem traços/espaços
+const RENATO_WHATSAPP = "5563992706284"; // sem traços/espaços
 
 // =====================================================================
 

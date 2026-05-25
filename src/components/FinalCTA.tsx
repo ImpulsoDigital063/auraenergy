@@ -7,7 +7,7 @@ import Image from "next/image";
 import Reveal from "./Reveal";
 import { IconArrowRight, IconBolt, IconWhatsApp } from "./Icons";
 
-const RENATO_WHATSAPP = "5563992688852";
+const RENATO_WHATSAPP = "5563992706284";
 const link = `https://wa.me/${RENATO_WHATSAPP}?text=${encodeURIComponent(
   "Olá Renato! Cheguei até o final do site e quero agendar minha visita técnica gratuita."
 )}`;

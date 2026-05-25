@@ -378,7 +378,7 @@ export default function CartaoVisita() {
             <div className="cartao-frente-info">
               <div className="cartao-frente-info-row">
                 <span className="cartao-frente-info-label">WhatsApp</span>
-                <span>(63) 9 9268-8852</span>
+                <span>(63) 9 9270-6284</span>
               </div>
               <div className="cartao-frente-info-row">
                 <span className="cartao-frente-info-label">Atende</span>

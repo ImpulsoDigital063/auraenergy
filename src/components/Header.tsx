@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import { IconWhatsApp } from "./Icons";
 
-const RENATO_WHATSAPP = "5563992688852";
+const RENATO_WHATSAPP = "5563992706284";
 const linkSimples = `https://wa.me/${RENATO_WHATSAPP}?text=${encodeURIComponent(
   "Olá Renato, vim pela LP da Aura Energy. Quero falar com um especialista."
 )}`;

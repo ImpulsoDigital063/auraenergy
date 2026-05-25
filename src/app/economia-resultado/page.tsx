@@ -106,13 +106,13 @@ export default async function EconomiaResultadoPage({
             O orçamento exato depende de visita técnica gratuita.
             <br className="sm:hidden" />
             <a
-              href="https://wa.me/5563992688852"
+              href="https://wa.me/5563992706284"
               target="_blank"
               rel="noopener"
               className="inline-flex items-center gap-1 ml-2 text-[var(--aura-blue)] font-semibold hover:text-[var(--aura-yellow-deep)] transition-colors"
             >
               <IconWhatsApp size={12} />
-              (63) 9 9268-8852
+              (63) 9 9270-6284
             </a>
           </p>
           <p className="mt-3 text-[var(--aura-text-faded)]">

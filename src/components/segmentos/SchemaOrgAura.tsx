@@ -14,7 +14,7 @@ type Props = {
 
 const NOME = "Aura Energy";
 const URL_BASE = "https://auraenergypalmas.com";
-const TELEFONE = "+5563992688852";
+const TELEFONE = "+5563992706284";
 const ENDERECO_PALMAS = {
   cidade: "Palmas",
   estado: "TO",
@@ -116,7 +116,7 @@ export default function SchemaOrgAura({ pagina, faqs }: Props) {
     ],
     sameAs: [
       "https://www.instagram.com/auraenergy",
-      "https://wa.me/5563992688852",
+      "https://wa.me/5563992706284",
     ],
   };
 

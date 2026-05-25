@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { IconWhatsApp } from "./Icons";
 
-const RENATO_WHATSAPP = "5563992688852";
+const RENATO_WHATSAPP = "5563992706284";
 const MENSAGEM =
   "Olá Renato! Quero falar com um especialista técnico da Aura Energy.";
 

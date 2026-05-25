@@ -13,7 +13,7 @@ import {
   IconWhatsApp,
 } from "../Icons";
 
-const RENATO_WHATSAPP = "5563992688852";
+const RENATO_WHATSAPP = "5563992706284";
 const linkWhats = `https://wa.me/${RENATO_WHATSAPP}?text=${encodeURIComponent(
   "Olá Renato, sou tomador de decisão na minha indústria em Tocantins. Quero analisar usina solar pro nosso parque fabril — pode me passar uma análise inicial?"
 )}`;
@@ -144,6 +144,7 @@ export default function HeroIndustria() {
               <div className="flex flex-wrap gap-3 sm:gap-5 justify-center lg:justify-start">
                 <Feature icon={<IconCheck size={16} />} text="TIR 18-25% a.a." />
                 <Feature icon={<IconShield size={16} />} text="ART + homologação inclusos" />
+                <Feature icon={<IconSparkles size={16} />} text="Entrega 90 dias" />
                 <Feature
                   icon={<IconChart size={16} />}
                   text="BNDES Finame Solar"

@@ -30,7 +30,7 @@ const ECONOMIA_PCT = 0.80;
 const MARGEM_DIMENSIONAMENTO = 1.10;
 const POTENCIA_PAINEL_W = 575;
 const VIDA_UTIL_ANOS = 25;
-const RENATO_WHATSAPP = "5563992688852";
+const RENATO_WHATSAPP = "5563992706284";
 
 type PerfilOperacao = {
   key: string;

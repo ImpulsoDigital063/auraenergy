@@ -118,7 +118,7 @@ export default function BriefingObrigadoPage() {
           </div>
 
           <Link
-            href="https://wa.me/5563992688852"
+            href="https://wa.me/5563992706284"
             target="_blank"
             rel="noopener"
             className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-bold text-sm transition-transform hover:scale-[1.02]"

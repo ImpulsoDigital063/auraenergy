@@ -24,7 +24,7 @@ const ECONOMIA_PCT = 0.82; // economia média pós-Fio B 60% (Lei 14.300, 2026)
 const MARGEM_DIMENSIONAMENTO = 1.10; // 10% margem pra perdas e variação sazonal
 const POTENCIA_PAINEL_W = 575; // painel TOPCon padrão 2026
 const VIDA_UTIL_ANOS = 25;
-const RENATO_WHATSAPP = "5563992688852";
+const RENATO_WHATSAPP = "5563992706284";
 
 // =====================================================================
 

@@ -9,7 +9,7 @@ import {
   IconWhatsApp,
 } from "./Icons";
 
-const RENATO_WHATSAPP = "5563992688852";
+const RENATO_WHATSAPP = "5563992706284";
 
 // Preços faixa cravados pelo Renato no briefing V3.1 (22/05/2026).
 // Estratégia: 'a partir de' · cálculo final é feito sob medida na visita técnica.

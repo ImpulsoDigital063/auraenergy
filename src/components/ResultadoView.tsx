@@ -19,7 +19,7 @@ import {
   IconWhatsApp,
 } from "./Icons";
 
-const RENATO_WHATSAPP = "5563992688852";
+const RENATO_WHATSAPP = "5563992706284";
 
 // Constantes Energisa-TO + Palmas (mesma fórmula do Simulador.tsx)
 const TARIFA = 0.95;
@@ -227,7 +227,7 @@ export default function ResultadoView({
             <IconArrowRight size={20} />
           </a>
           <p className="text-xs text-[var(--aura-text-muted)] mt-5">
-            Ou ligue: <strong className="text-[var(--aura-blue)]">(63) 9 9268-8852</strong>
+            Ou ligue: <strong className="text-[var(--aura-blue)]">(63) 9 9270-6284</strong>
           </p>
         </div>
       </Reveal>

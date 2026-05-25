@@ -4,7 +4,7 @@ import { useState } from "react";
 import Reveal from "./Reveal";
 import { IconArrowRight, IconCheck, IconWhatsApp } from "./Icons";
 
-const RENATO_WHATSAPP = "5563992688852";
+const RENATO_WHATSAPP = "5563992706284";
 
 export default function CTAFinal() {
   const [nome, setNome] = useState("");

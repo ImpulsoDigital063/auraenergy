@@ -28,13 +28,13 @@ export default function Footer() {
               equipamentos Tier 1 e atendimento direto com o Renato Edson.
             </p>
             <a
-              href="https://wa.me/5563992688852?text=Ol%C3%A1%20Renato%2C%20vim%20pela%20LP%20da%20Aura%20Energy."
+              href="https://wa.me/5563992706284?text=Ol%C3%A1%20Renato%2C%20vim%20pela%20LP%20da%20Aura%20Energy."
               target="_blank"
               rel="noopener"
               className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--aura-yellow)] hover:text-[var(--aura-yellow-bright)] transition-colors"
             >
               <IconWhatsApp size={18} />
-              (63) 9 9268-8852
+              (63) 9 9270-6284
             </a>
           </div>
 
@@ -75,12 +75,12 @@ export default function Footer() {
                 <div>
                   <div className="font-semibold text-white">WhatsApp</div>
                   <a
-                    href="https://wa.me/5563992688852"
+                    href="https://wa.me/5563992706284"
                     target="_blank"
                     rel="noopener"
                     className="hover:text-[var(--aura-yellow)] transition-colors"
                   >
-                    (63) 9 9268-8852
+                    (63) 9 9270-6284
                   </a>
                 </div>
               </li>

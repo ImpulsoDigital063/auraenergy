@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   },
 };
 
-const RENATO_WHATSAPP = "5563992688852";
+const RENATO_WHATSAPP = "5563992706284";
 const linkWhats = `https://wa.me/${RENATO_WHATSAPP}?text=${encodeURIComponent(
   "Olá Renato, vim pelo Instagram da Aura. Quero saber mais sobre solar."
 )}`;
@@ -124,9 +124,9 @@ export default function LinksPage() {
           </div>
         </div>
 
-        {/* Selo de autoridade · Brasfrio cravado */}
+        {/* Selo de autoridade · Brasfrio cravado · 4 marcadores */}
         <div
-          className="rounded-2xl p-4 mb-5 grid grid-cols-3 gap-2 text-center"
+          className="rounded-2xl p-4 mb-5 grid grid-cols-2 sm:grid-cols-4 gap-2 text-center"
           style={{
             background:
               "linear-gradient(135deg, var(--aura-blue-tint) 0%, var(--aura-yellow-tint) 100%)",
@@ -136,6 +136,7 @@ export default function LinksPage() {
           <Selo numero="4" sub="anos Brasfrio" />
           <Selo numero="300+" sub="instalações 12m" />
           <Selo numero="1 MWp" sub="instalados" />
+          <Selo numero="112 kWp" sub="maior projeto" />
         </div>
 
         {/* CTA WhatsApp em destaque · primeiro pra bio Instagram */}

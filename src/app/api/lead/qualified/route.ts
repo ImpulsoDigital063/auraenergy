@@ -9,7 +9,7 @@ import { Resend } from "resend";
 // =====================================================================
 
 const EDUARDO_EMAIL = "edubchaves5@gmail.com";
-const RENATO_WHATSAPP = "5563992688852";
+const RENATO_WHATSAPP = "5563992706284";
 const FROM_EMAIL = "Aura Energy Lead <onboarding@resend.dev>";
 
 // Tally envia em formato `{ data: { fields: [{ key, label, value, type, ... }] } }`

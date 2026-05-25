@@ -13,7 +13,7 @@ import {
   IconWhatsApp,
 } from "../Icons";
 
-const RENATO_WHATSAPP = "5563992688852";
+const RENATO_WHATSAPP = "5563992706284";
 const linkWhats = `https://wa.me/${RENATO_WHATSAPP}?text=${encodeURIComponent(
   "Olá Renato, vim pelo site da Aura — quero solar pro meu comércio em Palmas. Posso te passar minha conta de luz pra orçamento?"
 )}`;
@@ -134,6 +134,7 @@ export default function HeroComercio() {
               <div className="flex flex-wrap gap-3 sm:gap-5 justify-center lg:justify-start">
                 <Feature icon={<IconCheck size={16} />} text="Payback 3-4 anos" />
                 <Feature icon={<IconShield size={16} />} text="Garantia 12 anos painel" />
+                <Feature icon={<IconSparkles size={16} />} text="Entrega 45 dias" />
                 <Feature
                   icon={<IconBolt size={16} />}
                   text="Capex vira opex (120x)"

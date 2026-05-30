@@ -22,6 +22,7 @@ import Galeria from "@/components/Galeria";
 import MapaInstalacoes from "@/components/MapaInstalacoes";
 import Depoimentos from "@/components/Depoimentos";
 import FAQ from "@/components/FAQ";
+import Recursos from "@/components/Recursos";
 import FinalCTA from "@/components/FinalCTA";
 import Footer from "@/components/Footer";
 
@@ -125,7 +126,25 @@ export default function CasaPage() {
           subtitulo="Programa Palmas Solar, Lei 14.300, financiamento BV Financeira + 5 bancos — sem enrolação."
         />
 
-        {/* 18. Footer-CTA full-bleed */}
+        {/* 18. Recursos · artigos relevantes pra residência */}
+        <Recursos
+          slugs={[
+            "quanto-custa-energia-solar-palmas-2026",
+            "lei-14300-vale-a-pena-solar-2026",
+            "payback-solar-palmas-tocantins",
+            "painel-550w-vs-600w-residencial",
+            "solar-financiado-ou-a-vista-2026",
+            "autoconsumo-remoto-energia-solar-tocantins",
+          ]}
+          titulo={
+            <>
+              Guias técnicos pra <span className="text-gradient-aura">casa em Palmas.</span>
+            </>
+          }
+          subtitulo="Preços cravados, Lei 14.300, payback real e financiamento. Com sumário, dados quantitativos e fontes oficiais."
+        />
+
+        {/* 19. Footer-CTA full-bleed */}
         <FinalCTA />
       </main>
       <Footer />

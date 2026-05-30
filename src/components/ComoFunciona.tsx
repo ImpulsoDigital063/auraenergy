@@ -99,7 +99,6 @@ export default function ComoFunciona({ fotos = PASSOS_CASA }: ComoFuncionaProps)
                     fill
                     className="object-cover transition-transform duration-700 hover:scale-110"
                     sizes="(max-width: 768px) 100vw, 25vw"
-                    unoptimized
                   />
                   {/* Overlay gradient + número grande sobreposto */}
                   <div

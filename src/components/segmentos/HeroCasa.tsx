@@ -199,7 +199,6 @@ export default function HeroCasa() {
           alt=""
           fill
           className="object-contain"
-          unoptimized
         />
       </div>
 

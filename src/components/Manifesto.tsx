@@ -54,7 +54,6 @@ export default function Manifesto() {
           alt=""
           fill
           className="object-contain"
-          unoptimized
         />
       </div>
 
@@ -99,7 +98,6 @@ export default function Manifesto() {
                 width={140}
                 height={140}
                 className="relative w-28 h-28 sm:w-36 sm:h-36 object-contain float-soft"
-                unoptimized
               />
             </div>
           </div>
@@ -185,7 +183,6 @@ export default function Manifesto() {
                 width={32}
                 height={32}
                 className="w-7 h-7 object-contain"
-                unoptimized
               />
               <span className="text-sm font-semibold text-white/85 tracking-wide">
                 Aura Energy ·{" "}

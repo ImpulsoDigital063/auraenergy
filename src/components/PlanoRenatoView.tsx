@@ -384,7 +384,6 @@ export default function PlanoRenatoView() {
               width={180}
               height={180}
               style={{ width: 160, height: 160, objectFit: "contain" }}
-              unoptimized
             />
           </div>
 

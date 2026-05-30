@@ -268,7 +268,6 @@ export default function HeroSegmentos() {
           alt=""
           fill
           className="object-contain"
-          unoptimized
         />
       </div>
 

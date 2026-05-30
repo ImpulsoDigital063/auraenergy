@@ -200,7 +200,6 @@ export default function HeroIndustria() {
           alt=""
           fill
           className="object-contain"
-          unoptimized
         />
       </div>
     </section>

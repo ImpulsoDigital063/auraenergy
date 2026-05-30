@@ -153,7 +153,6 @@ export default function Hero() {
           alt=""
           fill
           className="object-contain"
-          unoptimized
         />
       </div>
 

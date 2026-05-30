@@ -190,7 +190,6 @@ export default function HeroComercio() {
           alt=""
           fill
           className="object-contain"
-          unoptimized
         />
       </div>
     </section>

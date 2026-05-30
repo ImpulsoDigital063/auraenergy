@@ -84,7 +84,6 @@ export default function EquipeAcao() {
                       ? "(max-width: 1024px) 100vw, 40vw"
                       : "(max-width: 1024px) 50vw, 20vw"
                   }
-                  unoptimized
                 />
                 <div className="caption flex flex-col items-start gap-0.5">
                   <span className="text-sm sm:text-base font-bold leading-tight">

@@ -28,6 +28,7 @@ import Galeria from "@/components/Galeria";
 import MapaInstalacoes from "@/components/MapaInstalacoes";
 import Depoimentos from "@/components/Depoimentos";
 import FAQ from "@/components/FAQ";
+import Recursos from "@/components/Recursos";
 import FinalCTA from "@/components/FinalCTA";
 import Footer from "@/components/Footer";
 
@@ -131,6 +132,24 @@ export default function ComercioPage() {
           }
           subtitulo="Capex vs opex, IPTU verde, financiamento PJ, SLA de geração — direto ao ponto."
         />
+
+        <Recursos
+          slugs={[
+            "quanto-custa-energia-solar-palmas-2026",
+            "payback-solar-palmas-tocantins",
+            "solar-financiado-ou-a-vista-2026",
+            "lei-14300-vale-a-pena-solar-2026",
+            "icms-convenio-16-15-industria-solar-tocantins",
+            "autoconsumo-remoto-energia-solar-tocantins",
+          ]}
+          titulo={
+            <>
+              Guias técnicos pra <span className="text-gradient-aura">comércio em Palmas.</span>
+            </>
+          }
+          subtitulo="Payback, financiamento PJ, ICMS Convênio 16/15 e autoconsumo remoto entre filiais. Com sumário, dados e fontes oficiais."
+        />
+
         <FinalCTA />
       </main>
       <Footer />

@@ -13,6 +13,20 @@ A Aura Energy é a frente solar fotovoltaica da Brasfrio (operação Tocantins h
 - [Solar rural](https://auraenergypalmas.com/rural): fazenda, sítio, pivô, granja, aviário, irrigação · Pronaf 0,5% a.m. · Moderagro · FCO Verde
 - [BESS (Bateria + Solar)](https://auraenergypalmas.com/rural#bess): backup, off-grid, peak shaving, microrede industrial · Lei 15.269/2025
 
+## Artigos (guias técnicos com fontes oficiais)
+
+- [Quanto custa instalar solar em Palmas (2026)](https://auraenergypalmas.com/artigos/quanto-custa-energia-solar-palmas-2026): tabela cravada · Mini R$ 7 mil até Premium R$ 20,5 mil · marcas Tier 1 · garantia 12 anos painel
+- [Lei 14.300 e a janela 2026](https://auraenergypalmas.com/artigos/lei-14300-vale-a-pena-solar-2026): calendário Fio B · economia 78-85% em Palmas · por que esperar 2027 sai mais caro
+- [Payback solar em Palmas (cálculo cravado)](https://auraenergypalmas.com/artigos/payback-solar-palmas-tocantins): residência 2,5-4 anos · comércio 2-3 anos · 3 fatores aceleradores de Tocantins
+- [Painel 550W ou 600W (critério Aura)](https://auraenergypalmas.com/artigos/painel-550w-vs-600w-residencial): regra prática por tipo de telhado · marcas Astrobergy/DAH preferidas
+- [Solar à vista ou financiado (2026)](https://auraenergypalmas.com/artigos/solar-financiado-ou-a-vista-2026): comparativo BV Financeira vs Solfácil · PIX entrada como estratégia híbrida
+- [Pronaf Bioeconomia · 0,5% a.m. solar rural](https://auraenergypalmas.com/artigos/pronaf-bioeconomia-solar-rural-tocantins): linha mais barata do BR · 12 anos · ~60% das propriedades de TO se enquadram (IBGE)
+- [ICMS Convênio 16/15 · indústria solar TO](https://auraenergypalmas.com/artigos/icms-convenio-16-15-industria-solar-tocantins): isenção ICMS sobre energia gerada e consumida pelo gerador · Decreto TO 6.482/2022
+- [BESS pra pivô central · janela 2026](https://auraenergypalmas.com/artigos/bess-bateria-solar-pivo-central-tocantins-2026): solar + bateria pra pivô, aviário, granja · Lei 15.269/2025
+- [Lei 15.269/2025 explicada (BESS regulamentação)](https://auraenergypalmas.com/artigos/lei-15269-2025-armazenamento-energia-distribuida): regulação clara de armazenamento em GD · 3 tipos · janela 2026
+- [Reforma Tributária e energia solar 2026](https://auraenergypalmas.com/artigos/reforma-tributaria-energia-renovavel-2026): LC 214/2025 · CBS + IBS · cronograma 2026-2032 · tratamento renovável
+- [Autoconsumo remoto · 1 usina zerando várias contas](https://auraenergypalmas.com/artigos/autoconsumo-remoto-energia-solar-tocantins): Lei 14.300 Art 1° XVII · casos cravados pra família, comércio, rural, indústria
+
 ## Contato
 
 - WhatsApp Renato Edson (engenheiro responsável): +55 63 99270-6284

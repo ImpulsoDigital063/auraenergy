@@ -14,7 +14,8 @@ import Credenciais from "@/components/Credenciais";
 import Galeria from "@/components/Galeria";
 import MapaInstalacoes from "@/components/MapaInstalacoes";
 import Depoimentos from "@/components/Depoimentos";
-import FAQ from "@/components/FAQ";
+import FAQ, { PERGUNTAS_DEFAULT } from "@/components/FAQ";
+import Recursos from "@/components/Recursos";
 import FinalCTA from "@/components/FinalCTA";
 import Footer from "@/components/Footer";
 
@@ -24,7 +25,7 @@ import Footer from "@/components/Footer";
 export default function Home() {
   return (
     <>
-      <SchemaOrgAura pagina="home" />
+      <SchemaOrgAura pagina="home" faqs={PERGUNTAS_DEFAULT} />
       <Header />
       <main className="flex-1">
         {/* ── ATENÇÃO ── */}
@@ -72,7 +73,19 @@ export default function Home() {
         {/* 14. FAQ */}
         <FAQ />
 
-        {/* 15. Footer-CTA gigante full-bleed */}
+        {/* 15. Recursos · top 6 artigos mistos (1 por segmento + 2 high-leverage) */}
+        <Recursos
+          slugs={[
+            "quanto-custa-energia-solar-palmas-2026",
+            "lei-14300-vale-a-pena-solar-2026",
+            "pronaf-bioeconomia-solar-rural-tocantins",
+            "icms-convenio-16-15-industria-solar-tocantins",
+            "bess-bateria-solar-pivo-central-tocantins-2026",
+            "autoconsumo-remoto-energia-solar-tocantins",
+          ]}
+        />
+
+        {/* 16. Footer-CTA gigante full-bleed */}
         <FinalCTA />
       </main>
       <Footer />

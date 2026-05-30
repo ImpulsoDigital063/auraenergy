@@ -28,6 +28,7 @@ import Galeria from "@/components/Galeria";
 import MapaInstalacoes from "@/components/MapaInstalacoes";
 import Depoimentos from "@/components/Depoimentos";
 import FAQ from "@/components/FAQ";
+import Recursos from "@/components/Recursos";
 import FinalCTA from "@/components/FinalCTA";
 import Footer from "@/components/Footer";
 
@@ -142,6 +143,24 @@ export default function IndustriaPage() {
           }
           subtitulo="TIR, BNDES Finame, ICMS Convênio 16/15, ART, SLA de geração — tudo respondido sem rodeio."
         />
+
+        <Recursos
+          slugs={[
+            "icms-convenio-16-15-industria-solar-tocantins",
+            "reforma-tributaria-energia-renovavel-2026",
+            "bess-bateria-solar-pivo-central-tocantins-2026",
+            "lei-15269-2025-armazenamento-energia-distribuida",
+            "payback-solar-palmas-tocantins",
+            "autoconsumo-remoto-energia-solar-tocantins",
+          ]}
+          titulo={
+            <>
+              Guias técnicos pra <span className="text-gradient-aura">indústria em Tocantins.</span>
+            </>
+          }
+          subtitulo="ICMS Convênio 16/15, Reforma Tributária, BESS pra peak shaving e autoconsumo remoto matriz-filial. Com fontes oficiais (CONFAZ, ANEEL, BNDES)."
+        />
+
         <FinalCTA />
       </main>
       <Footer />

@@ -205,7 +205,6 @@ export default function HeroFazenda() {
           alt=""
           fill
           className="object-contain"
-          unoptimized
         />
       </div>
     </section>

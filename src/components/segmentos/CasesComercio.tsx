@@ -90,7 +90,6 @@ export default function CasesComercio() {
                     fill
                     className="object-cover transition-transform duration-700 hover:scale-105"
                     sizes="(max-width: 768px) 100vw, 33vw"
-                    unoptimized
                   />
                   <div
                     className="absolute top-4 left-4 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold backdrop-blur-md"

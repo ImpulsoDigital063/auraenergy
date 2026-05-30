@@ -12,7 +12,7 @@ export type Pergunta = {
 export const FAQ_CASA: Pergunta[] = [
   {
     q: "Quanto custa instalar energia solar em Palmas?",
-    a: "Em Palmas, sistemas residenciais Tier 1 (Trina/Canadian + Growatt/Sungrow) custam: 3 kWp a partir de R$ 13.000, 5 kWp por volta de R$ 19-25.000, 8 kWp entre R$ 30-38.000. O valor inclui painéis, inversor, estrutura, projeto, ART, homologação na Energisa e instalação. A visita técnica é gratuita e te dá o orçamento exato.",
+    a: "Tabela cravada Aura Energy 2026 pra residência: 3 kWp R$ 7.000 (linha Mini), 5 kWp R$ 15.000 (linha Padrão · mais vendida), 8 kWp R$ 18.000 (linha Plus), 10 kWp R$ 20.500 (linha Premium). Equipamento Tier 1 com marcas preferidas Astrobergy e DAH Solar nos painéis · inversor Hoymiles ou Solis. Inclui projeto, ART, homologação na Energisa Tocantins e instalação. A visita técnica é gratuita e te dá o orçamento exato pra seu telhado.",
   },
   {
     q: "Quanto tempo leva pra instalar e legalizar?",
@@ -82,7 +82,7 @@ export const FAQ_COMERCIO: Pergunta[] = [
   },
   {
     q: "Como fica meu monitoramento? Posso acompanhar pelo celular?",
-    a: "Sim. Inversores Growatt, Sungrow e Solis incluem app gratuito com geração ao vivo, gráfico mensal/anual, alertas de falha e exportação CSV. Aura também recebe alertas em paralelo — se algo desviar do esperado, identificamos antes de você perceber na conta.",
+    a: "Sim. Inversores Hoymiles (preferido), Solis e Huawei incluem app gratuito com geração ao vivo, gráfico mensal/anual, alertas de falha e exportação CSV. Aura também recebe alertas em paralelo — se algo desviar do esperado, identificamos antes de você perceber na conta.",
   },
 ];
 

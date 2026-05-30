@@ -30,7 +30,6 @@ export default function FinalCTA() {
           alt=""
           fill
           className="object-contain"
-          unoptimized
         />
       </div>
 

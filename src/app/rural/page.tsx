@@ -28,6 +28,7 @@ import Galeria from "@/components/Galeria";
 import MapaInstalacoes from "@/components/MapaInstalacoes";
 import Depoimentos from "@/components/Depoimentos";
 import FAQ from "@/components/FAQ";
+import Recursos from "@/components/Recursos";
 import FinalCTA from "@/components/FinalCTA";
 import Footer from "@/components/Footer";
 
@@ -137,6 +138,24 @@ export default function RuralPage() {
           }
           subtitulo="Pronaf, Moderagro, FCO Verde, autoconsumo remoto, bombeamento — direto do engenheiro responsável."
         />
+
+        <Recursos
+          slugs={[
+            "pronaf-bioeconomia-solar-rural-tocantins",
+            "bess-bateria-solar-pivo-central-tocantins-2026",
+            "autoconsumo-remoto-energia-solar-tocantins",
+            "lei-15269-2025-armazenamento-energia-distribuida",
+            "lei-14300-vale-a-pena-solar-2026",
+            "payback-solar-palmas-tocantins",
+          ]}
+          titulo={
+            <>
+              Guias técnicos pra <span className="text-gradient-aura">propriedade rural em Tocantins.</span>
+            </>
+          }
+          subtitulo="Pronaf Bioeconomia 0,5% a.m., BESS pra pivô central, autoconsumo remoto entre matrizes da fazenda. Com fontes oficiais (MAPA, ANEEL, BCB)."
+        />
+
         <FinalCTA />
       </main>
       <Footer />

@@ -291,7 +291,6 @@ export default function DirecaoCursoView() {
               width={180}
               height={180}
               style={{ width: 140, height: 140, objectFit: "contain" }}
-              unoptimized
             />
           </div>
 

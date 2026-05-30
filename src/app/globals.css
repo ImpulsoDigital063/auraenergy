@@ -759,6 +759,187 @@ details.faq-item .faq-body {
 }
 
 /* ============================================================
+   Artigo prose · estilos pra conteudo markdown renderizado
+   em /artigos/[slug] e /artigos
+   ============================================================ */
+
+.artigo-prose {
+  color: var(--aura-text-soft);
+  font-size: 17px;
+  line-height: 1.75;
+  max-width: 72ch;
+}
+
+.artigo-prose > p {
+  margin: 1.2em 0;
+}
+
+.artigo-prose > h1,
+.artigo-prose > h2,
+.artigo-prose > h3,
+.artigo-prose > h4 {
+  color: var(--aura-text);
+  font-weight: 700;
+  line-height: 1.25;
+  scroll-margin-top: 100px;
+}
+
+.artigo-prose > h2 {
+  font-size: 1.75rem;
+  margin-top: 2.4em;
+  margin-bottom: 0.8em;
+  padding-bottom: 0.4em;
+  border-bottom: 1px solid var(--aura-border);
+}
+
+.artigo-prose > h3 {
+  font-size: 1.35rem;
+  margin-top: 1.8em;
+  margin-bottom: 0.6em;
+}
+
+.artigo-prose > h4 {
+  font-size: 1.1rem;
+  margin-top: 1.4em;
+  margin-bottom: 0.5em;
+}
+
+.artigo-prose strong {
+  color: var(--aura-text);
+  font-weight: 700;
+}
+
+.artigo-prose em {
+  font-style: italic;
+}
+
+.artigo-prose a {
+  color: var(--aura-blue);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  font-weight: 500;
+  transition: color 0.15s ease;
+}
+
+.artigo-prose a:hover {
+  color: var(--aura-yellow-deep);
+}
+
+.artigo-prose > ul,
+.artigo-prose > ol {
+  margin: 1.2em 0;
+  padding-left: 1.6em;
+}
+
+.artigo-prose > ul {
+  list-style: disc;
+}
+
+.artigo-prose > ol {
+  list-style: decimal;
+}
+
+.artigo-prose li {
+  margin: 0.5em 0;
+}
+
+.artigo-prose li > ul,
+.artigo-prose li > ol {
+  margin: 0.4em 0;
+  padding-left: 1.4em;
+}
+
+.artigo-prose blockquote {
+  margin: 1.6em 0;
+  padding: 1em 1.4em;
+  border-left: 4px solid var(--aura-yellow);
+  background: var(--aura-yellow-tint);
+  color: var(--aura-text);
+  font-style: italic;
+  border-radius: 0 8px 8px 0;
+}
+
+.artigo-prose blockquote p {
+  margin: 0;
+}
+
+.artigo-prose code {
+  font-family: ui-monospace, "SFMono-Regular", Menlo, Monaco, Consolas, monospace;
+  font-size: 0.9em;
+  background: var(--aura-bg-soft);
+  padding: 0.2em 0.5em;
+  border-radius: 4px;
+  color: var(--aura-blue-deep);
+}
+
+.artigo-prose pre {
+  background: var(--aura-bg-dark);
+  color: var(--aura-text-on-dark);
+  padding: 1.2em;
+  border-radius: 10px;
+  overflow-x: auto;
+  margin: 1.4em 0;
+  font-size: 0.9em;
+  line-height: 1.6;
+}
+
+.artigo-prose pre code {
+  background: transparent;
+  color: inherit;
+  padding: 0;
+  font-size: inherit;
+}
+
+.artigo-prose table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.6em 0;
+  font-size: 0.94em;
+  border: 1px solid var(--aura-border);
+  border-radius: 8px;
+  overflow: hidden;
+  display: table;
+}
+
+.artigo-prose thead {
+  background: var(--aura-bg-soft);
+}
+
+.artigo-prose th {
+  text-align: left;
+  padding: 0.8em 1em;
+  font-weight: 700;
+  color: var(--aura-text);
+  border-bottom: 2px solid var(--aura-border-strong);
+}
+
+.artigo-prose td {
+  padding: 0.7em 1em;
+  border-bottom: 1px solid var(--aura-border);
+  color: var(--aura-text-soft);
+}
+
+.artigo-prose tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.artigo-prose tbody tr:hover {
+  background: var(--aura-bg-soft);
+}
+
+.artigo-prose hr {
+  border: 0;
+  border-top: 1px solid var(--aura-border);
+  margin: 2.4em 0;
+}
+
+/* Wrapper que limita o overflow horizontal de tabelas largas em mobile */
+.artigo-prose-wrapper {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* ============================================================
    Reduce motion respect
    ============================================================ */
 

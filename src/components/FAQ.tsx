@@ -2,7 +2,7 @@ import Reveal from "./Reveal";
 import { IconChevronDown } from "./Icons";
 import type { Pergunta } from "./segmentos/faq-perguntas";
 
-const PERGUNTAS_DEFAULT = [
+export const PERGUNTAS_DEFAULT = [
   {
     q: "Quanto custa instalar energia solar em Palmas?",
     a: "Em Palmas, sistemas residenciais Tier 1 (Astrobergy/DAH Solar preferidos · também Trina/JA/Jinko + Hoymiles/Solis/Huawei) saem a partir de: 3 kWp R$ 7 mil, 5 kWp R$ 15 mil, 8 kWp R$ 18 mil, 10 kWp R$ 20,5 mil. O valor inclui painéis, inversor, estrutura, projeto, ART e homologação na Energisa. Valor final calculado sob medida na visita técnica gratuita.",
@@ -57,6 +57,11 @@ export default function FAQ({
   subtitulo = "Respostas diretas, sem enrolação técnica.",
 }: FAQProps) {
   const PERGUNTAS = perguntas;
+
+  // NÃO injeta JSON-LD FAQPage aqui · SchemaOrgAura já cuida disso pra
+  // cada LP (recebe faqs como prop). Injeção dupla causaria warning em
+  // Rich Results Test do Google.
+
   return (
     <section
       id="faq"

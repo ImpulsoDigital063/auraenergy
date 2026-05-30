@@ -69,7 +69,6 @@ export default function Compromisso() {
           alt=""
           fill
           className="object-contain"
-          unoptimized
         />
       </div>
 
@@ -188,7 +187,6 @@ export default function Compromisso() {
                   width={80}
                   height={80}
                   className="w-20 h-20 object-contain bg-white/10 rounded-2xl p-2 backdrop-blur-sm"
-                  unoptimized
                 />
               </div>
               <div className="flex-1">

@@ -86,7 +86,6 @@ export default function CasesCasa() {
                     fill
                     className="object-cover transition-transform duration-700 hover:scale-105"
                     sizes="(max-width: 768px) 100vw, 33vw"
-                    unoptimized
                   />
                   {/* Badge kWp sobreposto */}
                   <div

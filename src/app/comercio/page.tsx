@@ -3,6 +3,7 @@ import Header from "@/components/Header";
 import BotaoFlutuanteWhatsApp from "@/components/BotaoFlutuanteWhatsApp";
 import HeroComercio from "@/components/segmentos/HeroComercio";
 import SimuladorComercio from "@/components/segmentos/SimuladorComercio";
+import BlocoPixEntrada from "@/components/BlocoPixEntrada";
 import MarcasMarquee from "@/components/MarcasMarquee";
 import Manifesto from "@/components/Manifesto";
 import DoresGanhosComercio from "@/components/segmentos/DoresGanhosComercio";
@@ -33,6 +34,7 @@ import FinalCTA from "@/components/FinalCTA";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/comercio" },
   title: "Energia solar pro seu comércio em Palmas-TO | Aura Energy",
   description:
     "Loja, padaria, supermercado, posto, clínica em Palmas. Solar comercial paga em 3-4 anos, libera 12-25% da margem operacional. Engenheiro responsável, financiamento Solfácil/BV/Santander até 120x.",
@@ -94,6 +96,9 @@ export default function ComercioPage() {
             </Reveal>
           </div>
         </section>
+
+        {/* PIX entrada · estratégia cravada briefing V3.1 */}
+        <BlocoPixEntrada segmento="comercio" />
 
         {/* ── INTERESSE/DOR ── */}
         <DoresGanhosComercio />

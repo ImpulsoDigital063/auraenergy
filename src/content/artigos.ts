@@ -957,7 +957,7 @@ O agricultor entra com: CAF ativa, comprovação de renda, ITR e documento da pr
 - Lei 14.300/2022 · Marco Legal da Geração Distribuída · Art. 1° XVII (autoconsumo remoto)
 - IBGE · Censo Agropecuário 2017
 - Banco do Brasil · Programa Agro Energia (manual operacional 2026)
-- Briefing técnico Aura Energy V3.1 · Renato Edson (CREA-TO · sócio Brasfrio)
+- Briefing técnico Aura Energy V3.1 · Renato Edson (CREA-TO · ex-sócio da Brasfrio)
 
 ## Próximo passo
 
@@ -1141,7 +1141,7 @@ A Aura não é consultoria tributária · não protocolamos o pleito direto na S
 
 Pra indústria, isso significa que o projeto Aura **já nasce pronto pra pleito tributário** · não precisa refazer documentação depois.
 
-Renato Edson (engenheiro CREA-TO · sócio Brasfrio) tem 14+ anos em chão de fábrica em Palmas com refrigeração industrial · entende demanda contratada, perfil de carga, regime de operação industrial. Projeto é dimensionado pra carga real, não vendido por "kWp instalado".
+Renato Edson (engenheiro CREA-TO · ex-sócio da Brasfrio) tem 14+ anos em chão de fábrica em Palmas com refrigeração industrial · entende demanda contratada, perfil de carga, regime de operação industrial. Projeto é dimensionado pra carga real, não vendido por "kWp instalado".
 
 ## Limitações e pegadinhas {#limitacoes}
 
@@ -1175,11 +1175,11 @@ Renato Edson (engenheiro CREA-TO · sócio Brasfrio) tem 14+ anos em chão de f�
 - Lei 11.196/2005 · Lei do Bem (depreciação acelerada)
 - Lei Complementar 214/2025 · Reforma Tributária
 - BNDES · Programa Finame Solar 2026
-- Briefing técnico Aura Energy V3.1 · Renato Edson (CREA-TO · sócio Brasfrio)
+- Briefing técnico Aura Energy V3.1 · Renato Edson (CREA-TO · ex-sócio da Brasfrio)
 
 ## Próximo passo
 
-Indústria em Tocantins com demanda contratada relevante · vale uma conversa. Análise técnica e proposta sem custo. Whatsapp Renato: **(63) 9 9270-6284** · sócio Brasfrio (14+ anos em refrigeração industrial em Palmas).
+Indústria em Tocantins com demanda contratada relevante · vale uma conversa. Análise técnica e proposta sem custo. Whatsapp Renato: **(63) 9 9270-6284** · ex-sócio da Brasfrio (14+ anos em refrigeração industrial em Palmas).
 `,
   },
 
@@ -1209,7 +1209,7 @@ Esse artigo é técnico · indicado pra produtor rural, gestor agro ou consultor
 - [Outros perfis que se beneficiam de BESS rural](#outros-perfis)
 - [Química da bateria · LiFePO4 vs NMC](#quimica-bateria)
 - [Garantia e ciclos · o que cobrar do fornecedor](#garantia-ciclos)
-- [Diferencial Aura · Brasfrio + Aura = projeto agro cravado](#diferencial-aura)
+- [Diferencial Aura · bagagem industrial + solar = projeto agro cravado](#diferencial-aura)
 - [Cuidados antes de fechar BESS](#cuidados)
 - [Resumo cravado](#resumo)
 - [Fontes consultadas](#fontes)
@@ -1357,11 +1357,11 @@ Padrão Tier 1 cravado pra BESS de propriedade rural:
 
 Cuidado com fornecedores que oferecem garantia de 5 anos ou menos · em projeto de R$ 280 mil, a bateria sozinha custa R$ 125-175 mil · garantia curta vira risco financeiro grande.
 
-## Diferencial Aura · Brasfrio + Aura = projeto agro cravado {#diferencial-aura}
+## Diferencial Aura · bagagem industrial + solar = projeto agro cravado {#diferencial-aura}
 
 A Aura é solar com **calibragem agro** · ângulo ainda pouco explorado em Tocantins. Combinação cravada:
 
-**Renato Edson** · engenheiro CREA-TO · sócio Brasfrio (refrigeração industrial · 14+ anos em Palmas)
+**Renato Edson** · engenheiro CREA-TO · 14+ anos em refrigeração industrial em Palmas (ex-sócio da Brasfrio)
 
 Renato conhece de chão de fábrica:
 
@@ -1370,7 +1370,7 @@ Renato conhece de chão de fábrica:
 - Regime de operação 24/7 · cálculo de pico vs base
 - Quadro elétrico industrial · proteções, aterramento, retorno técnico
 
-**Brasfrio** · empresa-mãe especializada em refrigeração industrial · entende climatização de granja, câmara fria, ventilação de aviário, bombeamento
+**Essa vivência de chão de fábrica** · anos em refrigeração industrial · entende climatização de granja, câmara fria, ventilação de aviário, bombeamento
 
 Essa combinação técnica é rara em Tocantins · a maioria das instaladoras solares trata propriedade rural como "residencial maior" · sem entender que pivô tem perfil de carga totalmente diferente de casa.
 
@@ -1402,7 +1402,7 @@ Pra o produtor rural, isso significa que o projeto **não é "solar genérico ve
 - LiFePO4 preferido sobre NMC pra Tocantins (estabilidade térmica em clima quente)
 - Garantia mínima Tier 1: 10 anos / 6.000 ciclos / 70-80% capacidade
 - Pronaf Bioeconomia (0,5% a.m.) muda totalmente a equação · ver elegibilidade antes de fechar
-- Diferencial Aura: combinação Brasfrio (chão de fábrica industrial) + Aura (PV + bateria) = projeto agro cravado
+- Diferencial Aura: bagagem industrial do Renato (chão de fábrica · refrigeração) + Aura (PV + bateria) = projeto agro cravado
 
 ## Fontes consultadas {#fontes}
 
@@ -1415,11 +1415,11 @@ Pra o produtor rural, isso significa que o projeto **não é "solar genérico ve
 - IEC 62619 + IEC 63056 · normas internacionais de segurança em baterias estacionárias de lítio
 - INMETRO · certificação de equipamentos solares e armazenamento
 - Bloomberg NEF · Battery Price Survey 2025 (custo por kWh LiFePO4)
-- Briefing técnico Aura Energy V3.1 · Renato Edson (CREA-TO · sócio Brasfrio)
+- Briefing técnico Aura Energy V3.1 · Renato Edson (CREA-TO · ex-sócio da Brasfrio)
 
 ## Próximo passo
 
-Propriedade rural com pivô central, aviário, granja ou câmara fria em Tocantins · análise técnica e proposta sem custo. Visita técnica gratuita até 100 km de Palmas. Whatsapp Renato: **(63) 9 9270-6284** · sócio Brasfrio (14+ anos em refrigeração industrial em chão de fábrica).
+Propriedade rural com pivô central, aviário, granja ou câmara fria em Tocantins · análise técnica e proposta sem custo. Visita técnica gratuita até 100 km de Palmas. Whatsapp Renato: **(63) 9 9270-6284** · ex-sócio da Brasfrio (14+ anos em refrigeração industrial em chão de fábrica).
 `,
   },
 
@@ -2026,6 +2026,420 @@ Pra implementar autoconsumo remoto em Tocantins:
 ## Próximo passo
 
 Tem múltiplas contas de luz no mesmo CPF ou CNPJ em Tocantins · pode estar deixando dinheiro na mesa. Análise consolidada gratuita Aura · Renato levanta as UCs, calcula viabilidade e crava se autoconsumo remoto faz sentido pro seu caso. Whatsapp: **(63) 9 9270-6284**.
+`,
+  },
+
+  // ──────────────────────────────────────────────────────────────────────────
+  // 12 · REGULAMENTAÇÃO · ENERGISA HOMOLOGAÇÃO PASSO A PASSO
+  // ──────────────────────────────────────────────────────────────────────────
+  {
+    slug: "energisa-tocantins-homologacao-solar-passo-a-passo",
+    titulo: "Como funciona a homologação de solar na Energisa Tocantins (passo a passo 2026)",
+    resumo:
+      "Da assinatura à energia ligada · prazo real Energisa-TO em 2026 · documentação cravada · pegadinhas mais comuns · diferencial Aura no protocolo.",
+    categoria: "Regulamentação",
+    tempoLeitura: "11 min",
+    dataPublicacao: "2026-05-30",
+    conteudo: `Você fechou o sistema solar. Pagou o sinal. Aí descobre que ANTES do equipamento ser instalado e da energia começar a fluir pra rede, tem que passar pela **homologação na Energisa Tocantins**. E que isso leva semanas. E que se a documentação estiver errada, volta pro começo da fila.
+
+Esse artigo crava o passo a passo real da homologação Energisa-TO em 2026, com prazos médios, documentação obrigatória, pegadinhas comuns e o diferencial Aura no protocolo. Pra residência, comércio e indústria · regras mudam por porte.
+
+A boa notícia: homologação é processo padronizado (Resolução ANEEL 1.059/2023 + Procedimentos de Distribuição · PRODIST). Quem entende o jogo passa rápido. Quem chega de paraquedas paga em dias de atraso.
+
+## Neste artigo
+
+- [O que é homologação e por que existe](#o-que-e)
+- [Os 7 passos cravados do processo](#passos)
+- [Prazo total por porte (residência · comércio · indústria)](#prazos)
+- [Documentação obrigatória](#documentacao)
+- [As 5 pegadinhas mais comuns](#pegadinhas)
+- [Quando a Energisa REJEITA o pedido](#rejeicao)
+- [Troca do medidor por bidirecional](#medidor)
+- [Diferencial Aura no protocolo](#diferencial-aura)
+- [Resumo cravado](#resumo)
+- [Fontes consultadas](#fontes)
+
+## O que é homologação e por que existe {#o-que-e}
+
+Homologação é o processo formal pelo qual a Energisa-TO autoriza você a conectar seu sistema solar à rede dela e operar em regime de **compensação de energia** (Lei 14.300/2022 · sistema solar gera, joga sobra na rede como crédito, "saca" esse crédito quando precisa).
+
+Por que precisa autorização? Porque você está injetando energia na rede pública. A Energisa precisa garantir que:
+
+1. O sistema é tecnicamente adequado (não cause falhas, sobretensão, frequência instável)
+2. O equipamento é certificado (INMETRO)
+3. O dimensionamento bate com a unidade consumidora (não pode gerar absurdamente acima do consumo)
+4. A instalação foi projetada e supervisionada por engenheiro responsável (ART)
+5. O medidor pode contar energia nos dois sentidos (bidirecional)
+
+Sem homologação, qualquer sistema solar conectado à rede é **clandestino** · pode levar multa, corte de fornecimento e até processo. Por isso TODO projeto solar profissional inclui homologação.
+
+## Os 7 passos cravados do processo {#passos}
+
+Conforme PRODIST + Manual Operacional Energisa-TO atualizado em 2026:
+
+**1. Projeto técnico** · engenheiro CREA projeta o sistema (dimensionamento, diagrama unifilar, memorial descritivo, layout dos painéis). Em projeto Aura, Renato Edson (CREA-TO) assina.
+
+**2. ART** · Anotação de Responsabilidade Técnica recolhida no CREA-TO · vincula o engenheiro ao projeto · custo recolhido pela Aura.
+
+**3. Solicitação de parecer de acesso** · protocolada no portal Web Energisa (Sistema de Geração Distribuída · SGD). Envia dossiê técnico completo. Aura faz esse protocolo pelo cliente.
+
+**4. Análise da Energisa** · técnicos da Energisa analisam projeto · verificam dimensionamento, segurança, conformidade. Podem solicitar ajustes (e geralmente solicitam em projetos amadores).
+
+**5. Parecer de acesso aprovado** · Energisa emite documento autorizando a obra. Tem validade de 120 dias pra começar instalação.
+
+**6. Instalação física** · equipe Aura instala painéis, inversor, estrutura, cabeamento, proteções, quadro de monitoramento. Prazo: 1-5 dias dependendo do porte.
+
+**7. Vistoria + troca do medidor + ligação** · Energisa envia equipe pra vistoriar, trocar medidor por bidirecional e ligar o sistema. Sistema começa a gerar oficialmente.
+
+## Prazo total por porte (residência · comércio · indústria) {#prazos}
+
+Cravado conforme manual operacional + casos Aura típicos em 2026:
+
+| Porte | Microgeração ou minigeração | Prazo médio total (contrato → energia) |
+|---|---|---|
+| **Residencial até 5 kWp** | Microgeração B1 | **25-40 dias** |
+| **Residencial 5-10 kWp** | Microgeração B1 | 30-45 dias |
+| **Comercial até 10 kWp** | Microgeração B3 | 30-50 dias |
+| **Comercial 10-75 kWp** | Microgeração B3 | 35-55 dias |
+| **Industrial 75-300 kWp** | Minigeração A4 | **60-90 dias** |
+| **Industrial 300 kWp-5 MW** | Minigeração A4 | 90-150 dias |
+| **Rural com BESS (solar + bateria)** | Híbrido | 60-90 dias (+ análise BMS) |
+
+Esses prazos são **médios em 2026** · pode ter variação +15/-10% conforme:
+
+- Fila atual da Energisa-TO (em meses de alta demanda, sobe 10-15 dias)
+- Qualidade do dossiê (projeto amador volta pra correção · adiciona 15-30 dias)
+- Disponibilidade do medidor bidirecional (estoque Energisa)
+- Necessidade de adequação na rede (ramal, transformador · raro em residência)
+
+## Documentação obrigatória {#documentacao}
+
+Lista cravada de tudo que vai pro dossiê:
+
+**Do cliente (você):**
+- Cópia de RG + CPF (PF) ou Contrato Social + CNPJ (PJ)
+- Comprovante de residência (PF) ou endereço da empresa (PJ)
+- Conta de luz atual (a Energisa puxa, mas vale ter cópia)
+- Procuração pra Aura representar (modelo padrão · Aura envia pra assinar)
+
+**Do projeto (Aura entrega):**
+- Memorial descritivo do sistema
+- Diagrama unifilar elétrico
+- Layout dos painéis (planta com posicionamento)
+- ART (Anotação de Responsabilidade Técnica) recolhida
+- Datasheet dos painéis · certificado INMETRO
+- Datasheet do inversor · certificado INMETRO
+- Datasheet da bateria + BMS (se híbrido com BESS)
+- Plano de medição
+- Termo de responsabilidade do cliente
+
+Total: **15-20 documentos** organizados em pasta padrão. Em projeto Aura, **a equipe monta tudo** · cliente só assina procuração e termo.
+
+## As 5 pegadinhas mais comuns {#pegadinhas}
+
+**1. Projetista sem CREA ou sem ART.** Vendedor "técnico" tenta projetar sem ser engenheiro. Energisa rejeita imediatamente. Ou pior: projeto passa mas se algo der errado, sem responsabilidade técnica formal.
+
+**2. Equipamento sem INMETRO.** Painel ou inversor importado direto sem certificação compulsória. Pode ser mais barato em distribuidor, mas Energisa NÃO homologa. Sempre exigir certificado INMETRO no orçamento.
+
+**3. Dimensionamento absurdo.** Cliente pede sistema de 15 kWp pra residência com conta de R$ 300/mês. Energisa pode questionar dimensionamento "vs consumo declarado". Pode reduzir potência autorizada.
+
+**4. Endereço diferente entre conta de luz e ART.** Endereço cadastrado na Energisa não bate com endereço do projeto técnico. Energisa devolve pra correção.
+
+**5. Imóvel alugado sem autorização do dono.** Inquilino que quer instalar solar precisa de autorização escrita do proprietário · senão Energisa rejeita.
+
+## Quando a Energisa REJEITA o pedido {#rejeicao}
+
+Em 2026 (com base em dados públicos da ANEEL), a taxa de rejeição na primeira análise gira entre **15% e 30%** dependendo da distribuidora. Energisa-TO costuma ficar próxima da média nacional.
+
+Motivos típicos de rejeição:
+
+1. Projeto incompleto · falta documento ou cálculo
+2. Dimensionamento incompatível com unidade consumidora
+3. Equipamento sem INMETRO
+4. ART não recolhida ou vencida
+5. Endereço/titularidade não bate
+6. Necessidade de reforço na rede (em casos raros · transformador de bairro pequeno)
+7. Carga existente subdimensionada pro sistema solar (ex: ramal monofásico com sistema trifásico)
+
+**O que acontece quando rejeita:** Energisa devolve com observações. Projetista corrige e reprotocola. Adiciona 15-30 dias ao prazo total. Projeto Aura com dossiê profissional **tem taxa de rejeição inicial abaixo de 5%** porque é montado pra padrão Energisa-TO.
+
+## Troca do medidor por bidirecional {#medidor}
+
+O medidor convencional só conta energia em UM sentido (da rede pra sua casa). Pra sistema solar funcionar com compensação, precisa de **medidor bidirecional** (conta energia em DOIS sentidos: o que entra e o que sai).
+
+Como funciona a troca:
+
+1. Após instalação e vistoria, Energisa agenda visita técnica
+2. Equipe da Energisa vem com medidor bidirecional novo
+3. Desligamento momentâneo (~30-60 min)
+4. Troca do medidor antigo pelo bidirecional
+5. Aferição e selagem
+6. Sistema entra em modo compensação
+
+**Custo da troca:** zero · Energisa fornece e instala. **A troca é OBRIGAÇÃO da concessionária** (Resolução ANEEL 1.000/2021 Art. 656). Se cobrarem taxa, é irregular.
+
+## Diferencial Aura no protocolo {#diferencial-aura}
+
+A Aura cravou processo interno de homologação otimizado pra Energisa-TO:
+
+**1. Engenheiro CREA-TO próprio** · Renato Edson assina diretamente · sem terceirização · sem ART de favor de terceiros.
+
+**2. Dossiê pré-validado** · checklist interno antes de protocolar · garante que projeto está em conformidade com padrão Energisa-TO antes de entrar na fila.
+
+**3. Protocolo via Web Energisa** · Aura tem acesso ao portal SGD da Energisa-TO · acompanha status em tempo real.
+
+**4. Resposta rápida a observações** · se Energisa pedir ajuste, Aura corrige e reprotocola em 2-3 dias úteis · não fica empurrando.
+
+**5. Acompanhamento da troca do medidor** · Aura agenda visita técnica junto com Energisa · cliente não precisa ficar em casa esperando.
+
+**6. Comissionamento e ativação** · após troca do medidor, Aura faz comissionamento técnico · ativa o sistema · entrega cliente com app de monitoramento funcionando.
+
+Resultado: prazo médio Aura entre **25-40 dias** pra residencial · cerca de **15-25% mais rápido** que média de mercado em Palmas-TO.
+
+## Resumo cravado {#resumo}
+
+- Homologação é processo formal · ~25-40 dias residencial · 60-90 dias industrial · 60-90 dias rural com BESS
+- 7 passos cravados: projeto → ART → solicitação → análise → parecer aprovado → instalação → vistoria + medidor
+- 15-20 documentos no dossiê · cliente só assina procuração e termo
+- Taxa de rejeição inicial: 15-30% média mercado · abaixo de 5% em projeto Aura
+- 5 pegadinhas comuns: projetista sem CREA · equipamento sem INMETRO · dimensionamento absurdo · endereço errado · imóvel alugado sem autorização
+- Troca do medidor é grátis · obrigação da Energisa por resolução ANEEL
+- Diferencial Aura: CREA próprio + dossiê pré-validado + acompanhamento até ativação
+
+## Fontes consultadas {#fontes}
+
+- Lei 14.300/2022 · Marco Legal da Geração Distribuída
+- Resolução ANEEL 1.000/2021 · regras de prestação do serviço público de distribuição
+- Resolução ANEEL 1.059/2023 · regulamentação da Lei 14.300
+- PRODIST (Procedimentos de Distribuição) · ANEEL
+- Manual Operacional Energisa-TO · sistema SGD (Sistema de Geração Distribuída)
+- ABSOLAR · pesquisa setorial de prazos de homologação 2026
+- Briefing técnico Aura Energy V3.1 · Renato Edson (CREA-TO)
+
+## Próximo passo
+
+Quer cravar o seu sistema solar com homologação tranquila na Energisa-TO? Visita técnica gratuita até 100 km de Palmas · Renato faz pessoalmente o levantamento e cuida da burocracia. Whatsapp: **(63) 9 9270-6284**.
+`,
+  },
+
+  // ──────────────────────────────────────────────────────────────────────────
+  // 13 · ECONOMIA · PROGRAMA PALMAS SOLAR · 40% DESCONTO IPTU
+  // ──────────────────────────────────────────────────────────────────────────
+  {
+    slug: "programa-palmas-solar-40-desconto-iptu-passo-a-passo",
+    titulo: "Programa Palmas Solar · 40% desconto no IPTU por 5 anos (passo a passo 2026)",
+    resumo:
+      "LC Municipal 327/2015 · benefício IPTU pra quem instala solar em Palmas. Veja quem se enquadra, percentual cravado em 2026, como protocolar e o diferencial Aura.",
+    categoria: "Economia",
+    tempoLeitura: "10 min",
+    dataPublicacao: "2026-05-30",
+    conteudo: `Se você mora ou tem comércio em Palmas-TO e está pensando em solar, esse artigo pode te dar de presente entre R$ 1.500 e R$ 8.000 ao longo de 5 anos. É o **Programa Palmas Solar**, criado pela Lei Complementar Municipal 327/2015 e regulamentado pelo Decreto 1.506/2017 · concede desconto progressivo no IPTU pra quem instala sistema fotovoltaico no imóvel.
+
+Em 2026, pra adesões protocoladas no ano, o benefício é **40% de desconto no IPTU por 5 anos consecutivos** (vigência 2027-2031). Pra comércio, há também desconto adicional no ISSQN pra empresas do setor solar (instaladoras, projetistas, fabricantes).
+
+Esse artigo crava o passo a passo real do protocolo em Palmas, com documentação obrigatória, prazos, pegadinhas comuns e o diferencial Aura no acompanhamento até o Selo Solar.
+
+## Neste artigo
+
+- [O que é o Programa Palmas Solar (LC 327/2015)](#o-que-e)
+- [Quem se enquadra · residencial e comercial](#quem-se-enquadra)
+- [Percentual cravado em 2026 · 40% por 5 anos](#percentual)
+- [Calendário de adesão · janela 2026](#calendario)
+- [Passo a passo do protocolo](#passo-a-passo)
+- [Documentação obrigatória](#documentacao)
+- [Selo Solar Palmas · prova oficial](#selo)
+- [Desconto adicional pra empresas (ISSQN 80%)](#issqn)
+- [Pegadinhas e cuidados](#pegadinhas)
+- [Diferencial Aura no protocolo](#diferencial-aura)
+- [Resumo cravado](#resumo)
+- [Fontes consultadas](#fontes)
+
+## O que é o Programa Palmas Solar (LC 327/2015) {#o-que-e}
+
+A Lei Complementar Municipal 327, de 8 de janeiro de 2015, criou o **Programa de Incentivo à Geração de Energia Solar Fotovoltaica em Palmas**. O Decreto Municipal 1.506/2017 regulamentou o processo · estabeleceu critérios técnicos, prazos de adesão, documentação e percentuais de desconto.
+
+O programa tem 3 objetivos declarados:
+
+1. **Estimular a adoção de energia solar** em imóveis residenciais e comerciais em Palmas
+2. **Posicionar Palmas como cidade-referência em energia limpa** (junto com programa de mobilidade elétrica)
+3. **Reduzir emissão de CO2 e demanda de pico** na rede da Energisa em horário comercial
+
+Em fevereiro de 2026, segundo dados da Prefeitura de Palmas, **1.037 contribuintes ativos** já estavam no programa · entre residências, comércios e prédios públicos.
+
+## Quem se enquadra · residencial e comercial {#quem-se-enquadra}
+
+Conforme LC 327/2015 + Decreto 1.506/2017, qualquer **proprietário de imóvel em Palmas-TO** pode aderir desde que:
+
+**1. Imóvel está dentro do município de Palmas** · não vale Porto Nacional, Aparecida do Rio Negro, Lajeado, etc. Apenas área urbana e rural do município de Palmas.
+
+**2. Sistema fotovoltaico homologado na Energisa-TO** · sistema clandestino não vale. Precisa de parecer de acesso aprovado e medidor bidirecional instalado.
+
+**3. IPTU em dia** · contribuinte com dívida ativa de IPTU não consegue protocolar. Quita primeiro, depois adere.
+
+**4. Imóvel próprio** · inquilino com autorização do dono também pode (mas titular do benefício é o proprietário).
+
+**5. Sistema gerador instalado no próprio imóvel** · não vale "autoconsumo remoto" com usina em outro endereço.
+
+**Para empresas** (instaladoras, projetistas, fabricantes do setor solar), há um benefício adicional · ver seção [ISSQN 80%](#issqn).
+
+## Percentual cravado em 2026 · 40% por 5 anos {#percentual}
+
+A LC 327/2015 estabeleceu que o percentual de desconto **decai a cada 5 anos** conforme tabela escalonada. Em 2026, pra adesões protocoladas no ano:
+
+| Ano de adesão | % desconto IPTU | Anos de vigência |
+|---|---|---|
+| 2015-2020 (já vencido) | 80% | 5 anos cada bloco |
+| 2021-2025 (já vencido) | 60% | 5 anos cada bloco |
+| **2026-2030** ← agora | **40%** | 5 anos cada bloco |
+| 2031-2035 | 20% | 5 anos cada bloco |
+
+Atenção: o desconto não é **retroativo**. Quem adere em 2026 ganha 40% sobre o IPTU de **2027 a 2031** (5 anos). Quem espera 2031 vai pegar apenas 20% por 5 anos. Quem espera 2035, encerra o benefício.
+
+**Cálculo cravado** · IPTU médio Palmas residencial:
+
+| Faixa de IPTU anual | Desconto anual (40%) | Economia em 5 anos |
+|---|---|---|
+| R$ 800 | R$ 320 | R$ 1.600 |
+| R$ 1.500 | R$ 600 | R$ 3.000 |
+| R$ 2.500 | R$ 1.000 | R$ 5.000 |
+| R$ 4.000 | R$ 1.600 | R$ 8.000 |
+
+Quem tem IPTU comercial costuma ter valor maior · economia em 5 anos pode passar de R$ 15-25 mil em imóvel comercial médio.
+
+## Calendário de adesão · janela 2026 {#calendario}
+
+O protocolo precisa ser feito **no mesmo ano em que o sistema fica homologado** pra valer o desconto a partir do exercício seguinte. Cronograma cravado:
+
+- **Sistema homologado em 2026 + protocolo em 2026:** desconto vale 2027-2031 (40%)
+- **Sistema homologado em 2026 mas protocolo só em 2027:** desconto vale 2028-2032 (40%)
+- **Sistema homologado em 2027:** desconto vale 2028-2032 (40%) · mesma faixa porque é "bloco 2026-2030"
+
+A regra do bloco quinquenal é cravada · o que muda é o ano de vigência. Pra capturar a janela 2026-2030 com **40%**, precisa protocolar antes de 31/12/2030.
+
+**Prazo do protocolo:** a Prefeitura tem **30-90 dias** pra analisar e emitir o Selo Solar. Após isso, o desconto entra automaticamente no IPTU do próximo exercício.
+
+## Passo a passo do protocolo {#passo-a-passo}
+
+Processo cravado em Palmas-TO conforme manual operacional 2026:
+
+**1. Sistema homologado na Energisa-TO** · pré-requisito · ver [artigo Energisa homologação](/artigos/energisa-tocantins-homologacao-solar-passo-a-passo).
+
+**2. Reunir documentação** · cliente + projeto técnico Aura (ver [seção documentação](#documentacao)).
+
+**3. Protocolar no Resolve Palmas** · pode ser:
+   - **Presencial:** Resolve Palmas Centro ou Plano Diretor
+   - **Online:** Portal do Cidadão (https://palmas.to.gov.br · com Login.gov)
+
+**4. Análise da Secretaria Municipal da Habitação** · técnicos validam projeto técnico, conferência de homologação Energisa, e situação fiscal do imóvel. Prazo: 30-60 dias.
+
+**5. Emissão do Selo Solar Palmas** · documento físico ou digital que comprova adesão ao programa. Selo identifica o imóvel como "ativo no programa".
+
+**6. Aplicação automática do desconto no IPTU** · a partir do exercício seguinte, IPTU vem com 40% de desconto destacado na guia.
+
+**7. Renovação anual automática** · enquanto sistema solar estiver ativo (não desligado, não removido), benefício renova sozinho. Sem necessidade de protocolar todo ano.
+
+## Documentação obrigatória {#documentacao}
+
+Lista cravada pra protocolo:
+
+**Do cliente:**
+- RG + CPF (PF) ou Contrato Social + CNPJ (PJ)
+- Comprovante de propriedade do imóvel (matrícula no Cartório · IPTU em nome do proprietário)
+- IPTU mais recente quitado
+- Comprovante de residência
+- Carteira de Identidade Profissional se for representante (advogado · contador)
+
+**Do projeto (Aura entrega):**
+- Memorial descritivo do sistema homologado
+- ART do engenheiro responsável (Renato Edson · CREA-TO)
+- Diagrama unifilar
+- Parecer de acesso aprovado pela Energisa-TO
+- Certificados INMETRO dos painéis e inversor
+- Termo de homologação Energisa (após troca do medidor)
+
+**Total:** 10-12 documentos. Em projeto Aura, **a equipe monta o pacote** · cliente só fornece os documentos pessoais e assina o requerimento.
+
+## Selo Solar Palmas · prova oficial {#selo}
+
+O Selo Solar é o documento que comprova adesão ao programa. Tem 2 formatos:
+
+**1. Selo digital** · enviado por email · com QR code que aponta pra cadastro público da Prefeitura.
+
+**2. Selo físico** · adesivo opcional pra colar no imóvel · função decorativa + sinalização "solar instalado e legalizado".
+
+O selo identifica o imóvel pra fins de:
+- Desconto automático no IPTU
+- Cadastro público da Prefeitura (lista de "imóveis verdes")
+- Eventual benefício futuro (em discussão · ex: licenças aceleradas pra reforma)
+
+Validade do selo: **enquanto sistema solar estiver operacional**. Se sistema for removido ou desativado por mais de 12 meses, Prefeitura pode suspender benefício.
+
+## Desconto adicional pra empresas (ISSQN 80%) {#issqn}
+
+Pra **empresas instaladoras, projetistas e fabricantes do setor solar** com sede em Palmas, a LC 327/2015 prevê benefício adicional:
+
+- **80% de desconto no ISSQN** (Imposto Sobre Serviços de Qualquer Natureza) por **até 10 anos**
+- Aplica sobre receita decorrente de atividade solar (vendas de sistema, projetos, instalações, manutenção)
+- Empresa precisa estar **registrada como prestadora de serviços em Palmas** + ter CNAE compatível
+- Protocolo separado · feito pela Secretaria Municipal de Finanças (não Habitação)
+
+**Único benefício no mercado de Palmas mapeado em maio/2026 · nenhuma das 18 outras empresas solares atuantes em Palmas comunica esse benefício com clareza legal pra cliente final.**
+
+Aura, empresa de energia solar com sede em Palmas, está enquadrada nesse benefício.
+
+## Pegadinhas e cuidados {#pegadinhas}
+
+**1. Sistema deve estar homologado ANTES do protocolo.** Não vale "vou homologar depois" · Prefeitura exige termo de homologação Energisa no dossiê.
+
+**2. IPTU em dívida ativa bloqueia.** Quite primeiro · depois protocola. Se a dívida for grande, pode parcelar e protocolar com comprovante de parcelamento.
+
+**3. Imóvel em nome de pessoa que faleceu.** Precisa de inventário concluído ou autorização do espólio.
+
+**4. Imóvel com mais de um proprietário (condomínio civil · ex: irmãos).** Todos precisam assinar requerimento.
+
+**5. Mudança de proprietário.** Se você vende o imóvel, o benefício acompanha o imóvel · novo proprietário herda. Mas precisa registrar a transferência.
+
+**6. Sistema removido temporariamente.** Se sistema sair por reforma de telhado (ex: 6 meses), avisar a Prefeitura · benefício é suspenso temporariamente, não cancelado.
+
+## Diferencial Aura no protocolo {#diferencial-aura}
+
+A Aura cravou processo interno integrado com homologação Energisa:
+
+**1. Dossiê pré-pronto pra Prefeitura.** Quando sistema é homologado na Energisa, o pacote pra Resolve Palmas já está montado · só falta a parte pessoal do cliente.
+
+**2. Protocolo via Portal do Cidadão.** Aura tem familiaridade com o portal · não precisa cliente ir presencial se preferir online.
+
+**3. Acompanhamento da análise.** Aura monitora o protocolo · responde rápido se Prefeitura pedir documento adicional.
+
+**4. Entrega do Selo Solar.** Quando emitido, Aura envia digital pro cliente + retira físico se cliente quiser.
+
+**5. Comunicação clara do benefício.** Cliente sai sabendo exatamente quanto vai economizar no IPTU dos próximos 5 anos.
+
+Atenção · Aura também faz protocolo do **ISSQN 80%** pra empresas clientes (instaladoras parceiras · projetistas autônomos · ver caso a caso).
+
+## Resumo cravado {#resumo}
+
+- Programa Palmas Solar (LC 327/2015) concede desconto no IPTU pra quem instala solar em Palmas
+- Em 2026: 40% de desconto por 5 anos consecutivos (vigência 2027-2031)
+- Empresas do setor solar: 80% de desconto ISSQN por até 10 anos (benefício extra)
+- 1.037 contribuintes ativos em fevereiro/2026 (Prefeitura de Palmas)
+- Protocolo no Resolve Palmas ou Portal do Cidadão · 30-60 dias pra emissão do Selo Solar
+- Documentação: 10-12 documentos · Aura entrega o pacote técnico pronto
+- Economia em 5 anos: R$ 1.500-8.000 residencial · R$ 15-25 mil comercial médio
+- Benefício único de Palmas · não tem em Porto Nacional, Lajeado, etc
+
+## Fontes consultadas {#fontes}
+
+- Lei Complementar Municipal 327/2015 (Programa Palmas Solar) · [Câmara Municipal de Palmas](https://palmas.to.leg.br)
+- Decreto Municipal 1.506/2017 (regulamentação do programa)
+- Portal do Cidadão · Prefeitura de Palmas ([palmas.to.gov.br](https://palmas.to.gov.br))
+- Secretaria Municipal da Habitação · manual operacional Programa Palmas Solar
+- Secretaria Municipal de Finanças · regulamento ISSQN solar
+- Briefing técnico Aura Energy V3.1 · Renato Edson (CREA-TO)
+
+## Próximo passo
+
+Quer cravar seu desconto de 40% no IPTU + sistema solar em Palmas? Visita técnica gratuita Aura · Renato faz pessoalmente o levantamento e cuida do protocolo na Energisa + Resolve Palmas até o Selo Solar sair. Whatsapp: **(63) 9 9270-6284**.
 `,
   },
 ];

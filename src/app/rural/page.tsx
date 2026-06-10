@@ -33,6 +33,7 @@ import FinalCTA from "@/components/FinalCTA";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/rural" },
   title: "Energia solar rural em Tocantins | Aura Energy",
   description:
     "Solar pra produtor rural em Tocantins: fazenda, sítio, chácara, pivô, granja, aviário, irrigação. Pronaf 0,5% a.m., Moderagro, FCO Verde até 12 anos. Autoconsumo remoto, bombeamento solar dedicado.",

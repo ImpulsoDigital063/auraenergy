@@ -714,7 +714,7 @@ export default function PlanoRenatoView() {
             <li>Projeta, instala e ativa sistemas de energia solar fotovoltaica</li>
             <li>Atende residencial mid-high, comércio, indústria pequena/média e produtor rural</li>
             <li>Cobre Palmas + região (Paraíso do Tocantins, Luzimangues, Dianópolis, Colinas)</li>
-            <li>Trabalha com painéis Tier 1 (Trina, Canadian, Jinko) + inversores premium (Growatt, Sungrow, Huawei) + ART em todo projeto</li>
+            <li>Trabalha com painéis Tier 1 (Astrobergy, DAH Solar (preferidos) ou Trina/JA/Jinko) + inversores premium (Hoymiles, Solis (preferidos) ou Huawei) + ART em todo projeto</li>
             <li>Engenheiro responsável CREA-TO presente em cada visita técnica e projeto</li>
           </ul>
 
@@ -961,8 +961,8 @@ export default function PlanoRenatoView() {
             </p>
             <ul>
               <li>&quot;Calculadora ao vivo no site — você vê a economia antes de pedir orçamento&quot;</li>
-              <li>&quot;Trabalho com Tier 1: Trina, Canadian, Jinko + inversores Growatt e Sungrow&quot;</li>
-              <li>&quot;Garantia 25 anos painel · 10 anos inversor · ART em todo projeto&quot;</li>
+              <li>&quot;Trabalho com Tier 1: Astrobergy, DAH Solar (preferidos) ou Trina/JA/Jinko + inversores Hoymiles e Solis (preferidos)&quot;</li>
+              <li>&quot;Garantia 12 anos painel · 10 anos inversor · ART em todo projeto&quot;</li>
             </ul>
           </div>
 
@@ -1053,7 +1053,7 @@ export default function PlanoRenatoView() {
             </li>
             <li>
               <strong>Marcas Tier 1</strong> que a Aura trabalha — Trina,
-              Canadian, Jinko nos painéis · Growatt, Sungrow, Huawei nos
+              Canadian, Jinko nos painéis · Hoymiles, Solis (preferidos) ou Huawei nos
               inversores
             </li>
             <li>
@@ -1118,7 +1118,7 @@ export default function PlanoRenatoView() {
               <tr><td>Tarifa Energisa-TO B1</td><td>R$ 0,95/kWh</td><td>REH ANEEL 3.479/2025</td></tr>
               <tr><td>HSP Palmas-TO</td><td>5,9 kWh/m²/dia</td><td>NASA / Atlas Solar BR</td></tr>
               <tr><td>Lei 14.300 — Fio B 2026</td><td>60% sobre injetada</td><td>ANEEL — cronograma oficial</td></tr>
-              <tr><td>Painel referência</td><td>575W (Tier 1 Trina/Canadian/Jinko)</td><td>Mercado 2026</td></tr>
+              <tr><td>Painel referência</td><td>575W (Tier 1 Astrobergy/DAH (preferidos))</td><td>Mercado 2026</td></tr>
               <tr><td>Performance ratio</td><td>0,80 (média BR)</td><td>ABSOLAR</td></tr>
             </tbody>
           </table>
@@ -1385,36 +1385,36 @@ export default function PlanoRenatoView() {
             </thead>
             <tbody>
               <tr>
-                <td><strong>3 kWp</strong></td>
-                <td>Residencial pequeno (conta R$ 250-400/mês)</td>
-                <td>~390 kWh/mês</td>
-                <td>R$ 13.000 — 15.000</td>
+                <td><strong>3 kWp · Mini</strong></td>
+                <td>Residencial pequeno (conta R$ 200-350/mês)</td>
+                <td>~440 kWh/mês</td>
+                <td>R$ 7.000 (briefing V3.1)</td>
               </tr>
               <tr>
-                <td><strong>5 kWp ⭐</strong></td>
-                <td>Residencial médio (conta R$ 500-700/mês) — campeão de venda</td>
-                <td>~650 kWh/mês</td>
-                <td>R$ 17.000 — 22.000</td>
+                <td><strong>5 kWp · Padrão ⭐</strong></td>
+                <td>Residencial médio (conta R$ 400-700/mês) — mais vendida</td>
+                <td>~730 kWh/mês</td>
+                <td>R$ 15.000 (briefing V3.1)</td>
               </tr>
               <tr>
-                <td><strong>8 kWp</strong></td>
-                <td>Residencial alto / pequeno comércio (conta R$ 800-1.200/mês)</td>
-                <td>~1.040 kWh/mês</td>
-                <td>R$ 28.000 — 35.000</td>
+                <td><strong>8 kWp · Plus</strong></td>
+                <td>Residencial alto / pequeno comércio (conta R$ 700-1.100/mês)</td>
+                <td>~1.170 kWh/mês</td>
+                <td>R$ 18.000 (briefing V3.1)</td>
               </tr>
               <tr>
-                <td><strong>12+ kWp</strong></td>
-                <td>Comércio mid / indústria pequena / rural (conta R$ 1.500+/mês)</td>
-                <td>~1.560+ kWh/mês</td>
-                <td>R$ 38.000 — 55.000+</td>
+                <td><strong>10 kWp · Premium</strong></td>
+                <td>Residencial top / comércio médio (conta R$ 1.100-1.500/mês)</td>
+                <td>~1.460 kWh/mês</td>
+                <td>R$ 20.500 (briefing V3.1)</td>
               </tr>
             </tbody>
           </table>
 
           <p style={{ fontSize: 13, color: "var(--plano-text-muted)", marginTop: 8 }}>
             <em>Faixas baseadas em tarifa Energisa-TO + HSP Palmas 5,9
-            kWh/m²/dia. Painéis Tier 1 (Trina/Canadian/Jinko) +
-            inversores premium. ART e garantia 25 anos painel · 10 anos
+            kWh/m²/dia. Painéis Tier 1 (Astrobergy/DAH (preferidos)) +
+            inversores premium. ART e garantia 12 anos painel · 10 anos
             inversor inclusas.</em>
           </p>
 
@@ -1422,8 +1422,8 @@ export default function PlanoRenatoView() {
           <ul>
             <li>Visita técnica gratuita no local</li>
             <li>Projeto técnico completo + ART pelo CREA-TO</li>
-            <li>Painéis solares Tier 1 (Trina, Canadian ou Jinko)</li>
-            <li>Inversor premium (Growatt, Sungrow ou Huawei)</li>
+            <li>Painéis solares Tier 1 (Astrobergy, DAH Solar (preferidos) ou Trina/JA/Jinko)</li>
+            <li>Inversor premium (Hoymiles, Solis (preferidos) ou Huawei)</li>
             <li>Estrutura de fixação (alumínio anodizado, certificada)</li>
             <li>String box CC + DPS + disjuntores</li>
             <li>Cabeamento solar + conexão até quadro</li>
@@ -1640,7 +1640,7 @@ export default function PlanoRenatoView() {
               <li><strong>SEO local</strong> começa a render frutos — primeiras posições no Google pra long tail (artigos do blog ranqueando)</li>
               <li><strong>Google Meu Negócio</strong> com primeiras avaliações de cliente (pedidas ativamente)</li>
               <li><strong>Tráfego pago refinado</strong> com base nos dados dos meses 1-2 (criativos vencedores escalados, perdedores cortados)</li>
-              <li><strong>Domínio próprio</strong> <code>auraenergy.com.br</code> apontando pra Vercel</li>
+              <li><strong>Domínio próprio</strong> <code>auraenergypalmas.com</code> apontando pra Vercel</li>
               <li><strong>Pipeline B2B</strong> com 2-3 reuniões em estágio avançado (proposta enviada, aguardando decisão)</li>
               <li><strong>Depoimentos em vídeo</strong> dos primeiros clientes Aura virando conteúdo orgânico de prova social</li>
               <li><strong>Discussão de RadarPRO</strong> entra em pauta (parceria pra captação ativa B2B)</li>
@@ -2124,7 +2124,7 @@ export default function PlanoRenatoView() {
 
             <h4 style={{ fontSize: 15, marginTop: 16 }}>Setup técnico complementar</h4>
             <ul>
-              <li>Compra e configuração do domínio <code>auraenergy.com.br</code></li>
+              <li>Compra e configuração do domínio <code>auraenergypalmas.com</code></li>
               <li>Criação do Instagram @auraenergy + WhatsApp Business + Google Meu Negócio</li>
               <li>Configuração do Pixel Meta + GA4 + Google Search Console pra rastreamento</li>
               <li>Submissão das LPs pro Google indexar (sitemap.xml)</li>
@@ -2374,12 +2374,12 @@ export default function PlanoRenatoView() {
             <li>☐ <strong>Impulso</strong>: cria Google Meu Negócio (endereço, horário, fotos, categoria)</li>
             <li>☐ <strong>Impulso</strong>: instala Pixel Meta + GA4 + Google Search Console nas 5 LPs</li>
             <li>☐ <strong>Impulso</strong>: submete sitemap.xml pro Google indexar</li>
-            <li>☐ <strong>Aura</strong>: compra domínio <code>auraenergy.com.br</code> (~R$ 60-80/ano)</li>
+            <li>☐ <strong>Aura</strong>: compra domínio <code>auraenergypalmas.com</code> (~R$ 60-80/ano)</li>
           </ul>
 
           <h3 style={{ fontSize: 17, marginTop: 24 }}>Semana 3 — Lançamento de marca</h3>
           <ul>
-            <li>☐ <strong>Impulso</strong>: aponta domínio <code>auraenergy.com.br</code> pra Vercel</li>
+            <li>☐ <strong>Impulso</strong>: aponta domínio <code>auraenergypalmas.com</code> pra Vercel</li>
             <li>☐ <strong>Aura</strong>: posta Arte 1 (Nasce a Aura) — anúncio oficial</li>
             <li>☐ <strong>Aura</strong>: posta Arte 2 (Renato apresenta) + 1º reel do bloco gravado</li>
             <li>☐ <strong>Aura</strong>: posta Artes 3 e 4 (Lei 14.300 + Calculadora)</li>

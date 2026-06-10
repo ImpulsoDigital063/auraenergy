@@ -102,6 +102,16 @@ export default function Footer() {
 
         <div className="divider-glow opacity-40 mb-8" />
 
+        <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-xs mb-6">
+          <a href="/privacidade" className="text-white/70 hover:text-[var(--aura-yellow)] transition-colors">
+            Política de Privacidade
+          </a>
+          <span className="text-white/25">·</span>
+          <a href="/termos" className="text-white/70 hover:text-[var(--aura-yellow)] transition-colors">
+            Termos de Uso
+          </a>
+        </div>
+
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-white/50">
           <div>
             © {new Date().getFullYear()} Aura Energy · Todos os direitos reservados

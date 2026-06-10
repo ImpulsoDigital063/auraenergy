@@ -3,38 +3,38 @@ import Reveal from "./Reveal";
 import { IconShield, IconUsers } from "./Icons";
 
 // Galeria de fotos da equipe trabalhando.
-// Fotos cravadas via Replicate Flux Dev (2026-05-23) · técnico solar real
-// com EPI completo, sem rosto identificável. Substituiu stock Unsplash genérico
-// (homem turtleneck preto que não tinha relação com solar).
+// Fotos reais Unsplash (licença comercial · técnicos com EPI), validadas via CDN.
+// Trocadas das antigas geradas por IA (Flux) — pessoa nunca via IA. Provisórias
+// até o registro fotográfico das obras reais do Renato.
 const EQUIPE = [
   {
-    url: "/img/equipe/tecnico-instalando.png",
-    legenda: "Instalação no telhado",
-    sub: "Equipe técnica em ação",
+    url: "https://images.unsplash.com/photo-1660330589243-4c640d878052?w=900&q=80&auto=format&fit=crop",
+    legenda: "Equipe própria no telhado",
+    sub: "Dois técnicos · EPI completo",
     aspect: "aspect-[3/4]", // vertical
   },
   {
-    url: "/img/equipe/conexao-mc4.png",
+    url: "https://images.unsplash.com/photo-1559302504-64aae6ca6b6d?w=900&q=80&auto=format&fit=crop",
     legenda: "Conexão dos painéis",
-    sub: "Cabeamento certificado MC4",
+    sub: "Cabeamento certificado",
     aspect: "aspect-square", // quadrada
   },
   {
-    url: "/img/equipe/paineis-telhado.png",
-    legenda: "Painéis em telhado residencial",
-    sub: "Palmas-TO · terracota típica",
+    url: "https://images.unsplash.com/photo-1660330589505-9a433a742a7b?w=900&q=80&auto=format&fit=crop",
+    legenda: "Instalação em andamento",
+    sub: "Treinados em NR-35",
     aspect: "aspect-[3/4]", // vertical
   },
   {
-    url: "/img/equipe/alinhamento-tecnico.png",
-    legenda: "Alinhamento técnico",
-    sub: "Otimização de geração",
+    url: "https://images.unsplash.com/photo-1726221062299-88f27b653c59?w=900&q=80&auto=format&fit=crop",
+    legenda: "Técnico em campo",
+    sub: "Sem terceirização barata",
     aspect: "aspect-square", // quadrada
   },
   {
-    url: "/img/equipe/sistema-entregue.png",
-    legenda: "Sistema entregue",
-    sub: "Pronto pra ativação",
+    url: "https://images.unsplash.com/photo-1719848576338-9516ba7ccd8b?w=900&q=80&auto=format&fit=crop",
+    legenda: "Fixação dos módulos",
+    sub: "Mão de obra própria",
     aspect: "aspect-[3/4]", // vertical
   },
 ];

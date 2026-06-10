@@ -91,12 +91,65 @@ const INCLUSO = [
   "Suporte pós-instalação 1 ano",
 ];
 
+const SITE_URL = process.env.NEXT_PUBLIC_BASE_URL || "https://auraenergypalmas.com";
+
+// Mapping preço pra schema · cravado V3.1 · valor em BRL
+const PRECO_KIT: Record<string, number> = {
+  Mini: 7000,
+  Padrão: 15000,
+  Plus: 18000,
+  Premium: 20500,
+};
+
 export default function CatalogoKits() {
+  // JSON-LD @graph com 4 Product · Google pode mostrar preço/garantia direto
+  // no SERP via rich snippet de produto.
+  const productSchema = {
+    "@context": "https://schema.org",
+    "@graph": KITS.map((kit) => ({
+      "@type": "Product",
+      "@id": `${SITE_URL}/#kit-${kit.nome.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "")}`,
+      name: `Sistema Solar Aura · ${kit.nome} ${kit.kwp}`,
+      description: `Sistema fotovoltaico residencial ${kit.kwp} · ${kit.paineis} · ${kit.inversor} · geração estimada ${kit.geracaoMes}/mês em Palmas-TO. Inclui projeto, ART, homologação Energisa e instalação completa.`,
+      brand: {
+        "@type": "Brand",
+        name: "Aura Energy",
+      },
+      category: "Energia Solar Fotovoltaica",
+      offers: {
+        "@type": "Offer",
+        price: PRECO_KIT[kit.nome] ?? 0,
+        priceCurrency: "BRL",
+        availability: "https://schema.org/InStock",
+        url: `${SITE_URL}/casa#kits`,
+        priceValidUntil: "2026-12-31",
+        seller: {
+          "@type": "Organization",
+          name: "Aura Energy",
+          url: SITE_URL,
+        },
+      },
+      additionalProperty: [
+        { "@type": "PropertyValue", name: "Potência instalada", value: kit.kwp },
+        { "@type": "PropertyValue", name: "Geração mensal estimada", value: kit.geracaoMes },
+        { "@type": "PropertyValue", name: "Área de telhado necessária", value: kit.areaTelhado },
+        { "@type": "PropertyValue", name: "Conta ideal mensal", value: kit.contaIdeal },
+        { "@type": "PropertyValue", name: "Garantia painel", value: "12 anos" },
+        { "@type": "PropertyValue", name: "Garantia inversor", value: "10 anos" },
+        { "@type": "PropertyValue", name: "Vida útil de geração", value: "25 anos" },
+      ],
+    })),
+  };
+
   return (
     <section
       id="kits"
       className="relative py-20 sm:py-28 section-soft overflow-hidden"
     >
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }}
+      />
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <Reveal>
           <div className="text-center mb-14">

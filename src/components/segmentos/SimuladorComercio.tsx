@@ -17,7 +17,7 @@ import {
 //
 // Realismo:
 // - Tarifa B3 média Palmas com tributos: R$ 0,90/kWh
-// - Custo/kWp em escala comercial: R$ 4.100 (Tier 1, mai/2026)
+// - Custo/kWp em escala comercial: R$ 2.700 (alinhado tabela V3.1 Renato + escala)
 // - Economia pós-Fio B 60% em 2026: 78-82% (faixa, não pontual)
 // - Tipo de operação ajusta perfil de consumo (refrigeração 24h, comercial, escritório)
 // =====================================================================
@@ -25,7 +25,7 @@ import {
 const TARIFA_B3 = 0.9;
 const HSP_PALMAS = 5.9;
 const PRODUCAO_KWH_POR_KWP_MES = HSP_PALMAS * 30 * 0.78;
-const CUSTO_POR_KWP = 4100;
+const CUSTO_POR_KWP = 2700;
 const ECONOMIA_PCT = 0.80;
 const MARGEM_DIMENSIONAMENTO = 1.10;
 const POTENCIA_PAINEL_W = 575;

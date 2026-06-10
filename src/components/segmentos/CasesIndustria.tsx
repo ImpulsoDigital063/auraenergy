@@ -27,7 +27,7 @@ const CASES: Case[] = [
     geracao: "200 kWp · TIR 22% a.a.",
     destaque:
       "Demanda contratada otimizada · payback 4,5 anos · BNDES Finame Baixo Carbono.",
-    fotoUrl: "/img/heros/hero-industria.png",
+    fotoUrl: "https://images.unsplash.com/photo-1768224123432-729e0a6fed58?w=900&q=80&auto=format&fit=crop",
     alt: "Galpao industrial com array solar fotovoltaico no telhado",
   },
   {
@@ -36,7 +36,7 @@ const CASES: Case[] = [
     geracao: "350 kWp · TIR 20% a.a.",
     destaque:
       "Camara fria protegida com backup BESS · operacao 24h sem risco de produto perdido.",
-    fotoUrl: "/img/equipe/usina-industrial.png",
+    fotoUrl: "https://images.unsplash.com/photo-1503495731986-41d521ecbb32?w=900&q=80&auto=format&fit=crop",
     alt: "Frigorifico com sistema solar e estacao de monitoramento",
   },
   {
@@ -45,7 +45,7 @@ const CASES: Case[] = [
     geracao: "500 kWp · TIR 23% a.a.",
     destaque:
       "Maior projeto · agroindustria de soja com peak shaving e secagem solar.",
-    fotoUrl: "/img/cases/beneficiamento-graos.png",
+    fotoUrl: "https://images.unsplash.com/photo-1726866492047-7f9516558c6e?w=900&q=80&auto=format&fit=crop",
     alt: "Beneficiamento de graos com array solar e silos ao fundo",
   },
 ];

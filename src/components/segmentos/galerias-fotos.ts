@@ -12,36 +12,42 @@ export type FotoSegmento = {
 // =====================================================================
 // CASA — residencial · telhados de casa, painéis residenciais
 // =====================================================================
+// Set escolhido pelo Renato em 03/06 via /selecao-galeria (R1·V3·V2·V1·C3·T2·A3).
 export const FOTOS_CASA: FotoSegmento[] = [
   {
-    url: "https://images.unsplash.com/photo-1509391366360-2e959784a276?w=1200&q=80&auto=format&fit=crop",
-    legenda: "Casa em Palmas — sistema 14,64 kWp",
-    alt: "Casa moderna em Palmas com sistema solar fotovoltaico no telhado",
+    url: "https://images.unsplash.com/photo-1745187946672-2c1d8cf26a2b?w=1200&q=80&auto=format&fit=crop",
+    legenda: "Painéis em telhado residencial",
+    alt: "Painéis solares em telhado residencial com vegetação ao redor",
   },
   {
-    url: "/img/equipe/paineis-telhado.png",
-    legenda: "Telhado residencial em Dianópolis — 8,55 kWp",
-    alt: "Painéis solares em telhado residencial em Dianópolis",
+    url: "https://images.unsplash.com/photo-1726776230760-ae81dc9d4e55?w=1200&q=80&auto=format&fit=crop",
+    legenda: "Cobertura solar em galpão (aérea)",
+    alt: "Vista aérea de galpão com telhado coberto de painéis solares",
   },
   {
-    url: "https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=1200&q=80&auto=format&fit=crop",
-    legenda: "Detalhe de painel TOPCon — 575W",
-    alt: "Close-up de painel solar fotovoltaico Tier 1",
+    url: "https://images.unsplash.com/photo-1726866492047-7f9516558c6e?w=1200&q=80&auto=format&fit=crop",
+    legenda: "Cobertura solar ampla (aérea)",
+    alt: "Vista aérea de ampla cobertura de painéis solares",
   },
   {
-    url: "/img/equipe/conexao-mc4.png",
-    legenda: "Cabeamento certificado — instalação residencial",
-    alt: "Cabeamento solar com conectores MC4",
+    url: "https://images.unsplash.com/photo-1776918570415-52e7f702802a?w=1200&q=80&auto=format&fit=crop",
+    legenda: "Usina em solo · propriedade rural",
+    alt: "Vista aérea de usina solar em solo ao lado de propriedade rural",
   },
   {
-    url: "/img/equipe/tecnico-instalando.png",
-    legenda: "Equipe técnica em telhado residencial",
-    alt: "Técnicos com EPI instalando painéis em telhado de casa",
+    url: "https://images.unsplash.com/photo-1726221062287-fda475b85493?w=1200&q=80&auto=format&fit=crop",
+    legenda: "Equipe técnica na instalação",
+    alt: "Técnico de colete sob a estrutura de painéis solares",
   },
   {
-    url: "/img/equipe/sistema-entregue.png",
-    legenda: "Sistema entregue — Colinas do Tocantins",
-    alt: "Sistema solar residencial pronto pra ativação",
+    url: "https://images.unsplash.com/photo-1552197892-f2ad2f75e7c8?w=1200&q=80&auto=format&fit=crop",
+    legenda: "Detalhe dos módulos fotovoltaicos",
+    alt: "Close-up de painéis solares azuis",
+  },
+  {
+    url: "https://images.unsplash.com/photo-1503495731986-41d521ecbb32?w=1200&q=80&auto=format&fit=crop",
+    legenda: "Vista aérea de usina solar",
+    alt: "Vista aérea de usina solar fotovoltaica",
   },
 ];
 
@@ -50,34 +56,34 @@ export const FOTOS_CASA: FotoSegmento[] = [
 // =====================================================================
 export const FOTOS_COMERCIO: FotoSegmento[] = [
   {
-    url: "/img/equipe/sistema-entregue.png",
-    legenda: "Lanchonete em Palmas — 22 kWp",
-    alt: "Sistema solar em telhado comercial vista contra céu azul",
+    url: "https://images.unsplash.com/photo-1726776230760-ae81dc9d4e55?w=1200&q=80&auto=format&fit=crop",
+    legenda: "Cobertura solar em galpão (vista aérea)",
+    alt: "Vista aérea de galpão logístico com telhado coberto de painéis solares",
   },
   {
-    url: "https://images.unsplash.com/photo-1566093097221-ac2335b09e70?w=1200&q=80&auto=format&fit=crop",
-    legenda: "Vista aérea — restaurante com solar",
-    alt: "Sistema fotovoltaico vista drone em estabelecimento comercial",
+    url: "https://images.unsplash.com/photo-1769697672933-0f599f913f4d?w=1200&q=80&auto=format&fit=crop",
+    legenda: "Edifício comercial revestido de painéis",
+    alt: "Edifício comercial moderno com fachada e telhado em painéis solares",
   },
   {
-    url: "/img/equipe/paineis-telhado.png",
-    legenda: "Telhado de comércio — 15 kWp",
-    alt: "Painéis solares em telhado de loja",
+    url: "https://images.unsplash.com/photo-1768224123432-729e0a6fed58?w=1200&q=80&auto=format&fit=crop",
+    legenda: "Prédio comercial com painéis no telhado",
+    alt: "Prédio comercial de tijolo com painéis solares no telhado",
   },
   {
-    url: "/img/equipe/tecnico-instalando.png",
-    legenda: "Instalação em escritório técnico",
-    alt: "Equipe Aura instalando solar em comércio",
+    url: "https://images.unsplash.com/photo-1651379560002-7fe2278df5a7?w=1200&q=80&auto=format&fit=crop",
+    legenda: "Grande área de painéis (vista aérea)",
+    alt: "Vista aérea de telhados cobertos por grande área de painéis solares",
   },
   {
-    url: "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=1200&q=80&auto=format&fit=crop",
-    legenda: "Sistema comercial em escala",
-    alt: "Painéis solares em larga escala em estabelecimento",
+    url: "https://images.unsplash.com/photo-1726221062299-88f27b653c59?w=1200&q=80&auto=format&fit=crop",
+    legenda: "Equipe técnica em instalação",
+    alt: "Técnico com EPI em instalação solar comercial",
   },
   {
-    url: "/img/equipe/sistema-entregue.png",
-    legenda: "Detalhe técnico — comércio em Palmas",
-    alt: "Instalação de painéis em fachada comercial",
+    url: "https://images.unsplash.com/photo-1724041875334-0a6397111c7e?w=1200&q=80&auto=format&fit=crop",
+    legenda: "Detalhe dos módulos · alta eficiência",
+    alt: "Close-up de painéis solares de alta eficiência",
   },
 ];
 
@@ -86,34 +92,34 @@ export const FOTOS_COMERCIO: FotoSegmento[] = [
 // =====================================================================
 export const FOTOS_INDUSTRIA: FotoSegmento[] = [
   {
-    url: "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=1200&q=80&auto=format&fit=crop",
-    legenda: "Usina solar industrial — 200 kWp",
-    alt: "Sistema solar fotovoltaico em galpão industrial",
+    url: "https://images.unsplash.com/photo-1775317628391-a0429fe3be1b?w=1200&q=80&auto=format&fit=crop",
+    legenda: "Galpão industrial com painéis",
+    alt: "Galpão industrial de telhado dente-de-serra com painéis solares",
   },
   {
-    url: "/img/equipe/usina-industrial.png",
-    legenda: "Galpão metálico — telhado completo",
-    alt: "Painéis solares cobrindo telhado de galpão industrial metálico",
+    url: "https://images.unsplash.com/photo-1726776230760-ae81dc9d4e55?w=1200&q=80&auto=format&fit=crop",
+    legenda: "Centro de distribuição (vista aérea)",
+    alt: "Vista aérea de centro de distribuição com cobertura solar",
   },
   {
-    url: "https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=1200&q=80&auto=format&fit=crop",
-    legenda: "Painéis Tier 1 em escala industrial",
-    alt: "Painéis solares Tier 1 em sistema industrial",
+    url: "https://images.unsplash.com/photo-1726795867801-63c0a37b80c6?w=1200&q=80&auto=format&fit=crop",
+    legenda: "Usina em telhado industrial (vista aérea)",
+    alt: "Vista aérea de grande usina solar em telhado industrial",
   },
   {
-    url: "https://images.unsplash.com/photo-1581094289810-adf5d25690e3?w=1200&q=80&auto=format&fit=crop",
-    legenda: "Engenheiro responsável — análise técnica",
-    alt: "Engenheiro fazendo análise técnica em planta industrial",
+    url: "https://images.unsplash.com/photo-1769697672933-0f599f913f4d?w=1200&q=80&auto=format&fit=crop",
+    legenda: "Edifício revestido de módulos",
+    alt: "Edifício industrial revestido de módulos fotovoltaicos",
   },
   {
-    url: "https://images.unsplash.com/photo-1581094288338-2314dddb7ece?w=1200&q=80&auto=format&fit=crop",
-    legenda: "Projeto executivo — A4 média tensão",
-    alt: "Projeto fotovoltaico executivo industrial",
+    url: "https://images.unsplash.com/photo-1651379560002-7fe2278df5a7?w=1200&q=80&auto=format&fit=crop",
+    legenda: "Painéis em escala (vista aérea)",
+    alt: "Vista aérea de telhados cobertos de painéis em escala industrial",
   },
   {
-    url: "/img/equipe/conexao-mc4.png",
-    legenda: "Cabeamento certificado — alta potência",
-    alt: "Cabeamento industrial com inversores de alta capacidade",
+    url: "https://images.unsplash.com/photo-1726221062299-88f27b653c59?w=1200&q=80&auto=format&fit=crop",
+    legenda: "Equipe técnica em obra",
+    alt: "Técnico com EPI em obra industrial de energia solar",
   },
 ];
 
@@ -122,34 +128,34 @@ export const FOTOS_INDUSTRIA: FotoSegmento[] = [
 // =====================================================================
 export const FOTOS_RURAL: FotoSegmento[] = [
   {
-    url: "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=1200&q=80&auto=format&fit=crop",
-    legenda: "Sistema rural em solo — 80 kWp",
-    alt: "Painéis solares em estrutura de solo em propriedade rural",
+    url: "https://images.unsplash.com/photo-1776918570415-52e7f702802a?w=1200&q=80&auto=format&fit=crop",
+    legenda: "Usina em solo · propriedade rural (aérea)",
+    alt: "Vista aérea de usina solar em solo ao lado de propriedade rural",
   },
   {
-    url: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=1200&q=80&auto=format&fit=crop",
-    legenda: "Propriedade rural Tocantins — pivô central",
-    alt: "Campo agrícola com sistema de irrigação",
+    url: "https://images.unsplash.com/photo-1776918570438-886f538edd93?w=1200&q=80&auto=format&fit=crop",
+    legenda: "Fileiras de painéis em solo (aérea)",
+    alt: "Vista aérea de fileiras de painéis solares em campo aberto",
   },
   {
-    url: "https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=1200&q=80&auto=format&fit=crop",
-    legenda: "Painéis em telhado de galpão agrícola",
-    alt: "Sistema solar em telhado de galpão de fazenda",
+    url: "https://images.unsplash.com/photo-1761158495585-eac721decf1b?w=1200&q=80&auto=format&fit=crop",
+    legenda: "Telhado de telha com painéis · zona rural",
+    alt: "Casa rural de telha cerâmica com painéis solares",
   },
   {
-    url: "https://images.unsplash.com/photo-1532601224476-15c79f2f7a51?w=1200&q=80&auto=format&fit=crop",
-    legenda: "Granja com solar — autoconsumo remoto",
-    alt: "Granja com sistema solar fotovoltaico instalado",
+    url: "https://images.unsplash.com/photo-1745187946672-2c1d8cf26a2b?w=1200&q=80&auto=format&fit=crop",
+    legenda: "Painéis em telhado · propriedade no campo",
+    alt: "Painéis solares em telhado de propriedade rural",
   },
   {
-    url: "/img/equipe/sistema-entregue.png",
-    legenda: "Instalação técnica — sistema rural",
-    alt: "Equipe instalando painéis em propriedade rural",
+    url: "https://images.unsplash.com/photo-1726221062299-88f27b653c59?w=1200&q=80&auto=format&fit=crop",
+    legenda: "Profissional com EPI na instalação",
+    alt: "Técnico com colete e capacete em instalação solar rural",
   },
   {
-    url: "/img/equipe/conexao-mc4.png",
-    legenda: "Cabeamento certificado — propriedade rural",
-    alt: "Cabeamento solar em sistema rural",
+    url: "https://images.unsplash.com/photo-1724041875334-0a6397111c7e?w=1200&q=80&auto=format&fit=crop",
+    legenda: "Detalhe dos módulos fotovoltaicos",
+    alt: "Close-up de painéis solares fotovoltaicos",
   },
 ];
 
@@ -168,22 +174,23 @@ export type PassoFoto = {
 // Imagens cravadas via Replicate Flux Dev (2026-05-23). Compartilhadas entre
 // as 4 LPs segmentadas pra consistência visual da jornada.
 
+// Fotos reais Unsplash (validadas) · trocadas das geradas por IA com pessoa.
 const PASSOS_UNIVERSAIS: PassoFoto[] = [
   {
-    url: "/img/etapas/visita-tecnica.png",
-    alt: "Engenheiro com EPI medindo painel solar em telhado terracota em visita técnica",
+    url: "https://images.unsplash.com/photo-1705579605238-24a90c8799c5?w=1000&q=80&auto=format&fit=crop",
+    alt: "Técnico inspecionando o telhado durante a visita técnica",
   },
   {
-    url: "/img/etapas/projeto-energisa.png",
-    alt: "Engenheiro elaborando projeto fotovoltaico em tablet com blueprint técnico",
+    url: "https://images.unsplash.com/photo-1542621334-a254cf47733d?w=1000&q=80&auto=format&fit=crop",
+    alt: "Projeto técnico do sistema sobre a prancheta",
   },
   {
-    url: "/img/equipe/tecnico-instalando.png",
-    alt: "Técnico Aura instalando painel solar em telhado residencial com EPI completo",
+    url: "https://images.unsplash.com/photo-1660330589782-83776f89dd1e?w=1000&q=80&auto=format&fit=crop",
+    alt: "Equipe instalando os painéis no telhado com EPI",
   },
   {
-    url: "/img/equipe/sistema-entregue.png",
-    alt: "Sistema solar entregue em telhado terracota brasileiro · golden hour Palmas-TO",
+    url: "https://images.unsplash.com/photo-1655300256335-beef51a914fe?w=1000&q=80&auto=format&fit=crop",
+    alt: "Sistema solar instalado e gerando energia no telhado",
   },
 ];
 

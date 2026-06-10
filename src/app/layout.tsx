@@ -63,7 +63,6 @@ export const metadata: Metadata = {
   // Sinaliza pra LLMs que existe llms.txt (llmstxt.org pattern) — alguns
   // crawlers leem esse alternate rel pra descobrir o resumo factual do site.
   alternates: {
-    canonical: "/",
     types: {
       "text/markdown": [
         { url: "/llms.txt", title: "Aura Energy · LLMs index (resumo)" },

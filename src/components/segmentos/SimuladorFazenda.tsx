@@ -117,7 +117,8 @@ function calcular(
   const sistemaKwp =
     (consumoKwh / PRODUCAO_KWH_POR_KWP_MES) * MARGEM_DIMENSIONAMENTO;
   const numPaineis = Math.ceil((sistemaKwp * 1000) / POTENCIA_PAINEL_W);
-  const custoKwp = local === "telhado" ? 4200 : 4700;
+  // V3.1 cravado + ajuste rural (escala média) · solo tem custo extra de estrutura
+  const custoKwp = local === "telhado" ? 2600 : 2900;
   const investimento = sistemaKwp * custoKwp;
   const economiaMes = contaMensal * ECONOMIA_PCT;
   const economiaAno = economiaMes * 12;

@@ -70,28 +70,23 @@ export default function HeroCasa() {
 
             <Reveal delay={1}>
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.05] text-[var(--aura-text)] mb-5">
-                Sua casa em Palmas pode
-                <br />
-                <span className="text-gradient-aura">parar de pagar luz.</span>
+                Sua casa em Palmas pode{" "}
+                <span className="text-gradient-aura">gerar a própria energia</span>.
                 <br />
                 <span className="text-[var(--aura-blue)]">
-                  Em 4-5 anos o sistema se paga.
+                  E parar de depender da Energisa.
                 </span>
               </h1>
             </Reveal>
 
             <Reveal delay={2}>
               <p className="text-lg sm:text-xl text-[var(--aura-text-soft)] mb-8 leading-relaxed max-w-xl mx-auto lg:mx-0">
-                Tocantins é o 2° estado mais buscado em solar no Brasil — e a{" "}
+                A conta de luz vira um sistema que{" "}
                 <strong className="text-[var(--aura-blue)]">
-                  Lei do Fio B em 60% em 2026
-                </strong>{" "}
-                faz cada mês de espera doer mais. Tira a Energisa do seu
-                orçamento fixo e ainda{" "}
-                <strong className="text-[var(--aura-blue)]">
-                  paga 40% menos de IPTU por 5 anos
-                </strong>{" "}
-                pelo Programa Palmas Solar (LC 327/2015).
+                  se paga em 4-5 anos e gera por 25
+                </strong>
+                . O sol de Palmas é um dos mais fortes do país — aqui o retorno é
+                mais rápido. Simule grátis em 1 minuto.
               </p>
             </Reveal>
 
@@ -103,6 +98,7 @@ export default function HeroCasa() {
                   icon={<IconSparkles size={16} />}
                   text="BV Financeira · 120x"
                 />
+                <Feature icon={<IconHome size={16} />} text="40% menos IPTU · 5 anos" />
               </div>
             </Reveal>
           </div>

@@ -26,7 +26,7 @@ const CASES: Case[] = [
     antes: "R$ 900",
     depois: "R$ 130",
     economiaAno: "~85% de corte",
-    fotoUrl: "/img/equipe/sistema-entregue.png",
+    fotoUrl: "https://images.unsplash.com/photo-1761158495585-eac721decf1b?w=900&q=80&auto=format&fit=crop",
     alt: "Casa em Palmas Quadra 407 com sistema solar instalado pela Aura",
   },
   {
@@ -37,7 +37,7 @@ const CASES: Case[] = [
     antes: "Conta R$ 350-700/mês",
     depois: "Cai significativamente",
     economiaAno: "Sob projeção",
-    fotoUrl: "/img/equipe/paineis-telhado.png",
+    fotoUrl: "https://images.unsplash.com/photo-1745187946672-2c1d8cf26a2b?w=900&q=80&auto=format&fit=crop",
     alt: "Casa residencial com sistema solar fotovoltaico em telhado",
   },
   {
@@ -48,7 +48,7 @@ const CASES: Case[] = [
     antes: "Conta até R$ 350/mês",
     depois: "Cai significativamente",
     economiaAno: "Sob projeção",
-    fotoUrl: "/img/equipe/conexao-mc4.png",
+    fotoUrl: "https://images.unsplash.com/photo-1724041875334-0a6397111c7e?w=900&q=80&auto=format&fit=crop",
     alt: "Painéis solares fotovoltaicos em telhado residencial",
   },
 ];

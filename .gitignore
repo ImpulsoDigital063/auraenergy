@@ -42,3 +42,8 @@ next-env.d.ts
 
 .vercel
 .env*.local
+
+# audit/visual artifacts (reproduzíveis, pesados)
+/audit-shots/
+/psi-audit/
+/out-artes/

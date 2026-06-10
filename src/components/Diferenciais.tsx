@@ -1,7 +1,6 @@
 import Reveal from "./Reveal";
 import {
   IconAward,
-  IconBolt,
   IconCheck,
   IconLeaf,
   IconMapPin,
@@ -54,12 +53,6 @@ const DIFERENCIAIS = [
     desc:
       "BV Financeira (preferido) + Solfácil, Sicredi, Sicoob, Santander, BB Programa Agro Energia. Pra agro, Pronaf 0,5% a.m. em 12 anos. Em muitos casos a parcela pode ficar menor que a conta atual · simulação sob medida.",
   },
-  {
-    icon: <IconBolt size={26} />,
-    titulo: "Indicou? Recebe 5%",
-    desc:
-      "Cliente Aura que indica outro cliente ganha 5% do valor do contrato fechado. Pago após instalação aprovada na Energisa. Sem letra miúda.",
-  },
 ];
 
 export default function Diferenciais() {
@@ -73,7 +66,7 @@ export default function Diferenciais() {
               Por que escolher a Aura Energy
             </span>
             <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-[var(--aura-text)] mb-4">
-              8 motivos pra você não fechar
+              7 motivos pra você não fechar
               <br />
               com qualquer um.
             </h2>

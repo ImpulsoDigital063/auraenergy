@@ -6,7 +6,9 @@ import {
   IconFactory,
   IconHome,
   IconMapPin,
+  IconSparkles,
   IconStore,
+  IconSun,
   IconTractor,
   IconWhatsApp,
 } from "@/components/Icons";
@@ -74,6 +76,23 @@ const LINKS: Link[] = [
     corSoft: "rgba(14, 33, 82, 0.10)",
   },
   {
+    label: "Artigos · 11 guias técnicos",
+    desc: "Pronaf · ICMS Convênio 16/15 · BESS · Lei 14.300 · payback cravado",
+    href: "/artigos",
+    icon: <IconSparkles size={22} />,
+    cor: "#7E22CE",
+    corSoft: "rgba(168, 85, 247, 0.10)",
+    badge: "NOVO",
+  },
+  {
+    label: "Programa Palmas Solar",
+    desc: "40% desconto IPTU por 5 anos · LC 327/2015 · Aura faz protocolo",
+    href: "/casa#palmas-solar",
+    icon: <IconSun size={22} />,
+    cor: "var(--aura-yellow-deep)",
+    corSoft: "var(--aura-yellow-tint)",
+  },
+  {
     label: "Calculadora de economia",
     desc: "Simulação completa em 8 perguntas · grátis",
     href: "/orcamento",
@@ -124,7 +143,7 @@ export default function LinksPage() {
           </div>
         </div>
 
-        {/* Selo de autoridade · Brasfrio cravado · 4 marcadores */}
+        {/* Selo de autoridade · 4 marcadores */}
         <div
           className="rounded-2xl p-4 mb-5 grid grid-cols-2 sm:grid-cols-4 gap-2 text-center"
           style={{
@@ -133,7 +152,7 @@ export default function LinksPage() {
             border: "1px solid rgba(245, 188, 44, 0.25)",
           }}
         >
-          <Selo numero="4" sub="anos Brasfrio" />
+          <Selo numero="100 km" sub="visita grátis" />
           <Selo numero="300+" sub="instalações 12m" />
           <Selo numero="1 MWp" sub="instalados" />
           <Selo numero="112 kWp" sub="maior projeto" />

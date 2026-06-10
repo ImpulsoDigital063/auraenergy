@@ -28,7 +28,7 @@ const CASES: Case[] = [
     cidade: "Palmas — TO",
     geracao: "25 kWp · R$ 3.000 → R$ 155/mês",
     destaque: "Refrigeração 24h sem impacto na conta · economia ~95%",
-    fotoUrl: "/img/equipe/sistema-entregue.png",
+    fotoUrl: "https://images.unsplash.com/photo-1775317628391-a0429fe3be1b?w=900&q=80&auto=format&fit=crop",
     alt: "Sistema solar comercial em telhado de mercado em Palmas-TO",
   },
   {
@@ -37,7 +37,7 @@ const CASES: Case[] = [
     cidade: "Palmas — TO",
     geracao: "22 kWp · sob simulação",
     destaque: "Cozinha + freezer + ar-condicionado em horário de pico",
-    fotoUrl: "/img/equipe/paineis-telhado.png",
+    fotoUrl: "https://images.unsplash.com/photo-1726795867801-63c0a37b80c6?w=900&q=80&auto=format&fit=crop",
     alt: "Sistema fotovoltaico em telhado de lanchonete",
   },
   {
@@ -46,7 +46,7 @@ const CASES: Case[] = [
     cidade: "Paraíso do Tocantins",
     geracao: "18 kWp · sob simulação",
     destaque: "Forno elétrico + câmara fria · backup BESS opcional",
-    fotoUrl: "/img/equipe/conexao-mc4.png",
+    fotoUrl: "https://images.unsplash.com/photo-1769697672933-0f599f913f4d?w=900&q=80&auto=format&fit=crop",
     alt: "Sistema solar em telhado de padaria",
   },
 ];

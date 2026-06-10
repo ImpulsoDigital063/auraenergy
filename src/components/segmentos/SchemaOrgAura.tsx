@@ -63,7 +63,7 @@ export default function SchemaOrgAura({ pagina, faqs }: Props) {
     "@id": `${URL_BASE}/#localbusiness`,
     name: NOME,
     description:
-      "Empresa de energia solar fotovoltaica especializada em agro e rural em Tocantins. Engenheiro responsável Renato Edson (CREA-TO). Brasfrio há 4 anos · 300 instalações em 12 meses · 1.000 kWp instalados. Casa, comércio, indústria e rural com cálculo, garantia e linha de crédito próprios. Visita técnica grátis até 100 km de Palmas.",
+      "Empresa de energia solar fotovoltaica especializada em agro e rural em Tocantins. Engenheiro responsável Renato Edson (CREA-TO), 14+ anos em refrigeração industrial e energia em Palmas. Casa, comércio, indústria e rural com cálculo, garantia e linha de crédito próprios. Visita técnica grátis até 100 km de Palmas.",
     slogan:
       "Solar com calibragem agro · especialista em Tocantins · BESS como eixo central",
     url: URL_BASE,

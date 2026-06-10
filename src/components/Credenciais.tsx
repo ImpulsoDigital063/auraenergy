@@ -4,10 +4,16 @@ import {
   IconBolt,
   IconCheck,
   IconShield,
+  IconStar,
   IconWallet,
 } from "./Icons";
 
 const CREDENCIAIS = [
+  {
+    titulo: "Parceiro Destaque Huawei",
+    sub: "Premiação Level & Masterclass 2024",
+    icon: <IconStar size={24} />,
+  },
   {
     titulo: "Cadastrada na Energisa-TO",
     sub: "Acesso direto ao parecer da concessionária",
@@ -68,7 +74,7 @@ export default function Credenciais() {
           </div>
         </Reveal>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4">
           {CREDENCIAIS.map((c, i) => (
             <Reveal
               key={c.titulo}

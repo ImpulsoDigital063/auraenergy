@@ -19,12 +19,23 @@ import {
 const TARIFA_ENERGISA_TO = 0.95; // R$/kWh — B1 residencial com tributos (jul/25 a jul/26)
 const HSP_PALMAS = 5.9; // horas de sol pleno/dia — top 3 do Brasil
 const PRODUCAO_KWH_POR_KWP_MES = HSP_PALMAS * 30 * 0.78; // 78% eficiência = ~138 kWh/kWp/mês
-const CUSTO_POR_KWP = 4400; // R$/kWp instalado · Tier 1 residencial mai/2026
 const ECONOMIA_PCT = 0.82; // economia média pós-Fio B 60% (Lei 14.300, 2026)
 const MARGEM_DIMENSIONAMENTO = 1.10; // 10% margem pra perdas e variação sazonal
 const POTENCIA_PAINEL_W = 575; // painel TOPCon padrão 2026
 const VIDA_UTIL_ANOS = 25;
 const RENATO_WHATSAPP = "5563992706284";
+
+// Investimento cravado a partir da tabela V3.1 do Renato:
+// Mini 3 kWp R$ 7.000 · Padrão 5 kWp R$ 15.000 · Plus 8 kWp R$ 18.000 · Premium 10 kWp R$ 20.500.
+// Interpolação linear por faixa · acima de 10 kWp continua linear baseado em R$ 2.050/kWp.
+function calcInvestimentoResidencial(kwp: number): number {
+  if (kwp <= 0) return 0;
+  if (kwp <= 3) return Math.round((kwp / 3) * 7000);
+  if (kwp <= 5) return Math.round(7000 + (kwp - 3) * 4000); // +R$4k/kWp de 3→5
+  if (kwp <= 8) return Math.round(15000 + (kwp - 5) * 1000); // +R$1k/kWp de 5→8
+  if (kwp <= 10) return Math.round(18000 + (kwp - 8) * 1250); // +R$1,25k/kWp de 8→10
+  return Math.round(20500 + (kwp - 10) * 2000); // acima de 10 kWp · escala linear
+}
 
 // =====================================================================
 
@@ -56,7 +67,7 @@ function calcularResultado(contaMensal: number): Resultado {
   const consumoKwh = contaMensal / TARIFA_ENERGISA_TO;
   const sistemaKwp = (consumoKwh / PRODUCAO_KWH_POR_KWP_MES) * MARGEM_DIMENSIONAMENTO;
   const numPaineis = Math.ceil((sistemaKwp * 1000) / POTENCIA_PAINEL_W);
-  const investimento = sistemaKwp * CUSTO_POR_KWP;
+  const investimento = calcInvestimentoResidencial(sistemaKwp);
   const economiaMes = contaMensal * ECONOMIA_PCT;
   const economiaAno = economiaMes * 12;
   const economia25Anos = economiaAno * VIDA_UTIL_ANOS;

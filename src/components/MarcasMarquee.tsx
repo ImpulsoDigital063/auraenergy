@@ -7,7 +7,6 @@ const MARCAS = [
   "JINKO",
   "JA SOLAR",
   "LONGI",
-  "GROWATT",
   "SUNGROW",
   "HUAWEI",
   "FRONIUS",

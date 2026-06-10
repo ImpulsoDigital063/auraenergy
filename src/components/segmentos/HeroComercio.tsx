@@ -86,7 +86,7 @@ export default function HeroComercio() {
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.05] text-[var(--aura-text)] mb-5">
                 Sua loja, padaria, posto
                 <br />
-                <span className="text-gradient-aura">pagando R$ 0 de luz.</span>
+                <span className="text-gradient-aura">pagando quase só a taxa mínima.</span>
                 <br />
                 <span style={{ color: "var(--aura-yellow-deep)" }}>
                   Em 3-4 anos o sistema se paga.

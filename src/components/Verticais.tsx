@@ -56,7 +56,7 @@ const VERTICAIS: Vertical[] = [
     key: "comercial",
     label: "Comercial",
     icon: <IconBolt size={22} />,
-    hero: "Lojas, clínicas e escritórios pagando R$ 0 de luz.",
+    hero: "Lojas, clínicas e escritórios pagando quase só a taxa mínima.",
     subhero:
       "Energia elétrica come 12-25% da sua margem operacional. Solar comercial paga em 3-4 anos e te devolve 20+ anos de operação sem essa fatura.",
     bullets: [

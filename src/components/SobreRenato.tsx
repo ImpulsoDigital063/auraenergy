@@ -30,7 +30,7 @@ const VALORES = [
   },
   {
     titulo: "Equipamentos Tier 1",
-    desc: "Trabalho só com Trina, Canadian, Jinko, Growatt e Sungrow. Marca top, garantia real.",
+    desc: "Trabalho só com Trina, Canadian, Jinko e Sungrow. Marca top, garantia real.",
     icon: <IconBolt size={18} />,
   },
 ];
@@ -76,7 +76,7 @@ export default function SobreRenato() {
                 }}
               >
                 <Image
-                  src="/renato-edson.png"
+                  src="/renato-edson.jpg"
                   alt="Renato Edson — Aura Energy"
                   fill
                   className="object-cover"
@@ -160,16 +160,18 @@ export default function SobreRenato() {
             <Reveal delay={1}>
               <span className="badge-blue mb-4 inline-flex">
                 <IconShield size={14} />
-                Conheça quem está por trás
+                Quem assina seu projeto
               </span>
             </Reveal>
 
             <Reveal delay={2}>
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-[var(--aura-text)] mb-5 leading-tight">
-                Solar é decisão de{" "}
-                <span className="text-gradient-aura">25 anos</span>.
-                <br />A confiança no instalador é{" "}
-                <span className="text-[var(--aura-blue)]">metade da decisão</span>.
+                Conheça o <span className="text-gradient-aura">Renato</span>: o
+                engenheiro que{" "}
+                <span className="text-[var(--aura-blue)]">
+                  assina, instala e acompanha
+                </span>{" "}
+                cada projeto.
               </h2>
             </Reveal>
 
@@ -230,11 +232,11 @@ export default function SobreRenato() {
               <div className="grid grid-cols-3 gap-3 mb-7 pt-6 border-t border-[var(--aura-border)]">
                 <div>
                   <div className="text-2xl sm:text-3xl font-bold text-[var(--aura-blue)] counter-tabular leading-none mb-1">
-                    25
+                    12
                   </div>
                   <div className="text-[11px] text-[var(--aura-text-muted)] leading-tight">
                     anos de garantia
-                    <br />em todo sistema
+                    <br />no painel Tier 1
                   </div>
                 </div>
                 <div className="border-l border-r border-[var(--aura-border)] px-2">

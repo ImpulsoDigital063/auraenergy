@@ -28,7 +28,8 @@ import {
 const TARIFA_A4 = 0.68;
 const HSP_PALMAS = 5.9;
 const PRODUCAO_KWH_POR_KWP_MES = HSP_PALMAS * 30 * 0.78;
-const CUSTO_POR_KWP = 3500;
+// Custo industrial escala maior · alinhado V3.1 Renato + redução por porte (50-500 kWp)
+const CUSTO_POR_KWP = 2300;
 const ECONOMIA_PCT = 0.74;
 const MARGEM_DIMENSIONAMENTO = 1.05;
 const POTENCIA_PAINEL_W = 575;

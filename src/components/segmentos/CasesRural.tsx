@@ -29,7 +29,7 @@ const CASES: Case[] = [
     geracao: "80 kWp · Pronaf 0,5% a.m.",
     destaque:
       "Irrigacao do pivo + ventilacao da granja com banco de bateria · payback 3,8 anos.",
-    fotoUrl: "/img/heros/hero-rural.png",
+    fotoUrl: "https://images.unsplash.com/photo-1776918570438-886f538edd93?w=900&q=80&auto=format&fit=crop",
     alt: "Pivo central de irrigacao com paineis solares ao fundo",
   },
   {
@@ -38,7 +38,7 @@ const CASES: Case[] = [
     geracao: "60 kWp · Pronaf 0,5% a.m.",
     destaque:
       "Bomba puxa agua do poco com solar · banco mantém irrigação 24h sem rede.",
-    fotoUrl: "/img/cases/bombeamento.png",
+    fotoUrl: "https://images.unsplash.com/photo-1776918570415-52e7f702802a?w=900&q=80&auto=format&fit=crop",
     alt: "Estacao de bombeamento solar para irrigacao rural",
   },
   {
@@ -47,7 +47,7 @@ const CASES: Case[] = [
     geracao: "100 kWp · Pronaf 0,5% a.m.",
     destaque:
       "Ventilacao 24h + iluminacao + nebulizacao · frango nao perde por apagao.",
-    fotoUrl: "/img/cases/aviario.png",
+    fotoUrl: "https://images.unsplash.com/photo-1655300256335-beef51a914fe?w=900&q=80&auto=format&fit=crop",
     alt: "Aviario com sistema solar fotovoltaico no telhado",
   },
 ];

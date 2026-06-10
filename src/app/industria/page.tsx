@@ -33,6 +33,7 @@ import FinalCTA from "@/components/FinalCTA";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/industria" },
   title: "Energia solar industrial em Tocantins | Aura Energy",
   description:
     "Solar industrial pra plantas em Tocantins. TIR 18-25% a.a., payback 4-6 anos, 80% do custo de energia eliminado. BNDES Finame Solar, ICMS subsidiado pelo Convênio 16/15. ART, projeto executivo, monitoramento.",

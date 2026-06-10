@@ -11,6 +11,7 @@ import { FOTOS_CASA, PASSOS_CASA } from "@/components/segmentos/galerias-fotos";
 import { FAQ_CASA } from "@/components/segmentos/faq-perguntas";
 import SchemaOrgAura from "@/components/segmentos/SchemaOrgAura";
 import CatalogoKits from "@/components/CatalogoKits";
+import BlocoPixEntrada from "@/components/BlocoPixEntrada";
 import BlocoPalmasSolar from "@/components/segmentos/BlocoPalmasSolar";
 import BlocoBessCasa from "@/components/segmentos/BlocoBessCasa";
 import Diferenciais from "@/components/Diferenciais";
@@ -27,6 +28,7 @@ import FinalCTA from "@/components/FinalCTA";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/casa" },
   title: "Energia solar pra sua casa em Palmas-TO | Aura Energy",
   description:
     "Sua conta de luz pode cair significativamente · sistema com vida útil de 25 anos · garantia 12 anos painel. Engenheiro responsável (CREA-TO), instalação rápida, financiamento BV Financeira + 5 bancos parceiros até 120x. Programa Palmas Solar (40% desconto IPTU · 5 anos · LC 327/2015). Aura Energy.",
@@ -77,6 +79,9 @@ export default function CasaPage() {
 
         {/* 7. Catálogo de kits residenciais — preço */}
         <CatalogoKits />
+
+        {/* 7b. PIX entrada · estratégia cravada briefing V3.1 */}
+        <BlocoPixEntrada segmento="casa" />
 
         {/* 8. Marcas Tier 1 — prova técnica perto do preço */}
         <MarcasMarquee />

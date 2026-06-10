@@ -70,6 +70,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly',
       priority: 0.4,
     },
+    // Páginas legais (baixa prioridade, mas indexáveis)
+    {
+      url: `${BASE_URL}/privacidade`,
+      lastModified,
+      changeFrequency: 'yearly',
+      priority: 0.2,
+    },
+    {
+      url: `${BASE_URL}/termos`,
+      lastModified,
+      changeFrequency: 'yearly',
+      priority: 0.2,
+    },
     // Hub /artigos · listagem
     {
       url: `${BASE_URL}/artigos`,

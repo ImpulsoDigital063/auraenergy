@@ -42,7 +42,7 @@ export const auraVoice: BrandVoice = {
     {
       name: "Tecnologia transparente",
       description:
-        "Mostra cálculo, calculadora interativa, dados ANEEL, marcas Tier 1 (Trina/Canadian/Jinko + Growatt/Sungrow). Não vende sonho — vende projeto auditável com ART.",
+        "Mostra cálculo, calculadora interativa, dados ANEEL, marcas Tier 1 (Trina/Canadian/Jinko/Sungrow). Não vende sonho — vende projeto auditável com ART.",
     },
     {
       name: "Atendimento direto com Renato",
@@ -85,7 +85,6 @@ export const auraVoice: BrandVoice = {
       "Canadian",
       "Jinko",
       "JA Solar",
-      "Growatt",
       "Sungrow",
       "Huawei",
       "Fronius",

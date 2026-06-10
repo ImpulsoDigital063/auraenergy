@@ -18,6 +18,11 @@ import FAQ, { PERGUNTAS_DEFAULT } from "@/components/FAQ";
 import Recursos from "@/components/Recursos";
 import FinalCTA from "@/components/FinalCTA";
 import Footer from "@/components/Footer";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  alternates: { canonical: "/" },
+};
 
 // HUB raiz da Aura Energy.
 // Função: decisor de público (4 segmentos) + camada institucional comum.

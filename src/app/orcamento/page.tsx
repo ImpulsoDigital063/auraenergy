@@ -72,8 +72,9 @@ export default function OrcamentoPage() {
             <span className="text-gradient-aura">economiza com solar</span>.
           </h1>
           <p className="text-base sm:text-lg text-[var(--aura-text-soft)] leading-relaxed max-w-2xl mx-auto">
-            8 perguntas rápidas. Em 2 minutos você sabe seu sistema ideal,
-            economia em 25 anos, payback e investimento real.
+            Responda 8 perguntas rápidas (uns 2 minutos). O Renato — engenheiro
+            responsável — monta seu cálculo personalizado (sistema ideal, economia
+            em 25 anos e payback) e te retorna no WhatsApp.
           </p>
         </div>
 
@@ -100,7 +101,7 @@ export default function OrcamentoPage() {
         {/* Trust footer */}
         <div className="mt-10 text-center">
           <p className="text-sm text-[var(--aura-text-muted)] leading-relaxed">
-            Atendimento por <strong className="text-[var(--aura-blue)]">Renato Edson</strong> — sócio Brasfrio + fundador Aura Energy
+            Atendimento por <strong className="text-[var(--aura-blue)]">Renato Edson</strong> — fundador da Aura Energy
             <br />
             Palmas e região · Engenheiro responsável CREA-TO
           </p>

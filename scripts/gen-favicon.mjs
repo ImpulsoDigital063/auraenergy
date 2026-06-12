@@ -21,6 +21,7 @@ async function makeIcon(size) {
     .resize(inner, inner, { fit: "contain", background: WHITE })
     .extend({ top: pad, bottom: pad, left: pad, right: pad, background: WHITE })
     .flatten({ background: WHITE })
+    .ensureAlpha(1) // Turbopack exige PNG RGBA dentro do .ico
     .resize(size, size)
     .png()
     .toBuffer();
